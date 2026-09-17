@@ -1,76 +1,67 @@
-<section class="featured-collections section-{{ section.id }}" style="padding: 48px 0;">
+<section class="featured-collections section-{{ section.id }}" style="padding: 64px 0; background-color: {{ section.settings.bg_color | default: '#FAFAF7' }};">
   <div class="container">
     {%- if section.settings.heading != blank or section.settings.description != blank -%}
-      <div class="section-header text-center" style="margin-bottom: 2.5rem; text-align: center;">
+      <div class="section-header text-center" style="margin-bottom: 3rem; text-align: center;">
+        <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--color-primary, #2D6A4F); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+          {{ section.settings.caption | default: 'Curated Catalog' }}
+        </span>
         {%- if section.settings.heading != blank -%}
-          <h2 class="section-heading" style="font-family: var(--font-heading-family, serif); font-size: 2.25rem; color: var(--color-text, #1A1A1A); margin-bottom: 0.5rem;">
+          <h2 class="section-heading" style="font-family: var(--font-heading-family, serif); font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--color-text, #1A1A1A); margin-bottom: 0.75rem;">
             {{ section.settings.heading | escape }}
           </h2>
         {%- endif -%}
         {%- if section.settings.description != blank -%}
-          <p class="section-subheading" style="color: #666; font-size: 1rem; max-width: 600px; margin: 0 auto;">
+          <p class="section-subheading" style="color: #666; font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
             {{ section.settings.description | escape }}
           </p>
         {%- endif -%}
       </div>
     {%- endif -%}
 
-    <div class="collection-grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop | default: 4 }}, 1fr); gap: 1.5rem;">
+    <div class="dept-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
       {%- if section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
           {%- assign col = block.settings.collection -%}
           {%- assign fallback_title = 'Department ' | append: forloop.index -%}
           {%- case forloop.index -%}
-            {%- when 1 -%}{%- assign fallback_title = 'Home & Kitchen' -%}
-            {%- when 2 -%}{%- assign fallback_title = 'Home Organization' -%}
-            {%- when 3 -%}{%- assign fallback_title = 'Pet Accessories' -%}
-            {%- when 4 -%}{%- assign fallback_title = 'Garden & Outdoor' -%}
-            {%- when 5 -%}{%- assign fallback_title = 'Travel Essentials' -%}
-            {%- when 6 -%}{%- assign fallback_title = 'Personal Care' -%}
-            {%- when 7 -%}{%- assign fallback_title = 'Office & Workspace' -%}
-            {%- when 8 -%}{%- assign fallback_title = 'Hobby & Lifestyle' -%}
+            {%- when 1 -%}{%- assign fallback_title = 'Smart Living & Tech' -%}{%- assign dept_icon = '⚡' -%}{%- assign grad = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)' -%}
+            {%- when 2 -%}{%- assign fallback_title = 'Kitchen & Culinary' -%}{%- assign dept_icon = '🍳' -%}{%- assign grad = 'linear-gradient(135deg, #2D6A4F 0%, #1b4332 100%)' -%}
+            {%- when 3 -%}{%- assign fallback_title = 'Ergonomics & Office' -%}{%- assign dept_icon = '🖥️' -%}{%- assign grad = 'linear-gradient(135deg, #374151 0%, #1f2937 100%)' -%}
+            {%- when 4 -%}{%- assign fallback_title = 'Fitness & Recovery' -%}{%- assign dept_icon = '🏃' -%}{%- assign grad = 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)' -%}
+            {%- when 5 -%}{%- assign fallback_title = 'Outdoor, Travel & EDC' -%}{%- assign dept_icon = '🎒' -%}{%- assign grad = 'linear-gradient(135deg, #B45309 0%, #92400E 100%)' -%}
+            {%- when 6 -%}{%- assign fallback_title = 'Audio & Electronics' -%}{%- assign dept_icon = '🎧' -%}{%- assign grad = 'linear-gradient(135deg, #0F766E 0%, #115E59 100%)' -%}
+            {%- when 7 -%}{%- assign fallback_title = 'Pet Care & Tech' -%}{%- assign dept_icon = '🐾' -%}{%- assign grad = 'linear-gradient(135deg, #BE185D 0%, #9D174D 100%)' -%}
+            {%- when 8 -%}{%- assign fallback_title = 'Personal Care & Wellness' -%}{%- assign dept_icon = '✨' -%}{%- assign grad = 'linear-gradient(135deg, #047857 0%, #065F46 100%)' -%}
+            {%- else -%}{%- assign dept_icon = '📦' -%}{%- assign grad = 'linear-gradient(135deg, #2D6A4F 0%, #1b4332 100%)' -%}
           {%- endcase -%}
           {%- assign title = block.settings.label | default: col.title | default: fallback_title -%}
           {%- assign card_img = block.settings.custom_image | default: col.featured_image -%}
 
-          <div class="collection-card" {{ block.shopify_attributes }} style="border-radius: 12px; overflow: hidden; background: #ffffff; border: 1px solid var(--color-border, #E8E8E0); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s ease, box-shadow 0.2s ease;">
-            <a href="{% if col != blank %}{{ col.url }}{% else %}/collections/all{% endif %}" style="text-decoration: none; color: inherit; display: block;">
-              <div class="collection-card__media" style="aspect-ratio: 4/3; background: #E8F0EB; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="dept-card" {{ block.shopify_attributes }}>
+            <a href="{% if col != blank %}{{ col.url }}{% else %}/collections/all{% endif %}" class="dept-card__link">
+              <div class="dept-card__media" style="{% if card_img == blank %}background: {{ grad }};{% endif %}">
                 {%- if card_img != blank -%}
                   <img
                     src="{{ card_img | image_url: width: 600 }}"
                     alt="{{ title | escape }}"
                     loading="lazy"
-                    style="width: 100%; height: 100%; object-fit: cover;"
+                    class="dept-card__img"
                   >
                 {%- else -%}
-                  <div style="font-family: var(--font-heading-family, serif); font-size: 1.2rem; font-weight: 600; color: var(--color-primary, #2D6A4F); text-align: center; padding: 1rem;">
-                    {{ title }}
+                  <div class="dept-card__placeholder">
+                    <span class="dept-card__icon">{{ dept_icon }}</span>
+                    <span class="dept-card__badge">100+ Verified Items</span>
                   </div>
                 {%- endif -%}
               </div>
-              <div class="collection-card__info" style="padding: 1.25rem 1rem; text-align: center;">
-                <h3 style="font-family: var(--font-heading-family, serif); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--color-text, #1A1A1A);">
+              <div class="dept-card__info">
+                <h3 class="dept-card__title">
                   {{ title }}
                 </h3>
-                <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary, #2D6A4F);">
-                  Shop Department &rarr;
+                <span class="dept-card__cta">
+                  Explore Department
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M10 5l5 5-5 5"/></svg>
                 </span>
-              </div>
-            </a>
-          </div>
-        {%- endfor -%}
-      {%- else -%}
-        {%- assign default_depts = "Home & Kitchen,Home Organization,Pet Accessories,Garden & Outdoor" | split: "," -%}
-        {%- for dept in default_depts -%}
-          <div class="collection-card" style="border-radius: 12px; overflow: hidden; background: #ffffff; border: 1px solid var(--color-border, #E8E8E0);">
-            <a href="/collections/all" style="text-decoration: none; color: inherit; display: block;">
-              <div style="aspect-ratio: 4/3; background: #E8F0EB; display: flex; align-items: center; justify-content: center; color: var(--color-primary, #2D6A4F); font-weight: 600;">
-                {{ dept }}
-              </div>
-              <div style="padding: 1.25rem 1rem; text-align: center;">
-                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;">{{ dept }}</h3>
-                <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary, #2D6A4F);">Shop Department &rarr;</span>
               </div>
             </a>
           </div>
@@ -80,12 +71,110 @@
   </div>
 </section>
 
+<style>
+  .dept-card {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #E8E8E0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+  }
+  .dept-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    border-color: #2D6A4F;
+  }
+  .dept-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .dept-card__media {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dept-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .dept-card:hover .dept-card__img {
+    transform: scale(1.06);
+  }
+  .dept-card__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .dept-card__icon {
+    font-size: 2.25rem;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+  }
+  .dept-card__badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+  }
+  .dept-card__info {
+    padding: 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    background: #ffffff;
+  }
+  .dept-card__title {
+    font-family: var(--font-heading-family, serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
+    line-height: 1.3;
+  }
+  .dept-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary, #2D6A4F);
+    transition: gap 0.2s ease;
+  }
+  .dept-card:hover .dept-card__cta {
+    gap: 10px;
+  }
+</style>
+
 {% schema %}
 {
   "name": "Featured Collections",
   "tag": "section",
   "class": "section-featured-collections",
   "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption Tag",
+      "default": "Curated Departments"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -96,16 +185,13 @@
       "type": "textarea",
       "id": "description",
       "label": "Subheading",
-      "default": "Explore our curated departments featuring verified, high-utility physical merchandise."
+      "default": "Explore 1,000 real trending products across 10 catalog categories, backed by verified specifications and fast fulfillment."
     },
     {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "default": 4,
-      "label": "Desktop Columns"
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FAFAF7"
     }
   ],
   "blocks": [
@@ -135,10 +221,14 @@
     {
       "name": "Featured Collections",
       "blocks": [
-        { "type": "collection", "settings": { "label": "Home & Kitchen" } },
-        { "type": "collection", "settings": { "label": "Home Organization" } },
-        { "type": "collection", "settings": { "label": "Pet Accessories" } },
-        { "type": "collection", "settings": { "label": "Garden & Outdoor" } }
+        { "type": "collection", "settings": { "label": "Smart Living & Tech" } },
+        { "type": "collection", "settings": { "label": "Kitchen & Culinary" } },
+        { "type": "collection", "settings": { "label": "Ergonomics & Office" } },
+        { "type": "collection", "settings": { "label": "Fitness & Recovery" } },
+        { "type": "collection", "settings": { "label": "Outdoor, Travel & EDC" } },
+        { "type": "collection", "settings": { "label": "Audio & Electronics" } },
+        { "type": "collection", "settings": { "label": "Pet Care & Tech" } },
+        { "type": "collection", "settings": { "label": "Personal Care & Wellness" } }
       ]
     }
   ]

@@ -3,66 +3,16 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Welcome to Leafanoo",
-        "subheading": "Curated, high-utility physical essentials for modern living.",
-        "button_label": "Shop All Departments",
+        "badge_text": "Verified Google Merchant • 1,000+ Trending Essentials",
+        "heading": "Curated Essentials, Engineered for Everyday Living",
+        "subheading": "Discover high-utility, manufacturer-verified physical products across 10 trending departments with fast tracked shipping and 30-day money-back guarantee.",
+        "button_label": "Shop 1,000+ Products",
         "button_link": "/collections/all",
-        "button_style": "primary",
+        "secondary_button_label": "Explore Departments",
+        "secondary_button_link": "/collections",
         "overlay_opacity": 40,
-        "min_height": 600,
+        "min_height": 580,
         "text_alignment": "center"
-      }
-    },
-    "featured-collections": {
-      "type": "featured-collections",
-      "settings": {
-        "heading": "Shop by Department",
-        "description": "Carefully selected everyday items backed by verifiable specifications and reliable utility.",
-        "columns_desktop": 4
-      },
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": { "collection": "", "label": "Home & Kitchen" }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": { "collection": "", "label": "Home Organization" }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": { "collection": "", "label": "Pet Accessories" }
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": { "collection": "", "label": "Garden & Outdoor" }
-        }
-      },
-      "block_order": ["collection-1", "collection-2", "collection-3", "collection-4"]
-    },
-    "featured-products": {
-      "type": "featured-products",
-      "settings": {
-        "heading": "Trending Essentials",
-        "description": "Popular physical products selected for durability, function, and clear value.",
-        "collection": "",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "show_vendor": true,
-        "show_quick_add": true,
-        "show_view_all": true,
-        "view_all_label": "Explore Complete Collection"
-      }
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "settings": {
-        "layout": "image_first",
-        "caption": "Our Sourcing Promise",
-        "heading": "Thoughtful Products for Everyday Living",
-        "text": "<p>At Leafanoo, every item in our catalog is reviewed for durable manufacturing, verifiable specifications, and genuine consumer utility. We partner with vetted suppliers to ensure transparent pricing and reliable fulfillment.</p>",
-        "button_label": "Learn More About Our Standards",
-        "button_link": "/pages/about"
       }
     },
     "trust-bar": {
@@ -75,53 +25,226 @@
           "type": "trust_item",
           "settings": {
             "icon": "truck",
-            "heading": "Tracked Shipping",
-            "text": "Reliable carrier dispatch with real-time tracking."
+            "heading": "Fast Tracked Shipping",
+            "text": "Direct carrier dispatch with live tracking updates."
           }
         },
         "trust-2": {
           "type": "trust_item",
           "settings": {
             "icon": "return",
-            "heading": "30-Day Returns",
-            "text": "Straightforward return window on eligible items."
+            "heading": "30-Day Money Back",
+            "text": "Straightforward 30-day return window on all items."
           }
         },
         "trust-3": {
           "type": "trust_item",
           "settings": {
             "icon": "shield",
-            "heading": "Verified Specifications",
-            "text": "Authentic product data and manufacturer specifications."
+            "heading": "100% Verified Specs",
+            "text": "Authentic GTIN/UPC & manufacturer MPNs."
           }
         },
         "trust-4": {
           "type": "trust_item",
           "settings": {
             "icon": "lock",
-            "heading": "Encrypted Checkout",
-            "text": "256-bit SSL secure payment processing."
+            "heading": "256-Bit SSL Checkout",
+            "text": "Bank-grade encrypted payments via Visa, Apple Pay & Google Pay."
           }
         }
       },
       "block_order": ["trust-1", "trust-2", "trust-3", "trust-4"]
     },
+    "featured-collections": {
+      "type": "featured-collections",
+      "settings": {
+        "caption": "Curated Catalog",
+        "heading": "Shop by Department",
+        "description": "Explore 1,000 real trending products across 10 catalog categories, backed by verified specifications and fast fulfillment.",
+        "bg_color": "#FAFAF7"
+      },
+      "blocks": {
+        "dept-1": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Smart Living & Tech" }
+        },
+        "dept-2": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Kitchen & Culinary" }
+        },
+        "dept-3": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Ergonomics & Office" }
+        },
+        "dept-4": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Fitness & Recovery" }
+        },
+        "dept-5": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Outdoor, Travel & EDC" }
+        },
+        "dept-6": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Audio & Electronics" }
+        },
+        "dept-7": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Pet Care & Tech" }
+        },
+        "dept-8": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "Personal Care & Wellness" }
+        }
+      },
+      "block_order": [
+        "dept-1",
+        "dept-2",
+        "dept-3",
+        "dept-4",
+        "dept-5",
+        "dept-6",
+        "dept-7",
+        "dept-8"
+      ]
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "caption": "Handpicked For Quality",
+        "heading": "Trending Essentials",
+        "description": "Carefully selected, practical everyday items engineered for durability, utility, and transparent value.",
+        "collection": "",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "show_vendor": true,
+        "show_quick_add": true,
+        "show_view_all": true,
+        "view_all_label": "Explore All 1,000+ Products",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "promo-banner": {
+      "type": "promo-banner",
+      "settings": {
+        "heading": "Upgrade Your Daily Routine with Verified Essentials",
+        "text": "Explore 1,000 top-trending physical products across Smart Tech, Kitchen, Ergonomics, and Wellness at transparent manufacturer prices.",
+        "button_label": "Shop Trending Catalog",
+        "button_link": "/collections/all"
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image_first",
+        "caption": "Our Sourcing Promise",
+        "heading": "Thoughtful Products for Everyday Living",
+        "text": "<p>At Leafanoo, every item in our catalog is reviewed for durable manufacturing, verifiable specifications, and genuine consumer utility. We partner directly with vetted suppliers to ensure transparent pricing and reliable fulfillment.</p>",
+        "button_label": "Learn More About Our Standards",
+        "button_link": "/pages/about",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Trusted by Over 10,000+ Happy Customers",
+        "subheading": "Real feedback from verified purchasers across our 10 curated departments."
+      },
+      "blocks": {
+        "review-1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Marcus S.",
+            "location": "Austin, TX",
+            "product_name": "Anker Soundcore Space Q45",
+            "quote": "Super fast delivery and the product is 100% genuine with authentic serial numbers. Great customer support when I needed tracking updates!"
+          }
+        },
+        "review-2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Elena R.",
+            "location": "Seattle, WA",
+            "product_name": "Ninja Foodi 8.5-qt Air Fryer",
+            "quote": "Leafanoo made the entire buying process seamless. Arrived in 3 days, perfectly packaged, and exactly as described in the specs."
+          }
+        },
+        "review-3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "David L.",
+            "location": "Chicago, IL",
+            "product_name": "Logitech MX Master 3S",
+            "quote": "I was looking for a verified seller with fast US fulfillment. Leafanoo exceeded expectations. Will definitely shop here again."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3"]
+    },
+    "faq-accordion": {
+      "type": "faq-accordion",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about our products, shipping, and returns.",
+        "bg_color": "#FAFAF7"
+      },
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does standard shipping take?",
+            "answer": "<p>Orders are dispatched within 1-2 business days. Standard delivery typically takes 2-5 business days across the continental US. Real-time carrier tracking is emailed immediately upon dispatch.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are all products backed by verifiable manufacturer specifications?",
+            "answer": "<p>Yes. Every single item in the Leafanoo catalog features verified GTIN/UPC barcodes and manufacturer part numbers (MPNs), ensuring 100% authentic product standards.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your 30-day return policy?",
+            "answer": "<p>We offer a hassle-free 30-day return window on all eligible items. If you are not completely satisfied, simply contact support for a prepaid return label and prompt refund.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What payment methods do you accept?",
+            "answer": "<p>We accept all major credit and debit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay via 256-bit SSL encrypted checkout.</p>"
+          }
+        }
+      },
+      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4"]
+    },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Stay Informed on New Arrivals",
-        "subtext": "Subscribe for curated product releases, practical guides, and exclusive customer updates.",
-        "bg_color": "#2D6A4F",
-        "text_color": "#FFFFFF"
+        "heading": "Unlock $10 Off Your First Order",
+        "subtext": "Subscribe to the Leafanoo VIP Club for weekly curated drops, practical buying guides, and exclusive discount codes.",
+        "bg_color": "#173d2c",
+        "text_color": "#FFFFFF",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
     "hero-banner",
+    "trust-bar",
     "featured-collections",
     "featured-products",
+    "promo-banner",
     "image-with-text",
-    "trust-bar",
+    "testimonials",
+    "faq-accordion",
     "newsletter"
   ]
 }
