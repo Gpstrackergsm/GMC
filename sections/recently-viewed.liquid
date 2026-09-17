@@ -1,0 +1,86 @@
+<div id="RecentlyViewedSection-{{ section.id }}" class="recently-viewed-section section-padding" style="display: none; padding: 3rem 0; border-top: 1px solid var(--color-border, #E8E8E0);">
+  <div class="container">
+    <div class="section-header text-center" style="margin-bottom: 2.5rem; text-align: center;">
+      <h2 style="font-family: var(--font-heading-family, serif); font-size: 2rem; color: var(--color-text, #1A1A1A);">
+        {{ section.settings.heading | default: 'Recently Viewed' }}
+      </h2>
+    </div>
+
+    <div id="RecentlyViewedGrid" class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem;">
+      <!-- Populated via JavaScript -->
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const currentHandle = {{ product.handle | json }};
+    const storageKey = 'leafanoo_recently_viewed';
+    let viewed = [];
+    try {
+      viewed = JSON.parse(localStorage.getItem(storageKey)) || [];
+    } catch(e) {}
+
+    // Add current product
+    if (currentHandle) {
+      viewed = viewed.filter(h => h !== currentHandle);
+      viewed.unshift(currentHandle);
+      if (viewed.length > 8) viewed.pop();
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(viewed));
+      } catch(e) {}
+    }
+
+    // Render other viewed items
+    const handlesToFetch = viewed.filter(h => h !== currentHandle).slice(0, {{ section.settings.max_products | default: 4 }});
+    if (handlesToFetch.length > 0) {
+      const sectionEl = document.getElementById('RecentlyViewedSection-{{ section.id }}');
+      const gridEl = document.getElementById('RecentlyViewedGrid');
+      
+      Promise.all(handlesToFetch.map(handle => 
+        fetch(`/products/${handle}.js`).then(res => res.ok ? res.json() : null).catch(() => null)
+      )).then(products => {
+        const validProducts = products.filter(Boolean);
+        if (validProducts.length > 0 && sectionEl && gridEl) {
+          sectionEl.style.display = 'block';
+          gridEl.innerHTML = validProducts.map(p => `
+            <div class="product-grid-item" style="border: 1px solid var(--color-border, #E8E8E0); border-radius: 8px; padding: 1rem; background: #fff;">
+              <a href="${p.url}" style="text-decoration: none; color: inherit; display: block;">
+                <div style="aspect-ratio: 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.75rem; background: #F6F6F2;">
+                  <img src="${p.featured_image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy">
+                </div>
+                <h3 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem;">${p.title}</h3>
+                <div style="color: var(--color-primary, #2D6A4F); font-weight: 700;">$${(p.price / 100).toFixed(2)}</div>
+              </a>
+            </div>
+          `).join('');
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Recently Viewed",
+  "tag": "section",
+  "class": "section-recently-viewed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recently Viewed"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Max Products to Display"
+    }
+  ]
+}
+{% endschema %}

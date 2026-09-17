@@ -1,0 +1,131 @@
+<div class="collection-page-section section-padding" style="padding: 2rem 0 4rem 0;">
+  <div class="container">
+    {% render 'structured-data-breadcrumb' %}
+
+    <div class="collection-header" style="margin-bottom: 2.5rem; text-align: center;">
+      <h1 class="collection-title" style="font-family: var(--font-heading-family, serif); font-size: 2.5rem; color: var(--color-text, #1A1A1A); margin-bottom: 0.75rem;">
+        {{ collection.title }}
+      </h1>
+      {%- if collection.description != blank -%}
+        <div class="collection-description rte" style="max-width: 750px; margin: 0 auto; color: #555; font-size: 1.05rem; line-height: 1.6;">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- paginate collection.products by section.settings.products_per_page | default: 24 -%}
+      
+      <!-- Toolbar: Filters & Sorting -->
+      <div class="collection-toolbar" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border, #E8E8E0); border-bottom: 1px solid var(--color-border, #E8E8E0); padding: 1rem 0; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div class="collection-count" style="font-size: 0.9rem; color: #666;">
+          Showing <strong>{{ collection.products_count }}</strong> items
+        </div>
+
+        <div class="collection-sort" style="display: flex; align-items: center; gap: 0.5rem;">
+          <label for="SortBy" style="font-size: 0.9rem; font-weight: 500;">Sort By:</label>
+          <select id="SortBy" name="sort_by" class="sort-select" style="padding: 0.5rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 0.9rem; background: #fff;" onchange="location = this.value;">
+            {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+            <option value="{{ collection.url }}?sort_by=manual" {% if current_sort == 'manual' %}selected{% endif %}>Featured</option>
+            <option value="{{ collection.url }}?sort_by=best-selling" {% if current_sort == 'best-selling' %}selected{% endif %}>Best Selling</option>
+            <option value="{{ collection.url }}?sort_by=title-ascending" {% if current_sort == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
+            <option value="{{ collection.url }}?sort_by=title-descending" {% if current_sort == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
+            <option value="{{ collection.url }}?sort_by=price-ascending" {% if current_sort == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
+            <option value="{{ collection.url }}?sort_by=price-descending" {% if current_sort == 'price-descending' %}selected{% endif %}>Price, high to low</option>
+            <option value="{{ collection.url }}?sort_by=created-descending" {% if current_sort == 'created-descending' %}selected{% endif %}>Date, new to old</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="collection-main-layout" style="display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: start;">
+        
+        <!-- Filter Sidebar -->
+        <aside class="collection-sidebar">
+          {% render 'filters', results: collection %}
+        </aside>
+
+        <!-- Products Grid -->
+        <div class="collection-products-area">
+          {%- if collection.products.size > 0 -%}
+            <div class="product-grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop | default: 3 }}, 1fr); gap: 1.75rem;">
+              {%- for product in collection.products -%}
+                <div class="product-grid-item">
+                  {% render 'product-card',
+                    product: product,
+                    show_vendor: section.settings.show_vendor,
+                    show_quick_add: section.settings.show_quick_add,
+                    image_ratio: section.settings.image_ratio
+                  %}
+                </div>
+              {%- endfor -%}
+            </div>
+
+            {%- if paginate.pages > 1 -%}
+              <div class="pagination-wrapper" style="margin-top: 3.5rem; text-align: center;">
+                {% render 'pagination', paginate: paginate %}
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            <div class="collection-empty text-center" style="padding: 4rem 1rem; text-align: center;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">No products match your selection</h2>
+              <p style="color: #666; margin-bottom: 1.5rem;">Try adjusting your filters or search terms.</p>
+              <a href="{{ collection.url }}" class="btn btn--primary" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--color-primary, #2D6A4F); color: #fff; text-decoration: none; border-radius: 6px;">Clear All Filters</a>
+            </div>
+          {%- endif -%}
+        </div>
+
+      </div>
+
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "tag": "section",
+  "class": "section-main-collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 12,
+      "max": 48,
+      "step": 6,
+      "default": 24,
+      "label": "Products per Page"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Desktop Grid Columns"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image Ratio",
+      "options": [
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Brand",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_add",
+      "label": "Show Quick Add",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

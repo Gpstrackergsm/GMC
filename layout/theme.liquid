@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
+
+  <title>
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <!-- Preconnect hints for performance -->
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.shopify.com">
+
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+  </noscript>
+
+  <!-- Theme stylesheet -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <!-- Shopify required header content (must appear before closing head tag) -->
+  {{ content_for_header }}
+
+  <!-- Critical CSS custom properties from theme settings -->
+  <style>
+    :root {
+      --color-primary: {{ settings.color_primary }};
+      --color-primary-contrast: {{ settings.color_primary_contrast }};
+      --color-background: {{ settings.color_background }};
+      --color-text: {{ settings.color_text }};
+      --color-secondary: {{ settings.color_secondary }};
+      --color-accent: {{ settings.color_accent }};
+      --color-border: {{ settings.color_border }};
+      --color-error: {{ settings.color_error }};
+      --color-success: {{ settings.color_success }};
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-size-base: {{ settings.font_size_base }};
+      --header-height: 0px;
+      --announcement-bar-height: 0px;
+      --animation-duration: {{ settings.animation_duration }}ms;
+    }
+    {%- if settings.custom_css != blank -%}
+      {{ settings.custom_css }}
+    {%- endif -%}
+  </style>
+
+  <!-- Meta tags snippet (OG, Twitter card, etc.) -->
+  {%- render 'meta-tags' -%}
+
+  <!-- Structured data: Organization / WebSite -->
+  {%- render 'structured-data-organization' -%}
+
+  <script>
+    // Remove no-js class immediately so CSS transitions apply correctly
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+
+    // Global theme namespace
+    window.Leafanoo = window.Leafanoo || {};
+    window.Leafanoo.settings = {
+      cartType: {{ settings.cart_type | json }},
+      enableAnimations: {{ settings.enable_animations | json }},
+      moneyFormat: {{ shop.money_format | json }},
+      moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+      currency: {{ cart.currency.iso_code | json }},
+      locale: {{ request.locale.iso_code | json }},
+      shopUrl: {{ shop.url | json }},
+      routes: {
+        root: '/',
+        cartUrl: '/cart',
+        cartAddUrl: '/cart/add.js',
+        cartChangeUrl: '/cart/change.js',
+        cartUpdateUrl: '/cart/update.js',
+        cartClearUrl: '/cart/clear.js',
+        searchUrl: '/search',
+        predictiveSearchUrl: '/search/suggest'
+      }
+    };
+  </script>
+
+  <!-- Google Tag Manager -->
+  {%- if settings.gtm_id != blank -%}
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ settings.gtm_id | escape }}');
+    </script>
+  {%- endif -%}
+</head>
+
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}--{{ template.suffix }}{% endif %} page-{{ page_title | handle }}{% if settings.enable_animations %} animations-enabled{% endif %}">
+
+  <!-- Google Tag Manager (noscript fallback) -->
+  {%- if settings.gtm_id != blank -%}
+    <!-- GTM noscript: requires JavaScript enabled for full tracking functionality -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id={{ settings.gtm_id | escape }}"
+              height="0" width="0" style="display:none;visibility:hidden"
+              title="Google Tag Manager"></iframe>
+    </noscript>
+  {%- endif -%}
+
+  <!-- Skip to main content for accessibility (keyboard users) -->
+  <a class="skip-to-content-link" href="#MainContent">
+    {{ 'accessibility.skip_to_content' | t }}
+  </a>
+
+  <!-- Page loading overlay -->
+  <div id="PageLoadingOverlay" class="page-loading-overlay" aria-hidden="true">
+    <div class="page-loading-overlay__spinner" role="status">
+      <span class="visually-hidden">{{ 'general.loading' | t }}</span>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round"
+                stroke-dasharray="81.68" stroke-dashoffset="27" transform="rotate(-90 16 16)"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Announcement bar section -->
+  {%- section 'announcement-bar' -%}
+
+  <!-- Site header section -->
+  {%- section 'header' -%}
+
+  <!-- Main content area — target for skip-link and screen reader navigation -->
+  <main id="MainContent" class="main-content" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  <!-- Site footer section -->
+  {%- section 'footer' -%}
+
+  <!-- Cart drawer (rendered outside main for proper z-index stacking) -->
+  {%- render 'cart-drawer' -%}
+
+  <!-- Overlay for cart drawer and navigation -->
+  <div id="CartOverlay"
+       class="overlay overlay--cart"
+       aria-hidden="true"
+       data-overlay="cart"></div>
+
+  <div id="NavOverlay"
+       class="overlay overlay--nav"
+       aria-hidden="true"
+       data-overlay="nav"></div>
+
+  <!-- Predictive search modal -->
+  <div id="SearchModal"
+       class="search-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-label="{{ 'search.placeholder' | t }}"
+       aria-hidden="true"
+       hidden>
+    <div class="search-modal__overlay" id="SearchModalOverlay" data-search-modal-close></div>
+    <div class="search-modal__inner">
+      <div class="search-modal__header">
+        <form action="{{ routes.search_url }}" method="get" class="search-modal__form" role="search">
+          <input type="hidden" name="type" value="product">
+          <label for="SearchModalInput" class="visually-hidden">{{ 'search.placeholder' | t }}</label>
+          <div class="search-modal__input-wrapper">
+            <svg class="search-modal__input-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="m19 19-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="search"
+              name="q"
+              id="SearchModalInput"
+              class="search-modal__input"
+              placeholder="{{ 'search.placeholder' | t }}"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              data-predictive-search-input
+            >
+          </div>
+          <button type="submit" class="search-modal__submit button button--icon" aria-label="{{ 'search.search' | t }}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="m19 19-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </form>
+        <button
+          type="button"
+          class="search-modal__close button button--icon"
+          aria-label="{{ 'general.close' | t }}"
+          data-search-modal-close
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M15 5 5 15M5 5l10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="search-modal__results"
+           id="SearchModalResults"
+           aria-live="polite"
+           aria-atomic="true"
+           data-predictive-search-results></div>
+    </div>
+  </div>
+
+  <!-- Toast notification system -->
+  <div id="ToastNotification"
+       class="toast-notification"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"
+       aria-hidden="true">
+    <div class="toast-notification__content">
+      <span class="toast-notification__icon" aria-hidden="true"></span>
+      <span class="toast-notification__message" id="ToastMessage"></span>
+    </div>
+    <button type="button"
+            class="toast-notification__close"
+            aria-label="{{ 'general.close' | t }}">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M12 4 4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Custom JavaScript from theme settings -->
+  {%- if settings.custom_js != blank -%}
+    <script>{{ settings.custom_js }}</script>
+  {%- endif -%}
+
+  <!-- Theme JavaScript (deferred, non-render-blocking) -->
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+</body>
+</html>

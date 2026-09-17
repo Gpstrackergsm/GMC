@@ -1,0 +1,123 @@
+<div class="trust-bar-section" style="background-color: {{ section.settings.bg_color | default: '#F4F6F4' }}; border-top: 1px solid var(--color-border, #E8E8E0); border-bottom: 1px solid var(--color-border, #E8E8E0); padding: 2rem 0;">
+  <div class="container">
+    <div class="trust-bar-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; align-items: center;">
+      {%- for block in section.blocks -%}
+        <div class="trust-bar-item" {{ block.shopify_attributes }} style="display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="trust-bar-icon" style="flex-shrink: 0; width: 36px; height: 36px; color: var(--color-primary, #2D6A4F); display: flex; align-items: center; justify-content: center;">
+            {%- case block.settings.icon -%}
+              {%- when 'truck' -%}
+                {% render 'icon-truck' %}
+              {%- when 'return' -%}
+                {% render 'icon-return' %}
+              {%- when 'shield' -%}
+                {% render 'icon-shield' %}
+              {%- when 'lock' -%}
+                {% render 'icon-lock' %}
+              {%- when 'phone' -%}
+                {% render 'icon-phone' %}
+              {%- else -%}
+                {% render 'icon-check' %}
+            {%- endcase -%}
+          </div>
+          <div class="trust-bar-text">
+            <h3 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--color-text, #1A1A1A);">
+              {{ block.settings.heading }}
+            </h3>
+            <p style="font-size: 0.825rem; color: #666; margin: 0; line-height: 1.4;">
+              {{ block.settings.text }}
+            </p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Bar",
+  "tag": "section",
+  "class": "section-trust-bar",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F6F4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Signal",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Shipping Truck" },
+            { "value": "return", "label": "Easy Returns" },
+            { "value": "shield", "label": "Verified Quality" },
+            { "value": "lock", "label": "Secure Checkout" },
+            { "value": "phone", "label": "Support" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Transparent Delivery"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Subtext",
+          "default": "Clear tracking updates on every order."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Bar",
+      "blocks": [
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Tracked Shipping",
+            "text": "Reliable carrier dispatch with real-time tracking."
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "return",
+            "heading": "30-Day Returns",
+            "text": "Straightforward return process on eligible items."
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shield",
+            "heading": "Verified Specifications",
+            "text": "Every product verified for accurate specifications."
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "icon": "lock",
+            "heading": "Encrypted Checkout",
+            "text": "256-bit SSL secure payment processing."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

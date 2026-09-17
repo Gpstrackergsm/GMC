@@ -1,0 +1,454 @@
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="site-footer__inner page-width">
+
+    <!-- Column blocks -->
+    {%- if section.blocks.size > 0 -%}
+      <div class="site-footer__columns">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'column' -%}
+            <div class="site-footer__column" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="site-footer__column-heading">{{ block.settings.heading | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.links != blank -%}
+                {%- assign col_links = linklists[block.settings.links] -%}
+                {%- if col_links.links.size > 0 -%}
+                  <nav aria-label="{{ block.settings.heading | escape | default: 'Footer links' }}">
+                    <ul class="site-footer__link-list" role="list">
+                      {%- for link in col_links.links -%}
+                        <li>
+                          <a href="{{ link.url }}" class="site-footer__link">
+                            {{ link.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </nav>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <!-- Newsletter column -->
+        <div class="site-footer__column site-footer__column--newsletter">
+          <h3 class="site-footer__column-heading">Stay in the Loop</h3>
+          <p class="site-footer__newsletter-desc">Get the latest deals, new arrivals, and exclusive offers.</p>
+          <form
+            class="site-footer__newsletter-form"
+            action="/contact#footer-newsletter"
+            method="post"
+            id="footer-newsletter-form"
+            novalidate
+          >
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="site-footer__newsletter-field">
+              <label for="footer-newsletter-email" class="visually-hidden">Email address</label>
+              <input
+                type="email"
+                id="footer-newsletter-email"
+                name="contact[email]"
+                placeholder="Your email address"
+                class="site-footer__newsletter-input"
+                autocomplete="email"
+                required
+                aria-required="true"
+              >
+              <button type="submit" class="site-footer__newsletter-btn" aria-label="Subscribe to newsletter">
+                Subscribe
+              </button>
+            </div>
+            <p class="site-footer__newsletter-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <!-- Social links -->
+    {%- assign social_platforms = 'facebook,twitter,instagram,youtube,tiktok,pinterest' | split: ',' -%}
+    {%- assign has_social = false -%}
+    {%- for platform in social_platforms -%}
+      {%- assign setting_key = platform | prepend: 'social_' | append: '_link' -%}
+      {%- if settings[setting_key] != blank -%}{%- assign has_social = true -%}{%- endif -%}
+    {%- endfor -%}
+
+    {%- if has_social -%}
+      <div class="site-footer__social" aria-label="Social media links">
+        {%- if settings.social_facebook_link != blank -%}
+          <a href="{{ settings.social_facebook_link }}" class="site-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          <a href="{{ settings.social_instagram_link }}" class="site-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_twitter_link != blank -%}
+          <a href="{{ settings.social_twitter_link }}" class="site-footer__social-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          <a href="{{ settings.social_youtube_link }}" class="site-footer__social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98l5.75 3.02-5.75 3.02z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}
+          <a href="{{ settings.social_tiktok_link }}" class="site-footer__social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.83 1.56V6.8a4.85 4.85 0 01-1.06-.11z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          <a href="{{ settings.social_pinterest_link }}" class="site-footer__social-link" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <!-- Policy links -->
+    <nav class="site-footer__policy-nav" aria-label="Legal policies">
+      <ul class="site-footer__policy-list" role="list">
+        {%- if shop.policies.shipping_policy != blank -%}
+          <li><a href="{{ shop.policies.shipping_policy.url }}" class="site-footer__policy-link">Shipping Policy</a></li>
+        {%- endif -%}
+        {%- if shop.policies.refund_policy != blank -%}
+          <li><a href="{{ shop.policies.refund_policy.url }}" class="site-footer__policy-link">Returns Policy</a></li>
+        {%- endif -%}
+        {%- if shop.policies.privacy_policy != blank -%}
+          <li><a href="{{ shop.policies.privacy_policy.url }}" class="site-footer__policy-link">Privacy Policy</a></li>
+        {%- endif -%}
+        {%- if shop.policies.terms_of_service != blank -%}
+          <li><a href="{{ shop.policies.terms_of_service.url }}" class="site-footer__policy-link">Terms of Service</a></li>
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    <!-- Payment icons -->
+    <div class="site-footer__payments" aria-label="Accepted payment methods">
+      {%- unless shop.enabled_payment_types == empty -%}
+        <ul class="site-footer__payment-list" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="site-footer__payment-item">
+              {{ type | payment_type_svg_tag: class: 'site-footer__payment-icon' }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endunless -%}
+    </div>
+
+    <!-- Copyright -->
+    <p class="site-footer__copyright">
+      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      {%- if shop.powered_by_link -%}
+        &nbsp;&middot; Powered by {{ shop.powered_by_link }}
+      {%- endif -%}
+    </p>
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #1a2e23;
+    color: #c8d8cc;
+    padding: 64px 0 32px;
+    margin-top: 0;
+  }
+  .site-footer__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  /* Columns grid */
+  .site-footer__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px 32px;
+    margin-bottom: 48px;
+  }
+  .site-footer__column-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .site-footer__link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .site-footer__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #a8bfad;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-footer__link:hover,
+  .site-footer__link:focus-visible { color: #ffffff; }
+  .site-footer__link:focus-visible { outline: 1px solid #ffffff; outline-offset: 2px; }
+
+  /* Newsletter column */
+  .site-footer__newsletter-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #a8bfad;
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+  .site-footer__newsletter-field {
+    display: flex;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .site-footer__newsletter-input {
+    flex: 1;
+    background: rgba(255,255,255,0.07);
+    border: none;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #fff;
+    outline: none;
+    min-width: 0;
+  }
+  .site-footer__newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+  .site-footer__newsletter-btn {
+    background-color: #2D6A4F;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+  }
+  .site-footer__newsletter-btn:hover { background-color: #1b4332; }
+  .site-footer__newsletter-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+  }
+  .site-footer__newsletter-status {
+    margin: 8px 0 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    min-height: 20px;
+  }
+  .site-footer__newsletter-status--success { color: #74c69d; }
+  .site-footer__newsletter-status--error { color: #f87171; }
+
+  /* Social */
+  .site-footer__social {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 32px;
+  }
+  .site-footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    color: #c8d8cc;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .site-footer__social-link:hover,
+  .site-footer__social-link:focus-visible {
+    background-color: #2D6A4F;
+    color: #ffffff;
+  }
+  .site-footer__social-link:focus-visible { outline: 2px solid #fff; }
+
+  /* Policy nav */
+  .site-footer__policy-nav { margin-bottom: 24px; }
+  .site-footer__policy-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-footer__policy-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: #7a9e84;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-footer__policy-link:hover,
+  .site-footer__policy-link:focus-visible { color: #fff; }
+
+  /* Payments */
+  .site-footer__payments { margin-bottom: 24px; }
+  .site-footer__payment-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-footer__payment-item {
+    display: flex;
+    align-items: center;
+  }
+  .site-footer__payment-icon {
+    height: 24px;
+    width: auto;
+    border-radius: 3px;
+    filter: brightness(0.85);
+  }
+
+  /* Copyright */
+  .site-footer__copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: #5c7a63;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .site-footer__copyright a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Visually hidden */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 749px) {
+    .site-footer { padding: 48px 0 24px; }
+    .site-footer__inner { padding: 0 16px; }
+    .site-footer__columns { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+    .site-footer__social { padding-top: 24px; margin-bottom: 24px; }
+  }
+  @media (max-width: 479px) {
+    .site-footer__columns { grid-template-columns: 1fr; }
+    .site-footer__column--newsletter { order: -1; }
+  }
+</style>
+
+<script>
+(function () {
+  var form = document.getElementById('footer-newsletter-form');
+  if (!form) return;
+  var statusEl = form.querySelector('.site-footer__newsletter-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput || !emailInput.value.trim()) {
+      if (statusEl) { statusEl.textContent = 'Please enter a valid email address.'; statusEl.className = 'site-footer__newsletter-status site-footer__newsletter-status--error'; }
+      return;
+    }
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+
+    var formData = new FormData(form);
+    fetch(form.action, { method: 'POST', body: formData, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) {
+        if (r.ok || r.status === 200) {
+          if (statusEl) { statusEl.textContent = 'Thank you for subscribing!'; statusEl.className = 'site-footer__newsletter-status site-footer__newsletter-status--success'; }
+          form.reset();
+        } else {
+          throw new Error('Error');
+        }
+      })
+      .catch(function () {
+        if (statusEl) { statusEl.textContent = 'Something went wrong. Please try again.'; statusEl.className = 'site-footer__newsletter-status site-footer__newsletter-status--error'; }
+      })
+      .finally(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Subscribe'; }
+      });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "div",
+  "class": "section-footer",
+  "limit": 1,
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "links",
+          "label": "Links",
+          "default": "footer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": {
+            "heading": "Shop",
+            "links": "footer"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "heading": "Help",
+            "links": "footer"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "heading": "Company",
+            "links": "footer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

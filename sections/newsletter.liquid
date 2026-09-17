@@ -1,0 +1,114 @@
+<div class="newsletter-section section-padding" style="padding: {{ section.settings.padding_top | default: 56 }}px 0 {{ section.settings.padding_bottom | default: 56 }}px 0; background-color: {{ section.settings.bg_color | default: '#2D6A4F' }}; color: {{ section.settings.text_color | default: '#FFFFFF' }}; text-align: center;">
+  <div class="container" style="max-width: 680px; margin: 0 auto; padding: 0 1rem;">
+    {%- if section.settings.heading != blank -%}
+      <h2 style="font-family: var(--font-heading-family, serif); font-size: 2.25rem; margin-bottom: 0.75rem; color: inherit;">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtext != blank -%}
+      <p style="font-size: 1.05rem; line-height: 1.6; opacity: 0.9; margin-bottom: 2rem; color: inherit;">
+        {{ section.settings.subtext }}
+      </p>
+    {%- endif -%}
+
+    {%- form 'customer', class: 'newsletter-form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      {%- if form.posted_successfully? -%}
+        <div class="newsletter-success" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 1.25rem; font-weight: 500;">
+          {{ 'footer.newsletter_success' | default: 'Thank you for subscribing! Check your inbox for your confirmation.' }}
+        </div>
+      {%- else -%}
+        <div style="display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+          <input
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            aria-required="true"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            required
+            placeholder="{{ 'footer.newsletter_placeholder' | default: 'Enter your email address' }}"
+            style="flex: 1 1 280px; padding: 0.85rem 1.25rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem; color: #1A1A1A; background: #FFFFFF;"
+          >
+          <button
+            type="submit"
+            class="btn"
+            style="padding: 0.85rem 1.75rem; background: var(--color-accent, #D4A853); color: #1A1A1A; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; flex: 0 0 auto;"
+          >
+            {{ 'footer.newsletter_button' | default: 'Subscribe' }}
+          </button>
+        </div>
+        {%- if form.errors -%}
+          <div style="color: #FFB4B4; font-size: 0.85rem; margin-top: 0.75rem;">
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endform -%}
+
+    <p style="font-size: 0.75rem; opacity: 0.75; margin-top: 1.25rem;">
+      We respect your privacy. Unsubscribe at any time with a single click.
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stay Informed on New Arrivals"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subheading",
+      "default": "Subscribe for curated product releases, practical guides, and exclusive customer updates."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#2D6A4F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

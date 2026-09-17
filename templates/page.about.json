@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "right",
+        "image_ratio": "adapt",
+        "heading": "Who We Are",
+        "heading_size": "h2",
+        "body": "<p>Leafanoo was founded with a single mission: to bring the best products from around the world right to your doorstep. Our team of passionate curators scour the globe to find items that offer unparalleled quality and value.</p><p>We are a diverse team of product lovers, designers, and logistics experts all united by a commitment to customer delight.</p>",
+        "button_label": "Meet Our Team",
+        "button_link": "#team",
+        "button_style": "secondary",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image-with-text-mission": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "image_ratio": "adapt",
+        "heading": "Our Mission",
+        "heading_size": "h2",
+        "body": "<p>We strive to make shopping a joyful, sustainable, and community-driven experience. Every purchase you make supports our mission to partner with ethical suppliers and give back to local communities.</p><p>We donate 1% of every sale to environmental and social causes that matter.</p>",
+        "button_label": "Shop With Purpose",
+        "button_link": "/collections/all",
+        "button_style": "primary",
+        "color_scheme": "background-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Our Values",
+        "heading_size": "h2",
+        "text": "<p><strong>Quality First</strong> — We never compromise on product quality. Every item is tested and reviewed before it reaches our shelves.</p><p><strong>Customer Obsessed</strong> — Your satisfaction is our #1 priority. We offer easy returns, responsive support, and honest communication.</p><p><strong>Community Driven</strong> — We believe in giving back. A portion of every sale supports charitable initiatives around the world.</p><p><strong>Sustainable Practices</strong> — We work with suppliers who share our commitment to ethical sourcing and environmental responsibility.</p>",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "text_alignment": "left"
+      }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "settings": {
+        "heading": "The Leafanoo Promise",
+        "color_scheme": "background-2",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "trust-1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free Shipping",
+            "subtext": "On all orders over $50 — delivered to your door."
+          }
+        },
+        "trust-2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shield-check",
+            "heading": "Secure Payments",
+            "subtext": "Every transaction is fully encrypted and safe."
+          }
+        },
+        "trust-3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "return",
+            "heading": "Easy Returns",
+            "subtext": "30-day hassle-free returns, always."
+          }
+        },
+        "trust-4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "heart",
+            "heading": "Giving Back",
+            "subtext": "1% of sales donated to social and environmental causes."
+          }
+        }
+      },
+      "block_order": ["trust-1","trust-2","trust-3","trust-4"]
+    }
+  },
+  "order": [
+    "main-page",
+    "image-with-text",
+    "image-with-text-mission",
+    "rich-text",
+    "trust-bar"
+  ]
+}

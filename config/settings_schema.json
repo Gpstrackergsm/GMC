@@ -1,0 +1,255 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Leafanoo Modern OS 2.0",
+    "theme_version": "1.0.0",
+    "theme_author": "Leafanoo Store Architecture",
+    "theme_documentation_url": "https://github.com/Gpstrackergsm/GMC/blob/main/README.md",
+    "theme_support_url": "https://leafanoo.com/pages/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Brand Color",
+        "default": "#2D6A4F"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_contrast",
+        "label": "Primary Contrast Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Color",
+        "default": "#52B788"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color",
+        "default": "#D4A853"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#FAFAF7"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border & Divider Color",
+        "default": "#E8E8E0"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "label": "Success Color",
+        "default": "#27AE60"
+      },
+      {
+        "type": "color",
+        "id": "color_error",
+        "label": "Error Color",
+        "default": "#C0392B"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "playfair_display_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "inter_n4"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "min": 14,
+        "max": 18,
+        "step": 1,
+        "unit": "px",
+        "label": "Base Font Size",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Logo & Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo Image"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 80,
+        "max": 250,
+        "step": 10,
+        "unit": "px",
+        "label": "Logo Width (Desktop)",
+        "default": 140
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon Image (32x32 PNG)"
+      }
+    ]
+  },
+  {
+    "name": "Header & Navigation",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sticky_header",
+        "label": "Enable Sticky Header",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show Predictive Search",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_account",
+        "label": "Show Account Icon",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart & Checkout",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart Experience",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Slide-out Cart Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Redirect to Cart Page"
+          }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Enable Order Note on Cart",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Product Grid & Cards",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show Brand / Vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sku",
+        "label": "Show Product SKU / Identifier",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quick_add",
+        "label": "Show Quick Add Button on Cards",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "product_card_image_ratio",
+        "label": "Product Image Aspect Ratio",
+        "options": [
+          {
+            "value": "square",
+            "label": "Square (1:1)"
+          },
+          {
+            "value": "portrait",
+            "label": "Portrait (3:4)"
+          },
+          {
+            "value": "natural",
+            "label": "Natural"
+          }
+        ],
+        "default": "square"
+      }
+    ]
+  },
+  {
+    "name": "Social Media Links",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_twitter",
+        "label": "X / Twitter URL"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest URL"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      }
+    ]
+  },
+  {
+    "name": "Animations & Motion",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_animations",
+        "label": "Enable Smooth Transitions and Fade-ins",
+        "default": true
+      }
+    ]
+  }
+]

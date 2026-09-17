@@ -1,0 +1,44 @@
+{% layout none %}
+User-agent: *
+Disallow: /admin
+Disallow: /cart
+Disallow: /orders
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /55*/checkouts
+Disallow: /55*/orders
+Disallow: /account
+Disallow: /collections/*sort_by*
+Disallow: /*/collections/*sort_by*
+Disallow: /collections/*+*
+Disallow: /collections/*%2B*
+Disallow: /collections/*%2b*
+Disallow: /*/collections/*+*
+Disallow: /*/collections/*%2B*
+Disallow: /*/collections/*%2b*
+Disallow: */wpm$
+Disallow: /search?*
+Disallow: /search/suggest
+Allow: /search?q=*
+Allow: /search
+Allow: /
+
+# Googlebot specific directives
+User-agent: Googlebot
+Disallow: /admin
+Disallow: /cart
+Disallow: /orders
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /account
+Disallow: /search/suggest
+
+# Googlebot-Image specific directives
+User-agent: Googlebot-Image
+Disallow: /admin
+
+# Storebot-Google specific directives
+User-agent: Storebot-Google
+Disallow: /admin
+
+Sitemap: {{ shop.url }}/sitemap.xml

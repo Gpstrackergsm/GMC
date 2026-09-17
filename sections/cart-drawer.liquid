@@ -1,0 +1,70 @@
+<div id="CartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart" style="display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1000;">
+  <!-- Backdrop -->
+  <div class="cart-drawer__backdrop" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px);"></div>
+
+  <!-- Drawer Body -->
+  <div class="cart-drawer__container" style="position: absolute; top: 0; right: 0; bottom: 0; width: 100%; max-width: 440px; background: #FFFFFF; display: flex; flex-direction: column; box-shadow: -4px 0 25px rgba(0,0,0,0.15); transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    
+    <!-- Drawer Header -->
+    <div class="cart-drawer__header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--color-border, #E8E8E0);">
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+        Your Cart (<span class="cart-drawer-count">{{ cart.item_count }}</span>)
+      </h2>
+      <button type="button" class="cart-drawer-close" aria-label="Close cart drawer" style="background: none; border: none; cursor: pointer; padding: 0.5rem; color: #555;">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+
+    <!-- Free Shipping Bar -->
+    <div class="cart-drawer__shipping-bar" style="background: #F4F8F5; padding: 0.75rem 1.5rem; border-bottom: 1px solid #E0ECE3; font-size: 0.85rem; text-align: center; color: var(--color-primary, #2D6A4F);">
+      <div id="FreeShippingMessage">
+        Free Shipping unlocked on orders over $50!
+      </div>
+    </div>
+
+    <!-- Drawer Content / Items -->
+    <div class="cart-drawer__content" style="flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem;">
+      <div id="CartDrawerItems">
+        {%- if cart.item_count > 0 -%}
+          {%- for item in cart.items -%}
+            {% render 'cart-item', item: item %}
+          {%- endfor -%}
+        {%- else -%}
+          <div class="cart-drawer__empty" style="text-align: center; padding: 3rem 0;">
+            <p style="color: #666; margin-bottom: 1.5rem;">Your cart is empty.</p>
+            <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--color-primary, #2D6A4F); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">
+              Start Shopping
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer__footer" style="padding: 1.25rem 1.5rem; border-top: 1px solid var(--color-border, #E8E8E0); background: #FAFBF9;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; font-size: 1.1rem; font-weight: 700;">
+        <span>Subtotal:</span>
+        <span class="cart-drawer-subtotal" style="color: var(--color-primary, #2D6A4F);">{{ cart.total_price | money_with_currency }}</span>
+      </div>
+      <p style="font-size: 0.775rem; color: #777; margin-bottom: 1.25rem; line-height: 1.4;">
+        Taxes and shipping calculated at checkout.
+      </p>
+      <a href="{{ routes.cart_url }}" class="btn btn--secondary" style="display: block; width: 100%; padding: 0.75rem; text-align: center; border: 1px solid var(--color-border, #E8E8E0); background: #fff; color: var(--color-text, #1A1A1A); text-decoration: none; border-radius: 6px; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">
+        View Cart Page
+      </a>
+      <a href="/checkout" class="btn btn--primary" style="display: block; width: 100%; padding: 0.9rem; text-align: center; background: var(--color-primary, #2D6A4F); color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1rem;">
+        Checkout &rarr;
+      </a>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "tag": "section",
+  "class": "section-cart-drawer",
+  "settings": []
+}
+{% endschema %}

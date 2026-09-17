@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "rich-text-intro": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "text": "<p>Find answers to the most commonly asked questions about Leafanoo. Can't find what you're looking for? <a href=\"/pages/contact\">Contact our support team</a> and we'll be happy to help.</p>",
+        "button_label": "Contact Support",
+        "button_link": "/pages/contact",
+        "button_style": "secondary",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "text_alignment": "center"
+      }
+    },
+    "faq-accordion": {
+      "type": "faq-accordion",
+      "settings": {
+        "heading": "Common Questions",
+        "heading_size": "h2",
+        "color_scheme": "background-1",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "open_first_item": true
+      },
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard shipping takes 3–7 business days within the US. Express shipping (2 business days) is available at checkout. International orders typically take 7–14 business days.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer free shipping?",
+            "answer": "<p>Yes! We offer free standard shipping on all US orders over $50. Orders below $50 ship for a flat rate of $5.99.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day hassle-free return policy. If you're not 100% satisfied with your purchase, simply contact us and we'll arrange a free return and full refund — no questions asked.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order ships, you'll receive a confirmation email with your tracking number. You can track your order directly on our website or through the carrier's website.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Orders can be modified or cancelled within 2 hours of placement. After that, our fulfilment team will have already begun processing your order. Please contact us immediately at support@leafanoo.com.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are my payment details secure?",
+            "answer": "<p>Absolutely. All transactions are processed through Shopify Payments which is PCI DSS Level 1 compliant — the highest level of security for online payments. Your card details are never stored on our servers.</p>"
+          }
+        },
+        "faq-7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, we ship to most countries worldwide. International shipping rates and delivery times are calculated at checkout based on your location and chosen shipping method.</p>"
+          }
+        },
+        "faq-8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I contact customer support?",
+            "answer": "<p>Our customer support team is available Monday–Friday, 9am–6pm EST. You can reach us by email at support@leafanoo.com, by phone at +1 (800) 555-LEAF, or via our <a href=\"/pages/contact\">contact form</a>.</p>"
+          }
+        }
+      },
+      "block_order": ["faq-1","faq-2","faq-3","faq-4","faq-5","faq-6","faq-7","faq-8"]
+    }
+  },
+  "order": ["rich-text-intro","faq-accordion"]
+}

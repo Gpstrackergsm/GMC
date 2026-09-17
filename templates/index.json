@@ -1,0 +1,156 @@
+{
+  "sections": {
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Welcome to Leafanoo",
+        "subheading": "Discover quality products for every lifestyle — curated just for you.",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all",
+        "button_style": "primary",
+        "image_overlay_opacity": 40,
+        "min_height": 600,
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "show_breadcrumb": false
+      }
+    },
+    "featured-collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Shop by Category",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "image_ratio": "square",
+        "show_collection_description": false,
+        "show_collection_image": true,
+        "button_label": "View All Collections",
+        "button_link": "/collections"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "featured_collection",
+          "settings": { "collection": "", "custom_label": "" }
+        },
+        "collection-2": {
+          "type": "featured_collection",
+          "settings": { "collection": "", "custom_label": "" }
+        },
+        "collection-3": {
+          "type": "featured_collection",
+          "settings": { "collection": "", "custom_label": "" }
+        },
+        "collection-4": {
+          "type": "featured_collection",
+          "settings": { "collection": "", "custom_label": "" }
+        }
+      },
+      "block_order": ["collection-1","collection-2","collection-3","collection-4"]
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured Products",
+        "heading_size": "h2",
+        "collection": "",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "button_label": "Shop All Products",
+        "button_link": "/collections/all",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "image_ratio": "adapt",
+        "heading": "Our Story",
+        "heading_size": "h2",
+        "body": "<p>At Leafanoo, we believe great products should be accessible to everyone. We hand-pick every item in our catalog to ensure quality, value, and customer satisfaction.</p>",
+        "button_label": "Learn More About Us",
+        "button_link": "/pages/about",
+        "button_style": "secondary",
+        "color_scheme": "background-2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "settings": {
+        "heading": "Why Shop With Us?",
+        "color_scheme": "background-1",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "trust-1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free Shipping",
+            "subtext": "On all orders over $50. Fast, reliable delivery to your door."
+          }
+        },
+        "trust-2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shield-check",
+            "heading": "Secure Payments",
+            "subtext": "Shop with confidence. All transactions are SSL encrypted."
+          }
+        },
+        "trust-3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "return",
+            "heading": "Easy Returns",
+            "subtext": "30-day hassle-free return policy. No questions asked."
+          }
+        },
+        "trust-4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "chat-bubble",
+            "heading": "24/7 Support",
+            "subtext": "Our friendly team is here to help you any time you need."
+          }
+        }
+      },
+      "block_order": ["trust-1","trust-2","trust-3","trust-4"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Stay in the Loop",
+        "subheading": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.",
+        "placeholder": "Your email address",
+        "button_label": "Subscribe",
+        "disclaimer": "<p>By subscribing, you agree to receive marketing emails from Leafanoo. Unsubscribe anytime.</p>",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero-banner",
+    "featured-collections",
+    "featured-products",
+    "image-with-text",
+    "trust-bar",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,93 @@
+<div class="customer register section-padding">
+  <div class="container" style="max-width: 500px; margin: 0 auto; padding: 3rem 1rem;">
+    <h1 class="page-title text-center" style="font-family: var(--font-heading-family, serif); margin-bottom: 2rem; text-align: center;">
+      {{ 'customer.register.title' | default: 'Create Account' }}
+    </h1>
+
+    {%- form 'create_customer', novalidate: 'novalidate', class: 'form-customer' -%}
+      {%- if form.errors -%}
+        <div class="form-message form-message--error" tabindex="-1" autofocus style="color: var(--color-error, #C0392B); margin-bottom: 1.5rem; background: #FDEDEC; padding: 1rem; border-radius: 6px;">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <div class="form-field" style="margin-bottom: 1.25rem;">
+        <label for="RegisterForm-FirstName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">
+          {{ 'customer.register.first_name' | default: 'First Name' }}
+        </label>
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+          autocomplete="given-name"
+          placeholder="{{ 'customer.register.first_name' | default: 'First Name' }}"
+          class="form-input"
+          style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 1rem;"
+        >
+      </div>
+
+      <div class="form-field" style="margin-bottom: 1.25rem;">
+        <label for="RegisterForm-LastName" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">
+          {{ 'customer.register.last_name' | default: 'Last Name' }}
+        </label>
+        <input
+          type="text"
+          name="customer[last_name]"
+          id="RegisterForm-LastName"
+          {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+          autocomplete="family-name"
+          placeholder="{{ 'customer.register.last_name' | default: 'Last Name' }}"
+          class="form-input"
+          style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 1rem;"
+        >
+      </div>
+
+      <div class="form-field" style="margin-bottom: 1.25rem;">
+        <label for="RegisterForm-email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">
+          {{ 'customer.register.email' | default: 'Email Address' }} *
+        </label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          {% if form.email %}value="{{ form.email }}"{% endif %}
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          required
+          placeholder="{{ 'customer.register.email' | default: 'Email Address' }}"
+          class="form-input"
+          style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 1rem;"
+        >
+      </div>
+
+      <div class="form-field" style="margin-bottom: 1.75rem;">
+        <label for="RegisterForm-password" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">
+          {{ 'customer.register.password' | default: 'Password' }} *
+        </label>
+        <input
+          type="password"
+          name="customer[password]"
+          id="RegisterForm-password"
+          aria-required="true"
+          required
+          placeholder="{{ 'customer.register.password' | default: 'Password' }}"
+          class="form-input"
+          style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 1rem;"
+        >
+      </div>
+
+      <button type="submit" class="btn btn--primary" style="width: 100%; padding: 0.85rem; background: var(--color-primary, #2D6A4F); color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+        {{ 'customer.register.submit' | default: 'Create Account' }}
+      </button>
+
+      <div class="form-footer text-center" style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;">
+        <a href="{{ routes.account_login_url }}" style="color: var(--color-primary, #2D6A4F); text-decoration: underline;">
+          {{ 'customer.register.have_account' | default: 'Already have an account? Sign in' }}
+        </a>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
