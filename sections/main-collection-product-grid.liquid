@@ -13,7 +13,8 @@
       {%- endif -%}
     </div>
 
-    {%- paginate collection.products by section.settings.products_per_page | default: 24 -%}
+    {%- assign per_page = section.settings.products_per_page | default: 24 -%}
+    {%- paginate collection.products by per_page -%}
       
       <!-- Toolbar: Filters & Sorting -->
       <div class="collection-toolbar" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border, #E8E8E0); border-bottom: 1px solid var(--color-border, #E8E8E0); padding: 1rem 0; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
