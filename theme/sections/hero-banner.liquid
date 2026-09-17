@@ -1,7 +1,6 @@
 {%- liquid
   assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
-  assign text_align = section.settings.text_alignment
-  assign btn_style = section.settings.button_style
+  assign text_align = section.settings.text_alignment | default: 'center'
   assign heading_tag = section.settings.heading_size | default: 'h1'
 -%}
 
@@ -9,7 +8,7 @@
   class="hero-banner section-{{ section.id }}"
   aria-label="{{ section.settings.heading | escape | default: 'Hero banner' }}"
 >
-  <div class="hero-banner__media" style="min-height: {{ section.settings.min_height }}px;">
+  <div class="hero-banner__media" style="min-height: {{ section.settings.min_height | default: 580 }}px;">
     {%- if section.settings.image != blank -%}
       <picture class="hero-banner__picture">
         {%- if section.settings.mobile_image != blank -%}
@@ -41,37 +40,79 @@
           class="hero-banner__img"
         >
       </picture>
+      <div
+        class="hero-banner__overlay"
+        aria-hidden="true"
+        style="background-color: rgba(13, 35, 25, {{ overlay_opacity }});"
+      ></div>
     {%- else -%}
-      <div class="hero-banner__placeholder" aria-hidden="true">
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-banner__placeholder-svg' }}
+      <!-- Luxury Modern Mesh Gradient Fallback -->
+      <div class="hero-banner__ambient-bg" aria-hidden="true">
+        <div class="hero-banner__glow hero-banner__glow--1"></div>
+        <div class="hero-banner__glow hero-banner__glow--2"></div>
+        <div class="hero-banner__grid-pattern"></div>
       </div>
     {%- endif -%}
 
-    <div
-      class="hero-banner__overlay"
-      aria-hidden="true"
-      style="background-color: rgba(0,0,0,{{ overlay_opacity }});"
-    ></div>
-
     <div class="hero-banner__content hero-banner__content--{{ text_align }}">
+      <!-- Top Badge Pill -->
+      <div class="hero-banner__badge">
+        <span class="hero-banner__badge-dot"></span>
+        <span>{{ section.settings.badge_text | default: 'Verified Google Merchant • 1,000+ Trending Essentials' }}</span>
+      </div>
+
       {%- if section.settings.heading != blank -%}
         <{{ heading_tag }} class="hero-banner__heading">
-          {{ section.settings.heading | escape }}
+          {{ section.settings.heading }}
         </{{ heading_tag }}>
       {%- endif -%}
 
       {%- if section.settings.subheading != blank -%}
-        <p class="hero-banner__subheading">{{ section.settings.subheading | escape }}</p>
+        <p class="hero-banner__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
 
-      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-        <a
-          href="{{ section.settings.button_link }}"
-          class="hero-banner__btn btn btn--{{ btn_style }}"
-        >
-          {{ section.settings.button_label | escape }}
-        </a>
-      {%- endif -%}
+      <div class="hero-banner__actions">
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="hero-banner__btn btn btn--primary btn--lg"
+          >
+            {{ section.settings.button_label | escape }}
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_button_label != blank and section.settings.secondary_button_link != blank -%}
+          <a
+            href="{{ section.settings.secondary_button_link }}"
+            class="hero-banner__btn btn btn--outline btn--lg"
+          >
+            {{ section.settings.secondary_button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <!-- Trust Metrics Bar in Hero -->
+      <div class="hero-banner__stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-icon">✓</span>
+          <span class="hero-stat-text"><strong>1,000+</strong> Verified Products</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-icon">⭐</span>
+          <span class="hero-stat-text"><strong>4.9/5</strong> Rating (2.4k+ Reviews)</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-icon">🚚</span>
+          <span class="hero-stat-text"><strong>Fast</strong> Tracked Shipping</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-icon">🔒</span>
+          <span class="hero-stat-text"><strong>30-Day</strong> Returns Guarantee</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -83,9 +124,9 @@
     display: flex;
     align-items: center;
     width: 100%;
+    background: linear-gradient(135deg, #0d2319 0%, #173d2c 50%, #0f2b1f 100%);
   }
-  .hero-banner__picture,
-  .hero-banner__placeholder {
+  .hero-banner__picture {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -97,100 +138,172 @@
     object-fit: cover;
     display: block;
   }
-  .hero-banner__placeholder-svg {
-    width: 100%;
-    height: 100%;
-  }
-  .hero-banner__placeholder { background-color: #d8f3dc; }
   .hero-banner__overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 1;
+  }
+  .hero-banner__ambient-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero-banner__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+  }
+  .hero-banner__glow--1 {
+    top: -10%;
+    left: 20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #52B788 0%, rgba(82,183,136,0) 70%);
+  }
+  .hero-banner__glow--2 {
+    bottom: -15%;
+    right: 15%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #D4A853 0%, rgba(212,168,83,0) 70%);
+    opacity: 0.2;
+  }
+  .hero-banner__grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
   .hero-banner__content {
     position: relative;
-    z-index: 1;
-    padding: 48px 24px;
-    max-width: 1440px;
+    z-index: 2;
+    padding: 64px 24px;
+    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
-  .hero-banner__content--left  { align-items: flex-start; text-align: left; }
+  .hero-banner__content--left   { align-items: flex-start; text-align: left; }
   .hero-banner__content--center { align-items: center;    text-align: center; }
   .hero-banner__content--right  { align-items: flex-end;  text-align: right; }
+
+  .hero-banner__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #E8F5EE;
+    letter-spacing: 0.03em;
+  }
+  .hero-banner__badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #52B788;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #52B788;
+  }
   .hero-banner__heading {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 700;
+    font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+    font-weight: 800;
     color: #ffffff;
     margin: 0;
     line-height: 1.15;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
   }
   .hero-banner__subheading {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(255,255,255,0.93);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.92);
     margin: 0;
-    max-width: 600px;
-    line-height: 1.6;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    max-width: 780px;
+    line-height: 1.65;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .hero-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
   }
   .hero-banner__btn {
     display: inline-flex;
     align-items: center;
-    padding: 14px 32px;
-    border-radius: 4px;
+    gap: 8px;
+    padding: 16px 36px;
+    border-radius: 8px;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.02em;
-    margin-top: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .hero-banner__btn.btn--primary {
-    background-color: #2D6A4F;
-    color: #fff;
-    border: 2px solid #2D6A4F;
+    background: linear-gradient(135deg, #2D6A4F 0%, #1b4332 100%);
+    color: #ffffff;
+    border: 2px solid #52B788;
+    box-shadow: 0 8px 24px rgba(45,106,79,0.5);
   }
-  .hero-banner__btn.btn--primary:hover,
-  .hero-banner__btn.btn--primary:focus-visible {
-    background-color: #1b4332;
-    border-color: #1b4332;
-    box-shadow: 0 4px 16px rgba(45,106,79,0.4);
-  }
-  .hero-banner__btn.btn--secondary {
-    background-color: #fff;
-    color: #2D6A4F;
-    border: 2px solid #fff;
-  }
-  .hero-banner__btn.btn--secondary:hover,
-  .hero-banner__btn.btn--secondary:focus-visible {
-    background-color: #FAFAF7;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  .hero-banner__btn.btn--primary:hover {
+    background: linear-gradient(135deg, #40916C 0%, #2D6A4F 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(82,183,136,0.5);
   }
   .hero-banner__btn.btn--outline {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.35);
   }
-  .hero-banner__btn.btn--outline:hover,
-  .hero-banner__btn.btn--outline:focus-visible {
-    background-color: rgba(255,255,255,0.15);
+  .hero-banner__btn.btn--outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    transform: translateY(-2px);
   }
-  .hero-banner__btn:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 3px;
+  .hero-banner__stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    width: 100%;
+  }
+  .hero-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+  }
+  .hero-stat-icon {
+    font-size: 1rem;
+  }
+  .hero-stat-text strong {
+    color: #ffffff;
   }
   @media (max-width: 749px) {
-    .hero-banner__content { padding: 32px 16px; }
-    .hero-banner__content--right { align-items: flex-start; text-align: left; }
-    .hero-banner__subheading { max-width: 100%; }
+    .hero-banner__content { padding: 48px 16px; }
+    .hero-banner__actions { flex-direction: column; width: 100%; }
+    .hero-banner__btn { width: 100%; justify-content: center; }
+    .hero-banner__stats { flex-direction: column; align-items: flex-start; gap: 12px; }
   }
 </style>
 
@@ -202,7 +315,13 @@
   "settings": [
     {
       "type": "header",
-      "content": "Image"
+      "content": "Badge & Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Verified Google Merchant • 1,000+ Trending Essentials"
     },
     {
       "type": "image_picker",
@@ -228,10 +347,10 @@
       "type": "range",
       "id": "min_height",
       "label": "Minimum height",
-      "min": 400,
+      "min": 450,
       "max": 900,
       "step": 50,
-      "default": 600,
+      "default": 580,
       "unit": "px"
     },
     {
@@ -242,7 +361,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Welcome to Leafanoo"
+      "default": "Curated Essentials, Engineered for Everyday Living"
     },
     {
       "type": "select",
@@ -255,32 +374,34 @@
       "default": "h1"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Discover quality products at everyday prices."
+      "default": "Discover high-utility, manufacturer-verified physical products across 10 trending departments with fast tracked shipping and 30-day money-back guarantee."
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Button label",
-      "default": "Shop Now"
+      "label": "Primary Button Label",
+      "default": "Shop 1,000+ Products"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link"
+      "label": "Primary Button Link",
+      "default": "/collections/all"
     },
     {
-      "type": "select",
-      "id": "button_style",
-      "label": "Button style",
-      "options": [
-        { "value": "primary",   "label": "Primary" },
-        { "value": "secondary", "label": "Secondary" },
-        { "value": "outline",   "label": "Outline" }
-      ],
-      "default": "primary"
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Label",
+      "default": "Explore Departments"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link",
+      "default": "/collections"
     },
     {
       "type": "select",
@@ -298,13 +419,13 @@
     {
       "name": "Hero Banner",
       "settings": {
-        "heading": "Welcome to Leafanoo",
-        "subheading": "Quality products, everyday prices.",
-        "button_label": "Shop All",
-        "button_style": "primary",
-        "text_alignment": "center",
-        "overlay_opacity": 40,
-        "min_height": 600
+        "heading": "Curated Essentials, Engineered for Everyday Living",
+        "subheading": "Discover high-utility, manufacturer-verified physical products across 10 trending departments with fast tracked shipping and 30-day money-back guarantee.",
+        "button_label": "Shop 1,000+ Products",
+        "button_link": "/collections/all",
+        "secondary_button_label": "Explore Departments",
+        "secondary_button_link": "/collections",
+        "text_alignment": "center"
       }
     }
   ]
