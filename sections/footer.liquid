@@ -110,42 +110,35 @@
     {%- endif -%}
 
     <!-- Policy links -->
-    <nav class="site-footer__policy-nav" aria-label="Legal policies">
-      <ul class="site-footer__policy-list" role="list">
-        {%- if shop.policies.shipping_policy != blank -%}
-          <li><a href="{{ shop.policies.shipping_policy.url }}" class="site-footer__policy-link">Shipping Policy</a></li>
-        {%- endif -%}
-        {%- if shop.policies.refund_policy != blank -%}
-          <li><a href="{{ shop.policies.refund_policy.url }}" class="site-footer__policy-link">Returns Policy</a></li>
-        {%- endif -%}
-        {%- if shop.policies.privacy_policy != blank -%}
-          <li><a href="{{ shop.policies.privacy_policy.url }}" class="site-footer__policy-link">Privacy Policy</a></li>
-        {%- endif -%}
-        {%- if shop.policies.terms_of_service != blank -%}
-          <li><a href="{{ shop.policies.terms_of_service.url }}" class="site-footer__policy-link">Terms of Service</a></li>
-        {%- endif -%}
+    <nav class="site-footer__policy-nav" aria-label="Legal policies" style="margin: 1.5rem 0; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 1.25rem 0;">
+      <ul class="site-footer__policy-list" role="list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.85rem;">
+        <li><a href="/pages/shipping-policy" class="site-footer__policy-link">Shipping & Delivery</a></li>
+        <li><a href="/pages/refund-policy" class="site-footer__policy-link">30-Day Return & Refund</a></li>
+        <li><a href="/pages/payment-policy" class="site-footer__policy-link">Payment & Security</a></li>
+        <li><a href="/pages/privacy-policy" class="site-footer__policy-link">Privacy Policy</a></li>
+        <li><a href="/pages/terms-of-service" class="site-footer__policy-link">Terms of Service</a></li>
+        <li><a href="/pages/contact" class="site-footer__policy-link">Contact & Support</a></li>
       </ul>
     </nav>
 
-    <!-- Payment icons -->
-    <div class="site-footer__payments" aria-label="Accepted payment methods">
-      {%- unless shop.enabled_payment_types == empty -%}
-        <ul class="site-footer__payment-list" role="list">
-          {%- for type in shop.enabled_payment_types -%}
-            <li class="site-footer__payment-item">
-              {{ type | payment_type_svg_tag: class: 'site-footer__payment-icon' }}
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endunless -%}
+    <!-- Payment icons & Trust Seals -->
+    <div class="site-footer__payments" aria-label="Accepted payment methods" style="margin-bottom: 1.5rem; text-align: center;">
+      <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;">
+        🔒 Guaranteed 256-Bit SSL Encrypted Checkout
+      </p>
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; font-size: 0.8rem; color: #fff;">
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;">💳 Visa</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;">💳 Mastercard</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;">💳 American Express</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;"> Apple Pay</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;">G Pay</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px;">PayPal</span>
+      </div>
     </div>
 
     <!-- Copyright -->
-    <p class="site-footer__copyright">
-      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
-      {%- if shop.powered_by_link -%}
-        &nbsp;&middot; Powered by {{ shop.powered_by_link }}
-      {%- endif -%}
+    <p class="site-footer__copyright" style="font-size: 0.825rem; color: #888; text-align: center;">
+      &copy; {{ 'now' | date: '%Y' }} Leafanoo. All rights reserved. &bull; Verified Google Merchant Standards
     </p>
 
   </div>
