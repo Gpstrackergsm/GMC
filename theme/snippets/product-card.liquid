@@ -47,21 +47,23 @@
     >
       <div class="product-card__media {{ ratio_class }}">
         {%- if card_image -%}
+          {%- assign card_alt = card_image.alt | default: product.title | escape -%}
           {%- render 'image-srcset',
             image: card_image,
             widths: '375,550,750,1000',
             sizes: '(min-width: 1200px) 300px, (min-width: 768px) 33vw, 50vw',
             class: 'product-card__image',
-            alt: card_image.alt | default: product.title | escape,
+            alt: card_alt,
             lazy: lazy
           -%}
           {%- if product.images[1] != blank and product.images[1] != card_image -%}
+            {%- assign hover_alt = product.images[1].alt | default: product.title | escape -%}
             {%- render 'image-srcset',
               image: product.images[1],
               widths: '375,550,750,1000',
               sizes: '(min-width: 1200px) 300px, (min-width: 768px) 33vw, 50vw',
               class: 'product-card__image product-card__image--hover',
-              alt: product.images[1].alt | default: product.title | escape,
+              alt: hover_alt,
               lazy: true
             -%}
           {%- endif -%}

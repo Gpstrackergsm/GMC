@@ -11,7 +11,7 @@
         "secondary_button_label": "Explore Departments",
         "secondary_button_link": "/collections",
         "overlay_opacity": 40,
-        "min_height": 580,
+        "min_height": 600,
         "text_alignment": "center"
       }
     },
