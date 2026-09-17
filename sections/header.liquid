@@ -32,64 +32,90 @@
     </button>
 
     <!-- Logo -->
-    <a href="{{ routes.root_url }}" class="site-header__logo-link" aria-label="{{ shop.name }} - Home">
+    {%- assign logo_text = section.settings.custom_logo_text | default: 'Leafanoo' -%}
+    {%- if logo_text == 'Ma boutique' or logo_text == '' -%}
+      {%- assign logo_text = 'Leafanoo' -%}
+    {%- endif -%}
+    <a href="{{ routes.root_url }}" class="site-header__logo-link" aria-label="{{ logo_text }} - Home">
       {%- if section.settings.logo != blank -%}
         <img
           src="{{ section.settings.logo | image_url: width: logo_width }}"
           srcset="{{ section.settings.logo | image_url: width: logo_width }} 1x,
                   {{ section.settings.logo | image_url: width: logo_width | times: 2 }} 2x"
-          alt="{{ shop.name }}"
+          alt="{{ logo_text }}"
           width="{{ logo_width }}"
           height="{{ section.settings.logo.height | times: logo_width | divided_by: section.settings.logo.width }}"
           loading="eager"
           class="site-header__logo-img"
         >
       {%- else -%}
-        <span class="site-header__logo-text">{{ shop.name }}</span>
+        <span class="site-header__logo-text" style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.6rem; color: #2D6A4F; font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.02em;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: #52B788;" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          {{ logo_text }}
+        </span>
       {%- endif -%}
     </a>
 
     <!-- Desktop mega-menu nav -->
     <nav class="site-header__nav" aria-label="Main navigation">
       <ul class="site-header__nav-list" role="list">
-        {%- for link in main_menu.links -%}
-          {%- if link.links != blank -%}
-            <li class="site-header__nav-item site-header__nav-item--has-dropdown">
-              <a
-                href="{{ link.url }}"
-                class="site-header__nav-link"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {{ link.title | escape }}
-                <svg class="site-header__chevron" aria-hidden="true" focusable="false" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <div class="site-header__mega-panel" role="region" aria-label="{{ link.title | escape }} sub-menu">
-                <ul class="site-header__mega-list" role="list">
-                  {%- for child in link.links -%}
-                    <li class="site-header__mega-item">
-                      <a href="{{ child.url }}" class="site-header__mega-link">
-                        {{ child.title | escape }}
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </li>
-          {%- else -%}
-            <li class="site-header__nav-item">
-              <a
-                href="{{ link.url }}"
-                class="site-header__nav-link{% if link.active %} site-header__nav-link--active{% endif %}"
-                {% if link.active %}aria-current="page"{% endif %}
-              >
-                {{ link.title | escape }}
-              </a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
+        {%- if main_menu.links != blank and main_menu.links.first.title != 'Accueil' -%}
+          {%- for link in main_menu.links -%}
+            {%- if link.links != blank -%}
+              <li class="site-header__nav-item site-header__nav-item--has-dropdown">
+                <a
+                  href="{{ link.url }}"
+                  class="site-header__nav-link"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {{ link.title | escape }}
+                  <svg class="site-header__chevron" aria-hidden="true" focusable="false" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <div class="site-header__mega-panel" role="region" aria-label="{{ link.title | escape }} sub-menu">
+                  <ul class="site-header__mega-list" role="list">
+                    {%- for child in link.links -%}
+                      <li class="site-header__mega-item">
+                        <a href="{{ child.url }}" class="site-header__mega-link">
+                          {{ child.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </li>
+            {%- else -%}
+              <li class="site-header__nav-item">
+                <a
+                  href="{{ link.url }}"
+                  class="site-header__nav-link{% if link.active %} site-header__nav-link--active{% endif %}"
+                  {% if link.active %}aria-current="page"{% endif %}
+                >
+                  {{ link.title | escape }}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          <!-- Clean English E-commerce Navigation -->
+          <li class="site-header__nav-item">
+            <a href="{{ routes.root_url }}" class="site-header__nav-link site-header__nav-link--active">Home</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/collections/all" class="site-header__nav-link">Catalog (1,000+)</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/collections" class="site-header__nav-link">Departments</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/pages/about" class="site-header__nav-link">About Us</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/pages/contact" class="site-header__nav-link">Contact & Tracking</a>
+          </li>
+        {%- endif -%}
       </ul>
     </nav>
 
