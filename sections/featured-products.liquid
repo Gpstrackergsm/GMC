@@ -16,6 +16,12 @@
     {%- endif -%}
 
     {%- assign collection = section.settings.collection -%}
+    {%- if collection == blank or collection.products.size == 0 -%}
+      {%- assign collection = collections['all'] -%}
+      {%- if collection == blank or collection.products.size == 0 -%}
+        {%- assign collection = collections.first -%}
+      {%- endif -%}
+    {%- endif -%}
     {%- assign limit = section.settings.products_to_show | default: 8 -%}
 
     <div class="product-grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop | default: 4 }}, 1fr); gap: 1.5rem;">
