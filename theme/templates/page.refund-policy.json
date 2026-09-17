@@ -1,9 +1,11 @@
 {
   "sections": {
     "main": {
-      "type": "main-contact",
+      "type": "policy-refund",
       "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
