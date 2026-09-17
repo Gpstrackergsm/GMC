@@ -1,0 +1,312 @@
+{%- liquid
+  assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
+  assign text_align = section.settings.text_alignment
+  assign btn_style = section.settings.button_style
+  assign heading_tag = section.settings.heading_size | default: 'h1'
+-%}
+
+<section
+  class="hero-banner section-{{ section.id }}"
+  aria-label="{{ section.settings.heading | escape | default: 'Hero banner' }}"
+>
+  <div class="hero-banner__media" style="min-height: {{ section.settings.min_height }}px;">
+    {%- if section.settings.image != blank -%}
+      <picture class="hero-banner__picture">
+        {%- if section.settings.mobile_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ section.settings.mobile_image | image_url: width: 750 }} 750w,
+              {{ section.settings.mobile_image | image_url: width: 1100 }} 1100w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        <source
+          media="(min-width: 750px)"
+          srcset="
+            {{ section.settings.image | image_url: width: 1500 }} 1500w,
+            {{ section.settings.image | image_url: width: 1800 }} 1800w,
+            {{ section.settings.image | image_url: width: 2400 }} 2400w
+          "
+          sizes="100vw"
+        >
+        <img
+          src="{{ section.settings.image | image_url: width: 1500 }}"
+          alt="{{ section.settings.image.alt | escape | default: section.settings.heading | escape }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          loading="eager"
+          fetchpriority="high"
+          class="hero-banner__img"
+        >
+      </picture>
+    {%- else -%}
+      <div class="hero-banner__placeholder" aria-hidden="true">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-banner__placeholder-svg' }}
+      </div>
+    {%- endif -%}
+
+    <div
+      class="hero-banner__overlay"
+      aria-hidden="true"
+      style="background-color: rgba(0,0,0,{{ overlay_opacity }});"
+    ></div>
+
+    <div class="hero-banner__content hero-banner__content--{{ text_align }}">
+      {%- if section.settings.heading != blank -%}
+        <{{ heading_tag }} class="hero-banner__heading">
+          {{ section.settings.heading | escape }}
+        </{{ heading_tag }}>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="hero-banner__subheading">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <a
+          href="{{ section.settings.button_link }}"
+          class="hero-banner__btn btn btn--{{ btn_style }}"
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-{{ section.id }} .hero-banner__media {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-banner__picture,
+  .hero-banner__placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-banner__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-banner__placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .hero-banner__placeholder { background-color: #d8f3dc; }
+  .hero-banner__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .hero-banner__content {
+    position: relative;
+    z-index: 1;
+    padding: 48px 24px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-banner__content--left  { align-items: flex-start; text-align: left; }
+  .hero-banner__content--center { align-items: center;    text-align: center; }
+  .hero-banner__content--right  { align-items: flex-end;  text-align: right; }
+  .hero-banner__heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .hero-banner__subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.93);
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.6;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  }
+  .hero-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+  }
+  .hero-banner__btn.btn--primary {
+    background-color: #2D6A4F;
+    color: #fff;
+    border: 2px solid #2D6A4F;
+  }
+  .hero-banner__btn.btn--primary:hover,
+  .hero-banner__btn.btn--primary:focus-visible {
+    background-color: #1b4332;
+    border-color: #1b4332;
+    box-shadow: 0 4px 16px rgba(45,106,79,0.4);
+  }
+  .hero-banner__btn.btn--secondary {
+    background-color: #fff;
+    color: #2D6A4F;
+    border: 2px solid #fff;
+  }
+  .hero-banner__btn.btn--secondary:hover,
+  .hero-banner__btn.btn--secondary:focus-visible {
+    background-color: #FAFAF7;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .hero-banner__btn.btn--outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  .hero-banner__btn.btn--outline:hover,
+  .hero-banner__btn.btn--outline:focus-visible {
+    background-color: rgba(255,255,255,0.15);
+  }
+  .hero-banner__btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
+  @media (max-width: 749px) {
+    .hero-banner__content { padding: 32px 16px; }
+    .hero-banner__content--right { align-items: flex-start; text-align: left; }
+    .hero-banner__subheading { max-width: 100%; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "default": 40,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "default": 600,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Leafanoo"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover quality products at everyday prices."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary",   "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "outline",   "label": "Outline" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "settings": {
+        "heading": "Welcome to Leafanoo",
+        "subheading": "Quality products, everyday prices.",
+        "button_label": "Shop All",
+        "button_style": "primary",
+        "text_alignment": "center",
+        "overlay_opacity": 40,
+        "min_height": 600
+      }
+    }
+  ]
+}
+{% endschema %}

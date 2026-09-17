@@ -1,0 +1,110 @@
+{%- comment -%}
+  Snippet: meta-tags.liquid
+  All SEO meta tags, OG tags, Twitter Card.
+  Output inside <head> from theme.liquid.
+  Usage: {%- render 'meta-tags' -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign page_title       = ''
+  assign page_description = ''
+  assign page_image       = ''
+  assign page_url         = canonical_url | default: shop.url
+
+  case template.name
+    when 'index'
+      assign page_title       = shop.name
+      assign page_description = shop.description | default: 'Shop quality general merchandise at Leafanoo.'
+      assign page_image       = settings.og_image | default: settings.logo
+    when 'product'
+      assign page_title       = product.seo.title | default: product.title | append: ' – ' | append: shop.name
+      assign page_description = product.seo.description | default: product.description | strip_html | truncate: 160
+      assign page_image       = product.featured_image
+    when 'collection'
+      assign page_title       = collection.seo.title | default: collection.title | append: ' – ' | append: shop.name
+      assign page_description = collection.seo.description | default: collection.description | strip_html | truncate: 160
+      assign page_image       = collection.image | default: settings.og_image
+    when 'article'
+      assign page_title       = article.seo.title | default: article.title | append: ' – ' | append: shop.name
+      assign page_description = article.seo.description | default: article.excerpt | strip_html | truncate: 160
+      assign page_image       = article.image | default: settings.og_image
+    when 'blog'
+      assign page_title       = blog.title | append: ' – ' | append: shop.name
+      assign page_description = blog.description | default: 'Read the latest articles from Leafanoo.' | strip_html | truncate: 160
+      assign page_image       = settings.og_image
+    when 'page'
+      assign page_title       = page.seo.title | default: page.title | append: ' – ' | append: shop.name
+      assign page_description = page.seo.description | default: page.content | strip_html | truncate: 160
+      assign page_image       = settings.og_image
+    when 'search'
+      assign page_title       = 'Search – ' | append: shop.name
+      assign page_description = 'Search our store.' | append: ' – ' | append: shop.name
+      assign page_image       = settings.og_image
+    when '404'
+      assign page_title       = 'Page Not Found – ' | append: shop.name
+      assign page_description = 'The page you are looking for does not exist.'
+      assign page_image       = settings.og_image
+    else
+      assign page_title       = page_title | default: shop.name
+      assign page_description = shop.description | default: 'Leafanoo – Quality general merchandise.'
+      assign page_image       = settings.og_image
+  endcase
+
+  assign page_description = page_description | strip_html | strip
+-%}
+
+{%- comment -%} Title {%- endcomment -%}
+<title>{{ page_title | escape }}</title>
+
+{%- comment -%} Meta description {%- endcomment -%}
+{%- if page_description != blank -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+{%- comment -%} Canonical {%- endcomment -%}
+<link rel="canonical" href="{{ canonical_url }}">
+
+{%- comment -%} Robots {%- endcomment -%}
+{%- if template.name == '404' or template.name == 'search' -%}
+  <meta name="robots" content="noindex, follow">
+{%- else -%}
+  <meta name="robots" content="index, follow">
+{%- endif -%}
+
+{%- comment -%} Open Graph {%- endcomment -%}
+<meta property="og:site_name" content="{{ shop.name | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+{%- if page_description != blank -%}
+  <meta property="og:description" content="{{ page_description | escape }}">
+{%- endif -%}
+{%- if template.name == 'article' -%}
+  <meta property="og:type" content="article">
+  {%- if article.published_at -%}
+    <meta property="article:published_time" content="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">
+  {%- endif -%}
+{%- elsif template.name == 'product' -%}
+  <meta property="og:type" content="product">
+  <meta property="product:price:amount" content="{{ product.price | divided_by: 100.0 }}">
+  <meta property="product:price:currency" content="{{ shop.currency }}">
+{%- else -%}
+  <meta property="og:type" content="website">
+{%- endif -%}
+{%- if page_image != blank -%}
+  <meta property="og:image" content="{{ page_image | image_url: width: 1200 | prepend: 'https:' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:secure_url" content="{{ page_image | image_url: width: 1200 | prepend: 'https:' }}">
+{%- endif -%}
+
+{%- comment -%} Twitter Card {%- endcomment -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+{%- if page_description != blank -%}
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+{%- endif -%}
+{%- if page_image != blank -%}
+  <meta name="twitter:image" content="{{ page_image | image_url: width: 1200 | prepend: 'https:' }}">
+{%- endif -%}
+{%- if settings.social_twitter_handle != blank -%}
+  <meta name="twitter:site" content="@{{ settings.social_twitter_handle | remove: '@' }}">
+{%- endif -%}

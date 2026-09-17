@@ -1,0 +1,52 @@
+<div class="related-products-section section-padding" style="padding: 3rem 0; border-top: 1px solid var(--color-border, #E8E8E0);">
+  <div class="container">
+    <div class="section-header text-center" style="margin-bottom: 2.5rem; text-align: center;">
+      <h2 style="font-family: var(--font-heading-family, serif); font-size: 2rem; color: var(--color-text, #1A1A1A);">
+        {{ section.settings.heading | default: 'You May Also Like' }}
+      </h2>
+    </div>
+
+    {%- assign current_product_id = product.id -%}
+    {%- assign related_collection = product.collections.first -%}
+    {%- assign limit = section.settings.products_to_show | default: 4 -%}
+
+    <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem;">
+      {%- if related_collection != blank -%}
+        {%- assign shown_count = 0 -%}
+        {%- for item in related_collection.products -%}
+          {%- if item.id != current_product_id and shown_count < limit -%}
+            <div class="product-grid-item">
+              {% render 'product-card', product: item, show_vendor: true, show_quick_add: true %}
+            </div>
+            {%- assign shown_count = shown_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Related Products",
+  "tag": "section",
+  "class": "section-related-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Related Products in This Department"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Products to Show"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,152 @@
+<div class="cart-page-section section-padding" style="padding: 2.5rem 0 4rem 0;">
+  <div class="container">
+    <h1 style="font-family: var(--font-heading-family, serif); font-size: 2.25rem; margin-bottom: 2rem; text-align: center;">
+      {{ 'cart.general.title' | default: 'Your Cart' }}
+    </h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" id="cart" class="cart-form">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;">
+          
+          <!-- Line Items List -->
+          <div class="cart-items-list">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--color-border, #E8E8E0); text-align: left;">
+                  <th style="padding: 1rem 0.5rem; font-size: 0.85rem; text-transform: uppercase;">Product</th>
+                  <th style="padding: 1rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: center;">Quantity</th>
+                  <th style="padding: 1rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%- for item in cart.items -%}
+                  <tr style="border-bottom: 1px solid var(--color-border, #E8E8E0);" data-line-item-key="{{ item.key }}">
+                    <td style="padding: 1.5rem 0.5rem; display: flex; gap: 1rem; align-items: center;">
+                      {%- if item.image -%}
+                        <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" width="80" height="80" style="border-radius: 6px; border: 1px solid var(--color-border, #E8E8E0); object-fit: cover;">
+                      {%- endif -%}
+                      <div>
+                        <a href="{{ item.url }}" style="font-weight: 600; color: var(--color-text, #1A1A1A); text-decoration: none; font-size: 1rem; display: block; margin-bottom: 0.25rem;">
+                          {{ item.product.title }}
+                        </a>
+                        {%- unless item.product.has_only_default_variant -%}
+                          <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.25rem;">{{ item.variant.title }}</div>
+                        {%- endunless -%}
+                        {%- if item.sku != blank -%}
+                          <div style="font-size: 0.75rem; color: #888;">SKU: {{ item.sku }}</div>
+                        {%- endif -%}
+                        <div style="font-size: 0.9rem; color: var(--color-primary, #2D6A4F); font-weight: 500; margin-top: 0.25rem;">
+                          {{ item.final_price | money }}
+                        </div>
+                      </div>
+                    </td>
+
+                    <td style="padding: 1.5rem 0.5rem; text-align: center;">
+                      <div style="display: inline-flex; align-items: center; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px;">
+                        <input
+                          type="number"
+                          name="updates[]"
+                          id="updates_{{ item.key }}"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          aria-label="Quantity for {{ item.title }}"
+                          style="width: 60px; text-align: center; border: none; padding: 0.5rem; font-size: 0.95rem;"
+                        >
+                      </div>
+                      <div style="margin-top: 0.5rem;">
+                        <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="font-size: 0.8rem; color: var(--color-error, #C0392B); text-decoration: underline;">
+                          Remove
+                        </a>
+                      </div>
+                    </td>
+
+                    <td style="padding: 1.5rem 0.5rem; text-align: right; font-weight: 600; font-size: 1.05rem;">
+                      {{ item.final_line_price | money }}
+                    </td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+              <a href="{{ routes.all_products_collection_url }}" style="color: var(--color-primary, #2D6A4F); text-decoration: underline; font-size: 0.95rem;">
+                &larr; {{ 'cart.general.continue_shopping' | default: 'Continue Shopping' }}
+              </a>
+              <button type="submit" name="update" class="btn" style="background: transparent; border: 1px solid var(--color-border, #E8E8E0); padding: 0.6rem 1.25rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+                Update Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary Sidebar -->
+          <div class="cart-summary" style="background: #FFFFFF; border: 1px solid var(--color-border, #E8E8E0); border-radius: 10px; padding: 1.75rem;">
+            <h2 style="font-size: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border, #E8E8E0); padding-bottom: 0.75rem;">
+              Order Summary
+            </h2>
+
+            <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;">
+              <span>Subtotal:</span>
+              <span style="color: var(--color-primary, #2D6A4F);">{{ cart.total_price | money_with_currency }}</span>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.4; margin-bottom: 1.5rem;">
+              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | default: 'Taxes and shipping calculated at checkout.' }}
+            </p>
+
+            {%- if section.settings.show_cart_note -%}
+              <div style="margin-bottom: 1.5rem;">
+                <label for="Cart-note" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;">
+                  Order Instructions / Notes:
+                </label>
+                <textarea
+                  name="note"
+                  id="Cart-note"
+                  rows="3"
+                  style="width: 100%; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; padding: 0.5rem; font-size: 0.85rem;"
+                  placeholder="Special instructions for your order..."
+                >{{ cart.note }}</textarea>
+              </div>
+            {%- endif -%}
+
+            <button
+              type="submit"
+              name="checkout"
+              class="btn btn--primary"
+              style="width: 100%; padding: 1rem; background: var(--color-primary, #2D6A4F); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;"
+            >
+              {{ 'cart.general.checkout' | default: 'Proceed to Checkout' }} &rarr;
+            </button>
+
+            <div style="margin-top: 1.5rem; text-align: center; font-size: 0.8rem; color: #777;">
+              <p>🔒 Guaranteed Safe & Secure Checkout</p>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    {%- else -%}
+      <div style="text-align: center; padding: 4rem 1rem;">
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 1.5rem;">{{ 'cart.general.empty' | default: 'Your cart is currently empty.' }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #2D6A4F); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">
+          {{ 'cart.general.continue_shopping' | default: 'Start Shopping' }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "tag": "section",
+  "class": "section-main-cart",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cart_note",
+      "label": "Show Cart Note Field",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

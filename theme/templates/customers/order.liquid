@@ -1,0 +1,87 @@
+<div class="customer order section-padding">
+  <div class="container" style="max-width: 900px; margin: 0 auto; padding: 3rem 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 1px solid var(--color-border, #E8E8E0); padding-bottom: 1rem;">
+      <div>
+        <h1 style="font-family: var(--font-heading-family, serif); font-size: 1.75rem; margin-bottom: 0.25rem;">
+          {{ 'customer.orders.order_number' | t: name: order.name }}
+        </h1>
+        <p style="color: #666; font-size: 0.9rem;">
+          {{ 'customer.orders.date' | default: 'Placed on' }}: {{ order.created_at | time_tag: format: 'date_at_time' }}
+        </p>
+      </div>
+      <div>
+        <a href="{{ routes.account_url }}" style="color: var(--color-primary, #2D6A4F); font-size: 0.9rem; text-decoration: underline;">
+          &larr; {{ 'customer.account.return' | default: 'Return to Account' }}
+        </a>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+      <div>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-border, #E8E8E0); text-align: left;">
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase;">{{ 'customer.orders.product' | default: 'Product' }}</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">{{ 'customer.orders.price' | default: 'Price' }}</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: center;">{{ 'customer.orders.quantity' | default: 'Qty' }}</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">{{ 'customer.orders.total' | default: 'Total' }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for line_item in order.line_items -%}
+              <tr style="border-bottom: 1px solid var(--color-border, #E8E8E0);">
+                <td style="padding: 1rem 0.5rem;">
+                  <div style="font-weight: 500;">{{ line_item.title }}</div>
+                  {%- if line_item.sku != blank -%}
+                    <div style="font-size: 0.8rem; color: #888;">SKU: {{ line_item.sku }}</div>
+                  {%- endif -%}
+                </td>
+                <td style="padding: 1rem 0.5rem; text-align: right;">{{ line_item.price | money }}</td>
+                <td style="padding: 1rem 0.5rem; text-align: center;">{{ line_item.quantity }}</td>
+                <td style="padding: 1rem 0.5rem; text-align: right; font-weight: 500;">{{ line_item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="padding: 0.75rem 0.5rem; text-align: right; font-weight: 500;">{{ 'customer.orders.subtotal' | default: 'Subtotal' }}</td>
+              <td style="padding: 0.75rem 0.5rem; text-align: right;">{{ order.line_items_subtotal_price | money }}</td>
+            </tr>
+            {%- for shipping_method in order.shipping_methods -%}
+              <tr>
+                <td colspan="3" style="padding: 0.5rem; text-align: right;">{{ shipping_method.title }}</td>
+                <td style="padding: 0.5rem; text-align: right;">{{ shipping_method.price | money }}</td>
+              </tr>
+            {%- endfor -%}
+            {%- for tax_line in order.tax_lines -%}
+              <tr>
+                <td colspan="3" style="padding: 0.5rem; text-align: right;">{{ tax_line.title }} ({{ tax_line.rate | times: 100 }}%)</td>
+                <td style="padding: 0.5rem; text-align: right;">{{ tax_line.price | money }}</td>
+              </tr>
+            {%- endfor -%}
+            <tr style="border-top: 2px solid var(--color-border, #E8E8E0); font-size: 1.1rem; font-weight: 700;">
+              <td colspan="3" style="padding: 1rem 0.5rem; text-align: right;">{{ 'customer.orders.total' | default: 'Total' }}</td>
+              <td style="padding: 1rem 0.5rem; text-align: right; color: var(--color-primary, #2D6A4F);">{{ order.total_price | money_with_currency }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div>
+        <div style="background: #ffffff; border: 1px solid var(--color-border, #E8E8E0); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--color-border, #E8E8E0); padding-bottom: 0.5rem;">Shipping Address</h2>
+          <div style="font-size: 0.9rem; line-height: 1.5; color: #444;">
+            {{ order.shipping_address | format_address }}
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--color-border, #E8E8E0); border-radius: 8px; padding: 1.5rem;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--color-border, #E8E8E0); padding-bottom: 0.5rem;">Billing Address</h2>
+          <div style="font-size: 0.9rem; line-height: 1.5; color: #444;">
+            {{ order.billing_address | format_address }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

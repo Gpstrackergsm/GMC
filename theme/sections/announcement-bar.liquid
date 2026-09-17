@@ -1,0 +1,169 @@
+{%- if section.settings.enable -%}
+<div
+  id="announcement-bar-{{ section.id }}"
+  class="announcement-bar"
+  role="region"
+  aria-label="Announcement"
+  style="
+    --announcement-bg: {{ section.settings.background_color }};
+    --announcement-color: {{ section.settings.text_color }};
+  "
+>
+  <div class="announcement-bar__inner">
+    <p class="announcement-bar__message">
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}" class="announcement-bar__link">
+          {{- section.settings.message | escape -}}
+          {%- if section.settings.link_label != blank -%}
+            <span class="announcement-bar__link-label" aria-hidden="true">
+              &nbsp;{{ section.settings.link_label | escape }} &rarr;
+            </span>
+          {%- endif -%}
+        </a>
+      {%- else -%}
+        {{- section.settings.message | escape -}}
+      {%- endif -%}
+    </p>
+    <button
+      type="button"
+      class="announcement-bar__close"
+      aria-label="Dismiss announcement"
+      data-announcement-close="{{ section.id }}"
+    >
+      <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .announcement-bar {
+    background-color: var(--announcement-bg, #2D6A4F);
+    color: var(--announcement-color, #ffffff);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  .announcement-bar[hidden] { display: none !important; }
+  .announcement-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 52px;
+    gap: 12px;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .announcement-bar__message {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    flex: 1;
+  }
+  .announcement-bar__link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .announcement-bar__link:hover,
+  .announcement-bar__link:focus-visible { text-decoration: underline; }
+  .announcement-bar__link-label { font-weight: 600; }
+  .announcement-bar__close {
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+  }
+  .announcement-bar__close:hover { opacity: 0.7; }
+  .announcement-bar__close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  @media (max-width: 749px) {
+    .announcement-bar__message { font-size: 0.8125rem; }
+    .announcement-bar__inner { padding: 10px 44px 10px 16px; }
+  }
+</style>
+
+<script>
+(function () {
+  var KEY = 'leafanoo_ann_dismissed_{{ section.id }}';
+  var bar = document.getElementById('announcement-bar-{{ section.id }}');
+  if (!bar) return;
+  try { if (localStorage.getItem(KEY) === '1') { bar.setAttribute('hidden', ''); return; } } catch(e) {}
+  var btn = bar.querySelector('[data-announcement-close]');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      bar.setAttribute('hidden', '');
+      try { localStorage.setItem(KEY, '1'); } catch(e) {}
+    });
+  }
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "tag": "div",
+  "class": "section-announcement-bar",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Free shipping on orders over $50"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link URL"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#2D6A4F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,121 @@
+{%- comment -%}
+  Snippet: product-card.liquid
+  Accepts:
+  - product        {Object}  Required.
+  - image_ratio    {String}  'portrait' | 'square' | 'landscape'. Default: 'portrait'.
+  - show_vendor    {Boolean} Default: false.
+  - show_quick_add {Boolean} Default: true.
+  - lazy           {Boolean} Default: true.
+{%- endcomment -%}
+
+{%- liquid
+  assign image_ratio    = image_ratio    | default: 'portrait'
+  assign show_vendor    = show_vendor    | default: false
+  assign show_quick_add = show_quick_add | default: true
+  assign lazy           = lazy           | default: true
+
+  assign card_image = product.featured_image
+  assign current_variant = product.selected_or_first_available_variant
+
+  assign on_sale = false
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+  endif
+
+  assign sold_out = true
+  if product.available
+    assign sold_out = false
+  endif
+
+  case image_ratio
+    when 'square'
+      assign ratio_class = 'aspect-square'
+    when 'landscape'
+      assign ratio_class = 'aspect-landscape'
+    else
+      assign ratio_class = 'aspect-portrait'
+  endcase
+-%}
+
+<article class="product-card{% if sold_out %} product-card--sold-out{% endif %}" data-product-id="{{ product.id }}">
+  <div class="product-card__media-wrapper">
+    <a
+      href="{{ product.url }}"
+      class="product-card__media-link"
+      aria-label="{{ product.title | escape }}"
+      tabindex="-1"
+    >
+      <div class="product-card__media {{ ratio_class }}">
+        {%- if card_image -%}
+          {%- render 'image-srcset',
+            image: card_image,
+            widths: '375,550,750,1000',
+            sizes: '(min-width: 1200px) 300px, (min-width: 768px) 33vw, 50vw',
+            class: 'product-card__image',
+            alt: card_image.alt | default: product.title | escape,
+            lazy: lazy
+          -%}
+          {%- if product.images[1] != blank and product.images[1] != card_image -%}
+            {%- render 'image-srcset',
+              image: product.images[1],
+              widths: '375,550,750,1000',
+              sizes: '(min-width: 1200px) 300px, (min-width: 768px) 33vw, 50vw',
+              class: 'product-card__image product-card__image--hover',
+              alt: product.images[1].alt | default: product.title | escape,
+              lazy: true
+            -%}
+          {%- endif -%}
+        {%- else -%}
+          <div class="product-card__image-placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+        {%- endif -%}
+      </div>
+    </a>
+
+    <div class="product-card__badges" aria-hidden="true">
+      {%- if sold_out -%}
+        <span class="badge badge-sold-out">Sold Out</span>
+      {%- elsif on_sale -%}
+        {%- assign discount = current_variant.compare_at_price | minus: current_variant.price -%}
+        {%- assign discount_pct = discount | times: 100 | divided_by: current_variant.compare_at_price -%}
+        <span class="badge badge-sale">-{{ discount_pct }}%</span>
+      {%- elsif product.tags contains 'new' or product.tags contains 'New' -%}
+        <span class="badge badge-new">New</span>
+      {%- endif -%}
+    </div>
+
+    {%- if show_quick_add and sold_out == false -%}
+      <div class="product-card__quick-add">
+        {%- if product.variants.size > 1 -%}
+          <a href="{{ product.url }}" class="btn btn-primary product-card__quick-add-btn" aria-label="View options for {{ product.title | escape }}">View Options</a>
+        {%- else -%}
+          <form action="/cart/add" method="post" class="product-card__atc-form">
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" name="add" class="btn btn-primary product-card__quick-add-btn" aria-label="Add {{ product.title | escape }} to cart" data-product-title="{{ product.title | escape }}">
+              <span class="btn__text">Add to Cart</span>
+              <span class="btn__loading" aria-hidden="true"><span class="spinner"></span></span>
+            </button>
+          </form>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="product-card__info">
+    {%- if show_vendor and product.vendor != blank -%}
+      <p class="product-card__vendor">
+        <a href="{{ product.vendor | url_for_vendor }}" class="product-card__vendor-link">{{ product.vendor }}</a>
+      </p>
+    {%- endif -%}
+
+    <h3 class="product-card__title">
+      <a href="{{ product.url }}" class="product-card__title-link">{{ product.title | escape }}</a>
+    </h3>
+
+    <div class="product-card__price">
+      {%- render 'price', product: product -%}
+    </div>
+  </div>
+</article>

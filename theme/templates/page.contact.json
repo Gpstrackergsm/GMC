@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Get in Touch",
+        "heading_size": "h2",
+        "text": "<p>Have a question, comment, or concern? We'd love to hear from you! Fill out the form below and our team will get back to you within 24 hours.</p><p><strong>Email:</strong> support@leafanoo.com<br><strong>Phone:</strong> +1 (800) 555-LEAF<br><strong>Hours:</strong> Monday–Friday, 9am–6pm EST</p>",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "text_alignment": "left"
+      }
+    }
+  },
+  "order": ["main-page","rich-text"]
+}

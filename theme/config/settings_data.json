@@ -1,0 +1,25 @@
+{
+  "current": {
+    "color_primary": "#2D6A4F",
+    "color_primary_contrast": "#FFFFFF",
+    "color_secondary": "#52B788",
+    "color_accent": "#D4A853",
+    "color_background": "#FAFAF7",
+    "color_text": "#1A1A1A",
+    "color_border": "#E8E8E0",
+    "color_success": "#27AE60",
+    "color_error": "#C0392B",
+    "font_size_base": 16,
+    "logo_width": 140,
+    "sticky_header": true,
+    "show_search": true,
+    "show_account": true,
+    "cart_type": "drawer",
+    "show_cart_note": true,
+    "show_vendor": true,
+    "show_sku": true,
+    "show_quick_add": true,
+    "product_card_image_ratio": "square",
+    "enable_animations": true
+  }
+}

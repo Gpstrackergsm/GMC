@@ -1,0 +1,76 @@
+{%- comment -%}
+  Snippet: price.liquid
+  Accepts:
+  - product {Object} Optional.
+  - variant {Object} Optional. Takes precedence over product.
+{%- endcomment -%}
+
+{%- liquid
+  if variant
+    assign compare_price = variant.compare_at_price
+    assign current_price = variant.price
+    assign available     = variant.available
+  elsif product
+    assign compare_price  = product.compare_at_price
+    assign current_price  = product.price
+    assign available      = product.available
+    if product.price_varies
+      assign price_min = product.price_min
+      assign price_max = product.price_max
+    endif
+  endif
+
+  assign on_sale = false
+  if compare_price > current_price
+    assign on_sale = true
+  endif
+-%}
+
+<div class="price{% if on_sale %} price--on-sale{% endif %}{% if available == false %} price--sold-out{% endif %}" aria-label="Price">
+  {%- if product and product.price_varies and variant == nil -%}
+    <dl class="price__list">
+      <dt class="visually-hidden">Price range</dt>
+      <dd class="price__regular">
+        <span class="visually-hidden">From </span>
+        <span class="price__amount">{{ price_min | money }}</span>
+        <span class="price__separator" aria-hidden="true"> – </span>
+        <span class="price__amount">{{ price_max | money }}</span>
+      </dd>
+    </dl>
+  {%- else -%}
+    <dl class="price__list">
+      {%- if on_sale -%}
+        <dt class="visually-hidden">Regular price</dt>
+        <dd class="price__compare">
+          <s aria-hidden="true">{{ compare_price | money }}</s>
+          <span class="visually-hidden">Original price: {{ compare_price | money }}</span>
+        </dd>
+        <dt class="visually-hidden">Sale price</dt>
+        <dd class="price__sale">
+          <span class="price__amount price__amount--sale">{{ current_price | money }}</span>
+        </dd>
+      {%- else -%}
+        <dt class="visually-hidden">Price</dt>
+        <dd class="price__regular">
+          <span class="price__amount">{{ current_price | money }}</span>
+        </dd>
+      {%- endif -%}
+      {%- if available == false -%}
+        <dt class="visually-hidden">Availability</dt>
+        <dd class="price__availability"><span class="badge badge-sold-out">Sold Out</span></dd>
+      {%- endif -%}
+    </dl>
+  {%- endif -%}
+
+  {%- if product and product.selected_or_first_available_variant.unit_price_measurement -%}
+    {%- assign uv = product.selected_or_first_available_variant -%}
+    <p class="price__unit">
+      <span class="visually-hidden">Unit price: </span>
+      {{ uv.unit_price | money }}
+      <span aria-hidden="true">/</span>
+      <span class="visually-hidden">per </span>
+      {%- if uv.unit_price_measurement.reference_value != 1 -%}{{ uv.unit_price_measurement.reference_value }}{%- endif -%}
+      {{ uv.unit_price_measurement.reference_unit }}
+    </p>
+  {%- endif -%}
+</div>

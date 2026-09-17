@@ -1,0 +1,43 @@
+{%- comment -%}
+  Snippet: structured-data-organization.liquid
+  Organization JSON-LD. Output once from theme.liquid.
+  Usage: {%- render 'structured-data-organization' -%}
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Leafanoo",
+  "url": {{ shop.url | json }},
+  "description": {{ shop.description | default: 'Quality general merchandise for every home and lifestyle.' | strip_html | json }}
+  {%- if settings.logo != blank -%}
+  ,"logo": {
+    "@type": "ImageObject",
+    "url": {{ settings.logo | image_url: width: 600 | prepend: 'https:' | json }},
+    "width": 600,
+    "height": {{ settings.logo.height | times: 600 | divided_by: settings.logo.width }}
+  }
+  {%- endif -%}
+  ,"sameAs": [
+    {%- assign social_links = '' -%}
+    {%- if settings.social_facebook_link != blank -%}{%- assign social_links = social_links | append: settings.social_facebook_link | append: '|||' -%}{%- endif -%}
+    {%- if settings.social_instagram_link != blank -%}{%- assign social_links = social_links | append: settings.social_instagram_link | append: '|||' -%}{%- endif -%}
+    {%- if settings.social_twitter_link != blank -%}{%- assign social_links = social_links | append: settings.social_twitter_link | append: '|||' -%}{%- endif -%}
+    {%- if settings.social_pinterest_link != blank -%}{%- assign social_links = social_links | append: settings.social_pinterest_link | append: '|||' -%}{%- endif -%}
+    {%- assign social_arr = social_links | split: '|||' -%}
+    {%- for link in social_arr -%}
+      {%- if link != blank -%}
+        {{ link | json }}{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+  ,"contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+    {%- if settings.contact_phone != blank -%},"telephone": {{ settings.contact_phone | json }}{%- endif -%}
+    {%- if settings.contact_email != blank -%},"email": {{ settings.contact_email | json }}{%- endif -%}
+  }
+}
+</script>

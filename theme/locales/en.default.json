@@ -1,0 +1,161 @@
+{
+  "general": {
+    "shop_name": "Leafanoo",
+    "loading": "Loading...",
+    "close": "Close",
+    "share": "Share",
+    "search": "Search products, categories, guides...",
+    "continue_shopping": "Continue Shopping",
+    "skip_to_content": "Skip to main content",
+    "password_page": {
+      "opening_soon": "Opening Soon",
+      "subtext": "Be the first to know when we launch. Subscribe for exclusive updates, curated arrivals, and opening offers.",
+      "signup_success": "Thank you! You will be notified as soon as we open.",
+      "email_placeholder": "Enter your email address",
+      "notify_me": "Notify Me",
+      "enter_store_using_password": "Enter store using password",
+      "password_placeholder": "Your store password",
+      "enter": "Enter Store"
+    }
+  },
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "open_menu": "Open main menu",
+    "close_menu": "Close main menu",
+    "cart": "Shopping cart",
+    "search": "Search catalog",
+    "close_dialog": "Close modal dialog",
+    "loading": "Loading item",
+    "star_rating": "{{ count }} out of 5 stars",
+    "unit_price_separator": "per"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "adding_to_cart": "Adding...",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "on_sale": "Sale",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "unit_price": "Unit price",
+      "sku": "SKU",
+      "vendor": "Brand",
+      "quantity": {
+        "label": "Quantity",
+        "input_label": "Quantity for {{ product }}",
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}"
+      },
+      "specifications": "Product Specifications",
+      "shipping_policy_html": "Standard delivery available. Free shipping on qualifying orders.",
+      "return_policy_html": "30-day hassle-free returns on unopened, eligible items.",
+      "view_full_details": "View full product details"
+    }
+  },
+  "collections": {
+    "general": {
+      "all_collections": "All Departments",
+      "items_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "no_products": "No products found in this collection.",
+      "filter_and_sort": "Filter & Sort",
+      "sort_by": "Sort by",
+      "filter_by": "Filter by",
+      "clear_all": "Clear all filters",
+      "apply": "Apply filters",
+      "view_all": "View All Products"
+    },
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "alphabetical_ascending": "Alphabetically, A-Z",
+      "alphabetical_descending": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_ascending": "Date, old to new",
+      "date_descending": "Date, new to old"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "empty": "Your cart is currently empty.",
+      "subtotal": "Subtotal",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes, shipping, and discounts calculated at checkout.",
+      "checkout": "Proceed to Secure Checkout",
+      "continue_shopping": "Continue Shopping",
+      "note": "Special instructions / Order notes",
+      "remove": "Remove item",
+      "quantity_error": "You can only add {{ quantity }} of this item to your cart.",
+      "free_shipping_remaining_html": "Add <strong>{{ remaining }}</strong> more to unlock Free Standard Shipping!",
+      "free_shipping_unlocked": "🎉 You qualify for Free Standard Shipping!"
+    }
+  },
+  "search": {
+    "title": "Search Catalog",
+    "placeholder": "Search across all products, departments...",
+    "results_with_count": {
+      "one": "{{ count }} result found for \"{{ terms }}\"",
+      "other": "{{ count }} results found for \"{{ terms }}\""
+    },
+    "no_results": "No results found for \"{{ terms }}\". Try checking your spelling or using more general terms.",
+    "quick_links": "Popular Departments",
+    "view_all_results": "View all {{ count }} results"
+  },
+  "customer": {
+    "account": {
+      "title": "My Account",
+      "details": "Account Details",
+      "order_history": "Order History",
+      "orders_empty": "You haven't placed any orders yet.",
+      "return": "Return to Account Details",
+      "logout": "Log Out"
+    },
+    "login_page": {
+      "title": "Customer Login",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "create_account": "Create account",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Create Account",
+      "have_account": "Already have an account? Sign in"
+    },
+    "orders": {
+      "order_number": "Order {{ name }}",
+      "date": "Date Placed",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax"
+    }
+  },
+  "footer": {
+    "newsletter_title": "Stay Connected",
+    "newsletter_subtext": "Subscribe for curated arrivals, practical guides, and exclusive store updates.",
+    "newsletter_placeholder": "Enter your email address",
+    "newsletter_button": "Subscribe",
+    "newsletter_success": "Thank you for subscribing!",
+    "copyright": "All rights reserved.",
+    "payment_methods": "Accepted Payment Methods"
+  }
+}

@@ -1,0 +1,41 @@
+# Environment variables & secrets
+.env
+.env.*
+*.secret
+*.pem
+private_app_credentials.json
+shopify_access_token.txt
+gmc_credentials.json
+
+# Shopify CLI & Dependencies
+.shopify/
+node_modules/
+package-lock.json
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+.pytest_cache/
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

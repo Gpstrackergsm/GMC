@@ -1,0 +1,176 @@
+{%- comment -%}
+  Snippet: filters.liquid
+  Collection filter sidebar using Shopify Storefront Filtering.
+  Usage: {%- render 'filters', results: collection -%}
+{%- endcomment -%}
+
+{%- assign results = results | default: collection -%}
+
+<div class="filters" id="filters-panel" aria-label="Collection filters">
+  <div class="filters__header">
+    <h2 class="filters__title">Filter & Sort</h2>
+    <button
+      class="filters__close btn btn-text"
+      aria-controls="filters-panel"
+      aria-expanded="true"
+      aria-label="Close filters"
+    >
+      {%- render 'icon-close' -%}
+    </button>
+  </div>
+
+  {%- comment -%} Active filter pills {%- endcomment -%}
+  {%- assign active_count = 0 -%}
+  {%- for filter in results.filters -%}
+    {%- for value in filter.active_values -%}
+      {%- assign active_count = active_count | plus: 1 -%}
+    {%- endfor -%}
+    {%- if filter.type == 'price_range' -%}
+      {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+        {%- assign active_count = active_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if active_count > 0 -%}
+    <div class="filters__active-pills">
+      <div class="filters__active-pills-header">
+        <span class="filters__active-label">Active filters</span>
+        <a href="{{ results.url }}" class="filters__clear-all btn btn-text">Clear all</a>
+      </div>
+      <div class="filters__pills-list">
+        {%- for filter in results.filters -%}
+          {%- for value in filter.active_values -%}
+            <a href="{{ value.url_to_remove }}" class="filters__pill" aria-label="Remove filter: {{ filter.label }}: {{ value.label }}">
+              <span class="filters__pill-label">{{ filter.label }}: {{ value.label }}</span>
+              {%- render 'icon-close' -%}
+            </a>
+          {%- endfor -%}
+          {%- if filter.type == 'price_range' -%}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+              <a href="{{ filter.url_to_remove }}" class="filters__pill" aria-label="Remove price filter">
+                <span class="filters__pill-label">
+                  Price:
+                  {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ filter.range_min | money }}{%- endif -%}
+                  –
+                  {%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                </span>
+                {%- render 'icon-close' -%}
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <form id="filters-form" class="filters__form">
+    {%- for filter in results.filters -%}
+      <details class="filters__group accordion" {%- if filter.active_values.size > 0 or filter.min_value.value or filter.max_value.value -%} open{%- endif -%}>
+        <summary class="filters__group-header accordion__trigger" aria-expanded="true">
+          <span class="filters__group-label">{{ filter.label }}</span>
+          {%- if filter.active_values.size > 0 -%}
+            <span class="filters__group-count" aria-label="{{ filter.active_values.size }} selected">{{ filter.active_values.size }}</span>
+          {%- endif -%}
+          {%- render 'icon-chevron-down' -%}
+        </summary>
+
+        <div class="filters__group-body accordion__content">
+          {%- case filter.type -%}
+
+          {%- when 'boolean', 'list' -%}
+            <ul class="filters__values-list" role="list">
+              {%- for value in filter.values -%}
+                <li class="filters__value-item">
+                  <label class="filters__value-label {% if value.count == 0 and value.active == false %}filters__value-label--disabled{% endif %}">
+                    <input
+                      class="filters__checkbox visually-hidden"
+                      type="checkbox"
+                      name="{{ value.param_name }}"
+                      value="{{ value.value }}"
+                      {% if value.active %}checked{% endif %}
+                      {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                      form="filters-form"
+                    >
+                    <span class="filters__checkbox-custom" aria-hidden="true">
+                      {%- if value.active -%}{%- render 'icon-check' -%}{%- endif -%}
+                    </span>
+                    <span class="filters__value-name">{{ value.label }}</span>
+                    <span class="filters__value-count" aria-label="{{ value.count }} products">({{ value.count }})</span>
+                  </label>
+                </li>
+              {%- endfor -%}
+            </ul>
+
+          {%- when 'price_range' -%}
+            {%- assign min_price = filter.min_value.value | default: filter.range_min -%}
+            {%- assign max_price = filter.max_value.value | default: filter.range_max -%}
+            <div class="filters__price-range">
+              <div class="filters__price-inputs">
+                <div class="filters__price-input-group">
+                  <label class="filters__price-label" for="filter-price-from-{{ forloop.index }}">
+                    <span class="visually-hidden">Minimum price</span>
+                    <span aria-hidden="true">From</span>
+                  </label>
+                  <div class="filters__price-input-wrapper">
+                    <span class="filters__price-currency" aria-hidden="true">{{ cart.currency.symbol }}</span>
+                    <input
+                      class="filters__price-input"
+                      type="number"
+                      id="filter-price-from-{{ forloop.index }}"
+                      name="{{ filter.min_value.param_name }}"
+                      min="0"
+                      max="{{ filter.range_max | divided_by: 100 }}"
+                      placeholder="{{ filter.range_min | divided_by: 100 }}"
+                      value="{{ filter.min_value.value | divided_by: 100 }}"
+                      form="filters-form"
+                    >
+                  </div>
+                </div>
+                <span class="filters__price-separator" aria-hidden="true">–</span>
+                <div class="filters__price-input-group">
+                  <label class="filters__price-label" for="filter-price-to-{{ forloop.index }}">
+                    <span class="visually-hidden">Maximum price</span>
+                    <span aria-hidden="true">To</span>
+                  </label>
+                  <div class="filters__price-input-wrapper">
+                    <span class="filters__price-currency" aria-hidden="true">{{ cart.currency.symbol }}</span>
+                    <input
+                      class="filters__price-input"
+                      type="number"
+                      id="filter-price-to-{{ forloop.index }}"
+                      name="{{ filter.max_value.param_name }}"
+                      min="0"
+                      max="{{ filter.range_max | divided_by: 100 }}"
+                      placeholder="{{ filter.range_max | divided_by: 100 }}"
+                      value="{{ filter.max_value.value | divided_by: 100 }}"
+                      form="filters-form"
+                    >
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-secondary filters__price-apply" type="submit" form="filters-form">Apply</button>
+            </div>
+
+          {%- endcase -%}
+        </div>
+      </details>
+    {%- endfor -%}
+
+    <noscript>
+      <button class="btn btn-primary filters__submit" type="submit">Apply filters</button>
+    </noscript>
+  </form>
+</div>
+
+<script>
+  (function () {
+    var form = document.getElementById('filters-form');
+    if (!form) return;
+    form.addEventListener('change', function (e) {
+      if (e.target.type === 'checkbox') {
+        form.submit();
+      }
+    });
+  })();
+</script>
