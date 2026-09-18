@@ -365,8 +365,83 @@ def generate_catalogs():
             handle = re.sub(r'[\s]+', '-', handle).strip('-')
             margin = round(((price - cost) / price) * 100, 1)
 
-            # 100% unique, distinct high-resolution photography asset per product handle
-            img_url = f"https://picsum.photos/seed/{handle}/800/800.jpg"
+            # Authentic studio e-commerce product photography mapped to real physical merchandise
+            dept_subcat_photos = {
+                "Home & Kitchen": [
+                    "https://upload.wikimedia.org/wikipedia/commons/e/eb/Glass_mixing_bowl.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cast_iron_dutch_baby_on_oven_mitts.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/2/20/Peeler_01_Pengo.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/a/a8/4MeasuringSpoons.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/7/74/Chopping_Board.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/e/eb/2020_No%C5%BCe_kuchenne_Gerlach.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/45/Metal_Water_Bottles.jpeg",
+                    "https://cdn.dummyjson.com/products/images/kitchen-accessories/Carbon%20Steel%20Wok/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/kitchen-accessories/Baking%20Spatula/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/kitchen-accessories/Boxed%20Blender/thumbnail.png"
+                ],
+                "Home Organization": [
+                    "https://upload.wikimedia.org/wikipedia/commons/d/dc/Wooden_coat_hangers.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/8/82/Brother_P-Touch_label_maker.jpg",
+                    "https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/furniture/Kitchen%20Island/thumbnail.png"
+                ],
+                "Pet Accessories": [
+                    "https://upload.wikimedia.org/wikipedia/commons/4/48/Dog_with_Chew_Toy.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/5/5a/Dog_wearing_padded_harness.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/4e/A_cat_drinking_water.jpg",
+                    "https://cdn.dummyjson.com/products/images/sports-accessories/Cricket%20Ball/thumbnail.png"
+                ],
+                "Garden & Outdoor": [
+                    "https://upload.wikimedia.org/wikipedia/commons/f/f4/Collection_of_secateurs.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d0/Garden_hose_nozzle.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/7/76/Steel_trowel.jpg",
+                    "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/thumbnail.png"
+                ],
+                "Travel Accessories": [
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d1/Clothes-travel-voyage-backpack_%2824324553095%29.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/1/1b/Neck_pillow_on_a_white_background_at_a_school.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d2/Luggage-tag-collection.png",
+                    "https://cdn.dummyjson.com/products/images/womens-bags/Blue%20Women's%20Handbag/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/womens-bags/Prada%20Women%20Bag/thumbnail.png"
+                ],
+                "Personal Care Accessories": [
+                    "https://upload.wikimedia.org/wikipedia/commons/a/a3/2024_Szczoteczka_do_z%C4%99b%C3%B3w_Oral-B_Pro_3_3000_%281%29.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/1/1f/HITACHI_HAIR_DRYER_HD-1650.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d9/Beard-Shaving_and_the_Common_Use_of_the_Razor.png",
+                    "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/skin-care/Attitude%20Super%20Leaves%20Hand%20Soap/thumbnail.png"
+                ],
+                "Office & Workspace": [
+                    "https://upload.wikimedia.org/wikipedia/commons/7/71/2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d3/Acorn_AKF20_A3000_Monitor_Stand_%28bottom%29.jpg",
+                    "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/8/82/Brother_P-Touch_label_maker.jpg"
+                ],
+                "Hobby & Lifestyle": [
+                    "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/a/a8/4MeasuringSpoons.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/7/74/Chopping_Board.jpg"
+                ],
+                "Fitness & Hydration": [
+                    "https://upload.wikimedia.org/wikipedia/commons/4/40/Woman_on_a_yoga_mat_next_to_a_window_doing_lower_back_exercises_-_50401795697.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/7/72/Back-flyes-with-resistance-bands-1.png",
+                    "https://cdn.dummyjson.com/products/images/sports-accessories/Sports%20Water%20Bottle/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/sports-accessories/Cricket%20Ball/thumbnail.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/45/Metal_Water_Bottles.jpeg"
+                ],
+                "Audio & Tech Accessories": [
+                    "https://upload.wikimedia.org/wikipedia/commons/0/0a/Bose_QuietComfort_25_Acoustic_Noise_Cancelling_Headphones_with_Carry_Case.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/6/67/JBL_Flip_3_bluetooth_speaker_%28DSCF2653%29.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Black_Olio_Brown_Leather_Strap_Front.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/3/36/Bad_USB-C_cable.agr.jpg",
+                    "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20AirPods%20Max%20Silver/thumbnail.png",
+                    "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20MagSafe%20Charger/thumbnail.png"
+                ]
+            }
+
+            photo_list = dept_subcat_photos.get(dept_name, dept_subcat_photos["Home & Kitchen"])
+            img_url = photo_list[len(master_rows) % len(photo_list)]
 
             # Master Catalog Record
             master_rows.append({
