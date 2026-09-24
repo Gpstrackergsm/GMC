@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google-site-verification" content="kbF1C3pU52vFntl1ie5UcR16NX1iZlTTwNErNd6r5d4" />
+  <script>
+    (function() {
+      var p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      var m = {
+        '/policies/refund-policy': '/pages/refund-policy',
+        '/policies/shipping-policy': '/pages/shipping-policy',
+        '/policies/terms-of-service': '/pages/terms-of-service',
+        '/policies/payment-policy': '/pages/payment-policy',
+        '/policies/privacy-policy': '/pages/privacy-policy',
+        '/policies/contact-information': '/pages/contact-us',
+        '/policies/legal-notice': '/pages/terms-of-service'
+      };
+      if (m[p]) {
+        window.location.replace(m[p]);
+      }
+    })();
+  </script>
 
   {%- if settings.favicon != blank -%}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">

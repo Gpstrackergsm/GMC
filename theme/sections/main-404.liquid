@@ -1,6 +1,24 @@
+<script>
+  (function() {
+    var p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+    var m = {
+      '/policies/refund-policy': '/pages/refund-policy',
+      '/policies/shipping-policy': '/pages/shipping-policy',
+      '/policies/terms-of-service': '/pages/terms-of-service',
+      '/policies/payment-policy': '/pages/payment-policy',
+      '/policies/privacy-policy': '/pages/privacy-policy',
+      '/policies/contact-information': '/pages/contact-us',
+      '/policies/legal-notice': '/pages/terms-of-service'
+    };
+    if (m[p]) {
+      window.location.replace(m[p]);
+    }
+  })();
+</script>
+
 <div class="template-404 section-padding text-center" style="padding: 5rem 1rem; text-align: center;">
   <div class="container" style="max-width: 600px; margin: 0 auto;">
-    <p style="font-size: 1rem; font-weight: 700; color: var(--color-primary, #2D6A4F); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;">
+    <p style="font-size: 1rem; font-weight: 700; color: var(--color-primary, #16a34a); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;">
       Error 404
     </p>
     <h1 style="font-family: var(--font-heading-family, serif); font-size: 2.75rem; margin-bottom: 1rem; color: var(--color-text, #1A1A1A);">
@@ -18,13 +36,13 @@
           placeholder="Search our catalog..."
           style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 0.95rem;"
         >
-        <button type="submit" class="btn btn--primary" style="padding: 0.75rem 1.25rem; background: var(--color-primary, #2D6A4F); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        <button type="submit" class="btn btn--primary" style="padding: 0.75rem 1.25rem; background: var(--color-primary, #16a34a); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
           Search
         </button>
       </form>
     </div>
 
-    <a href="{{ routes.root_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #2D6A4F); color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600;">
+    <a href="{{ routes.root_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #16a34a); color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600;">
       Back to Homepage
     </a>
   </div>
