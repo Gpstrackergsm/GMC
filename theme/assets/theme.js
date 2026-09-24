@@ -80,17 +80,18 @@ function initAjaxAddToCart() {
 
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.innerText : '';
+    const originalHTML = submitBtn ? submitBtn.innerHTML : '';
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerText = 'Adding...';
+      submitBtn.innerHTML = 'Adding...';
     }
 
     const formData = new FormData(form);
 
     fetch('/cart/add.js', {
       method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
       body: formData
     })
     .then(res => res.json())
@@ -98,17 +99,27 @@ function initAjaxAddToCart() {
       if (data.status && data.status >= 400) {
         alert(data.description || 'Unable to add product to cart.');
       } else {
-        // Open Cart Drawer
+        // Dispatch event for cart drawer, then update count
         document.dispatchEvent(new CustomEvent('cart:item-added', { detail: data }));
+        // Update cart count badges immediately
+        fetch('/cart.js')
+          .then(r => r.json())
+          .then(cart => {
+            document.querySelectorAll('.cart-count-badge').forEach(el => {
+              el.textContent = cart.item_count;
+            });
+          });
       }
     })
     .catch(err => {
       console.error('Cart add error:', err);
+      // Fallback: submit the form normally
+      form.submit();
     })
     .finally(() => {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerText = originalText;
+        submitBtn.innerHTML = originalHTML;
       }
     });
   });
