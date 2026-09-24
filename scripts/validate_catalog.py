@@ -44,6 +44,11 @@ def validate_shopify_csv(file_path):
             total_rows += 1
             handle = row.get('Handle', '').strip()
             title = row.get('Title', '').strip()
+            img_src = row.get('Image Src', '').strip()
+
+            # Skip secondary image rows in multi-row Shopify format
+            if handle in handles and not title and img_src:
+                continue
             vendor = row.get('Vendor', '').strip()
             price_str = row.get('Variant Price', '').strip()
             compare_str = row.get('Variant Compare At Price', '').strip()
