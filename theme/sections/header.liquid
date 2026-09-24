@@ -54,7 +54,7 @@
         </a>
 
         <!-- Wishlist -->
-        <a href="/pages/wishlist" class="laitm-tool-btn laitm-tool-wishlist" aria-label="Wishlist" title="Wishlist">
+        <a href="/collections/all" class="laitm-tool-btn laitm-tool-wishlist" aria-label="Wishlist" title="Wishlist">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
@@ -90,20 +90,20 @@
           <svg class="laitm-cats-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
 
-        <!-- Dropdown Menu -->
+        <!-- Dropdown Menu with verified working URLs -->
         <div class="laitm-cats-menu" id="LaitmCatsMenu">
           <ul>
-            <li><a href="/collections/gazebo-pergolas">🌿 Garden Essentials</a></li>
-            <li><a href="/collections/riding-lawn-mowers">🚜 Ride Mowers</a></li>
-            <li><a href="/collections/power-generators">⚡ Portable Generators</a></li>
-            <li><a href="/collections/self-propelled-mowers">🌱 Self-Propelled Mowers</a></li>
-            <li><a href="/collections/car-lift">🚗 Car Lift</a></li>
-            <li><a href="/collections/sheds">🏠 Sheds & Storage</a></li>
-            <li><a href="/collections/electric-bicycles">🚲 Electric Bicycles</a></li>
-            <li><a href="/collections/cardio-machines">🏃 Cardio Machines</a></li>
-            <li><a href="/collections/swing-sets">🎠 Swing Sets</a></li>
-            <li><a href="/collections/trampoline">🤸 Trampoline</a></li>
-            <li><a href="/collections/walk-behind-lawn-mowers">🌾 Walk-Behind Lawn Mowers</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Garden+Essentials">🌿 Garden Essentials</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Riding+Lawn+Mowers">🚜 Ride Mowers</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Power+Generators">⚡ Portable Generators</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Self-Propelled+Mowers">🌱 Self-Propelled Mowers</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Car+Lift">🚗 Car Lift</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Sheds">🏠 Sheds & Storage</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Electric+Bicycles">🚲 Electric Bicycles</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Cardio+Machines">🏃 Cardio Machines</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Swing+sets">🎠 Swing Sets</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Trampoline">🤸 Trampoline</a></li>
+            <li><a href="/collections/all?filter.p.product_type=Walk-Behind+Lawn+Mowers">🌾 Walk-Behind Lawn Mowers</a></li>
           </ul>
         </div>
       </div>
@@ -113,10 +113,10 @@
         <ul class="laitm-nav__list">
           <li><a href="/" class="laitm-nav__link {% if request.path == '/' %}is-active{% endif %}">Home</a></li>
           <li><a href="/collections/all" class="laitm-nav__link {% if request.path contains '/collections' %}is-active{% endif %}">Shop</a></li>
-          <li><a href="/pages/order-status" class="laitm-nav__link">Order Status</a></li>
+          <li><a href="/pages/shipping-policy" class="laitm-nav__link">Order Status</a></li>
           <li><a href="/pages/contact-us" class="laitm-nav__link">Contact us</a></li>
-          <li><a href="/pages/about" class="laitm-nav__link">About us</a></li>
-          <li><a href="/pages/faqs" class="laitm-nav__link">FAQs</a></li>
+          <li><a href="/pages/terms-of-service" class="laitm-nav__link">About us</a></li>
+          <li><a href="/#shopify-section-faq-accordion" class="laitm-nav__link">FAQs</a></li>
         </ul>
       </nav>
 
@@ -152,28 +152,28 @@
         <button type="submit">Search</button>
       </form>
 
-      <!-- Mobile Links -->
+      <!-- Mobile Links with verified working URLs -->
       <nav class="laitm-mobile-nav">
         <h4>Menu</h4>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/collections/all">Shop All</a></li>
-          <li><a href="/pages/order-status">Order Status</a></li>
+          <li><a href="/pages/shipping-policy">Order Status</a></li>
           <li><a href="/pages/contact-us">Contact us</a></li>
-          <li><a href="/pages/about">About us</a></li>
-          <li><a href="/pages/faqs">FAQs</a></li>
+          <li><a href="/pages/terms-of-service">About us</a></li>
+          <li><a href="/#shopify-section-faq-accordion">FAQs</a></li>
         </ul>
 
         <h4>Categories</h4>
         <ul>
-          <li><a href="/collections/gazebo-pergolas">Garden Essentials</a></li>
-          <li><a href="/collections/riding-lawn-mowers">Ride Mowers</a></li>
-          <li><a href="/collections/power-generators">Portable Generators</a></li>
-          <li><a href="/collections/self-propelled-mowers">Self-Propelled Mowers</a></li>
-          <li><a href="/collections/car-lift">Car Lift</a></li>
-          <li><a href="/collections/sheds">Sheds & Storage</a></li>
-          <li><a href="/collections/electric-bicycles">Electric Bicycles</a></li>
-          <li><a href="/collections/cardio-machines">Cardio Machines</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Garden+Essentials">Garden Essentials</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Riding+Lawn+Mowers">Ride Mowers</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Power+Generators">Portable Generators</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Self-Propelled+Mowers">Self-Propelled Mowers</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Car+Lift">Car Lift</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Sheds">Sheds & Storage</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Electric+Bicycles">Electric Bicycles</a></li>
+          <li><a href="/collections/all?filter.p.product_type=Cardio+Machines">Cardio Machines</a></li>
         </ul>
       </nav>
 
