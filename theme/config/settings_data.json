@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_primary": "#16a34a",
@@ -20,6 +29,14 @@
     "show_sku": true,
     "show_quick_add": true,
     "product_card_image_ratio": "square",
-    "enable_animations": true
+    "enable_animations": true,
+    "content_for_index": [],
+    "blocks": {
+      "6615124273980966592": {
+        "type": "shopify://apps/chatty/blocks/app-embed/1c0e135d-e8e1-4fe2-86be-1c36def46675",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   }
 }
