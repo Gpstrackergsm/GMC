@@ -126,13 +126,13 @@
               name="add"
               class="btn btn--primary btn--atc"
               {% unless product.available %}disabled{% endunless %}
-              style="flex: 1 1 220px; padding: 1.1rem 2rem; background: var(--color-primary, #2D6A4F); color: #FFFFFF; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 4px 16px rgba(45,106,79,0.3); transition: transform 0.2s, box-shadow 0.2s;"
+              style="flex: 1 1 220px; padding: 1.1rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 4px 16px rgba(22,163,74,0.3); transition: transform 0.2s, box-shadow 0.2s;"
             >
               <span class="atc-text">
                 {%- if product.available -%}
-                  {{ 'products.product.add_to_cart' | default: 'Add to Cart' }} &rarr;
+                  Add to Cart &rarr;
                 {%- else -%}
-                  {{ 'products.product.sold_out' | default: 'Sold Out' }}
+                  Sold Out
                 {%- endif -%}
               </span>
             </button>
