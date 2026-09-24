@@ -119,9 +119,41 @@
   "tag": "section",
   "class": "section-trust-bar",
   "settings": [],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "On all orders over $50"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Laitm Trust Bar"
+      "name": "Laitm Trust Bar",
+      "blocks": [
+        { "type": "trust_item" },
+        { "type": "trust_item" },
+        { "type": "trust_item" },
+        { "type": "trust_item" }
+      ]
     }
   ]
 }
