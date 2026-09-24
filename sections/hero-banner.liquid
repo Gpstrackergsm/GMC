@@ -1,5 +1,6 @@
 {%- liquid
   assign text_align = section.settings.text_alignment | default: 'left'
+  assign hero_cta = section.settings.button_link | default: '/collections/all?filter.p.product_type=Garden+Essentials'
 -%}
 
 <section class="section-{{ section.id }}-hero" style="background-color: #faf6ee; padding: 20px 0 24px;">
@@ -24,7 +25,7 @@
           </p>
 
           <div class="laitm-ghero-actions">
-            <a class="laitm-ghero-cta" href="{{ section.settings.button_link | default: '/collections/gazebo-pergolas' }}">
+            <a class="laitm-ghero-cta" href="{{ hero_cta }}">
               {{ section.settings.button_label | default: 'Shop Garden Essentials' }}
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
@@ -339,7 +340,7 @@
       "type": "url",
       "id": "button_link",
       "label": "Primary Button Link",
-      "default": "/collections/gazebo-pergolas"
+      "default": "/collections/all?filter.p.product_type=Garden+Essentials"
     },
     {
       "type": "text",

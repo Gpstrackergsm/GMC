@@ -17,7 +17,17 @@
       {%- assign col = block.settings.collection -%}
       {%- assign label = block.settings.label | default: col.title | default: 'Category' -%}
       {%- assign cat_img_url = block.settings.image_url -%}
-      {%- assign card_href = col.url | default: '/collections/all' -%}
+
+      {%- comment -%}
+        Prioritize block.settings.link_url, then fallback to automatic working filter URL
+      {%- endcomment -%}
+      {%- if block.settings.link_url != blank -%}
+        {%- assign card_href = block.settings.link_url -%}
+      {%- elsif col != blank and col.url != blank and col.url != '' -%}
+        {%- assign card_href = col.url -%}
+      {%- else -%}
+        {%- assign card_href = '/collections/all?filter.p.product_type=' | append: label | url_encode -%}
+      {%- endif -%}
 
       <a href="{{ card_href }}" class="laitm-cat-card" {{ block.shopify_attributes }}>
         <div class="laitm-cat-card__media">
@@ -214,7 +224,12 @@
         {
           "type": "text",
           "id": "label",
-          "label": "Override Label"
+          "label": "Category Label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Custom Link URL"
         },
         {
           "type": "text",
@@ -231,19 +246,7 @@
   ],
   "presets": [
     {
-      "name": "Top Categories",
-      "blocks": [
-        { "type": "collection", "settings": { "collection": "car-lift", "label": "Car Lift", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-223-image-1.png" } },
-        { "type": "collection", "settings": { "collection": "sheds", "label": "Sheds", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg" } },
-        { "type": "collection", "settings": { "collection": "electric-bicycles", "label": "Electric Bicycles", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-400-image-4.png" } },
-        { "type": "collection", "settings": { "collection": "riding-lawn-mowers", "label": "Riding Lawn Mowers", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png" } },
-        { "type": "collection", "settings": { "collection": "gazebo-pergolas", "label": "Gazebo & Pergolas", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png" } },
-        { "type": "collection", "settings": { "collection": "power-generators", "label": "Power Generators", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-41-image-1.png" } },
-        { "type": "collection", "settings": { "collection": "cardio-machines", "label": "Cardio Machines", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-320-image-1.jpg" } },
-        { "type": "collection", "settings": { "collection": "swing-sets", "label": "Swing Sets", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-78-image-1.png" } },
-        { "type": "collection", "settings": { "collection": "trampoline", "label": "Trampolines", "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-132-image-1-300x300-1.webp" } },
-        { "type": "collection", "settings": { "collection": "robotic-mowers", "label": "Robotic Mowers", "image_url": "https://laitm.com/wp-content/uploads/2026/09/1-2.png" } }
-      ]
+      "name": "Top Categories"
     }
   ]
 }

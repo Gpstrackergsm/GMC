@@ -11,9 +11,9 @@
   assign spot_desc = section.settings.description_override
   assign spot_price = section.settings.price_override
   assign spot_cta_label = section.settings.cta_label | default: 'Shop this product'
-  assign spot_cta_link = section.settings.cta_link
+  assign spot_cta_link = section.settings.cta_link | default: '/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench'
   assign spot_secondary_label = section.settings.secondary_label | default: 'See more like this'
-  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/all'
+  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/all?filter.p.product_type=Swing+sets'
 
   if spot_product != blank
     assign spot_title = spot_title | default: spot_product.title
@@ -70,11 +70,11 @@
         </ul>
 
         <div class="laitm-spot-price-row">
-          <span class="laitm-spot-price">{{ spot_price | default: '$0.00' }}</span>
+          <span class="laitm-spot-price">{{ spot_price | default: '$1,129.00' }}</span>
         </div>
 
         <div class="laitm-spot-actions">
-          <a class="laitm-spot-cta" href="{{ spot_cta_link | default: '/collections/all' }}">
+          <a class="laitm-spot-cta" href="{{ spot_cta_link }}">
             {{ spot_cta_label }}
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -259,13 +259,12 @@
     {
       "type": "text",
       "id": "override_image_url",
-      "label": "Image URL Override",
-      "info": "Use a direct image URL (e.g. from laitm.com CDN)"
+      "label": "Image URL Override"
     },
     {
       "type": "text",
       "id": "price_override",
-      "label": "Price Override (e.g. $1,129.00)"
+      "label": "Price Override"
     },
     {
       "type": "text",
@@ -316,7 +315,7 @@
         "cta_label": "Shop this product",
         "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
         "secondary_label": "See more like this",
-        "secondary_link": "/collections/swing-sets"
+        "secondary_link": "/collections/all?filter.p.product_type=Swing+sets"
       },
       "blocks": [
         { "type": "feature", "settings": { "text": "Solid cedar frame, weather-sealed finish" } },

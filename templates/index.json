@@ -7,7 +7,7 @@
         "heading": "Shade built for <span>slow afternoons</span>",
         "subheading": "Pergolas and gazebos for the corner of the yard you'll actually use — sturdy frames, easy assembly, and a look that gets better with every season.",
         "button_label": "Shop Garden Essentials",
-        "button_link": "/collections/gazebo-pergolas",
+        "button_link": "/collections/all?filter.p.product_type=Garden+Essentials",
         "secondary_button_label": "View all the products",
         "secondary_button_link": "/collections/all",
         "hero_image_url": "https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg",
@@ -35,80 +35,80 @@
         "cat-1": {
           "type": "collection",
           "settings": {
-            "collection": "car-lift",
             "label": "Car Lift",
+            "link_url": "/collections/all?filter.p.product_type=Car+Lift",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-223-image-1.png"
           }
         },
         "cat-2": {
           "type": "collection",
           "settings": {
-            "collection": "sheds",
             "label": "Sheds",
+            "link_url": "/collections/all?filter.p.product_type=Sheds",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg"
           }
         },
         "cat-3": {
           "type": "collection",
           "settings": {
-            "collection": "electric-bicycles",
             "label": "Electric Bicycles",
+            "link_url": "/collections/all?filter.p.product_type=Electric+Bicycles",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-400-image-4.png"
           }
         },
         "cat-4": {
           "type": "collection",
           "settings": {
-            "collection": "riding-lawn-mowers",
             "label": "Riding Lawn Mowers",
+            "link_url": "/collections/all?filter.p.product_type=Riding+Lawn+Mowers",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png"
           }
         },
         "cat-5": {
           "type": "collection",
           "settings": {
-            "collection": "gazebo-pergolas",
             "label": "Gazebo & Pergolas",
+            "link_url": "/collections/all?filter.p.product_type=Gazebo+%26+Pergolas",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png"
           }
         },
         "cat-6": {
           "type": "collection",
           "settings": {
-            "collection": "power-generators",
             "label": "Power Generators",
+            "link_url": "/collections/all?filter.p.product_type=Power+Generators",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-41-image-1.png"
           }
         },
         "cat-7": {
           "type": "collection",
           "settings": {
-            "collection": "cardio-machines",
             "label": "Cardio Machines",
+            "link_url": "/collections/all?filter.p.product_type=Cardio+Machines",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-320-image-1.jpg"
           }
         },
         "cat-8": {
           "type": "collection",
           "settings": {
-            "collection": "swing-sets",
             "label": "Swing Sets",
+            "link_url": "/collections/all?filter.p.product_type=Swing+sets",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-78-image-1.png"
           }
         },
         "cat-9": {
           "type": "collection",
           "settings": {
-            "collection": "trampoline",
             "label": "Trampolines",
+            "link_url": "/collections/all?filter.p.product_type=Trampoline",
             "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-132-image-1-300x300-1.webp"
           }
         },
         "cat-10": {
           "type": "collection",
           "settings": {
-            "collection": "robotic-mowers",
             "label": "Robotic Mowers",
+            "link_url": "/collections/all?filter.p.product_type=Robotic+Mowers",
             "image_url": "https://laitm.com/wp-content/uploads/2026/09/1-2.png"
           }
         }
@@ -121,7 +121,7 @@
         "caption": "Just arrived",
         "heading": "What's New",
         "description": "Fresh additions to the Leafanoo catalog — handpicked outdoor and home essentials ready to ship.",
-        "collection": "",
+        "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
         "show_vendor": true,
@@ -143,7 +143,7 @@
         "cta_label": "Shop this product",
         "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
         "secondary_label": "See more like this",
-        "secondary_link": "/collections/swing-sets"
+        "secondary_link": "/collections/all?filter.p.product_type=Swing+sets"
       },
       "blocks": {
         "feat-1": {
@@ -168,7 +168,7 @@
         "heading": "Garden essentials, sorted. Now let's tackle the lawn.",
         "subtext": "From shade structures to the mower that keeps everything under it looking sharp — explore ride mowers built for real acreage.",
         "cta_label": "Shop Ride Mowers",
-        "cta_link": "/collections/riding-lawn-mowers",
+        "cta_link": "/collections/all?filter.p.product_type=Riding+Lawn+Mowers",
         "bg_image_url": "https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg"
       }
     },
@@ -178,7 +178,7 @@
         "caption": "Built for bigger yards",
         "heading": "Built for Bigger Yards",
         "description": "Riding mowers engineered for real acreage — from trusted brands like Craftsman, Troy-Bilt, and Husqvarna.",
-        "collection": "riding-lawn-mowers",
+        "collection": "all",
         "products_to_show": 4,
         "columns_desktop": 4,
         "show_vendor": true,
