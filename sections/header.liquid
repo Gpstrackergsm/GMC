@@ -49,8 +49,8 @@
           class="site-header__logo-img"
         >
       {%- else -%}
-        <span class="site-header__logo-text" style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.6rem; color: #2D6A4F; font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.02em;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: #52B788;" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span class="site-header__logo-text" style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.6rem; color: #0056A7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; letter-spacing: -0.02em;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: #1863DC;" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
           {{ logo_text }}
         </span>
       {%- endif -%}
@@ -104,13 +104,25 @@
             <a href="{{ routes.root_url }}" class="site-header__nav-link site-header__nav-link--active">Home</a>
           </li>
           <li class="site-header__nav-item">
-            <a href="/collections/all" class="site-header__nav-link">All Products</a>
+            <a href="/collections/all" class="site-header__nav-link">Shop All</a>
           </li>
           <li class="site-header__nav-item">
-            <a href="/pages/shipping-policy" class="site-header__nav-link">Shipping & Delivery</a>
+            <a href="/collections/car-lift" class="site-header__nav-link">Car Lifts</a>
           </li>
           <li class="site-header__nav-item">
-            <a href="/pages/contact-us" class="site-header__nav-link">Contact Us</a>
+            <a href="/collections/riding-lawn-mowers" class="site-header__nav-link">Lawn Mowers</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/collections/power-generators" class="site-header__nav-link">Generators</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/collections/gazebo-pergolas" class="site-header__nav-link">Pergolas & Sheds</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/collections/electric-bicycles" class="site-header__nav-link">E-Bikes</a>
+          </li>
+          <li class="site-header__nav-item">
+            <a href="/pages/contact-us" class="site-header__nav-link">Contact</a>
           </li>
         {%- endif -%}
       </ul>

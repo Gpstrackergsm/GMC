@@ -3,10 +3,10 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "badge_text": "Verified Google Merchant • 1,000+ Trending Essentials",
-        "heading": "Curated Essentials, Engineered for Everyday Living",
-        "subheading": "Discover high-utility, manufacturer-verified physical products across 10 trending departments with fast tracked shipping and 30-day money-back guarantee.",
-        "button_label": "Shop 1,000+ Products",
+        "badge_text": "Verified Google Merchant • Heavy Equipment & Home Essentials",
+        "heading": "Professional Equipment, Premium Outdoor & Home Essentials",
+        "subheading": "Explore commercial-grade car lifts, riding mowers, backup generators, heavy-duty pergolas and storage sheds. Fast nationwide freight delivery and manufacturer warranty.",
+        "button_label": "Shop All Products",
         "button_link": "/collections/all",
         "secondary_button_label": "Explore Departments",
         "secondary_button_link": "/collections",
@@ -59,43 +59,43 @@
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
-        "caption": "Curated Catalog",
-        "heading": "Shop by Department",
-        "description": "Explore 1,000 real trending products across 10 catalog categories, backed by verified specifications and fast fulfillment.",
-        "bg_color": "#FAFAF7"
+        "caption": "Curated Equipment & Home",
+        "heading": "Shop by Category",
+        "description": "Explore 300+ professional automotive lifts, outdoor power equipment, home generators, and premium backyard structures backed by verified manufacturer warranties.",
+        "bg_color": "#F8FAFC"
       },
       "blocks": {
         "dept-1": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Smart Living & Tech" }
+          "settings": { "collection": "car-lift", "label": "Car Lifts" }
         },
         "dept-2": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Kitchen & Culinary" }
+          "settings": { "collection": "riding-lawn-mowers", "label": "Riding Lawn Mowers" }
         },
         "dept-3": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Ergonomics & Office" }
+          "settings": { "collection": "power-generators", "label": "Power Generators" }
         },
         "dept-4": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Fitness & Recovery" }
+          "settings": { "collection": "gazebo-pergolas", "label": "Gazebo & Pergolas" }
         },
         "dept-5": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Outdoor, Travel & EDC" }
+          "settings": { "collection": "sheds", "label": "Storage Sheds" }
         },
         "dept-6": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Audio & Electronics" }
+          "settings": { "collection": "electric-bicycles", "label": "Electric Bicycles" }
         },
         "dept-7": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Pet Care & Tech" }
+          "settings": { "collection": "cardio-machines", "label": "Cardio Machines" }
         },
         "dept-8": {
           "type": "collection",
-          "settings": { "collection": "", "label": "Personal Care & Wellness" }
+          "settings": { "collection": "swing-sets", "label": "Swing Sets & Playsets" }
         }
       },
       "block_order": [
