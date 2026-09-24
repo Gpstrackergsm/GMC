@@ -1,867 +1,650 @@
-{%- liquid
-  assign main_menu = linklists[section.settings.menu]
-  assign logo_width = section.settings.logo_width | default: 140
--%}
+<header class="laitm-header" role="banner">
+  <!-- ROW 1: Logo, Main Search Bar, User Actions -->
+  <div class="laitm-header__main">
+    <div class="page-width laitm-header__main-inner">
+      <!-- Mobile Menu Toggle -->
+      <button type="button" class="laitm-header__mobile-toggle" aria-label="Open menu" onclick="document.getElementById('LaitmMobileDrawer').classList.add('is-open');">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
 
-{%- if section.settings.sticky_header -%}
-  <style>
-    .section-{{ section.id }}-header { position: sticky; top: 0; }
-  </style>
-{%- endif -%}
-
-<header
-  class="site-header section-{{ section.id }}-header"
-  role="banner"
-  aria-label="Site header"
->
-  <div class="site-header__inner page-width">
-
-    <!-- Mobile hamburger -->
-    <button
-      type="button"
-      class="site-header__menu-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-nav-drawer"
-      aria-label="Open navigation menu"
-    >
-      <svg aria-hidden="true" focusable="false" width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect y="0"  width="22" height="2" rx="1" fill="currentColor"/>
-        <rect y="8"  width="22" height="2" rx="1" fill="currentColor"/>
-        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
-      </svg>
-    </button>
-
-    <!-- Logo -->
-    {%- assign logo_text = section.settings.custom_logo_text | default: 'Leafanoo' -%}
-    {%- if logo_text == 'Ma boutique' or logo_text == '' -%}
-      {%- assign logo_text = 'Leafanoo' -%}
-    {%- endif -%}
-    <a href="{{ routes.root_url }}" class="site-header__logo-link" aria-label="{{ logo_text }} - Home">
-      {%- if section.settings.logo != blank -%}
-        <img
-          src="{{ section.settings.logo | image_url: width: logo_width }}"
-          srcset="{{ section.settings.logo | image_url: width: logo_width }} 1x,
-                  {{ section.settings.logo | image_url: width: logo_width | times: 2 }} 2x"
-          alt="{{ logo_text }}"
-          width="{{ logo_width }}"
-          height="{{ section.settings.logo.height | times: logo_width | divided_by: section.settings.logo.width }}"
-          loading="eager"
-          class="site-header__logo-img"
-        >
-      {%- else -%}
-        <span class="site-header__logo-text" style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.6rem; color: #0056A7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; letter-spacing: -0.02em;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: #1863DC;" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-          {{ logo_text }}
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="laitm-header__logo" aria-label="Leafanoo - Home">
+        <span class="laitm-logo-wrap">
+          <svg class="laitm-logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="8" fill="#16a34a"/>
+            <path d="M11 13V10C11 7.23858 13.2386 5 16 5C18.7614 5 21 7.23858 21 10V13M7 11H25L26 27C26 28.1046 25.1046 29 24 29H8C6.89543 29 6 28.1046 6 27L7 11Z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M16 17C16 17 19 19.5 19 23C16.5 23 13 22 13 18C13 18 16 18 16 17Z" fill="#86efac"/>
+          </svg>
+          <span class="laitm-logo-text">Leafanoo</span>
         </span>
-      {%- endif -%}
-    </a>
-
-    <!-- Desktop mega-menu nav -->
-    <nav class="site-header__nav" aria-label="Main navigation">
-      <ul class="site-header__nav-list" role="list">
-        {%- if main_menu.links != blank and main_menu.links.first.title != 'Accueil' -%}
-          {%- for link in main_menu.links -%}
-            {%- if link.links != blank -%}
-              <li class="site-header__nav-item site-header__nav-item--has-dropdown">
-                <a
-                  href="{{ link.url }}"
-                  class="site-header__nav-link"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  {{ link.title | escape }}
-                  <svg class="site-header__chevron" aria-hidden="true" focusable="false" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                <div class="site-header__mega-panel" role="region" aria-label="{{ link.title | escape }} sub-menu">
-                  <ul class="site-header__mega-list" role="list">
-                    {%- for child in link.links -%}
-                      <li class="site-header__mega-item">
-                        <a href="{{ child.url }}" class="site-header__mega-link">
-                          {{ child.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-              </li>
-            {%- else -%}
-              <li class="site-header__nav-item">
-                <a
-                  href="{{ link.url }}"
-                  class="site-header__nav-link{% if link.active %} site-header__nav-link--active{% endif %}"
-                  {% if link.active %}aria-current="page"{% endif %}
-                >
-                  {{ link.title | escape }}
-                </a>
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        {%- else -%}
-          <!-- Clean English E-commerce Navigation -->
-          <li class="site-header__nav-item">
-            <a href="{{ routes.root_url }}" class="site-header__nav-link site-header__nav-link--active">Home</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/all" class="site-header__nav-link">Shop All</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/car-lift" class="site-header__nav-link">Car Lifts</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/riding-lawn-mowers" class="site-header__nav-link">Lawn Mowers</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/power-generators" class="site-header__nav-link">Generators</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/gazebo-pergolas" class="site-header__nav-link">Pergolas & Sheds</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/collections/electric-bicycles" class="site-header__nav-link">E-Bikes</a>
-          </li>
-          <li class="site-header__nav-item">
-            <a href="/pages/contact-us" class="site-header__nav-link">Contact</a>
-          </li>
-        {%- endif -%}
-      </ul>
-    </nav>
-
-    <!-- Header actions -->
-    <div class="site-header__actions">
-      {%- if section.settings.show_search -%}
-        <button
-          type="button"
-          class="site-header__action-btn site-header__search-btn"
-          aria-label="Open search"
-          aria-expanded="false"
-          aria-controls="predictive-search-modal"
-        >
-          <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="8.5" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.75"/>
-            <path d="M13.5 13.5L18 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-        </button>
-      {%- endif -%}
-
-      {%- if section.settings.show_account -%}
-        <a
-          href="{{ routes.account_url }}"
-          class="site-header__action-btn"
-          aria-label="{% if customer %}My account{% else %}Log in{% endif %}"
-        >
-          <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="6" r="4" stroke="currentColor" stroke-width="1.75"/>
-            <path d="M2 18c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-        </a>
-      {%- endif -%}
-
-      <a
-        href="{{ routes.cart_url }}"
-        class="site-header__action-btn site-header__cart-btn"
-        aria-label="Cart ({{ cart.item_count }} items)"
-        data-cart-drawer-trigger
-      >
-        <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1h2l2.68 8.39a2 2 0 001.9 1.61h7.72a2 2 0 001.9-1.39L19 4H4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="7.5" cy="17.5" r="1.5" fill="currentColor"/>
-          <circle cx="15.5" cy="17.5" r="1.5" fill="currentColor"/>
-        </svg>
-        {%- if cart.item_count > 0 -%}
-          <span class="site-header__cart-count" aria-hidden="true">{{ cart.item_count }}</span>
-        {%- endif -%}
       </a>
+
+      <!-- Center Search Bar -->
+      <div class="laitm-header__search">
+        <form action="{{ routes.search_url }}" method="get" class="laitm-search-form" role="search">
+          <input type="hidden" name="type" value="product">
+          <input
+            type="search"
+            name="q"
+            class="laitm-search-input"
+            placeholder="Search for products"
+            value="{{ search.terms | escape }}"
+            autocomplete="off"
+            required
+          >
+          <button type="submit" class="laitm-search-btn" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Tools: Account, Wishlist, Cart -->
+      <div class="laitm-header__tools">
+        <!-- Account -->
+        <a href="/account" class="laitm-tool-btn laitm-tool-account" aria-label="My Account" title="My account">
+          <div class="laitm-account-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Wishlist -->
+        <a href="/pages/wishlist" class="laitm-tool-btn laitm-tool-wishlist" aria-label="Wishlist" title="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="laitm-tool-badge">0</span>
+        </a>
+
+        <!-- Cart -->
+        <a href="/cart" class="laitm-header-cart" aria-label="Shopping Cart" data-drawer-trigger="cart">
+          <div class="laitm-cart-inner">
+            <div class="laitm-cart-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="laitm-cart-count" data-cart-count>{{ cart.item_count }}</span>
+            </div>
+            <span class="laitm-cart-total" data-cart-total>{{ cart.total_price | money }}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Browse Categories, Nav Links, Support Info -->
+  <div class="laitm-header__nav-row">
+    <div class="page-width laitm-header__nav-inner">
+      <!-- Left: Browse Categories Dropdown Button -->
+      <div class="laitm-cats-dropdown-wrap">
+        <button type="button" class="laitm-cats-btn" id="LaitmCatsBtn" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Browse Categories</span>
+          <svg class="laitm-cats-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="laitm-cats-menu" id="LaitmCatsMenu">
+          <ul>
+            <li><a href="/collections/gazebo-pergolas">🌿 Garden Essentials</a></li>
+            <li><a href="/collections/riding-lawn-mowers">🚜 Ride Mowers</a></li>
+            <li><a href="/collections/power-generators">⚡ Portable Generators</a></li>
+            <li><a href="/collections/self-propelled-mowers">🌱 Self-Propelled Mowers</a></li>
+            <li><a href="/collections/car-lift">🚗 Car Lift</a></li>
+            <li><a href="/collections/sheds">🏠 Sheds & Storage</a></li>
+            <li><a href="/collections/electric-bicycles">🚲 Electric Bicycles</a></li>
+            <li><a href="/collections/cardio-machines">🏃 Cardio Machines</a></li>
+            <li><a href="/collections/swing-sets">🎠 Swing Sets</a></li>
+            <li><a href="/collections/trampoline">🤸 Trampoline</a></li>
+            <li><a href="/collections/walk-behind-lawn-mowers">🌾 Walk-Behind Lawn Mowers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Center: Navigation Links -->
+      <nav class="laitm-nav" aria-label="Main Navigation">
+        <ul class="laitm-nav__list">
+          <li><a href="/" class="laitm-nav__link {% if request.path == '/' %}is-active{% endif %}">Home</a></li>
+          <li><a href="/collections/all" class="laitm-nav__link {% if request.path contains '/collections' %}is-active{% endif %}">Shop</a></li>
+          <li><a href="/pages/order-status" class="laitm-nav__link">Order Status</a></li>
+          <li><a href="/pages/contact-us" class="laitm-nav__link">Contact us</a></li>
+          <li><a href="/pages/about" class="laitm-nav__link">About us</a></li>
+          <li><a href="/pages/faqs" class="laitm-nav__link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Store Address & Phone -->
+      <div class="laitm-header__contact">
+        <div class="laitm-header__address">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>31294 115th Ave, Saint Joseph, MN 56374, USA</span>
+        </div>
+        <a href="tel:+13202644135" class="laitm-header__phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>+1 (320) 264-4135</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="laitm-mobile-drawer" id="LaitmMobileDrawer">
+    <div class="laitm-mobile-drawer__overlay" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');"></div>
+    <div class="laitm-mobile-drawer__panel">
+      <div class="laitm-mobile-drawer__head">
+        <span class="laitm-logo-text">Leafanoo</span>
+        <button type="button" class="laitm-mobile-drawer__close" aria-label="Close menu" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');">
+          &times;
+        </button>
+      </div>
+
+      <!-- Mobile Search -->
+      <form action="{{ routes.search_url }}" method="get" class="laitm-mobile-search">
+        <input type="hidden" name="type" value="product">
+        <input type="search" name="q" placeholder="Search for products..." required>
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Mobile Links -->
+      <nav class="laitm-mobile-nav">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/collections/all">Shop All</a></li>
+          <li><a href="/pages/order-status">Order Status</a></li>
+          <li><a href="/pages/contact-us">Contact us</a></li>
+          <li><a href="/pages/about">About us</a></li>
+          <li><a href="/pages/faqs">FAQs</a></li>
+        </ul>
+
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="/collections/gazebo-pergolas">Garden Essentials</a></li>
+          <li><a href="/collections/riding-lawn-mowers">Ride Mowers</a></li>
+          <li><a href="/collections/power-generators">Portable Generators</a></li>
+          <li><a href="/collections/self-propelled-mowers">Self-Propelled Mowers</a></li>
+          <li><a href="/collections/car-lift">Car Lift</a></li>
+          <li><a href="/collections/sheds">Sheds & Storage</a></li>
+          <li><a href="/collections/electric-bicycles">Electric Bicycles</a></li>
+          <li><a href="/collections/cardio-machines">Cardio Machines</a></li>
+        </ul>
+      </nav>
+
+      <div class="laitm-mobile-contact">
+        <p>📍 31294 115th Ave, Saint Joseph, MN 56374, USA</p>
+        <p>📞 +1 (320) 264-4135</p>
+        <p>✉️ support@leafanoo.com</p>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- Predictive Search Modal -->
-{%- if section.settings.show_search -%}
-<div
-  id="predictive-search-modal"
-  class="predictive-search-modal"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Search"
-  hidden
->
-  <div class="predictive-search-modal__backdrop" data-search-close></div>
-  <div class="predictive-search-modal__panel">
-    <form action="{{ routes.search_url }}" method="get" role="search" class="predictive-search__form">
-      <input type="hidden" name="type" value="product">
-      <label for="predictive-search-input" class="visually-hidden">Search</label>
-      <input
-        id="predictive-search-input"
-        type="search"
-        name="q"
-        placeholder="Search products…"
-        class="predictive-search__input"
-        autocomplete="off"
-        aria-autocomplete="list"
-        aria-controls="predictive-search-results"
-        aria-expanded="false"
-      >
-      <button type="submit" class="predictive-search__submit" aria-label="Submit search">
-        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 20 20" fill="none">
-          <circle cx="8.5" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.75"/>
-          <path d="M13.5 13.5L18 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </form>
-    <ul
-      id="predictive-search-results"
-      class="predictive-search__results"
-      role="listbox"
-      aria-label="Search suggestions"
-    ></ul>
-    <button type="button" class="predictive-search-modal__close" aria-label="Close search" data-search-close>
-      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 14 14" fill="none">
-        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-</div>
-{%- endif -%}
-
-<!-- Mobile Navigation Drawer -->
-<div
-  id="mobile-nav-drawer"
-  class="mobile-nav-drawer"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Navigation menu"
-  hidden
->
-  <div class="mobile-nav-drawer__backdrop" data-mobile-close></div>
-  <nav class="mobile-nav-drawer__panel" aria-label="Mobile navigation">
-    <div class="mobile-nav-drawer__header">
-      <a href="{{ routes.root_url }}" class="mobile-nav-drawer__logo">
-        {%- if section.settings.logo != blank -%}
-          <img
-            src="{{ section.settings.logo | image_url: width: 120 }}"
-            alt="{{ shop.name }}"
-            width="120"
-            loading="lazy"
-          >
-        {%- else -%}
-          <span class="site-header__logo-text">{{ shop.name }}</span>
-        {%- endif -%}
-      </a>
-      <button type="button" class="mobile-nav-drawer__close" aria-label="Close navigation menu" data-mobile-close>
-        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 14 14" fill="none">
-          <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-    <ul class="mobile-nav-drawer__list" role="list">
-      {%- for link in main_menu.links -%}
-        {%- if link.links != blank -%}
-          <li class="mobile-nav-drawer__item mobile-nav-drawer__item--has-children">
-            <button
-              type="button"
-              class="mobile-nav-drawer__link mobile-nav-drawer__toggle"
-              aria-expanded="false"
-              aria-controls="mobile-sub-{{ forloop.index }}"
-            >
-              {{ link.title | escape }}
-              <svg class="mobile-nav-drawer__chevron" aria-hidden="true" focusable="false" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <ul id="mobile-sub-{{ forloop.index }}" class="mobile-nav-drawer__sub-list" hidden role="list">
-              {%- for child in link.links -%}
-                <li class="mobile-nav-drawer__sub-item">
-                  <a href="{{ child.url }}" class="mobile-nav-drawer__sub-link">
-                    {{ child.title | escape }}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </li>
-        {%- else -%}
-          <li class="mobile-nav-drawer__item">
-            <a
-              href="{{ link.url }}"
-              class="mobile-nav-drawer__link{% if link.active %} mobile-nav-drawer__link--active{% endif %}"
-            >
-              {{ link.title | escape }}
-            </a>
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
-    </ul>
-
-    <div class="mobile-nav-drawer__footer">
-      {%- if section.settings.show_account -%}
-        <a href="{{ routes.account_url }}" class="mobile-nav-drawer__account">
-          {%- if customer -%}My Account{%- else -%}Log In{%- endif -%}
-        </a>
-      {%- endif -%}
-    </div>
-  </nav>
-</div>
-
 <style>
-  /* ===== HEADER BASE ===== */
-  .site-header {
-    background-color: #FAFAF7;
-    border-bottom: 1px solid #e8e8e3;
-    z-index: 100;
-    top: 0;
+  .laitm-header {
+    background: #ffffff;
     width: 100%;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-  .site-header__inner {
+  .laitm-header__main {
+    border-bottom: 1px solid #f0f0ed;
+    padding: 16px 0;
+  }
+  .laitm-header__main-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    height: 72px;
-    max-width: 1440px;
-    margin: 0 auto;
-    gap: 24px;
+    gap: 32px;
   }
-  .page-width { box-sizing: border-box; }
+  .laitm-header__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #1c1a16;
+    cursor: pointer;
+    padding: 6px;
+  }
 
-  /* ===== LOGO ===== */
-  .site-header__logo-link {
+  /* Logo */
+  .laitm-header__logo {
     text-decoration: none;
-    display: flex;
-    align-items: center;
+    color: inherit;
     flex-shrink: 0;
   }
-  .site-header__logo-img { display: block; }
-  .site-header__logo-text {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2D6A4F;
-    white-space: nowrap;
+  .laitm-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .laitm-logo-icon {
+    flex-shrink: 0;
+  }
+  .laitm-logo-text {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #1c1a16;
+    letter-spacing: -0.03em;
   }
 
-  /* ===== DESKTOP NAV ===== */
-  .site-header__nav { flex: 1; }
-  .site-header__nav-list {
+  /* Search */
+  .laitm-header__search {
+    flex: 1;
+    max-width: 580px;
+  }
+  .laitm-search-form {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 4px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    width: 100%;
   }
-  .site-header__nav-item { position: relative; }
-  .site-header__nav-link {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 12px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: #1a1a1a;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-  .site-header__nav-link:hover,
-  .site-header__nav-link:focus-visible {
-    background-color: #f0f7f4;
-    color: #2D6A4F;
+  .laitm-search-input {
+    width: 100%;
+    height: 46px;
+    padding: 0 52px 0 22px;
+    background: #f7f7f5;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 999px;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 14.5px;
+    color: #1c1a16;
     outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
   }
-  .site-header__nav-link--active { color: #2D6A4F; font-weight: 600; }
-  .site-header__chevron { transition: transform 0.2s ease; flex-shrink: 0; }
-  .site-header__nav-item--has-dropdown:hover .site-header__chevron { transform: rotate(180deg); }
-
-  /* Mega panel */
-  .site-header__mega-panel {
+  .laitm-search-input:focus {
+    background: #ffffff;
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+  }
+  .laitm-search-btn {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    min-width: 200px;
-    background-color: #fff;
-    border: 1px solid #e8e8e3;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    padding: 8px 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-    z-index: 99;
-  }
-  .site-header__nav-item--has-dropdown:hover .site-header__mega-panel,
-  .site-header__nav-item--has-dropdown:focus-within .site-header__mega-panel {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .site-header__mega-list { list-style: none; margin: 0; padding: 0; }
-  .site-header__mega-link {
-    display: block;
-    padding: 9px 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #1a1a1a;
-    text-decoration: none;
-    transition: background-color 0.15s, color 0.15s;
-  }
-  .site-header__mega-link:hover,
-  .site-header__mega-link:focus-visible {
-    background-color: #f0f7f4;
-    color: #2D6A4F;
-    outline: none;
-  }
-
-  /* ===== ACTIONS ===== */
-  .site-header__actions {
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: #16a34a;
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+  }
+  .laitm-search-btn:hover {
+    background: #e7f6ec;
+  }
+
+  /* Tools */
+  .laitm-header__tools {
+    display: flex;
+    align-items: center;
+    gap: 18px;
     flex-shrink: 0;
   }
-  .site-header__action-btn {
+  .laitm-tool-btn {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    color: #1a1a1a;
+    color: #1c1a16;
     text-decoration: none;
-    transition: background-color 0.15s, color 0.15s;
+    transition: color 0.2s;
   }
-  .site-header__action-btn:hover,
-  .site-header__action-btn:focus-visible {
-    background-color: #f0f7f4;
-    color: #2D6A4F;
+  .laitm-account-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
   }
-  .site-header__action-btn:focus-visible { outline: 2px solid #2D6A4F; outline-offset: 2px; }
-  .site-header__cart-count {
+  .laitm-account-circle:hover {
+    background: #0f7a37;
+    transform: scale(1.05);
+  }
+  .laitm-tool-wishlist {
+    color: #57534e;
+    padding: 6px;
+  }
+  .laitm-tool-wishlist:hover {
+    color: #16a34a;
+  }
+  .laitm-tool-badge {
     position: absolute;
-    top: 2px;
-    right: 2px;
-    background-color: #2D6A4F;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.6875rem;
+    top: 0;
+    right: -2px;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 11px;
     font-weight: 700;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 9px;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 4px;
-    line-height: 1;
   }
 
-  /* ===== MOBILE TOGGLE ===== */
-  .site-header__menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #1a1a1a;
-    padding: 8px;
-    border-radius: 4px;
-    transition: background-color 0.15s;
-  }
-  .site-header__menu-toggle:hover { background-color: #f0f7f4; }
-  .site-header__menu-toggle:focus-visible { outline: 2px solid #2D6A4F; outline-offset: 2px; }
-
-  /* ===== PREDICTIVE SEARCH MODAL ===== */
-  .predictive-search-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 300;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 80px;
-  }
-  .predictive-search-modal[hidden] { display: none !important; }
-  .predictive-search-modal__backdrop {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0,0,0,0.45);
-    cursor: pointer;
-  }
-  .predictive-search-modal__panel {
-    position: relative;
-    background-color: #fff;
-    border-radius: 12px;
-    width: min(640px, calc(100vw - 32px));
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .predictive-search__form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1.5px solid #e8e8e3;
-    border-radius: 8px;
-    padding: 4px 8px;
-  }
-  .predictive-search__form:focus-within { border-color: #2D6A4F; }
-  .predictive-search__input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    padding: 8px 4px;
-    background: transparent;
-    color: #1a1a1a;
-  }
-  .predictive-search__submit {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    display: flex;
-    padding: 4px;
-  }
-  .predictive-search__results {
-    margin: 12px 0 0;
-    padding: 0;
-    list-style: none;
-    overflow-y: auto;
-  }
-  .predictive-search__results li a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 8px;
-    border-radius: 6px;
+  /* Cart Pill */
+  .laitm-header-cart {
     text-decoration: none;
-    color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    transition: background-color 0.15s;
+    color: inherit;
+    display: flex;
+    align-items: center;
   }
-  .predictive-search__results li a:hover,
-  .predictive-search__results li a:focus-visible {
-    background-color: #f0f7f4;
+  .laitm-cart-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1c1a16;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.2s;
   }
-  .predictive-search__results img {
-    width: 44px;
-    height: 44px;
-    object-fit: cover;
-    border-radius: 4px;
+  .laitm-cart-inner:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+  }
+  .laitm-cart-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .laitm-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 10.5px;
+    font-weight: 700;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 1.5px solid #1c1a16;
+  }
+  .laitm-cart-inner:hover .laitm-cart-count {
+    background: #ffffff;
+    color: #16a34a;
+    border-color: #16a34a;
+  }
+  .laitm-cart-total {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* ROW 2: Subheader Navigation */
+  .laitm-header__nav-row {
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e3;
+    height: 48px;
+  }
+  .laitm-header__nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 24px;
+  }
+
+  /* Browse Categories Dropdown */
+  .laitm-cats-dropdown-wrap {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+  .laitm-cats-btn {
+    background: #16a34a;
+    color: #ffffff;
+    border: none;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 8px 8px 0 0;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .laitm-cats-btn:hover {
+    background: #0f7a37;
+  }
+  .laitm-cats-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 260px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    z-index: 200;
+  }
+  .laitm-cats-dropdown-wrap:hover .laitm-cats-menu,
+  .laitm-cats-dropdown-wrap.is-open .laitm-cats-menu {
+    display: block;
+  }
+  .laitm-cats-menu ul {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+  }
+  .laitm-cats-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #1c1a16;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+  }
+  .laitm-cats-menu li a:hover {
+    background: #f0fdf4;
+    color: #16a34a;
+  }
+
+  /* Center Nav Links */
+  .laitm-nav {
+    flex: 1;
+  }
+  .laitm-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .laitm-nav__link {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #242424;
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 6px 0;
+  }
+  .laitm-nav__link:hover,
+  .laitm-nav__link.is-active {
+    color: #16a34a;
+  }
+
+  /* Right Contact */
+  .laitm-header__contact {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 12.5px;
     flex-shrink: 0;
   }
-  .predictive-search-modal__close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    padding: 4px;
-    border-radius: 50%;
+  .laitm-header__address {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #57534e;
   }
-  .predictive-search-modal__close:focus-visible { outline: 2px solid #2D6A4F; }
+  .laitm-header__phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #16a34a;
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-  /* ===== MOBILE DRAWER ===== */
-  .mobile-nav-drawer {
+  /* Mobile Drawer Styles */
+  .laitm-mobile-drawer {
+    display: none;
     position: fixed;
     inset: 0;
-    z-index: 250;
-    display: flex;
+    z-index: 999;
   }
-  .mobile-nav-drawer[hidden] { display: none !important; }
-  .mobile-nav-drawer__backdrop {
-    flex: 1;
-    background-color: rgba(0,0,0,0.45);
-    cursor: pointer;
+  .laitm-mobile-drawer.is-open {
+    display: block;
   }
-  .mobile-nav-drawer__panel {
-    width: min(320px, 85vw);
-    background-color: #FAFAF7;
+  .laitm-mobile-drawer__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .laitm-mobile-drawer__panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 82%;
+    max-width: 320px;
+    background: #ffffff;
+    padding: 24px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    padding-bottom: 24px;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+    gap: 20px;
   }
-  .mobile-nav-drawer__header {
+  .laitm-mobile-drawer__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid #e8e8e3;
   }
-  .mobile-nav-drawer__logo { text-decoration: none; }
-  .mobile-nav-drawer__close {
-    background: transparent;
+  .laitm-mobile-drawer__close {
+    background: none;
     border: none;
+    font-size: 28px;
     cursor: pointer;
-    color: #1a1a1a;
-    padding: 6px;
-    border-radius: 50%;
+    color: #57534e;
   }
-  .mobile-nav-drawer__close:focus-visible { outline: 2px solid #2D6A4F; }
-  .mobile-nav-drawer__list { list-style: none; margin: 0; padding: 8px 0; flex: 1; }
-  .mobile-nav-drawer__item { border-bottom: 1px solid #f0f0ea; }
-  .mobile-nav-drawer__link {
+  .laitm-mobile-search {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #1a1a1a;
-    text-decoration: none;
-    background: transparent;
+    gap: 8px;
+  }
+  .laitm-mobile-search input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .laitm-mobile-search button {
+    background: #16a34a;
+    color: #fff;
     border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.15s, color 0.15s;
-  }
-  .mobile-nav-drawer__link:hover,
-  .mobile-nav-drawer__link:focus-visible {
-    background-color: #f0f7f4;
-    color: #2D6A4F;
-    outline: none;
-  }
-  .mobile-nav-drawer__link--active { color: #2D6A4F; font-weight: 600; }
-  .mobile-nav-drawer__chevron { transition: transform 0.2s; flex-shrink: 0; }
-  .mobile-nav-drawer__toggle[aria-expanded="true"] .mobile-nav-drawer__chevron { transform: rotate(180deg); }
-  .mobile-nav-drawer__sub-list { list-style: none; margin: 0; padding: 0; background-color: #f5f5f0; }
-  .mobile-nav-drawer__sub-link {
-    display: block;
-    padding: 12px 32px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9375rem;
-    color: #333;
-    text-decoration: none;
-    border-bottom: 1px solid #ebebeb;
-    transition: background-color 0.15s, color 0.15s;
-  }
-  .mobile-nav-drawer__sub-link:hover,
-  .mobile-nav-drawer__sub-link:focus-visible {
-    background-color: #e8f5e9;
-    color: #2D6A4F;
-  }
-  .mobile-nav-drawer__footer {
-    padding: 16px 20px;
-    border-top: 1px solid #e8e8e3;
-  }
-  .mobile-nav-drawer__account {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9375rem;
-    color: #2D6A4F;
+    border-radius: 8px;
+    padding: 0 14px;
     font-weight: 600;
-    text-decoration: none;
   }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 989px) {
-    .site-header__nav  { display: none; }
-    .site-header__menu-toggle { display: flex; }
-    .site-header__inner { padding: 0 16px; }
+  .laitm-mobile-nav h4 {
+    margin: 16px 0 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #78716c;
   }
-
-  /* Visually hidden utility */
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+  .laitm-mobile-nav ul {
+    list-style: none;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
+    margin: 0;
+  }
+  .laitm-mobile-nav li a {
+    display: block;
+    padding: 8px 0;
+    color: #1c1a16;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .laitm-mobile-contact {
+    margin-top: auto;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+    font-size: 12px;
+    color: #57534e;
+  }
+
+  @media (max-width: 1080px) {
+    .laitm-header__contact { display: none; }
+  }
+  @media (max-width: 860px) {
+    .laitm-header__mobile-toggle { display: block; }
+    .laitm-header__search { display: none; }
+    .laitm-tool-wishlist { display: none; }
+    .laitm-header__nav-row { display: none; }
+    .laitm-cart-total { display: none; }
   }
 </style>
 
 <script>
-(function () {
-  // ─── Mobile Drawer ────────────────────────────────────
-  var menuToggle = document.querySelector('.site-header__menu-toggle');
-  var mobileDrawer = document.getElementById('mobile-nav-drawer');
-  var firstFocusable, lastFocusable;
-
-  function getFocusable(el) {
-    return Array.from(el.querySelectorAll(
-      'a, button:not([disabled]), input, [tabindex]:not([tabindex="-1"])'
-    ));
-  }
-
-  function openMobileDrawer() {
-    mobileDrawer.removeAttribute('hidden');
-    menuToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    var focusable = getFocusable(mobileDrawer);
-    if (focusable.length) { firstFocusable = focusable[0]; lastFocusable = focusable[focusable.length - 1]; firstFocusable.focus(); }
-    mobileDrawer.addEventListener('keydown', trapFocus);
-  }
-
-  function closeMobileDrawer() {
-    mobileDrawer.setAttribute('hidden', '');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    menuToggle.focus();
-    mobileDrawer.removeEventListener('keydown', trapFocus);
-  }
-
-  function trapFocus(e) {
-    if (e.key !== 'Tab') {
-      if (e.key === 'Escape') closeMobileDrawer();
-      return;
-    }
-    if (e.shiftKey) {
-      if (document.activeElement === firstFocusable) { e.preventDefault(); lastFocusable.focus(); }
-    } else {
-      if (document.activeElement === lastFocusable) { e.preventDefault(); firstFocusable.focus(); }
-    }
-  }
-
-  if (menuToggle && mobileDrawer) {
-    menuToggle.addEventListener('click', openMobileDrawer);
-    mobileDrawer.querySelectorAll('[data-mobile-close]').forEach(function (el) {
-      el.addEventListener('click', closeMobileDrawer);
-    });
-  }
-
-  // Mobile sub-menu toggles
-  document.querySelectorAll('.mobile-nav-drawer__toggle').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var targetId = btn.getAttribute('aria-controls');
-      var subList = document.getElementById(targetId);
-      if (!subList) return;
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if (expanded) { subList.setAttribute('hidden', ''); } else { subList.removeAttribute('hidden'); }
-    });
-  });
-
-  // ─── Predictive Search ──────────────────────────────
-  var searchModal = document.getElementById('predictive-search-modal');
-  var searchInput = document.getElementById('predictive-search-input');
-  var searchResults = document.getElementById('predictive-search-results');
-  var searchDebounce;
-
-  document.querySelectorAll('.site-header__search-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      if (!searchModal) return;
-      searchModal.removeAttribute('hidden');
-      btn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      setTimeout(function () { if (searchInput) searchInput.focus(); }, 50);
-    });
-  });
-
-  if (searchModal) {
-    searchModal.querySelectorAll('[data-search-close]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        searchModal.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-        document.querySelectorAll('.site-header__search-btn').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+  // Simple dropdown toggle for mobile/click
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('LaitmCatsBtn');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wrap = btn.closest('.laitm-cats-dropdown-wrap');
+        wrap.classList.toggle('is-open');
       });
+    }
+    document.addEventListener('click', function() {
+      var wrap = document.querySelector('.laitm-cats-dropdown-wrap.is-open');
+      if (wrap) wrap.classList.remove('is-open');
     });
-    searchModal.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        searchModal.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', function () {
-      clearTimeout(searchDebounce);
-      var q = searchInput.value.trim();
-      if (q.length < 2) { if (searchResults) searchResults.innerHTML = ''; return; }
-      searchDebounce = setTimeout(function () { fetchSuggestions(q); }, 300);
-    });
-  }
-
-  function fetchSuggestions(query) {
-    fetch('/search/suggest.json?q=' + encodeURIComponent(query) + '&resources[type]=product&resources[limit]=6&resources[options][unavailable_products]=hide')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var products = data.resources && data.resources.results && data.resources.results.products || [];
-        if (!searchResults) return;
-        if (products.length === 0) {
-          searchResults.innerHTML = '<li style="padding:12px 8px;font-family:Inter,sans-serif;font-size:.875rem;color:#666;">No results found</li>';
-          return;
-        }
-        searchResults.innerHTML = products.map(function (p) {
-          var img = p.featured_image ? '<img src="' + p.featured_image + '" alt="" width="44" height="44">' : '';
-          return '<li role="option"><a href="' + p.url + '">' + img + '<span>' + p.title + '</span></a></li>';
-        }).join('');
-        searchInput.setAttribute('aria-expanded', 'true');
-      })
-      .catch(function () {});
-  }
-})();
+  });
 </script>
 
 {% schema %}
 {
-  "name": "Header",
-  "tag": "div",
+  "name": "Laitm Header",
   "class": "section-header",
-  "limit": 1,
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "label": "Logo width",
-      "min": 80,
-      "max": 200,
-      "step": 10,
-      "default": 140,
-      "unit": "px"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Navigation menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_search",
-      "label": "Show search icon",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_account",
-      "label": "Show account icon",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky_header",
-      "label": "Sticky header",
-      "default": true
-    }
-  ],
+  "settings": [],
   "presets": [
     {
-      "name": "Header"
+      "name": "Laitm Header"
     }
   ]
 }
