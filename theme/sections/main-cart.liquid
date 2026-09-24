@@ -1,7 +1,7 @@
 <div class="cart-page-section section-padding" style="padding: 2.5rem 0 4rem 0;">
   <div class="container">
     <h1 style="font-family: var(--font-heading-family, serif); font-size: 2.25rem; margin-bottom: 2rem; text-align: center;">
-      {{ 'cart.general.title' | default: 'Your Cart' }}
+      Your Cart
     </h1>
 
     {%- if cart.item_count > 0 -%}
@@ -35,7 +35,7 @@
                         {%- if item.sku != blank -%}
                           <div style="font-size: 0.75rem; color: #888;">SKU: {{ item.sku }}</div>
                         {%- endif -%}
-                        <div style="font-size: 0.9rem; color: var(--color-primary, #2D6A4F); font-weight: 500; margin-top: 0.25rem;">
+                        <div style="font-size: 0.9rem; color: var(--color-primary, #16a34a); font-weight: 500; margin-top: 0.25rem;">
                           {{ item.final_price | money }}
                         </div>
                       </div>
@@ -69,8 +69,8 @@
             </table>
 
             <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-              <a href="{{ routes.all_products_collection_url }}" style="color: var(--color-primary, #2D6A4F); text-decoration: underline; font-size: 0.95rem;">
-                &larr; {{ 'cart.general.continue_shopping' | default: 'Continue Shopping' }}
+              <a href="{{ routes.all_products_collection_url }}" style="color: var(--color-primary, #16a34a); text-decoration: underline; font-size: 0.95rem;">
+                &larr; Continue Shopping
               </a>
               <button type="submit" name="update" class="btn" style="background: transparent; border: 1px solid var(--color-border, #E8E8E0); padding: 0.6rem 1.25rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
                 Update Cart
@@ -86,11 +86,11 @@
 
             <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;">
               <span>Subtotal:</span>
-              <span style="color: var(--color-primary, #2D6A4F);">{{ cart.total_price | money_with_currency }}</span>
+              <span style="color: var(--color-primary, #16a34a);">{{ cart.total_price | money_with_currency }}</span>
             </div>
 
             <p style="font-size: 0.85rem; color: #666; line-height: 1.4; margin-bottom: 1.5rem;">
-              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | default: 'Taxes and shipping calculated at checkout.' }}
+              Taxes and shipping calculated at checkout.
             </p>
 
             {%- if section.settings.show_cart_note -%}
@@ -112,9 +112,9 @@
               type="submit"
               name="checkout"
               class="btn btn--primary"
-              style="width: 100%; padding: 1rem; background: var(--color-primary, #2D6A4F); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;"
+              style="width: 100%; padding: 1rem; background: var(--color-primary, #16a34a); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;"
             >
-              {{ 'cart.general.checkout' | default: 'Proceed to Checkout' }} &rarr;
+              Proceed to Secure Checkout &rarr;
             </button>
 
             <div style="margin-top: 1.5rem; text-align: center; font-size: 0.8rem; color: #777;">
@@ -126,9 +126,9 @@
       </form>
     {%- else -%}
       <div style="text-align: center; padding: 4rem 1rem;">
-        <p style="font-size: 1.2rem; color: #666; margin-bottom: 1.5rem;">{{ 'cart.general.empty' | default: 'Your cart is currently empty.' }}</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #2D6A4F); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">
-          {{ 'cart.general.continue_shopping' | default: 'Start Shopping' }}
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 1.5rem;">Your cart is currently empty.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #16a34a); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">
+          Start Shopping
         </a>
       </div>
     {%- endif -%}
