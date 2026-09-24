@@ -1,134 +1,127 @@
-<div class="trust-bar-section" style="background-color: {{ section.settings.bg_color | default: '#F4F6F4' }}; border-top: 1px solid var(--color-border, #E8E8E0); border-bottom: 1px solid var(--color-border, #E8E8E0); padding: 2.5rem 0;">
-  <div class="container">
-    <div class="trust-bar-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: stretch;">
-      {%- for block in section.blocks -%}
-        <div class="trust-bar-card" {{ block.shopify_attributes }} style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; background: #ffffff; border-radius: 12px; border: 1px solid #E8E8E0; box-shadow: 0 2px 8px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s;">
-          <div class="trust-bar-icon-wrap" style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 10px; background: #E8F5EE; color: #2D6A4F; display: flex; align-items: center; justify-content: center;">
-            {%- case block.settings.icon -%}
-              {%- when 'truck' -%}
-                {% render 'icon-truck' %}
-              {%- when 'return' -%}
-                {% render 'icon-return' %}
-              {%- when 'shield' -%}
-                {% render 'icon-shield' %}
-              {%- when 'lock' -%}
-                {% render 'icon-lock' %}
-              {%- when 'phone' -%}
-                {% render 'icon-phone' %}
-              {%- else -%}
-                {% render 'icon-check' %}
-            {%- endcase -%}
-          </div>
-          <div class="trust-bar-text">
-            <h3 style="font-family: var(--font-body-family, sans-serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; color: #1A1A1A; line-height: 1.3;">
-              {{ block.settings.heading }}
-            </h3>
-            <p style="font-size: 0.85rem; color: #666; margin: 0; line-height: 1.45;">
-              {{ block.settings.text }}
-            </p>
-          </div>
-        </div>
-      {%- endfor -%}
+<div class="trust-bar-section page-width" style="padding: 24px 0 32px;">
+  <div class="trust-bar-grid">
+    <div class="trust-bar-card">
+      <div class="trust-bar-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="trust-bar-text">
+        <h4 class="trust-bar-heading">Fast Shipping</h4>
+        <p class="trust-bar-desc">Fast and free, every order ships quickly, with live tracking from checkout to doorstep.</p>
+      </div>
+    </div>
+
+    <div class="trust-bar-card">
+      <div class="trust-bar-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+      </div>
+      <div class="trust-bar-text">
+        <h4 class="trust-bar-heading">Quality Checked</h4>
+        <p class="trust-bar-desc">Every product is carefully hand-inspected for durability before it ships out.</p>
+      </div>
+    </div>
+
+    <div class="trust-bar-card">
+      <div class="trust-bar-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </div>
+      <div class="trust-bar-text">
+        <h4 class="trust-bar-heading">Real Support</h4>
+        <p class="trust-bar-desc">Our friendly support team is here to answer your questions during our business hours.</p>
+      </div>
+    </div>
+
+    <div class="trust-bar-card">
+      <div class="trust-bar-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <div class="trust-bar-text">
+        <h4 class="trust-bar-heading">Secure Checkout</h4>
+        <p class="trust-bar-desc">Shop confidently — your payment details stay encrypted and protected.</p>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  .trust-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .trust-bar-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px 18px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
   .trust-bar-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    border-color: #2D6A4F;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-color: #16a34a;
   }
-  .trust-bar-icon-wrap svg {
-    width: 24px;
-    height: 24px;
+  .trust-bar-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #f0fdf4;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .trust-bar-heading {
+    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1c1a16;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .trust-bar-desc {
+    font-size: 13px;
+    color: #57534e;
+    margin: 0;
+    line-height: 1.45;
+  }
+  @media (max-width: 991px) {
+    .trust-bar-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 575px) {
+    .trust-bar-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
 {% schema %}
 {
-  "name": "Trust Bar",
+  "name": "Laitm Trust Bar",
   "tag": "section",
   "class": "section-trust-bar",
-  "max_blocks": 6,
-  "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#F4F6F4"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "trust_item",
-      "name": "Trust Signal",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Icon",
-          "options": [
-            { "value": "truck", "label": "Shipping Truck" },
-            { "value": "return", "label": "Easy Returns" },
-            { "value": "shield", "label": "Verified Quality" },
-            { "value": "lock", "label": "Secure Checkout" },
-            { "value": "phone", "label": "Support" }
-          ],
-          "default": "truck"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Fast Tracked Shipping"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Subtext",
-          "default": "Real-time tracking on every carrier order."
-        }
-      ]
-    }
-  ],
+  "settings": [],
   "presets": [
     {
-      "name": "Trust Bar",
-      "blocks": [
-        {
-          "type": "trust_item",
-          "settings": {
-            "icon": "truck",
-            "heading": "Fast Tracked Shipping",
-            "text": "Direct carrier dispatch with live tracking updates."
-          }
-        },
-        {
-          "type": "trust_item",
-          "settings": {
-            "icon": "return",
-            "heading": "30-Day Money Back",
-            "text": "Straightforward 30-day return window on all items."
-          }
-        },
-        {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shield",
-            "heading": "100% Verified Specs",
-            "text": "Authentic GTIN/UPC & manufacturer MPNs."
-          }
-        },
-        {
-          "type": "trust_item",
-          "settings": {
-            "icon": "lock",
-            "heading": "256-Bit SSL Checkout",
-            "text": "Bank-grade encrypted payments via Visa, Apple Pay & Google Pay."
-          }
-        }
-      ]
+      "name": "Laitm Trust Bar"
     }
   ]
 }

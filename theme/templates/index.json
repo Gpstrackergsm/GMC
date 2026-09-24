@@ -3,233 +3,272 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "badge_text": "Verified Google Merchant • Heavy Equipment & Home Essentials",
-        "heading": "Professional Equipment, Premium Outdoor & Home Essentials",
-        "subheading": "Explore commercial-grade car lifts, riding mowers, backup generators, heavy-duty pergolas and storage sheds. Fast nationwide freight delivery and manufacturer warranty.",
-        "button_label": "Shop All Products",
-        "button_link": "/collections/all",
-        "secondary_button_label": "Explore Departments",
-        "secondary_button_link": "/collections",
-        "overlay_opacity": 40,
-        "min_height": 600,
-        "text_alignment": "center"
+        "badge_text": "Garden Essentials",
+        "heading": "Shade built for <span>slow afternoons</span>",
+        "subheading": "Pergolas and gazebos for the corner of the yard you'll actually use — sturdy frames, easy assembly, and a look that gets better with every season.",
+        "button_label": "Shop Garden Essentials",
+        "button_link": "/collections/gazebo-pergolas",
+        "secondary_button_label": "View all the products",
+        "secondary_button_link": "/collections/all",
+        "hero_image_url": "https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg",
+        "stat_1_num": "35+",
+        "stat_1_label": "Garden picks",
+        "stat_2_num": "2–4h",
+        "stat_2_label": "Avg. assembly",
+        "stat_3_num": "Free",
+        "stat_3_label": "US shipping",
+        "text_alignment": "left"
       }
     },
     "trust-bar": {
       "type": "trust-bar",
-      "settings": {
-        "bg_color": "#F4F6F4"
-      },
-      "blocks": {
-        "trust-1": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "truck",
-            "heading": "Fast Tracked Shipping",
-            "text": "Direct carrier dispatch with live tracking updates."
-          }
-        },
-        "trust-2": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "return",
-            "heading": "30-Day Money Back",
-            "text": "Straightforward 30-day return window on all items."
-          }
-        },
-        "trust-3": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shield",
-            "heading": "100% Verified Specs",
-            "text": "Authentic GTIN/UPC & manufacturer MPNs."
-          }
-        },
-        "trust-4": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "lock",
-            "heading": "256-Bit SSL Checkout",
-            "text": "Bank-grade encrypted payments via Visa, Apple Pay & Google Pay."
-          }
-        }
-      },
-      "block_order": ["trust-1", "trust-2", "trust-3", "trust-4"]
+      "settings": {}
     },
     "featured-collections": {
       "type": "featured-collections",
       "settings": {
-        "caption": "Curated Equipment & Home",
-        "heading": "Shop by Category",
-        "description": "Explore 300+ professional automotive lifts, outdoor power equipment, home generators, and premium backyard structures backed by verified manufacturer warranties.",
-        "bg_color": "#F8FAFC"
+        "caption": "Curated Catalog",
+        "heading": "Shop Our Top Categories",
+        "description": "Explore 300+ products across outdoor power, automotive lifts, backyard living, and home essentials — all verified and ready to ship."
       },
       "blocks": {
-        "dept-1": {
+        "cat-1": {
           "type": "collection",
-          "settings": { "collection": "car-lift", "label": "Car Lifts" }
+          "settings": {
+            "collection": "car-lift",
+            "label": "Car Lift",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-223-image-1.png"
+          }
         },
-        "dept-2": {
+        "cat-2": {
           "type": "collection",
-          "settings": { "collection": "riding-lawn-mowers", "label": "Riding Lawn Mowers" }
+          "settings": {
+            "collection": "sheds",
+            "label": "Sheds",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg"
+          }
         },
-        "dept-3": {
+        "cat-3": {
           "type": "collection",
-          "settings": { "collection": "power-generators", "label": "Power Generators" }
+          "settings": {
+            "collection": "electric-bicycles",
+            "label": "Electric Bicycles",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-400-image-4.png"
+          }
         },
-        "dept-4": {
+        "cat-4": {
           "type": "collection",
-          "settings": { "collection": "gazebo-pergolas", "label": "Gazebo & Pergolas" }
+          "settings": {
+            "collection": "riding-lawn-mowers",
+            "label": "Riding Lawn Mowers",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png"
+          }
         },
-        "dept-5": {
+        "cat-5": {
           "type": "collection",
-          "settings": { "collection": "sheds", "label": "Storage Sheds" }
+          "settings": {
+            "collection": "gazebo-pergolas",
+            "label": "Gazebo & Pergolas",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png"
+          }
         },
-        "dept-6": {
+        "cat-6": {
           "type": "collection",
-          "settings": { "collection": "electric-bicycles", "label": "Electric Bicycles" }
+          "settings": {
+            "collection": "power-generators",
+            "label": "Power Generators",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-41-image-1.png"
+          }
         },
-        "dept-7": {
+        "cat-7": {
           "type": "collection",
-          "settings": { "collection": "cardio-machines", "label": "Cardio Machines" }
+          "settings": {
+            "collection": "cardio-machines",
+            "label": "Cardio Machines",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-320-image-1.jpg"
+          }
         },
-        "dept-8": {
+        "cat-8": {
           "type": "collection",
-          "settings": { "collection": "swing-sets", "label": "Swing Sets & Playsets" }
+          "settings": {
+            "collection": "swing-sets",
+            "label": "Swing Sets",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-78-image-1.png"
+          }
+        },
+        "cat-9": {
+          "type": "collection",
+          "settings": {
+            "collection": "trampoline",
+            "label": "Trampolines",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-132-image-1-300x300-1.webp"
+          }
+        },
+        "cat-10": {
+          "type": "collection",
+          "settings": {
+            "collection": "robotic-mowers",
+            "label": "Robotic Mowers",
+            "image_url": "https://laitm.com/wp-content/uploads/2026/09/1-2.png"
+          }
         }
       },
-      "block_order": [
-        "dept-1",
-        "dept-2",
-        "dept-3",
-        "dept-4",
-        "dept-5",
-        "dept-6",
-        "dept-7",
-        "dept-8"
-      ]
+      "block_order": ["cat-1","cat-2","cat-3","cat-4","cat-5","cat-6","cat-7","cat-8","cat-9","cat-10"]
     },
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "caption": "Handpicked For Quality",
-        "heading": "Trending Essentials",
-        "description": "Carefully selected, practical everyday items engineered for durability, utility, and transparent value.",
+        "caption": "Just arrived",
+        "heading": "What's New",
+        "description": "Fresh additions to the Leafanoo catalog — handpicked outdoor and home essentials ready to ship.",
         "collection": "",
         "products_to_show": 8,
         "columns_desktop": 4,
         "show_vendor": true,
         "show_quick_add": true,
         "show_view_all": true,
-        "view_all_label": "Explore All 1,000+ Products",
+        "view_all_label": "See all new arrivals",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 48
       }
     },
-    "promo-banner": {
-      "type": "promo-banner",
+    "laitm-spotlight": {
+      "type": "laitm-spotlight",
       "settings": {
-        "heading": "Upgrade Your Daily Routine with Verified Essentials",
-        "text": "Explore 1,000 top-trending physical products across Smart Tech, Kitchen, Ergonomics, and Wellness at transparent manufacturer prices.",
-        "button_label": "Shop Trending Catalog",
-        "button_link": "/collections/all"
-      }
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "settings": {
-        "layout": "image_first",
-        "caption": "Our Sourcing Promise",
-        "heading": "Thoughtful Products for Everyday Living",
-        "text": "<p>At Leafanoo, every item in our catalog is reviewed for durable manufacturing, verifiable specifications, and genuine consumer utility. We partner directly with vetted suppliers to ensure transparent pricing and reliable fulfillment.</p>",
-        "button_label": "Learn More About Our Standards",
-        "button_link": "/pages/about",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "settings": {
-        "heading": "Trusted by Over 10,000+ Happy Customers",
-        "subheading": "Real feedback from verified purchasers across our 10 curated departments."
+        "eyebrow": "Garden Essentials",
+        "title_override": "Backyard Discovery Callahan Cedar Wood Outdoor Pergola Swing Bench",
+        "description_override": "A solid-wood porch swing built to handle daily use, with a shaded canopy frame and weather-sealed cedar that holds up season after season.",
+        "override_image_url": "https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg",
+        "price_override": "$1,129.00",
+        "cta_label": "Shop this product",
+        "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
+        "secondary_label": "See more like this",
+        "secondary_link": "/collections/swing-sets"
       },
       "blocks": {
-        "review-1": {
+        "feat-1": {
+          "type": "feature",
+          "settings": { "text": "Solid cedar frame, weather-sealed finish" }
+        },
+        "feat-2": {
+          "type": "feature",
+          "settings": { "text": "Seats up to 3 adults comfortably" }
+        },
+        "feat-3": {
+          "type": "feature",
+          "settings": { "text": "Ships with hardware, assembles in under 2 hours" }
+        }
+      },
+      "block_order": ["feat-1","feat-2","feat-3"]
+    },
+    "laitm-trans-banner": {
+      "type": "laitm-trans-banner",
+      "settings": {
+        "kicker": "Also in your yard",
+        "heading": "Garden essentials, sorted. Now let's tackle the lawn.",
+        "subtext": "From shade structures to the mower that keeps everything under it looking sharp — explore ride mowers built for real acreage.",
+        "cta_label": "Shop Ride Mowers",
+        "cta_link": "/collections/riding-lawn-mowers",
+        "bg_image_url": "https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg"
+      }
+    },
+    "featured-products-mowers": {
+      "type": "featured-products",
+      "settings": {
+        "caption": "Built for bigger yards",
+        "heading": "Built for Bigger Yards",
+        "description": "Riding mowers engineered for real acreage — from trusted brands like Craftsman, Troy-Bilt, and Husqvarna.",
+        "collection": "riding-lawn-mowers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "show_vendor": true,
+        "show_quick_add": true,
+        "show_view_all": true,
+        "view_all_label": "See all riding mowers",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "laitm-testimonials": {
+      "type": "laitm-testimonials",
+      "settings": {
+        "eyebrow": "Customer stories",
+        "heading": "What Our Customers Say",
+        "subtext": "Real feedback from people who've bought from Leafanoo LLC."
+      },
+      "blocks": {
+        "rev-1": {
           "type": "testimonial",
           "settings": {
-            "author": "Marcus S.",
-            "location": "Austin, TX",
-            "product_name": "Anker Soundcore Space Q45",
-            "quote": "Super fast delivery and the product is 100% genuine with authentic serial numbers. Great customer support when I needed tracking updates!"
+            "rating": 5,
+            "quote": "Ordering was simple and the pergola arrived faster than the estimate. Assembly took an afternoon, and it's held up through two storms already.",
+            "author": "J. Martinez"
           }
         },
-        "review-2": {
+        "rev-2": {
           "type": "testimonial",
           "settings": {
-            "author": "Elena R.",
-            "location": "Seattle, WA",
-            "product_name": "Ninja Foodi 8.5-qt Air Fryer",
-            "quote": "Leafanoo made the entire buying process seamless. Arrived in 3 days, perfectly packaged, and exactly as described in the specs."
+            "rating": 5,
+            "quote": "The ride mower cut our mowing time in half. Customer support was quick to answer a question about the warranty before I even checked out.",
+            "author": "K. Anderson"
           }
         },
-        "review-3": {
+        "rev-3": {
           "type": "testimonial",
           "settings": {
-            "author": "David L.",
-            "location": "Chicago, IL",
-            "product_name": "Logitech MX Master 3S",
-            "quote": "I was looking for a verified seller with fast US fulfillment. Leafanoo exceeded expectations. Will definitely shop here again."
+            "rating": 5,
+            "quote": "Packaging was solid and nothing arrived damaged. The generator has been reliable through two outages this year — exactly what we needed.",
+            "author": "R. Okafor"
           }
         }
       },
-      "block_order": ["review-1", "review-2", "review-3"]
+      "block_order": ["rev-1","rev-2","rev-3"]
     },
     "faq-accordion": {
       "type": "faq-accordion",
       "settings": {
         "heading": "Frequently Asked Questions",
         "subheading": "Everything you need to know about our products, shipping, and returns.",
-        "bg_color": "#FAFAF7"
+        "bg_color": "#faf6ee"
       },
       "blocks": {
         "faq-1": {
           "type": "faq_item",
           "settings": {
             "question": "How long does standard shipping take?",
-            "answer": "<p>Orders are dispatched within 1-2 business days. Standard delivery typically takes 2-5 business days across the continental US. Real-time carrier tracking is emailed immediately upon dispatch.</p>"
+            "answer": "<p>Orders are dispatched within 1–2 business days. Standard delivery typically takes 3–7 business days across the continental US for large outdoor equipment. Real-time carrier tracking is emailed immediately upon dispatch.</p>"
           }
         },
         "faq-2": {
           "type": "faq_item",
           "settings": {
-            "question": "Are all products backed by verifiable manufacturer specifications?",
-            "answer": "<p>Yes. Every single item in the Leafanoo catalog features verified GTIN/UPC barcodes and manufacturer part numbers (MPNs), ensuring 100% authentic product standards.</p>"
+            "question": "Are all products backed by manufacturer specifications?",
+            "answer": "<p>Yes. Every item in the Leafanoo catalog features verified GTIN/UPC barcodes and manufacturer part numbers (MPNs), ensuring 100% authentic product standards approved by Google Merchant Center.</p>"
           }
         },
         "faq-3": {
           "type": "faq_item",
           "settings": {
-            "question": "What is your 30-day return policy?",
-            "answer": "<p>We offer a hassle-free 30-day return window on all eligible items. If you are not completely satisfied, simply contact support for a prepaid return label and prompt refund.</p>"
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day return window on all eligible items. If you are not completely satisfied, contact support at support@leafanoo.com for a return label and prompt refund.</p>"
           }
         },
         "faq-4": {
           "type": "faq_item",
           "settings": {
             "question": "What payment methods do you accept?",
-            "answer": "<p>We accept all major credit and debit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay via 256-bit SSL encrypted checkout.</p>"
+            "answer": "<p>We accept all major credit and debit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and Shop Pay via 256-bit SSL encrypted checkout.</p>"
           }
         }
       },
-      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4"]
+      "block_order": ["faq-1","faq-2","faq-3","faq-4"]
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Unlock $10 Off Your First Order",
-        "subtext": "Subscribe to the Leafanoo VIP Club for weekly curated drops, practical buying guides, and exclusive discount codes.",
-        "bg_color": "#173d2c",
+        "heading": "Join the Leafanoo Community",
+        "subtext": "Get early access to new arrivals, exclusive deals, and helpful outdoor living guides delivered to your inbox.",
+        "bg_color": "#1a2e1e",
         "text_color": "#FFFFFF",
         "padding_top": 64,
         "padding_bottom": 64
@@ -241,9 +280,10 @@
     "trust-bar",
     "featured-collections",
     "featured-products",
-    "promo-banner",
-    "image-with-text",
-    "testimonials",
+    "laitm-spotlight",
+    "laitm-trans-banner",
+    "featured-products-mowers",
+    "laitm-testimonials",
     "faq-accordion",
     "newsletter"
   ]

@@ -1,0 +1,329 @@
+{%- comment -%}
+  Section: laitm-spotlight.liquid
+  Mirrors the laitm-spot-wrap section: featured product with image + copy
+{%- endcomment -%}
+
+{%- liquid
+  assign spot_product = section.settings.product
+  assign spot_img = section.settings.override_image_url
+  assign spot_eyebrow = section.settings.eyebrow | default: 'Garden Essentials'
+  assign spot_title = section.settings.title_override
+  assign spot_desc = section.settings.description_override
+  assign spot_price = section.settings.price_override
+  assign spot_cta_label = section.settings.cta_label | default: 'Shop this product'
+  assign spot_cta_link = section.settings.cta_link
+  assign spot_secondary_label = section.settings.secondary_label | default: 'See more like this'
+  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/all'
+
+  if spot_product != blank
+    assign spot_title = spot_title | default: spot_product.title
+    assign spot_desc = spot_desc | default: spot_product.description
+    assign spot_cta_link = spot_cta_link | default: spot_product.url
+    assign cv = spot_product.selected_or_first_available_variant
+    if spot_price == blank
+      assign spot_price = cv.price | money
+    endif
+    if spot_img == blank and spot_product.featured_image != blank
+      assign spot_shopify_img = spot_product.featured_image
+    endif
+  endif
+-%}
+
+<section class="laitm-spot-section page-width" style="padding: 64px 0;">
+  <div class="laitm-spot-wrap">
+    <div class="laitm-spot-grid">
+
+      <!-- Media -->
+      <div class="laitm-spot-media">
+        <span class="laitm-spot-featured-tag">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l2.9 6.26L21 9.27l-4.5 4.39L17.8 21 12 17.77 6.2 21l1.3-7.34L3 9.27l6.1-1.01z"/></svg>
+          Featured product
+        </span>
+        {%- if spot_img != blank -%}
+          <img src="{{ spot_img }}" alt="{{ spot_title | escape }}" loading="lazy" class="laitm-spot-img">
+        {%- elsif spot_shopify_img != blank -%}
+          <img src="{{ spot_shopify_img | image_url: width: 900 }}" alt="{{ spot_title | escape }}" loading="lazy" class="laitm-spot-img">
+        {%- else -%}
+          <img src="https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg" alt="{{ spot_title | default: 'Featured Product' | escape }}" loading="lazy" class="laitm-spot-img">
+        {%- endif -%}
+      </div>
+
+      <!-- Copy -->
+      <div class="laitm-spot-copy">
+        {%- if spot_eyebrow != blank -%}
+          <p class="laitm-spot-eyebrow">{{ spot_eyebrow }}</p>
+        {%- endif -%}
+
+        <h2 class="laitm-spot-title">{{ spot_title | default: 'Featured Garden Product' }}</h2>
+
+        <p class="laitm-spot-desc">{{ spot_desc | default: 'A premium outdoor product built for durability and everyday use.' }}</p>
+
+        <ul class="laitm-spot-features">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature' -%}
+              <li {{ block.shopify_attributes }}>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+                {{ block.settings.text }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        <div class="laitm-spot-price-row">
+          <span class="laitm-spot-price">{{ spot_price | default: '$0.00' }}</span>
+        </div>
+
+        <div class="laitm-spot-actions">
+          <a class="laitm-spot-cta" href="{{ spot_cta_link | default: '/collections/all' }}">
+            {{ spot_cta_label }}
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="laitm-spot-cta-secondary" href="{{ spot_secondary_link }}">
+            {{ spot_secondary_label }}
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .laitm-spot-wrap {
+    --laitm-green: #16a34a;
+    --laitm-green-dark: #0f7a37;
+    --laitm-green-tint: #e7f6ec;
+    --laitm-parchment: #faf6ee;
+    --laitm-ink: #1c1a16;
+    --laitm-ink-soft: #57534e;
+    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--laitm-parchment);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(28,26,22,.06);
+  }
+  .laitm-spot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 480px;
+  }
+  .laitm-spot-media {
+    position: relative;
+    height: 100%;
+    min-height: 480px;
+    background: #f4f4f0;
+    overflow: hidden;
+  }
+  .laitm-spot-featured-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--laitm-green-dark);
+    background: var(--laitm-green-tint);
+    border: 1px solid rgba(22,163,74,.25);
+    border-radius: 999px;
+    padding: 5px 12px;
+    letter-spacing: .04em;
+  }
+  .laitm-spot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 480px;
+    transition: transform 0.4s ease;
+  }
+  .laitm-spot-media:hover .laitm-spot-img {
+    transform: scale(1.04);
+  }
+  .laitm-spot-copy {
+    padding: 56px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .laitm-spot-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--laitm-green-dark);
+    margin: 0;
+  }
+  .laitm-spot-title {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: var(--laitm-ink);
+    line-height: 1.2;
+    margin: 0;
+  }
+  .laitm-spot-desc {
+    font-size: 15px;
+    color: var(--laitm-ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .laitm-spot-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .laitm-spot-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--laitm-ink);
+    font-weight: 500;
+  }
+  .laitm-spot-features li svg { color: var(--laitm-green); flex-shrink: 0; margin-top: 2px; }
+  .laitm-spot-price-row { display: flex; align-items: center; gap: 12px; }
+  .laitm-spot-price {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--laitm-green-dark);
+    letter-spacing: -.02em;
+  }
+  .laitm-spot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .laitm-spot-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: var(--laitm-green);
+    color: #fff;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .laitm-spot-cta:hover { background: var(--laitm-green-dark); transform: translateY(-1px); }
+  .laitm-spot-cta-secondary {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--laitm-green-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(22,163,74,.4);
+    transition: text-decoration-color 0.2s;
+  }
+  .laitm-spot-cta-secondary:hover { text-decoration-color: var(--laitm-green); }
+
+  @media (max-width: 768px) {
+    .laitm-spot-grid { grid-template-columns: 1fr; }
+    .laitm-spot-media { min-height: 280px; }
+    .laitm-spot-img { min-height: 280px; }
+    .laitm-spot-copy { padding: 32px 24px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Spotlight",
+  "tag": "section",
+  "class": "section-laitm-spotlight",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Featured Product"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Label",
+      "default": "Garden Essentials"
+    },
+    {
+      "type": "text",
+      "id": "title_override",
+      "label": "Title Override"
+    },
+    {
+      "type": "textarea",
+      "id": "description_override",
+      "label": "Description Override"
+    },
+    {
+      "type": "text",
+      "id": "override_image_url",
+      "label": "Image URL Override",
+      "info": "Use a direct image URL (e.g. from laitm.com CDN)"
+    },
+    {
+      "type": "text",
+      "id": "price_override",
+      "label": "Price Override (e.g. $1,129.00)"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Label",
+      "default": "Shop this product"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary Link Label",
+      "default": "See more like this"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Premium quality feature"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Spotlight",
+      "settings": {
+        "eyebrow": "Garden Essentials",
+        "title_override": "Backyard Discovery Callahan Cedar Wood Outdoor Pergola Swing Bench",
+        "description_override": "A solid-wood porch swing built to handle daily use, with a shaded canopy frame and weather-sealed cedar that holds up season after season.",
+        "override_image_url": "https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg",
+        "price_override": "$1,129.00",
+        "cta_label": "Shop this product",
+        "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
+        "secondary_label": "See more like this",
+        "secondary_link": "/collections/swing-sets"
+      },
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Solid cedar frame, weather-sealed finish" } },
+        { "type": "feature", "settings": { "text": "Seats up to 3 adults comfortably" } },
+        { "type": "feature", "settings": { "text": "Ships with hardware, assembles in under 2 hours" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
