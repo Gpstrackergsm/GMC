@@ -6,12 +6,12 @@
           {{ 'customer.orders.order_number' | t: name: order.name }}
         </h1>
         <p style="color: #666; font-size: 0.9rem;">
-          {{ 'customer.orders.date' | default: 'Placed on' }}: {{ order.created_at | time_tag: format: 'date_at_time' }}
+          Placed on: {{ order.created_at | time_tag: format: 'date_at_time' }}
         </p>
       </div>
       <div>
         <a href="{{ routes.account_url }}" style="color: var(--color-primary, #2D6A4F); font-size: 0.9rem; text-decoration: underline;">
-          &larr; {{ 'customer.account.return' | default: 'Return to Account' }}
+          &larr; Return to Account
         </a>
       </div>
     </div>
@@ -21,10 +21,10 @@
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
           <thead>
             <tr style="border-bottom: 2px solid var(--color-border, #E8E8E0); text-align: left;">
-              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase;">{{ 'customer.orders.product' | default: 'Product' }}</th>
-              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">{{ 'customer.orders.price' | default: 'Price' }}</th>
-              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: center;">{{ 'customer.orders.quantity' | default: 'Qty' }}</th>
-              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">{{ 'customer.orders.total' | default: 'Total' }}</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase;">Product</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">Price</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: center;">Qty</th>
+              <th style="padding: 0.75rem 0.5rem; font-size: 0.85rem; text-transform: uppercase; text-align: right;">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -44,7 +44,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3" style="padding: 0.75rem 0.5rem; text-align: right; font-weight: 500;">{{ 'customer.orders.subtotal' | default: 'Subtotal' }}</td>
+              <td colspan="3" style="padding: 0.75rem 0.5rem; text-align: right; font-weight: 500;">Subtotal</td>
               <td style="padding: 0.75rem 0.5rem; text-align: right;">{{ order.line_items_subtotal_price | money }}</td>
             </tr>
             {%- for shipping_method in order.shipping_methods -%}
@@ -60,7 +60,7 @@
               </tr>
             {%- endfor -%}
             <tr style="border-top: 2px solid var(--color-border, #E8E8E0); font-size: 1.1rem; font-weight: 700;">
-              <td colspan="3" style="padding: 1rem 0.5rem; text-align: right;">{{ 'customer.orders.total' | default: 'Total' }}</td>
+              <td colspan="3" style="padding: 1rem 0.5rem; text-align: right;">Total</td>
               <td style="padding: 1rem 0.5rem; text-align: right; color: var(--color-primary, #2D6A4F);">{{ order.total_price | money_with_currency }}</td>
             </tr>
           </tfoot>

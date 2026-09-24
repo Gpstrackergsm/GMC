@@ -16,7 +16,7 @@
       <input type="hidden" name="contact[tags]" value="newsletter">
       {%- if form.posted_successfully? -%}
         <div class="newsletter-success" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 1.25rem; font-weight: 500;">
-          {{ 'footer.newsletter_success' | default: 'Thank you for subscribing! Check your inbox for your confirmation.' }}
+          Thank you for subscribing! Check your inbox for your confirmation.
         </div>
       {%- else -%}
         <div style="display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
@@ -29,7 +29,7 @@
             autocapitalize="off"
             autocomplete="email"
             required
-            placeholder="{{ 'footer.newsletter_placeholder' | default: 'Enter your email address' }}"
+            placeholder="Enter your email address"
             style="flex: 1 1 280px; padding: 0.85rem 1.25rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); font-size: 1rem; color: #1A1A1A; background: #FFFFFF;"
           >
           <button
@@ -37,7 +37,7 @@
             class="btn"
             style="padding: 0.85rem 1.75rem; background: var(--color-accent, #D4A853); color: #1A1A1A; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; flex: 0 0 auto;"
           >
-            {{ 'footer.newsletter_button' | default: 'Subscribe' }}
+            Subscribe
           </button>
         </div>
         {%- if form.errors -%}
