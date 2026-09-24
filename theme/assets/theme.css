@@ -402,3 +402,95 @@ a {
 @media (min-width: 768px) {
   .hide-desktop { display: none !important; }
 }
+
+/* Modern Horizontal Pagination */
+.laitm-pagination-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0 2rem;
+  width: 100%;
+}
+.laitm-pagination {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-wrap: wrap !important;
+}
+.laitm-pagination__item {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important;
+}
+.laitm-pagination__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 42px !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid #E5E7EB !important;
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+}
+.laitm-pagination__btn:hover {
+  border-color: #16a34a !important;
+  color: #16a34a !important;
+  background-color: #F0FDF4 !important;
+  transform: translateY(-1px) !important;
+}
+.laitm-pagination__btn.is-active {
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.28) !important;
+  cursor: default !important;
+  transform: none !important;
+}
+.laitm-pagination__btn--prev,
+.laitm-pagination__btn--next {
+  padding: 0 16px !important;
+  gap: 6px !important;
+}
+.laitm-pagination__ellipsis {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px !important;
+  height: 42px !important;
+  color: #9CA3AF !important;
+  font-size: 16px !important;
+  letter-spacing: 2px !important;
+}
+@media (max-width: 640px) {
+  .laitm-pagination {
+    gap: 6px !important;
+  }
+  .laitm-pagination__btn {
+    min-width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    padding: 0 8px !important;
+  }
+  .laitm-pagination__btn--prev span,
+  .laitm-pagination__btn--next span {
+    display: none !important;
+  }
+  .laitm-pagination__btn--prev,
+  .laitm-pagination__btn--next {
+    padding: 0 10px !important;
+  }
+}
