@@ -2,11 +2,11 @@
   <div class="container">
     {%- if section.settings.heading != blank or section.settings.description != blank -%}
       <div class="section-header text-{{ section.settings.text_alignment | default: 'center' }}" style="margin-bottom: 3rem; text-align: {{ section.settings.text_alignment | default: 'center' }};">
-        <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--color-primary, #2D6A4F); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+        <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: 'Lexend Deca', sans-serif;">
           {{ section.settings.caption | default: 'Handpicked For Quality' }}
         </span>
         {%- if section.settings.heading != blank -%}
-          <h2 class="section-heading" style="font-family: var(--font-heading-family, serif); font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--color-text, #1A1A1A); margin-bottom: 0.75rem;">
+          <h2 class="section-heading" style="font-family: 'Lexend Deca', sans-serif; font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #1c1a16; margin-bottom: 0.75rem;">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -40,55 +40,46 @@
           </div>
         {%- endfor -%}
       {%- else -%}
-        {%- assign fallback_titles = "Anker Soundcore Space Q45 Wireless ANC Headphones,Ninja Foodi 8.5-qt 2-Basket Air Fryer XL,Philips Hue Smart 6ft Lightstrip Plus Base,Theragun Prime Percussive Muscle Therapy Device,Fellow Stagg EKG Pro Electric Pour-Over Kettle,Logitech MX Master 3S Wireless Performance Mouse,PetSafe Smart Feed Wi-Fi Automatic Pet Feeder,Anker 737 Power Bank 24000mAh 140W GaN" | split: "," -%}
-        {%- assign fallback_prices = "$149.99,$179.99,$89.99,$299.00,$195.00,$99.99,$149.95,$149.99" | split: "," -%}
-        {%- assign fallback_vendors = "Anker Soundcore,Ninja Kitchen,Philips Hue,Therabody,Fellow,Logitech,PetSafe,Anker" | split: "," -%}
+        {%- assign fallback_titles = "16 Ft. X 16 Ft. Pacific Douglas Fir Wood Traditional Pergola,Backyard Discovery 12′ x 9.5′ Arcadia Slope Roof Cedar Gazebo with PowerPort,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Backyard Discovery 14′ X 10′ Somerville Pergola W/ Electric – Dark Walnut DIY,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Backyard Discovery 20′ x 12′ Beaumont Pergola – Premium Cedar Wood,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower" | split: "," -%}
+        {%- assign fallback_prices = "$4,299.00,$2,199.00,$2,499.00,$2,799.00,$1,799.00,$3,199.00,$1,999.00,$1,599.00" | split: "," -%}
+        {%- assign fallback_vendors = "Pacific Pergolas,Backyard Discovery,Craftsman,Backyard Discovery,Craftsman,Backyard Discovery,Troy-Bilt,Craftsman" | split: "," -%}
         {%- assign fallback_badges = "Best Seller,Trending,Top Rated,Staff Pick,Popular,Must Have,Verified,Hot Deal" | split: "," -%}
+        {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png" | split: "," -%}
 
         {%- for i in (0..7) -%}
           {%- assign p_title = fallback_titles[i] -%}
           {%- assign p_price = fallback_prices[i] -%}
           {%- assign p_vendor = fallback_vendors[i] -%}
           {%- assign p_badge = fallback_badges[i] -%}
+          {%- assign p_img = fallback_imgs[i] -%}
           {%- if forloop.index > limit %}{% break %}{% endif -%}
 
-          <article class="product-card" style="border: 1px solid #E8E8E0; border-radius: 12px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s;">
-            <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #F8F9F7; display: flex; align-items: center; justify-content: center; padding: 1.5rem; overflow: hidden;">
-              <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #2D6A4F; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; z-index: 2;">
+          <article class="product-card" style="border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #FAF6EE; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; z-index: 2; font-family: 'Lexend Deca', sans-serif;">
                 {{ p_badge }}
               </span>
-              <div style="font-size: 3rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
-                {%- case i -%}
-                  {%- when 0 -%}🎧
-                  {%- when 1 -%}🍳
-                  {%- when 2 -%}💡
-                  {%- when 3 -%}⚡
-                  {%- when 4 -%}☕
-                  {%- when 5 -%}🖱️
-                  {%- when 6 -%}🐾
-                  {%- else -%}🔋
-                {%- endcase -%}
-              </div>
+              <img src="{{ p_img }}" alt="{{ p_title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
             </div>
             <div class="product-card__info" style="padding: 1.25rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
               <div>
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #777; margin-bottom: 0.25rem; font-weight: 600;">
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #78716c; margin-bottom: 0.25rem; font-weight: 600; font-family: 'Lexend Deca', sans-serif;">
                   {{ p_vendor }}
                 </p>
-                <h3 style="font-family: var(--font-body-family, sans-serif); font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.5rem; color: #1A1A1A;">
+                <h3 style="font-family: 'Lexend Deca', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; color: #1c1a16;">
                   {{ p_title }}
                 </h3>
-                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #D4A853;">
+                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #f59e0b;">
                   <span>★★★★★</span>
-                  <span style="color: #888; font-size: 0.8rem;">(140+)</span>
+                  <span style="color: #78716c; font-size: 0.75rem;">(verified)</span>
                 </div>
               </div>
               <div>
-                <div style="font-size: 1.15rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.75rem;">
+                <div style="font-size: 1.2rem; font-weight: 800; color: #0f7a37; margin-bottom: 0.75rem; font-family: 'Lexend Deca', sans-serif;">
                   {{ p_price }}
                 </div>
-                <a href="/collections/all" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 10px 16px; font-size: 0.875rem; border-radius: 6px;">
-                  View Details &rarr;
+                <a href="/collections/all" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 11px 16px; font-size: 0.875rem; border-radius: 8px; background: #16a34a; color: #fff; font-weight: 700; text-align: center; text-decoration: none; display: flex; font-family: 'Lexend Deca', sans-serif;">
+                  View Product &rarr;
                 </a>
               </div>
             </div>
