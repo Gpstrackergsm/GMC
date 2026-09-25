@@ -1,61 +1,67 @@
 {%- comment -%}
   Snippet: filters.liquid
-  Collection filter sidebar using Shopify Storefront Filtering.
+  Enhanced Modern Filter Sidebar for Leafanoo (laitm style)
   Usage: {%- render 'filters', results: collection -%}
 {%- endcomment -%}
 
 {%- assign results = results | default: collection -%}
 
-<div class="filters" id="filters-panel" aria-label="Collection filters">
-  <div class="filters__header">
-    <h2 class="filters__title">Filter & Sort</h2>
-    <button
-      class="filters__close btn btn-text"
-      aria-controls="filters-panel"
-      aria-expanded="true"
-      aria-label="Close filters"
-    >
-      {%- render 'icon-close' -%}
-    </button>
+<!-- Active filter count calculation -->
+{%- assign active_count = 0 -%}
+{%- for filter in results.filters -%}
+  {%- for value in filter.active_values -%}
+    {%- assign active_count = active_count | plus: 1 -%}
+  {%- endfor -%}
+  {%- if filter.type == 'price_range' -%}
+    {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+      {%- assign active_count = active_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class="laitm-filter-sidebar" id="filters-panel" aria-label="Collection filters">
+  <!-- Header -->
+  <div class="laitm-filter-header">
+    <div class="laitm-filter-title-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="4" y1="21" x2="4" y2="14"></line>
+        <line x1="4" y1="10" x2="4" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12" y2="3"></line>
+        <line x1="20" y1="21" x2="20" y2="16"></line>
+        <line x1="20" y1="12" x2="20" y2="3"></line>
+        <line x1="1" y1="14" x2="7" y2="14"></line>
+        <line x1="9" y1="8" x2="15" y2="8"></line>
+        <line x1="17" y1="16" x2="23" y2="16"></line>
+      </svg>
+      <h3 class="laitm-filter-title">Filters</h3>
+    </div>
+    {%- if active_count > 0 or request.query_string contains 'filter.' -%}
+      <a href="{{ results.url | default: '/collections/all' }}" class="laitm-filter-clear-all" title="Clear all filters">Clear all</a>
+    {%- endif -%}
   </div>
 
-  {%- comment -%} Active filter pills {%- endcomment -%}
-  {%- assign active_count = 0 -%}
-  {%- for filter in results.filters -%}
-    {%- for value in filter.active_values -%}
-      {%- assign active_count = active_count | plus: 1 -%}
-    {%- endfor -%}
-    {%- if filter.type == 'price_range' -%}
-      {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-        {%- assign active_count = active_count | plus: 1 -%}
-      {%- endif -%}
-    {%- endif -%}
-  {%- endfor -%}
-
+  <!-- Active Filter Pills -->
   {%- if active_count > 0 -%}
-    <div class="filters__active-pills">
-      <div class="filters__active-pills-header">
-        <span class="filters__active-label">Active filters</span>
-        <a href="{{ results.url }}" class="filters__clear-all btn btn-text">Clear all</a>
-      </div>
-      <div class="filters__pills-list">
+    <div class="laitm-filter-pills-wrap">
+      <div class="laitm-filter-pills-list">
         {%- for filter in results.filters -%}
           {%- for value in filter.active_values -%}
-            <a href="{{ value.url_to_remove }}" class="filters__pill" aria-label="Remove filter: {{ filter.label }}: {{ value.label }}">
-              <span class="filters__pill-label">{{ filter.label }}: {{ value.label }}</span>
-              {%- render 'icon-close' -%}
+            <a href="{{ value.url_to_remove }}" class="laitm-filter-pill" aria-label="Remove filter: {{ value.label }}">
+              <span>{{ value.label }}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </a>
           {%- endfor -%}
           {%- if filter.type == 'price_range' -%}
             {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-              <a href="{{ filter.url_to_remove }}" class="filters__pill" aria-label="Remove price filter">
-                <span class="filters__pill-label">
+              <a href="{{ filter.url_to_remove }}" class="laitm-filter-pill" aria-label="Remove price filter">
+                <span>
                   Price:
                   {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ filter.range_min | money }}{%- endif -%}
                   –
                   {%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
                 </span>
-                {%- render 'icon-close' -%}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </a>
             {%- endif -%}
           {%- endif -%}
@@ -64,27 +70,109 @@
     </div>
   {%- endif -%}
 
-  <form id="filters-form" class="filters__form">
-    {%- for filter in results.filters -%}
-      <details class="filters__group accordion" {%- if filter.active_values.size > 0 or filter.min_value.value or filter.max_value.value -%} open{%- endif -%}>
-        <summary class="filters__group-header accordion__trigger" aria-expanded="true">
-          <span class="filters__group-label">{{ filter.label }}</span>
-          {%- if filter.active_values.size > 0 -%}
-            <span class="filters__group-count" aria-label="{{ filter.active_values.size }} selected">{{ filter.active_values.size }}</span>
+  <!-- Filter Groups Form -->
+  <form id="filters-form" class="laitm-filters-form">
+    
+    <!-- 1. Categories / Departments Filter -->
+    <details class="laitm-filter-group" open>
+      <summary class="laitm-filter-summary">
+        <span class="laitm-filter-group-heading">Categories</span>
+        <svg class="laitm-filter-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="laitm-filter-content">
+        <ul class="laitm-cat-filter-list">
+          {%- assign current_type = '' -%}
+          {%- if request.query_string contains 'filter.p.product_type=' -%}
+            {%- assign query_parts = request.query_string | split: 'filter.p.product_type=' -%}
+            {%- assign current_type = query_parts[1] | split: '&' | first | replace: '+', ' ' | url_decode -%}
           {%- endif -%}
-          {%- render 'icon-chevron-down' -%}
+
+          <li>
+            <a href="/collections/all" class="laitm-cat-filter-link {% if current_type == blank %}is-active{% endif %}">
+              <span>All Products</span>
+              <span class="laitm-cat-filter-arrow">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Garden+Essentials" class="laitm-cat-filter-link {% if current_type == 'Garden Essentials' %}is-active{% endif %}">
+              <span>🌿 Garden Essentials</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Riding Lawn Mowers' %}is-active{% endif %}">
+              <span>🚜 Ride Mowers</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Power+Generators" class="laitm-cat-filter-link {% if current_type == 'Power Generators' %}is-active{% endif %}">
+              <span>⚡ Portable Generators</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Self-Propelled+Mowers" class="laitm-cat-filter-link {% if current_type == 'Self-Propelled Mowers' %}is-active{% endif %}">
+              <span>🌱 Self-Propelled Mowers</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Car+Lift" class="laitm-cat-filter-link {% if current_type == 'Car Lift' %}is-active{% endif %}">
+              <span>🚗 Car Lift</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Sheds" class="laitm-cat-filter-link {% if current_type == 'Sheds' %}is-active{% endif %}">
+              <span>🏠 Sheds & Storage</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Electric+Bicycles" class="laitm-cat-filter-link {% if current_type == 'Electric Bicycles' %}is-active{% endif %}">
+              <span>🚲 Electric Bicycles</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Cardio+Machines" class="laitm-cat-filter-link {% if current_type == 'Cardio Machines' %}is-active{% endif %}">
+              <span>🏃 Cardio Machines</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Swing+sets" class="laitm-cat-filter-link {% if current_type == 'Swing sets' %}is-active{% endif %}">
+              <span>🎠 Swing Sets</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Trampoline" class="laitm-cat-filter-link {% if current_type == 'Trampoline' %}is-active{% endif %}">
+              <span>🤸 Trampoline</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/all?filter.p.product_type=Walk-Behind+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Walk-Behind Lawn Mowers' %}is-active{% endif %}">
+              <span>🌾 Walk-Behind Mowers</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 2. Storefront Dynamic Filters (Availability, Price, etc.) -->
+    {%- for filter in results.filters -%}
+      <details class="laitm-filter-group" {%- if filter.active_values.size > 0 or filter.min_value.value or filter.max_value.value -%} open{%- else -%} open{%- endif -%}>
+        <summary class="laitm-filter-summary">
+          <span class="laitm-filter-group-heading">{{ filter.label }}</span>
+          {%- if filter.active_values.size > 0 -%}
+            <span class="laitm-filter-count-badge">{{ filter.active_values.size }}</span>
+          {%- endif -%}
+          <svg class="laitm-filter-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
 
-        <div class="filters__group-body accordion__content">
+        <div class="laitm-filter-content">
           {%- case filter.type -%}
 
           {%- when 'boolean', 'list' -%}
-            <ul class="filters__values-list" role="list">
+            <ul class="laitm-filter-options-list">
               {%- for value in filter.values -%}
-                <li class="filters__value-item">
-                  <label class="filters__value-label {% if value.count == 0 and value.active == false %}filters__value-label--disabled{% endif %}">
+                <li class="laitm-filter-option">
+                  <label class="laitm-checkbox-label {% if value.count == 0 and value.active == false %}is-disabled{% endif %}">
                     <input
-                      class="filters__checkbox visually-hidden"
+                      class="laitm-checkbox-input"
                       type="checkbox"
                       name="{{ value.param_name }}"
                       value="{{ value.value }}"
@@ -92,52 +180,46 @@
                       {% if value.count == 0 and value.active == false %}disabled{% endif %}
                       form="filters-form"
                     >
-                    <span class="filters__checkbox-custom" aria-hidden="true">
-                      {%- if value.active -%}{%- render 'icon-check' -%}{%- endif -%}
+                    <span class="laitm-custom-checkbox" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </span>
-                    <span class="filters__value-name">{{ value.label }}</span>
-                    <span class="filters__value-count" aria-label="{{ value.count }} products">({{ value.count }})</span>
+                    <span class="laitm-option-name">{{ value.label }}</span>
+                    <span class="laitm-option-count">({{ value.count }})</span>
                   </label>
                 </li>
               {%- endfor -%}
             </ul>
 
           {%- when 'price_range' -%}
-            {%- assign min_price = filter.min_value.value | default: filter.range_min -%}
-            {%- assign max_price = filter.max_value.value | default: filter.range_max -%}
-            <div class="filters__price-range">
-              <div class="filters__price-inputs">
-                <div class="filters__price-input-group">
-                  <label class="filters__price-label" for="filter-price-from-{{ forloop.index }}">
-                    <span class="visually-hidden">Minimum price</span>
-                    <span aria-hidden="true">From</span>
-                  </label>
-                  <div class="filters__price-input-wrapper">
-                    <span class="filters__price-currency" aria-hidden="true">{{ cart.currency.symbol }}</span>
+            <div class="laitm-price-filter">
+              <div class="laitm-price-inputs-row">
+                <div class="laitm-price-col">
+                  <span class="laitm-price-tag">From</span>
+                  <div class="laitm-price-input-box">
+                    <span class="laitm-currency-sym">$</span>
                     <input
-                      class="filters__price-input"
                       type="number"
+                      class="laitm-price-field"
                       id="filter-price-from-{{ forloop.index }}"
                       name="{{ filter.min_value.param_name }}"
                       min="0"
                       max="{{ filter.range_max | divided_by: 100 }}"
-                      placeholder="{{ filter.range_min | divided_by: 100 }}"
+                      placeholder="{{ filter.range_min | divided_by: 100 | default: 0 }}"
                       value="{{ filter.min_value.value | divided_by: 100 }}"
                       form="filters-form"
                     >
                   </div>
                 </div>
-                <span class="filters__price-separator" aria-hidden="true">–</span>
-                <div class="filters__price-input-group">
-                  <label class="filters__price-label" for="filter-price-to-{{ forloop.index }}">
-                    <span class="visually-hidden">Maximum price</span>
-                    <span aria-hidden="true">To</span>
-                  </label>
-                  <div class="filters__price-input-wrapper">
-                    <span class="filters__price-currency" aria-hidden="true">{{ cart.currency.symbol }}</span>
+
+                <span class="laitm-price-divider">–</span>
+
+                <div class="laitm-price-col">
+                  <span class="laitm-price-tag">To</span>
+                  <div class="laitm-price-input-box">
+                    <span class="laitm-currency-sym">$</span>
                     <input
-                      class="filters__price-input"
                       type="number"
+                      class="laitm-price-field"
                       id="filter-price-to-{{ forloop.index }}"
                       name="{{ filter.max_value.param_name }}"
                       min="0"
@@ -149,19 +231,351 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-secondary filters__price-apply" type="submit" form="filters-form">Apply</button>
+
+              <button class="laitm-price-apply-btn" type="submit" form="filters-form">
+                Apply Price
+              </button>
             </div>
 
           {%- endcase -%}
         </div>
       </details>
     {%- endfor -%}
-
-    <noscript>
-      <button class="btn btn-primary filters__submit" type="submit">Apply filters</button>
-    </noscript>
   </form>
 </div>
+
+<style>
+  /* Sidebar Container */
+  .laitm-filter-sidebar {
+    background: #FFFFFF;
+    border: 1px solid #E8E8E0;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 110px;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+
+  /* Header */
+  .laitm-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F1F5F9;
+    margin-bottom: 6px;
+  }
+  .laitm-filter-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .laitm-filter-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .laitm-filter-clear-all {
+    font-size: 13px;
+    font-weight: 600;
+    color: #16a34a;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .laitm-filter-clear-all:hover {
+    text-decoration: underline;
+  }
+
+  /* Active Filter Pills */
+  .laitm-filter-pills-wrap {
+    padding: 12px 0 14px;
+    border-bottom: 1px solid #F1F5F9;
+  }
+  .laitm-filter-pills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .laitm-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #15803D;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .laitm-filter-pill:hover {
+    background: #DCFCE7;
+    border-color: #86EFAC;
+    color: #166534;
+  }
+
+  /* Collapsible Group */
+  .laitm-filter-group {
+    border-bottom: 1px solid #F1F5F9;
+    padding: 14px 0;
+  }
+  .laitm-filter-group:last-child {
+    border-bottom: none;
+    padding-bottom: 4px;
+  }
+  .laitm-filter-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1F2937;
+    list-style: none;
+    user-select: none;
+  }
+  .laitm-filter-summary::-webkit-details-marker {
+    display: none;
+  }
+  .laitm-filter-group-heading {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+  }
+  .laitm-filter-count-badge {
+    background: #16a34a;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 9999px;
+    margin-right: 8px;
+    line-height: 1;
+  }
+  .laitm-filter-chevron {
+    transition: transform 0.25s ease;
+    color: #9CA3AF;
+    flex-shrink: 0;
+  }
+  .laitm-filter-group[open] > .laitm-filter-summary .laitm-filter-chevron {
+    transform: rotate(180deg);
+    color: #16a34a;
+  }
+  .laitm-filter-content {
+    margin-top: 12px;
+  }
+
+  /* Categories list */
+  .laitm-cat-filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .laitm-cat-filter-list::-webkit-scrollbar {
+    width: 4px;
+  }
+  .laitm-cat-filter-list::-webkit-scrollbar-thumb {
+    background: #E5E7EB;
+    border-radius: 4px;
+  }
+  .laitm-cat-filter-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    color: #4B5563;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    font-weight: 500;
+  }
+  .laitm-cat-filter-link:hover {
+    background: #F0FDF4;
+    color: #16a34a;
+    font-weight: 600;
+  }
+  .laitm-cat-filter-link.is-active {
+    background: #E8F5EE;
+    color: #16a34a;
+    font-weight: 700;
+  }
+  .laitm-cat-filter-arrow {
+    font-size: 14px;
+    color: #9CA3AF;
+  }
+  .laitm-cat-filter-link.is-active .laitm-cat-filter-arrow {
+    color: #16a34a;
+  }
+
+  /* Checkbox Option Items */
+  .laitm-filter-options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .laitm-filter-option {
+    margin: 0;
+    padding: 0;
+  }
+  .laitm-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    color: #374151;
+    transition: background-color 0.15s;
+    user-select: none;
+  }
+  .laitm-checkbox-label:hover {
+    background-color: #F9FAFB;
+  }
+  .laitm-checkbox-label.is-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .laitm-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+  }
+  .laitm-custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #D1D5DB;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    flex-shrink: 0;
+    transition: all 0.18s ease;
+  }
+  .laitm-custom-checkbox svg {
+    display: none;
+  }
+  .laitm-checkbox-input:checked + .laitm-custom-checkbox {
+    background: #16a34a;
+    border-color: #16a34a;
+  }
+  .laitm-checkbox-input:checked + .laitm-custom-checkbox svg {
+    display: block;
+  }
+  .laitm-option-name {
+    flex: 1;
+    font-weight: 500;
+  }
+  .laitm-checkbox-input:checked ~ .laitm-option-name {
+    font-weight: 700;
+    color: #111827;
+  }
+  .laitm-option-count {
+    color: #9CA3AF;
+    font-size: 12px;
+  }
+
+  /* Price Filter */
+  .laitm-price-filter {
+    padding-top: 4px;
+  }
+  .laitm-price-inputs-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .laitm-price-col {
+    flex: 1;
+  }
+  .laitm-price-tag {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .laitm-price-input-box {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    padding: 0 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .laitm-price-input-box:focus-within {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+  }
+  .laitm-currency-sym {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9CA3AF;
+    margin-right: 4px;
+  }
+  .laitm-price-field {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #111827;
+    padding: 7px 0;
+    background: transparent;
+    -moz-appearance: textfield;
+  }
+  .laitm-price-field::-webkit-outer-spin-button,
+  .laitm-price-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .laitm-price-divider {
+    color: #9CA3AF;
+    font-weight: 600;
+    margin-top: 14px;
+  }
+  .laitm-price-apply-btn {
+    width: 100%;
+    padding: 8px 14px;
+    background: #16a34a;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  .laitm-price-apply-btn:hover {
+    background: #15803d;
+  }
+  .laitm-price-apply-btn:active {
+    transform: scale(0.98);
+  }
+</style>
 
 <script>
   (function () {
