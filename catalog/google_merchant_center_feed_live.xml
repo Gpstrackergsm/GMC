@@ -24,7 +24,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/arlington-12-x-12-solid-wood-patio-gazebo</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10018</ns0:id>
       <ns0:title>14×10 Windham Modern Steel Pergola With Sail Shade Soft Canopy</ns0:title>
@@ -45,7 +45,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x10-windham-modern-steel-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10022</ns0:id>
       <ns0:title>14×10 Sarasota Steel Louvered Pergola</ns0:title>
@@ -66,7 +66,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x10-sarasota-steel-louvered-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9985</ns0:id>
       <ns0:title>14×12 Hawthorne Traditional Steel Pergola With Sail Shade Soft Canopy</ns0:title>
@@ -87,7 +87,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x12-hawthorne-traditional-steel-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10019</ns0:id>
       <ns0:title>14×10 Stratford Traditional Steel Pergola With Sail Shade Soft Canopy</ns0:title>
@@ -108,7 +108,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x10-stratford-traditional-steel-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9896</ns0:id>
       <ns0:title>John Deere Z345m 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower</ns0:title>
@@ -129,7 +129,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/john-deere-z345m-42-in-22-hp-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10020</ns0:id>
       <ns0:title>14×10 Somerville Pergola – Barnwood Stain</ns0:title>
@@ -151,7 +151,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x10-somerville-pergola-barnwood-stain</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10016</ns0:id>
       <ns0:title>14×12 Beaumont Pergola</ns0:title>
@@ -172,7 +172,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x12-beaumont-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9848</ns0:id>
       <ns0:title>Horizon Fitness 5.0R Recumbent Exercise Bike</ns0:title>
@@ -193,7 +193,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/horizon-fitness-5-0r-recumbent-exercise-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9898</ns0:id>
       <ns0:title>Z315e 42 in. 20 HP GAS Dual Hydrostatic Zero-Turn Riding Mower Bg21296</ns0:title>
@@ -214,7 +214,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/z315e-42-in-20-hp-gas-dual-hydrostatic-zero-turn-riding-mower-bg21296</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10017</ns0:id>
       <ns0:title>14×12 Ashford Traditional Steel Pergola With Sail Shade Soft Canopy</ns0:title>
@@ -235,7 +235,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/14x12-ashford-traditional-steel-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9901</ns0:id>
       <ns0:title>Z320r 42 In. 21.5 HP Gas Dual Hydrostatic Zero-Turn Riding Mower</ns0:title>
@@ -257,7 +257,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/z320r-42-in-21-5-hp-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9899</ns0:id>
       <ns0:title>Zero-Turn Mower 54 in. Complete Bagging System for Z500 Series</ns0:title>
@@ -278,7 +278,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/zero-turn-mower-54-in-complete-bagging-system-for-z500-series</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9900</ns0:id>
       <ns0:title>Z325e 54 In. 24 HP Gas Dual Hydrostatic Zero-Turn Riding Mower</ns0:title>
@@ -299,7 +299,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/z325e-54-in-24-hp-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9839</ns0:id>
       <ns0:title>Outsunny 12′ x 20′ DIY Deck Outdoor Wood Pergola</ns0:title>
@@ -321,7 +321,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/outsunny-12-x-20-diy-deck-outdoor-wood-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9861</ns0:id>
       <ns0:title>MotoTec Mad 1600w 48v Electric Scooter</ns0:title>
@@ -342,7 +342,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mototec-mad-1600w-48v-electric-scooter</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9790</ns0:id>
       <ns0:title>Backyard Discovery 12′ x 9.5′ Arcadia Gazebo</ns0:title>
@@ -363,7 +363,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-12-x-9-5-arcadia-gazebo</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9897</ns0:id>
       <ns0:title>Z515e 60 In. 24 HP V-Twin ELS Gas Dual Hydrostatic Zero-Turn Riding Mower</ns0:title>
@@ -384,7 +384,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/z515e-60-in-24-hp-v-twin-els-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9863</ns0:id>
       <ns0:title>Rambo Kids 20 Trailbreaker Electric Bike 24V 250W Hub Motor Financing</ns0:title>
@@ -405,7 +405,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/rambo-kids-20-trailbreaker-electric-bike-24v-250w-hub-motor-financing</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9865</ns0:id>
       <ns0:title>John Deere Z345r ZTrak 42-in 22-hp Lawn Mower</ns0:title>
@@ -426,7 +426,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/john-deere-z345r-ztrak-42-in-22-hp-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9864</ns0:id>
       <ns0:title>Revi Bikes Cheetah 48V 750W Hub Motor Fat Tire Electric Cruiser Bike</ns0:title>
@@ -447,7 +447,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/revi-bikes-cheetah-48v-750w-hub-motor-fat-tire-electric-cruiser-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9857</ns0:id>
       <ns0:title>Sole F63 Treadmill</ns0:title>
@@ -468,7 +468,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sole-f63-treadmill</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9862</ns0:id>
       <ns0:title>21.5 in. 20-V Li-Ion Cordless Battery Walk Behind Self Propelled Mower w/Hedge,Bare Trimmer,Blower,Cleaner,Pole/Hand Saw</ns0:title>
@@ -489,7 +489,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/21-5-in-20-v-li-ion-cordless-battery-walk-behind-self-propelled-mower-w-hedgebare-trimmerblowercleanerpole-hand-saw</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9860</ns0:id>
       <ns0:title>Z325e 48 In. 24 HP Gas Dual Hydrostatic Zero-Turn Riding Mower</ns0:title>
@@ -510,7 +510,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/z325e-48-in-24-hp-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9859</ns0:id>
       <ns0:title>Sunny Health and Fitness Programmable Magnetic Elliptical</ns0:title>
@@ -532,7 +532,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sunny-health-and-fitness-programmable-magnetic-elliptical</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9858</ns0:id>
       <ns0:title>Sunny Health &amp;amp;amp; Fitness Premium Cardio Climber</ns0:title>
@@ -553,7 +553,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sunny-health-fitness-premium-cardio-climber</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9854</ns0:id>
       <ns0:title>Schwinn 411 Elliptical</ns0:title>
@@ -574,7 +574,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/schwinn-411-elliptical</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9851</ns0:id>
       <ns0:title>NordicTrack T Series 10 Treadmill</ns0:title>
@@ -596,7 +596,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/nordictrack-t-series-10-treadmill</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9788</ns0:id>
       <ns0:title>Arrow Carport 12 x 20 x 7 ft</ns0:title>
@@ -618,7 +618,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/arrow-carport-12-x-20-x-7-ft</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9853</ns0:id>
       <ns0:title>ProForm Carbon TL Treadmill</ns0:title>
@@ -639,7 +639,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/proform-carbon-tl-treadmill</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9855</ns0:id>
       <ns0:title>Schwinn 800ic Indoor Cycling Bike</ns0:title>
@@ -660,7 +660,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/schwinn-800ic-indoor-cycling-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9844</ns0:id>
       <ns0:title>Sojag Charleston Solarium 12 x 15 ft</ns0:title>
@@ -681,7 +681,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sojag-charleston-solarium-12-x-15-ft</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9850</ns0:id>
       <ns0:title>NordicTrack T 6.5 S Treadmill</ns0:title>
@@ -702,7 +702,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/nordictrack-t-6-5-s-treadmill</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9849</ns0:id>
       <ns0:title>Horizon Fitness T101 Treadmill</ns0:title>
@@ -723,7 +723,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/horizon-fitness-t101-treadmill</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9847</ns0:id>
       <ns0:title>Concept2 RowErg Indoor Rowing Machine</ns0:title>
@@ -744,7 +744,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/concept2-rowerg-indoor-rowing-machine</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9733</ns0:id>
       <ns0:title>Newport 8 ft. W x 6 ft. D 2-Tone Eggshell and Coffee Galvanized Metal Shed with Sliding Lockable Doors (43 sq. ft.)</ns0:title>
@@ -775,7 +775,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/newport-8-ft-w-x-6-ft-d-2-tone-eggshell-and-coffee-galvanized-metal-shed-with-sliding-lockable-doors-43-sq-ft</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9845</ns0:id>
       <ns0:title>Sunjoy Bellucci 10 x 14 ft. Light Grey Outdoor Cedar Wood Framed Arched Pergola</ns0:title>
@@ -796,7 +796,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sunjoy-bellucci-10-x-14-ft-light-grey-outdoor-cedar-wood-framed-arched-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9840</ns0:id>
       <ns0:title>Purple LEAF Double Top Deluxe Solar Powered LED Square Patio Umbrella</ns0:title>
@@ -844,7 +844,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/purple-leaf-double-top-deluxe-solar-powered-led-square-patio-umbrella</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9800</ns0:id>
       <ns0:title>Backyard Discovery Trenton 4.9m x 3.7m Modern Steel Pergola</ns0:title>
@@ -865,7 +865,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-trenton-4-9m-x-3-7m-modern-steel-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9842</ns0:id>
       <ns0:title>Sojag 10 x 12 ft. Portland No.53 Wall Gazebo Steel Roof</ns0:title>
@@ -886,7 +886,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sojag-10-x-12-ft-portland-no-53-wall-gazebo-steel-roof</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9801</ns0:id>
       <ns0:title>Backyard Discovery Verona Cedar Cabana Pergola</ns0:title>
@@ -907,7 +907,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-verona-cedar-cabana-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9841</ns0:id>
       <ns0:title>ShelterLogic ShelterCoat Round Style Garage</ns0:title>
@@ -928,7 +928,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/shelterlogic-sheltercoat-round-style-garage</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9797</ns0:id>
       <ns0:title>Backyard Discovery Kingsport 20′ x 20′ Cedar Wood Carport with Steel Roof</ns0:title>
@@ -949,7 +949,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-kingsport-20-x-20-cedar-wood-carport-with-steel-roof</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9798</ns0:id>
       <ns0:title>Backyard Discovery Monterey Swing Set</ns0:title>
@@ -970,7 +970,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-monterey-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9794</ns0:id>
       <ns0:title>Backyard Discovery Cedar Cove Swing Set</ns0:title>
@@ -991,7 +991,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-cedar-cove-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9799</ns0:id>
       <ns0:title>Backyard Discovery Skyfort II Swing Set</ns0:title>
@@ -1012,7 +1012,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-skyfort-ii-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9795</ns0:id>
       <ns0:title>Backyard Discovery Cedar Springs Outdoor Bar</ns0:title>
@@ -1033,7 +1033,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-cedar-springs-outdoor-bar</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9784</ns0:id>
       <ns0:title>Value Workshop Outdoor Wood Storage Shed</ns0:title>
@@ -1054,7 +1054,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/value-workshop-outdoor-wood-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9792</ns0:id>
       <ns0:title>Backyard Discovery Brookdale 12 x 10 All Cedar Wooden Gazebo</ns0:title>
@@ -1075,7 +1075,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-brookdale-12-x-10-all-cedar-wooden-gazebo</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9791</ns0:id>
       <ns0:title>Backyard Discovery 20′ x 12′ Norwood Carport Gazebo</ns0:title>
@@ -1096,7 +1096,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-20-x-12-norwood-carport-gazebo</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9789</ns0:id>
       <ns0:title>Backyard Discovery 12′ x 10′ Cedar Pergola</ns0:title>
@@ -1118,7 +1118,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-12-x-10-cedar-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9783</ns0:id>
       <ns0:title>Tribeca 10 ft. W x 12 ft. D Wood Storage Shed With Floor</ns0:title>
@@ -1139,7 +1139,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/tribeca-10-ft-w-x-12-ft-d-wood-storage-shed-with-floor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9786</ns0:id>
       <ns0:title>Vista 7 ft. W x 7 ft. D Plastic Shed</ns0:title>
@@ -1160,7 +1160,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/vista-7-ft-w-x-7-ft-d-plastic-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9787</ns0:id>
       <ns0:title>Windemere 10 ft. W x 12 ft. D Storage Shed</ns0:title>
@@ -1181,7 +1181,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/windemere-10-ft-w-x-12-ft-d-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9785</ns0:id>
       <ns0:title>Veikous 8 ft. x 12 ft. Outdoor Storage Shed with Lockable Door and Vents</ns0:title>
@@ -1203,7 +1203,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/veikous-8-ft-x-12-ft-outdoor-storage-shed-with-lockable-door-and-vents</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9744</ns0:id>
       <ns0:title>Suncast 7-ft x 4-ft Vista Resin Storage Shed (Floor Included)</ns0:title>
@@ -1224,7 +1224,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-7-ft-x-4-ft-vista-resin-storage-shed-floor-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9724</ns0:id>
       <ns0:title>Lifetime 15′ x 8′ Dual Entry Outdoor Storage Shed, Gray</ns0:title>
@@ -1245,7 +1245,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-15-x-8-dual-entry-outdoor-storage-shed-gray</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9737</ns0:id>
       <ns0:title>Rookwood 10 ft. W x 10 ft. D Wood Storage Shed With Floor</ns0:title>
@@ -1266,7 +1266,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/rookwood-10-ft-w-x-10-ft-d-wood-storage-shed-with-floor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9738</ns0:id>
       <ns0:title>Rookwood 10 ft. W x 12 ft. D Wood Storage Shed With Floor</ns0:title>
@@ -1287,7 +1287,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/rookwood-10-ft-w-x-12-ft-d-wood-storage-shed-with-floor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9782</ns0:id>
       <ns0:title>Suncast Vista 7 ft. x 4 ft. Resin Standard Modern Storage Shed with Floor Kit</ns0:title>
@@ -1309,7 +1309,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-vista-7-ft-x-4-ft-resin-standard-modern-storage-shed-with-floor-kit</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9745</ns0:id>
       <ns0:title>Suncast 7′ x 7′ Modernist Resin Outdoor Storage Shed</ns0:title>
@@ -1330,7 +1330,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-7-x-7-modernist-resin-outdoor-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9732</ns0:id>
       <ns0:title>Modernist 10 ft. x 7 ft. Barn Door Storage Shed Suncast</ns0:title>
@@ -1351,7 +1351,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/modernist-10-ft-x-7-ft-barn-door-storage-shed-suncast</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9776</ns0:id>
       <ns0:title>Suncast 8-ft x 10-ft Tremont Resin Storage Shed (Floor Included)</ns0:title>
@@ -1372,7 +1372,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-8-ft-x-10-ft-tremont-resin-storage-shed-floor-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9780</ns0:id>
       <ns0:title>Suncast Tremont 547 cu. ft. Storage Shed Bms8100</ns0:title>
@@ -1393,7 +1393,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-tremont-547-cu-ft-storage-shed-bms8100</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9736</ns0:id>
       <ns0:title>Patiowell 10×8 Shed with Windows</ns0:title>
@@ -1414,7 +1414,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/patiowell-10x8-shed-with-windows</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9777</ns0:id>
       <ns0:title>Suncast 8-ft x 7-ft Resin Shed (Floor Included)</ns0:title>
@@ -1436,7 +1436,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-8-ft-x-7-ft-resin-shed-floor-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9778</ns0:id>
       <ns0:title>Suncast Cabana Entertainment Shed 8 ft. x 7 ft. Resin Storage Shed (Floor Included)</ns0:title>
@@ -1457,7 +1457,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/suncast-cabana-entertainment-shed-8-ft-x-7-ft-resin-storage-shed-floor-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9727</ns0:id>
       <ns0:title>Lifetime 8′ x 17.5′ Outdoor Storage Shed Dual Entry, Tan</ns0:title>
@@ -1479,7 +1479,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-8-x-17-5-outdoor-storage-shed-dual-entry-tan</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9680</ns0:id>
       <ns0:title>Cedar Sunshed Garden Shed | 12×12</ns0:title>
@@ -1500,7 +1500,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cedar-sunshed-garden-shed-12x12</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9734</ns0:id>
       <ns0:title>Olympia Do-it Yourself 10 ft. W x 7.5 ft. D Manufactured Wood Storage Shed</ns0:title>
@@ -1521,7 +1521,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/olympia-do-it-yourself-10-ft-w-x-7-5-ft-d-manufactured-wood-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9716</ns0:id>
       <ns0:title>Heartland Coronado 12-ft x 8-ft Gable Style Wood Outdoor Storage Shed with Windows and Doors</ns0:title>
@@ -1543,7 +1543,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/heartland-coronado-12-ft-x-8-ft-gable-style-wood-outdoor-storage-shed-with-windows-and-doors</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9728</ns0:id>
       <ns0:title>Lifetime 8’ x 7.5’ Outdoor Storage Shed, Light Brown</ns0:title>
@@ -1565,7 +1565,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-8-x-7-5-outdoor-storage-shed-light-brown</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9729</ns0:id>
       <ns0:title>Lifetime 8′ x 10′ Outdoor Plastic Shed W/ Floor and Windows (60238)</ns0:title>
@@ -1587,7 +1587,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-8-x-10-outdoor-plastic-shed-w-floor-and-windows-60238</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9730</ns0:id>
       <ns0:title>Little Cottage 12 x 10 ft Classic Wood Cottage Panelized Storage Shed</ns0:title>
@@ -1609,7 +1609,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/little-cottage-12-x-10-ft-classic-wood-cottage-panelized-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9602</ns0:id>
       <ns0:title>Auto Lift Al2-9k-fx 9,000 lb. 2 Post Floor Plate Car Lift</ns0:title>
@@ -1630,7 +1630,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/auto-lift-al2-9k-fx-9000-lb-2-post-floor-plate-car-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9717</ns0:id>
       <ns0:title>Hudson 12 ft. W x 16 ft. D Wood Storage Shed</ns0:title>
@@ -1651,7 +1651,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/hudson-12-ft-w-x-16-ft-d-wood-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9720</ns0:id>
       <ns0:title>Lifetime 10′ x 8′ Outdoor Storage Shed, Gray</ns0:title>
@@ -1673,7 +1673,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-10-x-8-outdoor-storage-shed-gray</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9669</ns0:id>
       <ns0:title>Veikous 10 ft. W x 10 ft. D Outdoor Metal Storage Shed in Gray (100 sq. ft.)</ns0:title>
@@ -1694,7 +1694,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/veikous-10-ft-w-x-10-ft-d-outdoor-metal-storage-shed-in-gray-100-sq-ft</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9684</ns0:id>
       <ns0:title>Craftsman 7-ft x 7-ft Resin Storage Shed (Floor Included)</ns0:title>
@@ -1715,7 +1715,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/craftsman-7-ft-x-7-ft-resin-storage-shed-floor-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9685</ns0:id>
       <ns0:title>Gardena 8′ x 6′ Outdoor Wood Utility Shed</ns0:title>
@@ -1737,7 +1737,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/gardena-8-x-6-outdoor-wood-utility-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9683</ns0:id>
       <ns0:title>Handy Home Charleston Value Gable 10 ft. x 12 ft. Storage Shed</ns0:title>
@@ -1758,7 +1758,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/handy-home-charleston-value-gable-10-ft-x-12-ft-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9677</ns0:id>
       <ns0:title>Astoria 12 ft. x 12 ft. Outdoor Wood Storage Shed</ns0:title>
@@ -1779,7 +1779,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/astoria-12-ft-x-12-ft-outdoor-wood-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9670</ns0:id>
       <ns0:title>Veikous 10 ft. W x 12 ft. D Outdoor Metal Storage Shed in Gray (120 sq. ft.)</ns0:title>
@@ -1800,7 +1800,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/veikous-10-ft-w-x-12-ft-d-outdoor-metal-storage-shed-in-gray-120-sq-ft</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9679</ns0:id>
       <ns0:title>Best Barns Camp Reynolds 16-ft x 32-ft Gambrel Style Wood Outdoor Storage Shed</ns0:title>
@@ -1821,7 +1821,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/best-barns-camp-reynolds-16-ft-x-32-ft-gambrel-style-wood-outdoor-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9681</ns0:id>
       <ns0:title>Cedarshed Bayside 8×4 Lean To Storage Shed</ns0:title>
@@ -1843,7 +1843,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cedarshed-bayside-8x4-lean-to-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9657</ns0:id>
       <ns0:title>QuickJack 5000tl Portable Car Lift</ns0:title>
@@ -1864,7 +1864,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/quickjack-5000tl-portable-car-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9676</ns0:id>
       <ns0:title>Arrow 4 ft. x 7 ft. Yardsaver Galvanized Steel Storage Shed</ns0:title>
@@ -1885,7 +1885,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/arrow-4-ft-x-7-ft-yardsaver-galvanized-steel-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9668</ns0:id>
       <ns0:title>Weize 8500lbs 4-Post Car Lift with Caster Kits – Pla-1030</ns0:title>
@@ -1906,7 +1906,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/weize-8500lbs-4-post-car-lift-with-caster-kits-pla-1030</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9675</ns0:id>
       <ns0:title>Arrow 10 ft. x 8 ft. Woodridge Shed – Durable Metal Storage with Woodgrain Finish</ns0:title>
@@ -1927,7 +1927,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/arrow-10-ft-x-8-ft-woodridge-shed-durable-metal-storage-with-woodgrain-finish</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9667</ns0:id>
       <ns0:title>Weaver W-10khd Overhead 2-Post Car Lift – 10,000 LB Capacity</ns0:title>
@@ -1948,7 +1948,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/weaver-w-10khd-overhead-2-post-car-lift-10000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9549</ns0:id>
       <ns0:title>2.0 HP Tire Changer And Wheel Balancer Machine Combo 580 &amp;amp;amp; 690</ns0:title>
@@ -1969,7 +1969,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/2-0-hp-tire-changer-and-wheel-balancer-machine-combo-580-690</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9662</ns0:id>
       <ns0:title>QuickJack Bl-3500slx – 3,500 lbs Portable Lift</ns0:title>
@@ -1990,7 +1990,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/quickjack-bl-3500slx-3500-lbs-portable-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9619</ns0:id>
       <ns0:title>Hein-Werner 2-Ton Heavy-Duty Service Jack</ns0:title>
@@ -2011,7 +2011,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/hein-werner-2-ton-heavy-duty-service-jack</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9609</ns0:id>
       <ns0:title>Global Industrial 988935 Manual Lift Stacker</ns0:title>
@@ -2032,7 +2032,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/global-industrial-988935-manual-lift-stacker</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9661</ns0:id>
       <ns0:title>QuickJack 7000tlx Extended-Length Portable Lift – 7,000 lbs Capacity</ns0:title>
@@ -2053,7 +2053,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/quickjack-7000tlx-extended-length-portable-lift-7000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9659</ns0:id>
       <ns0:title>QuickJack 5000tlx – Extended-Length Portable Lift (5,000 lbs Capacity)</ns0:title>
@@ -2075,7 +2075,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/quickjack-5000tlx-extended-length-portable-lift-5000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9616</ns0:id>
       <ns0:title>HALO Lifts PRO Double Wide 4 Post Car Lift – 9,000 LBS Capacity</ns0:title>
@@ -2097,7 +2097,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/halo-lifts-pro-double-wide-4-post-car-lift-9000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9612</ns0:id>
       <ns0:title>HALO Lifts Clear Floor 2 Post Car Lift – 10,000 LBS Capacity</ns0:title>
@@ -2118,7 +2118,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/halo-lifts-clear-floor-2-post-car-lift-10000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9621</ns0:id>
       <ns0:title>iDeal Lift 7000tlx Low-Rise, Portable and Storable Tilt Lift</ns0:title>
@@ -2140,7 +2140,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ideal-lift-7000tlx-low-rise-portable-and-storable-tilt-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9656</ns0:id>
       <ns0:title>Platinum 12000 LB Certified 2-Post Lift – Atlas Pvl-12</ns0:title>
@@ -2161,7 +2161,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/platinum-12000-lb-certified-2-post-lift-atlas-pvl-12</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9553</ns0:id>
       <ns0:title>6,000-lb. Capacity / Low-Rise Scissor Lift</ns0:title>
@@ -2182,7 +2182,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/6000-lb-capacity-low-rise-scissor-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9615</ns0:id>
       <ns0:title>Halo Lifts Pro 4 Post Car Lift – Unparalleled Safety &amp;amp;amp; Reliability</ns0:title>
@@ -2204,7 +2204,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/halo-lifts-pro-4-post-car-lift-unparalleled-safety-reliability</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9622</ns0:id>
       <ns0:title>MaxJax M7K Portable Car Lift – 7,000 LB Capacity</ns0:title>
@@ -2225,7 +2225,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/maxjax-m7k-portable-car-lift-7000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9618</ns0:id>
       <ns0:title>HALO Lifts XL 4 Post Car Lift – 9,000 LBS Capacity</ns0:title>
@@ -2246,7 +2246,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/halo-lifts-xl-4-post-car-lift-9000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9607</ns0:id>
       <ns0:title>Ford 6.7L CP4 to DCR Pump Conversion</ns0:title>
@@ -2267,7 +2267,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ford-6-7l-cp4-to-dcr-pump-conversion</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9610</ns0:id>
       <ns0:title>Halo 4 Post Car Lift – 9,000 LBS Capacity</ns0:title>
@@ -2289,7 +2289,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/halo-4-post-car-lift-9000-lbs-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9598</ns0:id>
       <ns0:title>Atlas Garage Pro 8000 LB Four-Post Lift</ns0:title>
@@ -2311,7 +2311,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-garage-pro-8000-lb-four-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9599</ns0:id>
       <ns0:title>Atlas Motorcycle Lift W Side Extension Kit</ns0:title>
@@ -2332,7 +2332,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-motorcycle-lift-w-side-extension-kit</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9606</ns0:id>
       <ns0:title>Mds-6ext Extended Platform Mid-Rise Scissor Lift – 6,000 lb. Capacity</ns0:title>
@@ -2353,7 +2353,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mds-6ext-extended-platform-mid-rise-scissor-lift-6000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9559</ns0:id>
       <ns0:title>9000 LB Extra Wide Tall Long Lift – Atlas Pro9000</ns0:title>
@@ -2374,7 +2374,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/9000-lb-extra-wide-tall-long-lift-atlas-pro9000</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9604</ns0:id>
       <ns0:title>BendPak Xpr-10as-lp Two-Post Lift – 10,000 lb. Capacity (Asymmetric)</ns0:title>
@@ -2395,7 +2395,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bendpak-xpr-10as-lp-two-post-lift-10000-lb-capacity-asymmetric</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9601</ns0:id>
       <ns0:title>Auto 10,000 Lbs 2 Post Lift Car Lift Auto Truck Hoist 220v Or 110v</ns0:title>
@@ -2416,7 +2416,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/auto-10000-lbs-2-post-lift-car-lift-auto-truck-hoist-220v-or-110v</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9548</ns0:id>
       <ns0:title>15 Ton Portable Air Lift Jack</ns0:title>
@@ -2437,7 +2437,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/15-ton-portable-air-lift-jack</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9596</ns0:id>
       <ns0:title>Atlas 8000 Lb Capacity Baseplate 2-Post Lift</ns0:title>
@@ -2459,7 +2459,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-8000-lb-capacity-baseplate-2-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9562</ns0:id>
       <ns0:title>AMGO Hydraulics LR06 Low-Rise Portable Lift 6,000 lbs.</ns0:title>
@@ -2480,7 +2480,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/amgo-hydraulics-lr06-low-rise-portable-lift-6000-lbs</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9537</ns0:id>
       <ns0:title>Super73-z Adventure Series SE</ns0:title>
@@ -2501,7 +2501,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-z-adventure-series-se</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9563</ns0:id>
       <ns0:title>Asymmetric 2 Post Car Lift Clear Floor 9,000 lbs. Capacity Heavy Duty in Black</ns0:title>
@@ -2523,7 +2523,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/asymmetric-2-post-car-lift-clear-floor-9000-lbs-capacity-heavy-duty-in-black</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9560</ns0:id>
       <ns0:title>9000 LB Overhead 2-Post Lift – Atlas 9kohx</ns0:title>
@@ -2544,7 +2544,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/9000-lb-overhead-2-post-lift-atlas-9kohx</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9556</ns0:id>
       <ns0:title>7000 lbs Car Lift Adjustable Car Lifts with Remote Control for Home</ns0:title>
@@ -2566,7 +2566,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/7000-lbs-car-lift-adjustable-car-lifts-with-remote-control-for-home</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9504</ns0:id>
       <ns0:title>Super73-s2 SE Ebike</ns0:title>
@@ -2587,7 +2587,7 @@
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-s2-se-ebike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9551</ns0:id>
       <ns0:title>5000 lbs Car Lift Adjustable Car Lifts with Remote Control for Home</ns0:title>
@@ -2636,7 +2636,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/5000-lbs-car-lift-adjustable-car-lifts-with-remote-control-for-home</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9554</ns0:id>
       <ns0:title>6,000-lb. Capacity / Mid-Rise Frame Lift / Portable</ns0:title>
@@ -2657,7 +2657,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/6000-lb-capacity-mid-rise-frame-lift-portable</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9555</ns0:id>
       <ns0:title>6,000-lb. Capacity / Mid-Rise Scissor Lift / Open-Center</ns0:title>
@@ -2678,7 +2678,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/6000-lb-capacity-mid-rise-scissor-lift-open-center</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9539</ns0:id>
       <ns0:title>Super73-zx Core</ns0:title>
@@ -2699,7 +2699,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-zx-core</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9547</ns0:id>
       <ns0:title>12000 LB Heavy Duty Baseplate Lift</ns0:title>
@@ -2721,7 +2721,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/12000-lb-heavy-duty-baseplate-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9538</ns0:id>
       <ns0:title>Super73-z Miami SE</ns0:title>
@@ -2742,7 +2742,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-z-miami-se</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9544</ns0:id>
       <ns0:title>10,000 LB Heavy Duty 2-Post Lift</ns0:title>
@@ -2763,7 +2763,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/10000-lb-heavy-duty-2-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9501</ns0:id>
       <ns0:title>Ridstar Q20Pro 2000w Fat Tire Electric Bicycle</ns0:title>
@@ -2784,7 +2784,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-q20pro-2000w-fat-tire-electric-bicycle</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9540</ns0:id>
       <ns0:title>Super73-zx SE</ns0:title>
@@ -2806,7 +2806,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-zx-se</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9492</ns0:id>
       <ns0:title>Aventon Level 2 Commuter Step-Through Electric Bike</ns0:title>
@@ -2827,7 +2827,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/aventon-level-2-commuter-step-through-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9502</ns0:id>
       <ns0:title>Super73-r Adventure Series Core</ns0:title>
@@ -2848,7 +2848,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-r-adventure-series-core</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9496</ns0:id>
       <ns0:title>Ridstar DC26 2000w Folding Fat Tire Mountain Electric Bike</ns0:title>
@@ -2869,7 +2869,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-dc26-2000w-folding-fat-tire-mountain-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9494</ns0:id>
       <ns0:title>Rad Power RadRunner 2 Electric Utility Bike</ns0:title>
@@ -2936,7 +2936,7 @@ The Rad Power system is a trusted choice for riders looking for an efficient, sa
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/rad-power-radrunner-2-electric-utility-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9499</ns0:id>
       <ns0:title>Ridstar MN26 1500w Unfoldable Fat Tire Mountain Ebike</ns0:title>
@@ -2957,7 +2957,7 @@ The Rad Power system is a trusted choice for riders looking for an efficient, sa
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-mn26-1500w-unfoldable-fat-tire-mountain-ebike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9500</ns0:id>
       <ns0:title>Ridstar Q20 1000w 48V 15AH Fat Tire Electric Bicycle</ns0:title>
@@ -2978,7 +2978,7 @@ The Rad Power system is a trusted choice for riders looking for an efficient, sa
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-q20-1000w-48v-15ah-fat-tire-electric-bicycle</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9497</ns0:id>
       <ns0:title>Ridstar E26 Pro Dual Motor 2000w 48V 23AH / E26 1000w 48V 15.6ah E-Bike</ns0:title>
@@ -3023,7 +3023,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-e26-pro-dual-motor-2000w-48v-23ah-e26-1000w-48v-15-6ah-e-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9423</ns0:id>
       <ns0:title>Handy Home Products Scarsdale 12x16 Do-it-Yourself Wooden Storage Shed with Floor</ns0:title>
@@ -3044,7 +3044,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/handy-home-products-scarsdale-12x16-do-it-yourself-wooden-storage-shed-with-floor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9498</ns0:id>
       <ns0:title>Ridstar H20Pro Folding Electric Bike</ns0:title>
@@ -3066,7 +3066,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridstar-h20pro-folding-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9441</ns0:id>
       <ns0:title>BendPak Lr-60 Low-Rise Lift – 6,000 lb. Capacity</ns0:title>
@@ -3087,7 +3087,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bendpak-lr-60-low-rise-lift-6000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9486</ns0:id>
       <ns0:title>Tuttio Soleil01 Electric Dirt Bike for Adults 200N.m High Torque 2000w Motor 48V 21Ah Battery Top Speed 37Mph All-terrain Electric Bicycles</ns0:title>
@@ -3108,7 +3108,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/tuttio-soleil01-electric-dirt-bike-for-adults-200n-m-high-torque-2000w-motor-48v-21ah-battery-top-speed-37mph-all-terrain-electric-bicycles</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9487</ns0:id>
       <ns0:title>Giantex 8FT 10FT 12FT Trampoline with Enclosure, ASTM Approved Outdoor Large Trampoline with Ladder</ns0:title>
@@ -3129,7 +3129,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/giantex-8ft-10ft-12ft-trampoline-with-enclosure-astm-approved-outdoor-large-trampoline-with-ladder</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9488</ns0:id>
       <ns0:title>Allstar 10 Trampoline Outdoor Backyard Play Equipment with Net &amp;amp;amp; Ladder</ns0:title>
@@ -3150,7 +3150,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/allstar-10-trampoline-outdoor-backyard-play-equipment-with-net-ladder</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9480</ns0:id>
       <ns0:title>Super73 Oracle Red Bull Racing Z Adventure Series Electric Bike</ns0:title>
@@ -3171,7 +3171,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-oracle-red-bull-racing-z-adventure-series-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9491</ns0:id>
       <ns0:title>Aventon Aventure 2 – Electric Fat Tire Bike for Every Adventure</ns0:title>
@@ -3192,7 +3192,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/aventon-aventure-2-electric-fat-tire-bike-for-every-adventure</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9477</ns0:id>
       <ns0:title>Atlas Automotive Equipment Pv12px Commercial Grade Overhead 2-Post Lift 12,000 lb. Capacity</ns0:title>
@@ -3213,7 +3213,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-automotive-equipment-pv12px-commercial-grade-overhead-2-post-lift-12000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9485</ns0:id>
       <ns0:title>Alpinestars Supertech R10 Element ECE 06 / FIM Full Face Helmet Gloss Black / Carbon / Silver</ns0:title>
@@ -3234,7 +3234,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/alpinestars-supertech-r10-element-ece-06-fim-full-face-helmet-gloss-black-carbon-silver</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9447</ns0:id>
       <ns0:title>MaxJax M7K Portable Two-Post Lift</ns0:title>
@@ -3255,7 +3255,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/maxjax-m7k-portable-two-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9482</ns0:id>
       <ns0:title>Folding Ebikes for Adults Ridstar 750W Motor 48V 14AH Removable Battery 20 X 4.0 Fat Tire Shimano 7-Speed 19.8mph Electric Bike</ns0:title>
@@ -3276,7 +3276,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/folding-ebikes-for-adults-ridstar-750w-motor-48v-14ah-removable-battery-20-x-4-0-fat-tire-shimano-7-speed-19-8mph-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9483</ns0:id>
       <ns0:title>Leonx Aipas M2 Electric Mountain Bike – 1500w, 30mph, 26″ Fat Tires</ns0:title>
@@ -3297,7 +3297,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/leonx-aipas-m2-electric-mountain-bike-1500w-30mph-26-fat-tires</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9479</ns0:id>
       <ns0:title>Super73 Oracle Red Bull Racing R Adventure Series Electric Bike</ns0:title>
@@ -3318,7 +3318,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/super73-oracle-red-bull-racing-r-adventure-series-electric-bike</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9484</ns0:id>
       <ns0:title>Aventon - Level.2 Commuter Step-Through EBike W/ up to 60 Miles Max Operating Range and 28 MPH Max Speed – Medium/Large</ns0:title>
@@ -3340,7 +3340,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/aventon-level-2-commuter-step-through-ebike-w-up-to-60-miles-max-operating-range-and-28-mph-max-speed-medium-large</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9476</ns0:id>
       <ns0:title>D2-10c - 10,000lb Capacity - Symmetric Two Post Car/SUV/Truck/Vehicle/Automobile Lift - Home/Shop/Garage/Mechanic Use</ns0:title>
@@ -3361,7 +3361,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/d2-10c-10000lb-capacity-symmetric-two-post-car-suv-truck-vehicle-automobile-lift-home-shop-garage-mechanic-use</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9438</ns0:id>
       <ns0:title>BendPak P-9000ltf Flush-Mount Low-Rise Pit-Style Lift – 9,000 lb. Capacity</ns0:title>
@@ -3382,7 +3382,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bendpak-p-9000ltf-flush-mount-low-rise-pit-style-lift-9000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9478</ns0:id>
       <ns0:title>1.5 HP Tire Changer Wheel Balancer Machine Combo Rim Clamp 14″-28″</ns0:title>
@@ -3403,7 +3403,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/1-5-hp-tire-changer-wheel-balancer-machine-combo-rim-clamp-14-28</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9444</ns0:id>
       <ns0:title>BendPak Mds-6lp Mid-Rise Open-Center Lift 6,000-lb. Capacity / Mid-Rise Scissor Lift / Open-Center</ns0:title>
@@ -3424,7 +3424,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bendpak-mds-6lp-mid-rise-open-center-lift-6000-lb-capacity-mid-rise-scissor-lift-open-center</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9440</ns0:id>
       <ns0:title>P-9000lt Low-Rise Pit-Style Lift – 9,000 lb. Capacity</ns0:title>
@@ -3446,7 +3446,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/p-9000lt-low-rise-pit-style-lift-9000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9448</ns0:id>
       <ns0:title>APlusLift Hw-10koh-a 10000lb Two Post Overhead Clear Floor Car Lift/Industry Leading 3 Year Warranty</ns0:title>
@@ -3467,7 +3467,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/apluslift-hw-10koh-a-10000lb-two-post-overhead-clear-floor-car-lift-industry-leading-3-year-warranty</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9446</ns0:id>
       <ns0:title>Atlas Automotive Equipment Atlas Equipment Bp10000x Commercial Grade Baseplate 10 000 Lb. Capacity 2-Post Lift</ns0:title>
@@ -3489,7 +3489,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-automotive-equipment-atlas-equipment-bp10000x-commercial-grade-baseplate-10-000-lb-capacity-2-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9443</ns0:id>
       <ns0:title>BendPak Md-6xp Mid-Rise Scissor Lift – 6,000 lb. Capacity</ns0:title>
@@ -3510,7 +3510,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bendpak-md-6xp-mid-rise-scissor-lift-6000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9445</ns0:id>
       <ns0:title>5,000 LB Adjustable Car Lift with Remote Control – Perfect for Home Garages</ns0:title>
@@ -3531,7 +3531,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/5000-lb-adjustable-car-lift-with-remote-control-perfect-for-home-garages</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9434</ns0:id>
       <ns0:title>10 Ft. X 14 Ft. Traditional All Cedar Wood Outdoor Patio Pergola Shade Structure</ns0:title>
@@ -3552,7 +3552,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/10-ft-x-14-ft-traditional-all-cedar-wood-outdoor-patio-pergola-shade-structure</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9425</ns0:id>
       <ns0:title>Yardistry 10 x 22 Meridian Pergola</ns0:title>
@@ -3573,7 +3573,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/yardistry-10-x-22-meridian-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9442</ns0:id>
       <ns0:title>ndPak Lr-60p Portable Low-Rise Lift – 6,000 lb. Capacity</ns0:title>
@@ -3594,7 +3594,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ndpak-lr-60p-portable-low-rise-lift-6000-lb-capacity</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9439</ns0:id>
       <ns0:title>Atlas Automotive Equipment Atlas Equipment Garage Pro8000ext Extra Tall Portable Hobbyist 8 000 Lb. Capacity 4-Post Lift</ns0:title>
@@ -3616,7 +3616,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atlas-automotive-equipment-atlas-equipment-garage-pro8000ext-extra-tall-portable-hobbyist-8-000-lb-capacity-4-post-lift</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9433</ns0:id>
       <ns0:title>Beaumont 20 ft. x 12 ft. Light Brown Traditional Outdoor All Cedar Wood Patio Pergola Shade Structure with Electric</ns0:title>
@@ -3637,7 +3637,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/beaumont-20-ft-x-12-ft-light-brown-traditional-outdoor-all-cedar-wood-patio-pergola-shade-structure-with-electric</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9437</ns0:id>
       <ns0:title>9000 LB Baseplate 2-Post Lift – Atlas 9kbpx</ns0:title>
@@ -3658,7 +3658,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/9000-lb-baseplate-2-post-lift-atlas-9kbpx</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9391</ns0:id>
       <ns0:title>RYOBI 80V HP Brushless 30 in. Battery Electric Cordless Zero Turn Mower with 80V 10 Ah Batteries</ns0:title>
@@ -3680,7 +3680,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ryobi-80v-hp-brushless-30-in-battery-electric-cordless-zero-turn-mower-with-80v-10-ah-batteries</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9431</ns0:id>
       <ns0:title>Creekvine Designs Red Cedar Monterrey Pergola</ns0:title>
@@ -3701,7 +3701,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/creekvine-designs-red-cedar-monterrey-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9432</ns0:id>
       <ns0:title>Backyard Discovery Sarasota 16'x10' Galvanized Steel Louvered Pergola</ns0:title>
@@ -3722,7 +3722,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-sarasota-16x10-galvanized-steel-louvered-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9427</ns0:id>
       <ns0:title>Stratford 16 Ft. X 12 Ft. Black Steel Traditional Pergola with Sail Shade Soft Canopy</ns0:title>
@@ -3743,7 +3743,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/stratford-16-ft-x-12-ft-black-steel-traditional-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9429</ns0:id>
       <ns0:title>Stratford 12 Ft. X 10 Ft. Black Steel Traditional Pergola with Sail Shade Soft Canopy</ns0:title>
@@ -3764,7 +3764,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/stratford-12-ft-x-10-ft-black-steel-traditional-pergola-with-sail-shade-soft-canopy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9430</ns0:id>
       <ns0:title>Backyard Discovery Sarasota Galvanized Steel Louvered Pergola</ns0:title>
@@ -3786,7 +3786,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-sarasota-galvanized-steel-louvered-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9428</ns0:id>
       <ns0:title>Ridgedale 8 Ft. X 8 Ft. White Steel Modern Cabana Pergola with Conversation Seating in Pumice</ns0:title>
@@ -3807,7 +3807,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ridgedale-8-ft-x-8-ft-white-steel-modern-cabana-pergola-with-conversation-seating-in-pumice</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9371</ns0:id>
       <ns0:title>660lbs Heavy Duty Swing Set With 1 Platform Swing, 2 Belt Swings</ns0:title>
@@ -3828,7 +3828,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/660lbs-heavy-duty-swing-set-with-1-platform-swing-2-belt-swings</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9388</ns0:id>
       <ns0:title>EGO Power+ 52 in Z6 Zero-Turn Riding Mower Kit</ns0:title>
@@ -3849,7 +3849,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-52-in-z6-zero-turn-riding-mower-kit</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9424</ns0:id>
       <ns0:title>Handy Home Windemere 10x12 Storage Shed</ns0:title>
@@ -3870,7 +3870,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/handy-home-windemere-10x12-storage-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9422</ns0:id>
       <ns0:title>Troy bilt Mustang Z50 Zero-Turn Mower</ns0:title>
@@ -3891,7 +3891,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/troy-bilt-mustang-z50-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9390</ns0:id>
       <ns0:title>John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower</ns0:title>
@@ -3912,7 +3912,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9379</ns0:id>
       <ns0:title>Swing Sets with Saucer Swing,Belt Swing,Trapeze Bar,Climbing Rope,Climbing Ladder</ns0:title>
@@ -3933,7 +3933,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/swing-sets-with-saucer-swingbelt-swingtrapeze-barclimbing-ropeclimbing-ladder</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9389</ns0:id>
       <ns0:title>Husqvarna Z248f Special Edition Zero-Turn Mower</ns0:title>
@@ -3954,7 +3954,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-z248f-special-edition-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9421</ns0:id>
       <ns0:title>RYOBI 80V HP Brushless 54 in. Battery Electric Cordless Zero Turn Mower &amp;amp;amp; Mulch Kit</ns0:title>
@@ -3975,7 +3975,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ryobi-80v-hp-brushless-54-in-battery-electric-cordless-zero-turn-mower-mulch-kit</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9381</ns0:id>
       <ns0:title>Bad Boy Magnum 54 in. 24 HP Gas Zero-Turn Mower</ns0:title>
@@ -3996,7 +3996,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bad-boy-magnum-54-in-24-hp-gas-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9384</ns0:id>
       <ns0:title>Cub Cadet ZTX6 60 Zero-Turn Mower</ns0:title>
@@ -4017,7 +4017,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cub-cadet-ztx6-60-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9387</ns0:id>
       <ns0:title>Greenworks 60V 30” CrossoverT Riding Lawn Tractor with 8.0 Ah</ns0:title>
@@ -4038,7 +4038,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-60v-30-crossovert-riding-lawn-tractor-with-8-0-ah</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9386</ns0:id>
       <ns0:title>EGO Power+ 42 in Z6 Zero Turn Mower with e-STEER Zt4205s</ns0:title>
@@ -4059,7 +4059,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-42-in-z6-zero-turn-mower-with-e-steer-zt4205s</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9385</ns0:id>
       <ns0:title>DR Power Equipment DR Pro MAX 34" Field and Brush Mower 20 HP Walk-Behind</ns0:title>
@@ -4081,7 +4081,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/dr-power-equipment-dr-pro-max-34-field-and-brush-mower-20-hp-walk-behind</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9383</ns0:id>
       <ns0:title>Cub Cadet Ultima ZT2 60 in. 24 HP Gas Zero-Turn Mower</ns0:title>
@@ -4102,7 +4102,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cub-cadet-ultima-zt2-60-in-24-hp-gas-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9367</ns0:id>
       <ns0:title>Sterling Point Swing Set – A Backyard Playground for Endless Adventure</ns0:title>
@@ -4123,7 +4123,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sterling-point-swing-set-a-backyard-playground-for-endless-adventure</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9378</ns0:id>
       <ns0:title>Sportspower Super 10 Metal Swing Set with Lifetime Warranty on Blow Molded Slide</ns0:title>
@@ -4145,7 +4145,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sportspower-super-10-metal-swing-set-with-lifetime-warranty-on-blow-molded-slide</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9380</ns0:id>
       <ns0:title>Tucson Swing Set – Big Fun in a Compact Design</ns0:title>
@@ -4166,7 +4166,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/tucson-swing-set-big-fun-in-a-compact-design</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9382</ns0:id>
       <ns0:title>Cub Cadet Ultima Series ZTS1 46 Zero Turn Lawn Mower</ns0:title>
@@ -4187,7 +4187,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cub-cadet-ultima-series-zts1-46-zero-turn-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9375</ns0:id>
       <ns0:title>Lifetime Powder Coated Steel Swing Set with 4 Swing(s) , 1 Slide(s)</ns0:title>
@@ -4208,7 +4208,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-powder-coated-steel-swing-set-with-4-swings-1-slides</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9377</ns0:id>
       <ns0:title>Sports power Vinyl-Covered Wood Swing Set – Classic &amp;amp;amp; Durable for Outdoor Fun</ns0:title>
@@ -4229,7 +4229,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sports-power-vinyl-covered-wood-swing-set-classic-durable-for-outdoor-fun</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9331</ns0:id>
       <ns0:title>Canyon Creek All Cedar Swing Set Playset w/ Rockwall Upper Fort Belt Swings Web Swing Gray Wave Slide, and Play Kitchen</ns0:title>
@@ -4250,7 +4250,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/canyon-creek-all-cedar-swing-set-playset-w-rockwall-upper-fort-belt-swings-web-swing-gray-wave-slide-and-play-kitchen</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9364</ns0:id>
       <ns0:title>Outing III Wooden Outdoor Playground with Wood Roof, Monkey Bars, Slide, Swings set, and Backyard Playset Accessories</ns0:title>
@@ -4272,7 +4272,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/outing-iii-wooden-outdoor-playground-with-wood-roof-monkey-bars-slide-swings-set-and-backyard-playset-accessories</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9332</ns0:id>
       <ns0:title>Jack &amp;amp;amp; June Haven Wooden Swing Set</ns0:title>
@@ -4326,7 +4326,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/jack-june-haven-wooden-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9376</ns0:id>
       <ns0:title>Purple LEAF 3-seat Outdoor Patio Porch Swing Adjustable Backrest, Cushions and Pillow Included</ns0:title>
@@ -4347,7 +4347,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/purple-leaf-3-seat-outdoor-patio-porch-swing-adjustable-backrest-cushions-and-pillow-included</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9374</ns0:id>
       <ns0:title>Knightsbridge Plus Complete Wooden Outdoor Playset with Monkey Bars, Slide, Rock Wall and Swing Set Accessories</ns0:title>
@@ -4369,7 +4369,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/knightsbridge-plus-complete-wooden-outdoor-playset-with-monkey-bars-slide-rock-wall-and-swing-set-accessories</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9307</ns0:id>
       <ns0:title>Ecoflow DELTA 2 950 WITH 2PCS 110W Solar Panel</ns0:title>
@@ -4390,7 +4390,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ecoflow-delta-2-950-with-2pcs-110w-solar-panel</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9373</ns0:id>
       <ns0:title>KidKraft Ridgemoor Perch Swing Set – Endless Outdoor Fun for Kids</ns0:title>
@@ -4411,7 +4411,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/kidkraft-ridgemoor-perch-swing-set-endless-outdoor-fun-for-kids</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9369</ns0:id>
       <ns0:title>Woodplay Tiger Tower Combo A – Premium Wooden Swing Set for Endless Backyard Fun</ns0:title>
@@ -4432,7 +4432,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/woodplay-tiger-tower-combo-a-premium-wooden-swing-set-for-endless-backyard-fun</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9370</ns0:id>
       <ns0:title>9.5′ Heavy Duty Metal Swing Set with Belt Swing, Trapeze Bar</ns0:title>
@@ -4453,7 +4453,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/9-5-heavy-duty-metal-swing-set-with-belt-swing-trapeze-bar</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9365</ns0:id>
       <ns0:title>Ranger Retreat Wooden Swing Set/Playset with Tent, Tube Slide and 3-Swings</ns0:title>
@@ -4474,7 +4474,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ranger-retreat-wooden-swing-set-playset-with-tent-tube-slide-and-3-swings</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9366</ns0:id>
       <ns0:title>Sportspower Alta Oaks 10′ Heavy Duty Swing Set with Lifetime Warranty on 6′ Double Wall Slide</ns0:title>
@@ -4495,7 +4495,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/sportspower-alta-oaks-10-heavy-duty-swing-set-with-lifetime-warranty-on-6-double-wall-slide</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9260</ns0:id>
       <ns0:title>GE Profile 27.9 cu ft Smart Fingerprint Resistant French Door Refrigerator, Stainless Steel</ns0:title>
@@ -4516,7 +4516,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ge-profile-27-9-cu-ft-smart-fingerprint-resistant-french-door-refrigerator-stainless-steel</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9368</ns0:id>
       <ns0:title>Timber Crossing Swing Set – Adventure Meets Stunning Design</ns0:title>
@@ -4537,7 +4537,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/timber-crossing-swing-set-adventure-meets-stunning-design</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9363</ns0:id>
       <ns0:title>Lifetime Climb &amp;amp;amp; Slide Playset – Ultimate Backyard Fun for Kids</ns0:title>
@@ -4559,7 +4559,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-climb-slide-playset-ultimate-backyard-fun-for-kids</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9330</ns0:id>
       <ns0:title>440lbs Extra Large Metal Swing Frame with 5 Hanging Hooks, Heavy Duty A-Frame Swing Stand</ns0:title>
@@ -4580,7 +4580,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/440lbs-extra-large-metal-swing-frame-with-5-hanging-hooks-heavy-duty-a-frame-swing-stand</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9326</ns0:id>
       <ns0:title>ShelterLogic 15 x 28 x 12 Round Top Shelter</ns0:title>
@@ -4601,7 +4601,7 @@ Order now and create the ultimate backyard play space today!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/shelterlogic-15-x-28-x-12-round-top-shelter</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9333</ns0:id>
       <ns0:title>Klo Kick Metal Swing Set with 3 Swings</ns0:title>
@@ -4678,7 +4678,7 @@ Upgrade your outdoor space today—bring the adventure home!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/klo-kick-metal-swing-set-with-3-swings</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9317</ns0:id>
       <ns0:title>Yard Force Portable Power Station 2400-Watt Continuous 4800-Watt Peak, Bluetooth speaker, WIFI connection, Wireless Charging, RV 30A plug, LED light</ns0:title>
@@ -4699,7 +4699,7 @@ Upgrade your outdoor space today—bring the adventure home!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/yard-force-portable-power-station-2400-watt-continuous-4800-watt-peak-bluetooth-speaker-wifi-connection-wireless-charging-rv-30a-plug-led-light</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9316</ns0:id>
       <ns0:title>Westinghouse iGEN1000S Portable Power Station</ns0:title>
@@ -4721,7 +4721,7 @@ Upgrade your outdoor space today—bring the adventure home!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/westinghouse-igen1000s-portable-power-station</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9329</ns0:id>
       <ns0:title>9.5′ Heavy-Duty Outdoor Porch Swing Set</ns0:title>
@@ -4742,7 +4742,7 @@ Upgrade your outdoor space today—bring the adventure home!</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/9-5-heavy-duty-outdoor-porch-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9314</ns0:id>
       <ns0:title>Predator 3500 Watt Dual-Fuel Super Quiet Inverter Generator</ns0:title>
@@ -4827,7 +4827,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/predator-3500-watt-dual-fuel-super-quiet-inverter-generator</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9311</ns0:id>
       <ns0:title>Generac 7153 GP3300i Portable Inverter Generator</ns0:title>
@@ -4848,7 +4848,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/generac-7153-gp3300i-portable-inverter-generator</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9308</ns0:id>
       <ns0:title>Ecoflow DELTA 2 MAX 1900 Portable Power Station</ns0:title>
@@ -4869,7 +4869,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ecoflow-delta-2-max-1900-portable-power-station</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9309</ns0:id>
       <ns0:title>EGO Power+ Nexus Power Station 120 V 3000 W 3 outlets Power Inverter</ns0:title>
@@ -4890,7 +4890,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-nexus-power-station-120-v-3000-w-3-outlets-power-inverter</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9310</ns0:id>
       <ns0:title>Generac 8251 GP2500i-2 Inverter Generator WITH Cosense</ns0:title>
@@ -4911,7 +4911,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/generac-8251-gp2500i-2-inverter-generator-with-cosense</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9312</ns0:id>
       <ns0:title>Genmax Portable Inverter Generator 11000w Tri-fuel</ns0:title>
@@ -4932,7 +4932,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/genmax-portable-inverter-generator-11000w-tri-fuel</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9261</ns0:id>
       <ns0:title>Mesa Safe Company Gun Safe 22.9 cu ft, Electronic Lock</ns0:title>
@@ -4954,7 +4954,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mesa-safe-company-gun-safe-22-9-cu-ft-electronic-lock</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9263</ns0:id>
       <ns0:title>Zline 36 in. Professional Dual Fuel Range – Fingerprint Resistant Stainless Steel</ns0:title>
@@ -4975,7 +4975,7 @@ Whether you’re powering an RV, providing home backup, or using it for outdoor 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/zline-36-in-professional-dual-fuel-range-fingerprint-resistant-stainless-steel</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10370</ns0:id>
       <ns0:title>Agri-Fab 50in Tow-Behind Lawn Sweeper 26 cu ft Hopper Adjustable Brush Height</ns0:title>
@@ -4998,7 +4998,7 @@ The Agri-Fab 50-Inch Tow-Behind Lawn Sweeper is designed to simplify seasonal ya
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/agri-fab-50in-tow-behind-lawn-sweeper-26-cu-ft-hopper-adjustable-brush-height</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10301</ns0:id>
       <ns0:title>Greenworks 30in 80V Riding Lawn Tractor Cordless Design with (4) 6.0Ah Batteries &amp;amp;amp; 600W Charger</ns0:title>
@@ -5069,7 +5069,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-30in-80v-riding-lawn-tractor-cordless-design-with-4-6-0ah-batteries-600w-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10432</ns0:id>
       <ns0:title>Yarbo 6 Acre AI Vision RTK Robot Lawn Mower Pro Modular System</ns0:title>
@@ -5142,7 +5142,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/yarbo-6-acre-ai-vision-rtk-robot-lawn-mower-pro-modular-system</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10414</ns0:id>
       <ns0:title>Mowrator 21in 4WD Remote Control Lawn Mower S1 0.75 Acre 37° Slope Climbing</ns0:title>
@@ -5210,7 +5210,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mowrator-21in-4wd-remote-control-lawn-mower-s1-0-75-acre-37-slope-climbing</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10406</ns0:id>
       <ns0:title>Mowrator 21in 4WD Remote Control Lawn Mower S1 1.12 Acre 50° Slope Climbing</ns0:title>
@@ -5289,7 +5289,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mowrator-21in-4wd-remote-control-lawn-mower-s1-1-12-acre-50-slope-climbing</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10442</ns0:id>
       <ns0:title>EGO Power+ 30in 56V Cordless Self-Propelled Lawn Mower Lm3004sp-2 with Super Composite Deck, (2) 6.0Ah Batteries &amp;amp;amp; Dual Port Charger</ns0:title>
@@ -5311,7 +5311,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-30in-56v-cordless-self-propelled-lawn-mower-lm3004sp-2-with-super-composite-deck-2-6-0ah-batteries-dual-port-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10450</ns0:id>
       <ns0:title>Greenworks 0.5 Acre RTKVision Navigation Robot Lawn Mower C20Z Wire-Free Smart Obstacle Avoidance</ns0:title>
@@ -5390,7 +5390,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-0-5-acre-rtkvision-navigation-robot-lawn-mower-c20z-wire-free-smart-obstacle-avoidance</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10396</ns0:id>
       <ns0:title>Segway 0.25 Acre EFLS NRTK Vision Robot Lawn Mower Navimow i210 AWD All-Wheel Drive</ns0:title>
@@ -5472,7 +5472,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/segway-0-25-acre-efls-nrtk-vision-robot-lawn-mower-navimow-i210-awd-all-wheel-drive</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10317</ns0:id>
       <ns0:title>Greenworks 54in 80V Zero-Turn Riding Lawn Mower MaximusZ Fast Charging with (2) 16.0Ah + (4) 6.0Ah Batteries &amp;amp;amp; 1.5kW Charger</ns0:title>
@@ -5546,7 +5546,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-54in-80v-zero-turn-riding-lawn-mower-maximusz-fast-charging-with-2-16-0ah-4-6-0ah-batteries-1-5kw-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10422</ns0:id>
       <ns0:title>Ecovacs 0.25 Acre RTK Vision Robot Lawn Mower GOAT O1000 Zero-Edge Cutting</ns0:title>
@@ -5619,7 +5619,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ecovacs-0-25-acre-rtk-vision-robot-lawn-mower-goat-o1000-zero-edge-cutting</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10378</ns0:id>
       <ns0:title>48in 16-50hp 3-Point Hitch Finishing Mower PTO Driven Category 1 &amp;amp;amp; 2 Compatible</ns0:title>
@@ -5694,7 +5694,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/48in-16-50hp-3-point-hitch-finishing-mower-pto-driven-category-1-2-compatible</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10387</ns0:id>
       <ns0:title>Yardcare 8611 sq ft GPS 3D Vision Robot Lawn Mower M800Plus APP Control Obstacle Avoidance</ns0:title>
@@ -5775,7 +5775,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/yardcare-8611-sq-ft-gps-3d-vision-robot-lawn-mower-m800plus-app-control-obstacle-avoidance</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10353</ns0:id>
       <ns0:title>Swisher 44in 11.5hp Briggs Tow-Behind Finish Cut Mower Fc11544cl Adjustable Offset Hitch</ns0:title>
@@ -5851,7 +5851,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/swisher-44in-11-5hp-briggs-tow-behind-finish-cut-mower-fc11544cl-adjustable-offset-hitch</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-8220</ns0:id>
       <ns0:title>Ariens 42in 19HP Briggs Zero-Turn Riding Lawn Mower EDGE LT 915291 Hydrostatic Transmission</ns0:title>
@@ -5925,7 +5925,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ariens-42in-19hp-briggs-zero-turn-riding-lawn-mower-edge-lt-915291-hydrostatic-transmission</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10331</ns0:id>
       <ns0:title>Prorun 42in 60V 16HP Equivalent Riding Lawn Tractor Plt60v42 Extended Runtime</ns0:title>
@@ -6003,7 +6003,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/prorun-42in-60v-16hp-equivalent-riding-lawn-tractor-plt60v42-extended-runtime</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10343</ns0:id>
       <ns0:title>MechMaxx 72in 70-110hp CAT 2 Ditch Bank Flail Mower Agf72 111in Offset Hydraulic Rotation</ns0:title>
@@ -6076,7 +6076,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mechmaxx-72in-70-110hp-cat-2-ditch-bank-flail-mower-agf72-111in-offset-hydraulic-rotation</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10334</ns0:id>
       <ns0:title>Husqvarna 46in 22HP Briggs Riding Lawn Tractor TS 120 Hydrostatic Transmission</ns0:title>
@@ -6144,7 +6144,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-46in-22hp-briggs-riding-lawn-tractor-ts-120-hydrostatic-transmission</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10360</ns0:id>
       <ns0:title>Garvee 42in Tow-Behind Lawn Sweeper 21 cu ft Large Hopper Adjustable Sweeping Height</ns0:title>
@@ -6213,7 +6213,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/garvee-42in-tow-behind-lawn-sweeper-21-cu-ft-large-hopper-adjustable-sweeping-height</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10183</ns0:id>
       <ns0:title>Greenworks 0.75 Acre RTKVision Navigation Robot Lawn Mower C30Z Wire-Free Smart Obstacle Avoidance</ns0:title>
@@ -6288,7 +6288,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-0-75-acre-rtkvision-navigation-robot-lawn-mower-c30z-wire-free-smart-obstacle-avoidance</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10278</ns0:id>
       <ns0:title>Husqvarna 48in 24HP Briggs V-Twin Riding Lawn Tractor TS 140X Hydrostatic Transmission</ns0:title>
@@ -6357,7 +6357,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-48in-24hp-briggs-v-twin-riding-lawn-tractor-ts-140x-hydrostatic-transmission</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10274</ns0:id>
       <ns0:title>Greenworks 42in 60V CrossoverT Cordless Riding Lawn Tractor with (4) 8.0Ah Batteries &amp;amp;amp; 600W Plug-In Charger</ns0:title>
@@ -6427,7 +6427,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-42in-60v-crossovert-cordless-riding-lawn-tractor-with-4-8-0ah-batteries-600w-plug-in-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10258</ns0:id>
       <ns0:title>Greenworks 30in 60V 16HP Equivalent Riding Lawn Mower 1.25 Acre Tow Capacity 200 lbs with (4) 8.0Ah Batteries &amp;amp;amp; Turbo Charger</ns0:title>
@@ -6500,7 +6500,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-30in-60v-16hp-equivalent-riding-lawn-mower-1-25-acre-tow-capacity-200-lbs-with-4-8-0ah-batteries-turbo-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10280</ns0:id>
       <ns0:title>Greenworks 42in 80V Zero-Turn Riding Lawn Mower CrossoverZ with (6) 6.0Ah Batteries &amp;amp;amp; 600W Charger</ns0:title>
@@ -6570,7 +6570,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-42in-80v-zero-turn-riding-lawn-mower-crossoverz-with-6-6-0ah-batteries-600w-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10203</ns0:id>
       <ns0:title>Greenworks 21in 60V Lithium-Ion Self-Propelled Lawn Mower Dual-Blade System with (2) 5.0Ah Batteries &amp;amp;amp; Rapid Charger</ns0:title>
@@ -6640,7 +6640,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-21in-60v-lithium-ion-self-propelled-lawn-mower-dual-blade-system-with-2-5-0ah-batteries-rapid-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10276</ns0:id>
       <ns0:title>Husqvarna 54in 23HP Kawasaki Zero-Turn Riding Mower Z254f Hydrostatic Transmission</ns0:title>
@@ -6710,7 +6710,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-54in-23hp-kawasaki-zero-turn-riding-mower-z254f-hydrostatic-transmission</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10288</ns0:id>
       <ns0:title>Greenworks 60in 80V 41HP Equivalent Riding Lawn Mower 5.12 Acre Rear Dump Bed with (2) 16.0Ah + (4) 8.0Ah Batteries &amp;amp;amp; Turbo Charger</ns0:title>
@@ -6787,7 +6787,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-60in-80v-41hp-equivalent-riding-lawn-mower-5-12-acre-rear-dump-bed-with-2-16-0ah-4-8-0ah-batteries-turbo-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10237</ns0:id>
       <ns0:title>MOVA LiDAX Ultra 2000 Robot Lawn Mower with 4G with Garage for 0.5 Acre, No Wire No Rtk+360° 3D LiDAR+AI Vision, 45% Slope, Cut Height 1.2"-3.9", 150</ns0:title>
@@ -6868,7 +6868,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mova-lidax-ultra-2000-robot-lawn-mower-with-4g-with-garage-for-0-5-acre-no-wire-no-rtk360-3d-lidarai-vision-45-slope-cut-height-1-2-3-9-150-multi-zoneedge-cuttinggarage-shipped-separat</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10248</ns0:id>
       <ns0:title>MOVA 0.25 Acre 3D LiDAR AI Vision Robot Lawn Mower LiDAX Ultra 1000 Wire-Free Zero-Edge Cutting</ns0:title>
@@ -6947,7 +6947,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mova-0-25-acre-3d-lidar-ai-vision-robot-lawn-mower-lidax-ultra-1000-wire-free-zero-edge-cutting</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10159</ns0:id>
       <ns0:title>Mammotion LUBA 3 AWD 1500h Robot Lawn Mower 0.37 Acre AWD LiDAR Vision Navigation 15-Zone Management</ns0:title>
@@ -7017,7 +7017,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mammotion-luba-3-awd-1500h-robot-lawn-mower-0-37-acre-awd-lidar-vision-navigation-15-zone-management</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10224</ns0:id>
       <ns0:title>MOVA 0.75 Acre 3D LiDAR AI Vision Robot Lawn Mower LiDAX Ultra 3000 AWD Wire-Free Dual Map Navigation</ns0:title>
@@ -7093,7 +7093,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/mova-0-75-acre-3d-lidar-ai-vision-robot-lawn-mower-lidax-ultra-3000-awd-wire-free-dual-map-navigation</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9966</ns0:id>
       <ns0:title>ProCom Reconditioned Dual Fuel Ventless Infrared Heater – 30,000 BTU, T-Stat Control – Model# Mnsd5tpa-r</ns0:title>
@@ -7114,7 +7114,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/procom-reconditioned-dual-fuel-ventless-infrared-heater-30000-btu-t-stat-control-model-mnsd5tpa-r</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10213</ns0:id>
       <ns0:title>Greenworks 25in 60V Lithium-Ion Self-Propelled Lawn Mower Dual Battery System with (2) 4.0Ah Batteries &amp;amp;amp; Fast Charger</ns0:title>
@@ -7185,7 +7185,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-25in-60v-lithium-ion-self-propelled-lawn-mower-dual-battery-system-with-2-4-0ah-batteries-fast-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10151</ns0:id>
       <ns0:title>EGO Power+ 21in 56V Cordless Self-Propelled Lawn Mower Lm2122sp-2 with Touch Drive, (2) 4.0Ah Batteries &amp;amp;amp; Rapid Charger</ns0:title>
@@ -7249,7 +7249,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-21in-56v-cordless-self-propelled-lawn-mower-lm2122sp-2-with-touch-drive-2-4-0ah-batteries-rapid-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-10167</ns0:id>
       <ns0:title>Greenworks Pro 21in 80V 80V Lithium-Ion Push Lawn Mower GEN 2 Auto Switch with 4.0Ah Battery &amp;amp;amp; Charger</ns0:title>
@@ -7320,7 +7320,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/greenworks-pro-21in-80v-80v-lithium-ion-push-lawn-mower-gen-2-auto-switch-with-4-0ah-battery-charger</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9968</ns0:id>
       <ns0:title>Terminator 48v Electric Golf Cart Four Seater – Massive Rims/Tires Flip Seat – Optionally Fully Loaded – Black Model</ns0:title>
@@ -7341,7 +7341,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/terminator-48v-electric-golf-cart-four-seater-massive-rims-tires-flip-seat-optionally-fully-loaded-black-model</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9796</ns0:id>
       <ns0:title>Backyard Discovery Eagles Nest Playhouse</ns0:title>
@@ -7363,7 +7363,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-eagles-nest-playhouse</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9678</ns0:id>
       <ns0:title>Beachwood 10 ft. x 12 ft. Outdoor Wood Shed</ns0:title>
@@ -7384,7 +7384,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/beachwood-10-ft-x-12-ft-outdoor-wood-shed</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9663</ns0:id>
       <ns0:title>Tall Vehicle Stands – 35-Ton Capacity (Pair)</ns0:title>
@@ -7405,7 +7405,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/tall-vehicle-stands-35-ton-capacity-pair</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9564</ns0:id>
       <ns0:title>ATD Truck Ramps 20-Ton</ns0:title>
@@ -7426,7 +7426,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/atd-truck-ramps-20-ton</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-9542</ns0:id>
       <ns0:title>10 Ton Capacity Air Lift Jack USA</ns0:title>
@@ -7448,7 +7448,7 @@ Specifications
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/10-ton-capacity-air-lift-jack-usa</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5278</ns0:id>
       <ns0:title>RYOBI 48V 42-inch 75 Ah Battery Electric Riding Zero Turn Mower</ns0:title>
@@ -7530,7 +7530,7 @@ Enjoy a hassle-free, eco-friendly, and powerful mowing experience with the RYOBI
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ryobi-48v-42-inch-75-ah-battery-electric-riding-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5268</ns0:id>
       <ns0:title>Cub Cadet Ultima ZT1 54 – 24HP Kohler Zero Turn Mower (54")</ns0:title>
@@ -7599,7 +7599,7 @@ Experience effortless control, precision cutting, and unmatched durability with 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cub-cadet-ultima-zt1-54-24hp-kohler-zero-turn-mower-54</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5282</ns0:id>
       <ns0:title>Westinghouse 28,000 Peak Watt Home Backup Portable Generator</ns0:title>
@@ -7697,7 +7697,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/westinghouse-28000-peak-watt-home-backup-portable-generator</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5556</ns0:id>
       <ns0:title>16 Ft. X 16 Ft. Pacific Douglas Fir Wood Traditional Pergola</ns0:title>
@@ -7735,7 +7735,7 @@ Highlights
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/16-ft-x-16-ft-pacific-douglas-fir-wood-traditional-pergola</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5394</ns0:id>
       <ns0:title>Anker Solix F3800 Portable Power Station</ns0:title>
@@ -7859,7 +7859,7 @@ Upgrade your portable power setup with the Anker Solix F3800 and enjoy the freed
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/anker-solix-f3800-portable-power-station</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5493</ns0:id>
       <ns0:title>Backyard Discovery Callahan Cedar Wood Outdoor Pergola Swing Bench</ns0:title>
@@ -7943,7 +7943,7 @@ Create your own serene outdoor oasis with the Backyard Discovery Callahan Per
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5330</ns0:id>
       <ns0:title>Backyard Discovery Woodridge Elite Swing Set</ns0:title>
@@ -8021,7 +8021,7 @@ Included: All necessary hardware and instructions for assembly.</ns0:description
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-woodridge-elite-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5555</ns0:id>
       <ns0:title>Backyard Discovery 14' X 10' Somerville Pergola W/ Electric - Dark Walnut DIY</ns0:title>
@@ -8115,7 +8115,7 @@ Highlights
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-14-x-10-somerville-pergola-w-electric-dark-walnut-diy</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5326</ns0:id>
       <ns0:title>Gorilla Playsets Mountaineer Treehouse Wooden Swing Set with Tube Slide, Rope Ladder, and Sandbox</ns0:title>
@@ -8181,7 +8181,7 @@ Step-by-step instructions and all necessary hardware included.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/gorilla-playsets-mountaineer-treehouse-wooden-swing-set-with-tube-slide-rope-ladder-and-sandbox</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5321</ns0:id>
       <ns0:title>Lifetime 15′ x 8′ Shed (Side Entry)</ns0:title>
@@ -8237,7 +8237,7 @@ Wall hooks &amp;amp;amp; tool storage pouch for easy access to essentials.
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-15-x-8-shed-side-entry</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5319</ns0:id>
       <ns0:title>DuroMax Xp13000hxt 13,000 Watt Electric Start Tri-Fuel Portable Generator w/ CO Alert</ns0:title>
@@ -8303,7 +8303,7 @@ All-Metal Construction: Built to last with a rugged, durable design for long-ter
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/duromax-xp13000hxt-13000-watt-electric-start-tri-fuel-portable-generator-w-co-alert</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5329</ns0:id>
       <ns0:title>Congo Monkey Playsystem Adventurer Wooden Swing Set</ns0:title>
@@ -8383,7 +8383,7 @@ Tools: Not included.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/congo-monkey-playsystem-adventurer-wooden-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5332</ns0:id>
       <ns0:title>Champion Power Equipment 15,000/12,000 Watts Portable Generator with Electric Start &amp;amp;amp; Lift Hook</ns0:title>
@@ -8415,7 +8415,7 @@ Tools: Not included.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/champion-power-equipment-15000-12000-watts-portable-generator-with-electric-start-lift-hook</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5328</ns0:id>
       <ns0:title>Creative Cedar Designs Cedar Cottage Wooden Swing Set</ns0:title>
@@ -8473,7 +8473,7 @@ Swings can be easily replaced with a baby swing, saucer swing, or other attachme
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/creative-cedar-designs-cedar-cottage-wooden-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5327</ns0:id>
       <ns0:title>Gorilla Playsets Empire Extreme Wooden Swing Set with Monkey Bars, Clatter Bridge, Tower, and 3 Slides</ns0:title>
@@ -8541,7 +8541,7 @@ Average assembly time: 16-20 hours.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/gorilla-playsets-empire-extreme-wooden-swing-set-with-monkey-bars-clatter-bridge-tower-and-3-slides</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5325</ns0:id>
       <ns0:title>Gorilla Playsets Pioneer Peak Treehouse Wooden Swing Set with Tire Swing, and Clatter Bridge and Tower</ns0:title>
@@ -8607,7 +8607,7 @@ All necessary hardware included for quick setup.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/gorilla-playsets-pioneer-peak-treehouse-wooden-swing-set-with-tire-swing-and-clatter-bridge-and-tower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5324</ns0:id>
       <ns0:title>Gorilla Playsets Treasure Trove II Treehouse Wooden Swing Set</ns0:title>
@@ -8675,7 +8675,7 @@ Total weight capacity of 800 lbs.</ns0:description>
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/gorilla-playsets-treasure-trove-ii-treehouse-wooden-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5320</ns0:id>
       <ns0:title>Lifetime Big Stuff Swing Set</ns0:title>
@@ -8745,7 +8745,7 @@ Why Choose the Lifetime Big Stuff Swing Set?
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/lifetime-big-stuff-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5322</ns0:id>
       <ns0:title>KidKraft Skyway Resort Wooden Swing Set</ns0:title>
@@ -8815,7 +8815,7 @@ Transform your backyard into a resort-style playground with the KidKraft Skyway 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/kidkraft-skyway-resort-wooden-swing-set</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5318</ns0:id>
       <ns0:title>Generac 7706 Gas Powered Portable Generator 49st</ns0:title>
@@ -8933,7 +8933,7 @@ Whether you need emergency backup power for your home, power for outdoor DIY pro
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/generac-7706-gas-powered-portable-generator-49st</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5323</ns0:id>
       <ns0:title>KidKraft Mockingbird View Wooden Swing Set / Playset with Tower, Hoop, Tunnel, and Tire Swing</ns0:title>
@@ -8999,7 +8999,7 @@ Designed to hold up to 17 children, with a maximum weight of 110 lbs per child.<
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/kidkraft-mockingbird-view-wooden-swing-set-playset-with-tower-hoop-tunnel-and-tire-swing</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5273</ns0:id>
       <ns0:title>Troy-Bilt Bronco 42E XP – 42” 56V MAX Lithium-Ion Electric Riding Lawn Tractor</ns0:title>
@@ -9089,7 +9089,7 @@ The Troy-Bilt Bronco 42E XP Electric Riding Mower is the perfect blend of perfor
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/troy-bilt-bronco-42e-xp-42-56v-max-lithium-ion-electric-riding-lawn-tractor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5314</ns0:id>
       <ns0:title>Predator 3500 Watt Super Quiet Inverter Generator</ns0:title>
@@ -9127,7 +9127,7 @@ This inverter generator is also built with CO SECURE™ technology, which automa
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/predator-3500-watt-super-quiet-inverter-generator</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5312</ns0:id>
       <ns0:title>Predator 9500 Watt Super Quiet Inverter Generator with CO Secure Technology</ns0:title>
@@ -9209,7 +9209,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/predator-9500-watt-super-quiet-inverter-generator-with-co-secure-technology</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5281</ns0:id>
       <ns0:title>Yoshino B4000 SST New Solid-State Portable Power Station</ns0:title>
@@ -9291,7 +9291,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/yoshino-b4000-sst-new-solid-state-portable-power-station</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5279</ns0:id>
       <ns0:title>Toro TimeMaster 21199 30 in. 223 cc Gas Self-Propelled Lawn Mower</ns0:title>
@@ -9361,7 +9361,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/toro-timemaster-21199-30-in-223-cc-gas-self-propelled-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5267</ns0:id>
       <ns0:title>EGO Power+ 42″ 56-Volt Lithium-Ion Z6 Zero Turn Mower</ns0:title>
@@ -9391,7 +9391,7 @@ Additional premium features include 32 LED headlights for enhanced visibility, B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-42-56-volt-lithium-ion-z6-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5266</ns0:id>
       <ns0:title>Husqvarna Z254f Zero Turn Lawn Mower 54″ 726Cc 24Hp V Twin</ns0:title>
@@ -9413,7 +9413,7 @@ Additional premium features include 32 LED headlights for enhanced visibility, B
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-z254f-zero-turn-lawn-mower-54-726cc-24hp-v-twin</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5277</ns0:id>
       <ns0:title>Ryobi 48V HP Brushless 54-inch 115 Ah Battery Electric Riding Zero Turn Mower</ns0:title>
@@ -9491,7 +9491,7 @@ This Ryobi 48V Zero Turn Mower is a powerful, eco-friendly, and low-maintenance 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ryobi-48v-hp-brushless-54-inch-115-ah-battery-electric-riding-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5280</ns0:id>
       <ns0:title>Troy-Bilt 3-n-1 Self-Propelled RWD Gas Lawn Mower, 195cc Engine</ns0:title>
@@ -9561,7 +9561,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/troy-bilt-3-n-1-self-propelled-rwd-gas-lawn-mower-195cc-engine</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5272</ns0:id>
       <ns0:title>Cub Cadet Ultima ZT1 – 50” Fabricated Deck 25HP V-Twin Kohler Zero Turn Mower</ns0:title>
@@ -9651,7 +9651,7 @@ Tackle any terrain with confidence, power, and precision using the Cub Cadet Ult
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/cub-cadet-ultima-zt1-50-fabricated-deck-25hp-v-twin-kohler-zero-turn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5274</ns0:id>
       <ns0:title>Troy-Bilt Bronco 42 – 42” 19HP Briggs &amp;amp;amp; Stratton Automatic Drive Gas Riding Lawn Tractor</ns0:title>
@@ -9733,7 +9733,7 @@ With its powerful engine, smooth operation, and versatile capabilities, the Troy
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/troy-bilt-bronco-42-42-19hp-briggs-stratton-automatic-drive-gas-riding-lawn-tractor</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5275</ns0:id>
       <ns0:title>Toro Titan Max 60" IronForged Deck 26HP V-Twin Gas Dual Hydrostatic Zero Turn Riding Mower</ns0:title>
@@ -9807,7 +9807,7 @@ With its powerful engine, rugged frame, and commercial-grade features, the Toro 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/toro-titan-max-60-ironforged-deck-26hp-v-twin-gas-dual-hydrostatic-zero-turn-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5276</ns0:id>
       <ns0:title>Stihl RZ 560 K Commercial 60″ Zero Turn Lawn Mower</ns0:title>
@@ -9881,7 +9881,7 @@ Built to tackle the toughest jobs with ease, the Stihl RZ 560 K Zero Turn Mower 
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/stihl-rz-560-k-commercial-60-zero-turn-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5269</ns0:id>
       <ns0:title>Craftsman T3200 – 24HP Kohler V-Twin Automatic 54" Riding Lawn Mower</ns0:title>
@@ -9955,7 +9955,7 @@ Get professional-level performance and comfort with the Craftsman T3200 Riding L
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/craftsman-t3200-24hp-kohler-v-twin-automatic-54-riding-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5263</ns0:id>
       <ns0:title>Ego Power+ 21" Select Cut XP Mower with Touch Drive Kit</ns0:title>
@@ -10003,7 +10003,7 @@ Cutting System: Multi-blade Select Cut System for superior performance
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/ego-power-21-select-cut-xp-mower-with-touch-drive-kit</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5271</ns0:id>
       <ns0:title>Craftsman T2400 – 46" Hydrostatic Gas Riding Mower</ns0:title>
@@ -10089,7 +10089,7 @@ The Craftsman T2400 46" Hydrostatic Riding Mower is designed for efficiency, dur
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/craftsman-t2400-46-hydrostatic-gas-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5264</ns0:id>
       <ns0:title>Detail K2 Big Dump 1100 Pound Electric Power Dump Cart</ns0:title>
@@ -10155,7 +10155,7 @@ With its powerful features and rugged build, the Detail K2 Big Dump Electric Pow
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/detail-k2-big-dump-1100-pound-electric-power-dump-cart</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-2237</ns0:id>
       <ns0:title>Backyard Discovery 20′ x 12′ Beaumont Pergola – Premium Cedar Wood, Sturdy &amp;amp;amp; Elegant Design</ns0:title>
@@ -10201,7 +10201,7 @@ Upgrade your backyard with the Backyard Discovery Beaumont Pergola—where durab
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-20-x-12-beaumont-pergola-premium-cedar-wood-sturdy-elegant-design</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5270</ns0:id>
       <ns0:title>Craftsman R110 – 11.5hp Manual/Gear 36" Riding Lawn Mower</ns0:title>
@@ -10267,7 +10267,7 @@ The Craftsman R110 Riding Lawn Mower is the perfect balance of power, durability
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/craftsman-r110-11-5hp-manual-gear-36-riding-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5256</ns0:id>
       <ns0:title>Bluetti Portable Generator 2200w With 350W Solar Panel Included, Ac200max 2048Wh Solar Generator W/ 4 2200w AC Outlets, Expandable to 8192Wh for Home</ns0:title>
@@ -10289,7 +10289,7 @@ The Craftsman R110 Riding Lawn Mower is the perfect balance of power, durability
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/bluetti-portable-generator-2200w-with-350w-solar-panel-included-ac200max-2048wh-solar-generator-w-4-2200w-ac-outlets-expandable-to-8192wh-for-home-backup</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5259</ns0:id>
       <ns0:title>Husqvarna 23 HP 48″ Deck Riding Mower</ns0:title>
@@ -10327,7 +10327,7 @@ Key Features:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-23-hp-48-deck-riding-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5260</ns0:id>
       <ns0:title>Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower</ns0:title>
@@ -10417,7 +10417,7 @@ Replacement blade: (17031)
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/craftsman-30-10-5-hp-344cc-6-speed-riding-lawn-mower</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5254</ns0:id>
       <ns0:title>Backyard Discovery 12' x 9.5' Arcadia Slope Roof Cedar Gazebo with PowerPort</ns0:title>
@@ -10453,7 +10453,7 @@ This elegant and functional gazebo is the perfect centerpiece for your backyard<
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-12-x-9-5-arcadia-slope-roof-cedar-gazebo-with-powerport</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5261</ns0:id>
       <ns0:title>Husqvarna Z248f Zero Turn Lawn Mower – 48″ 726Cc 23Hp V-Twin</ns0:title>
@@ -10543,7 +10543,7 @@ Safety: Patent-pending automatic park brake system
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/husqvarna-z248f-zero-turn-lawn-mower-48-726cc-23hp-v-twin</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5265</ns0:id>
       <ns0:title>DR Power Pro 26 Field And Brush Mower 15.5 HP</ns0:title>
@@ -10596,7 +10596,7 @@ Mowing Type: Ideal for thick brush, tall grass, and hilly terrain</ns0:descripti
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/dr-power-pro-26-field-and-brush-mower-15-5-hp</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5255</ns0:id>
       <ns0:title>Backyard Discovery Ridgedale Traditional Pergola with Built-in Conversation Seating</ns0:title>
@@ -10632,7 +10632,7 @@ Thishigh-performancepergolawillelevateanyoutdoorspacewithitssleekmoderndesignand
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/backyard-discovery-ridgedale-traditional-pergola-with-built-in-conversation-seating</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5258</ns0:id>
       <ns0:title>Champion Power Equipment 8.5kW Home Standby Generator with Ats50 Outdoor Rated Automatic Transfer Switch</ns0:title>
@@ -10694,7 +10694,7 @@ What's in the Box:
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/champion-power-equipment-8-5kw-home-standby-generator-with-ats50-outdoor-rated-automatic-transfer-switch</ns0:checkout_link_template></item>
     <item>
       <ns0:id>LF-5262</ns0:id>
       <ns0:title>DR Power Premier Walk-Behind Lawn and Leaf Vac – 28 Inch</ns0:title>
@@ -10758,6 +10758,6 @@ Tires: 14” x 4.5” (front), 8” x 3” (rear)
         <ns0:price>0.00 USD</ns0:price>
       </ns0:shipping>
       <ns0:return_policy_label>Standard for United States</ns0:return_policy_label>
-    </item>
+    <ns0:checkout_link_template>https://leafanoo.com/products/dr-power-premier-walk-behind-lawn-and-leaf-vac-28-inch</ns0:checkout_link_template></item>
   </channel>
 </rss>
