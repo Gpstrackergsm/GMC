@@ -61,9 +61,6 @@
   <meta name="description" content="{{ page_description | escape }}">
 {%- endif -%}
 
-{%- comment -%} Canonical {%- endcomment -%}
-<link rel="canonical" href="{{ canonical_url }}">
-
 {%- comment -%} Robots {%- endcomment -%}
 {%- if template.name == '404' or template.name == 'search' -%}
   <meta name="robots" content="noindex, follow">
