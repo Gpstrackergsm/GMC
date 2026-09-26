@@ -8,7 +8,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Leafanoo",
+  "name": "balley",
+  "alternateName": "Leafanoo",
   "url": {{ shop.url | json }},
   "description": {{ shop.description | default: 'Quality general merchandise for every home and lifestyle.' | strip_html | json }}
   {%- if settings.logo != blank -%}
@@ -32,12 +33,20 @@
       {%- endif -%}
     {%- endfor -%}
   ]
+  ,"address": {
+    "@type": "PostalAddress",
+    "streetAddress": "694 Maple St",
+    "addressLocality": "Brooklyn",
+    "addressRegion": "NY",
+    "postalCode": "11203",
+    "addressCountry": "US"
+  }
   ,"contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
+    "telephone": {{ settings.contact_phone | default: "+1-320-264-4135" | json }},
+    "email": {{ settings.contact_email | default: "support@leafanoo.com" | json }},
     "availableLanguage": "English"
-    {%- if settings.contact_phone != blank -%},"telephone": {{ settings.contact_phone | json }}{%- endif -%}
-    {%- if settings.contact_email != blank -%},"email": {{ settings.contact_email | json }}{%- endif -%}
   }
 }
 </script>
