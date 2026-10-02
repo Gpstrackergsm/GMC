@@ -6,6 +6,10 @@
 private_app_credentials.json
 shopify_access_token.txt
 gmc_credentials.json
+spartan-shadow-*.json
+invoices/
+payments/
+catalog/*backup*.xml
 
 # Shopify CLI & Dependencies
 .shopify/

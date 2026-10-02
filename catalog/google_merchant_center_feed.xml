@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
     <title>Leafanoo Google Merchant Center Feed</title>
@@ -12,7 +12,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-399-image-1.jpg?v=1790417378</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -33,7 +33,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-393-image-1.jpg?v=1790417377</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Outdoor Spaces</g:product_type>
@@ -54,7 +54,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-397-image-1.jpg?v=1790417374</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -75,7 +75,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-390-image-1.jpg?v=1790417373</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -96,7 +96,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-394-image-1.jpg?v=1790417371</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -138,7 +138,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-395-image-1.jpg?v=1790417368</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -160,7 +160,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-391-image-1.jpg?v=1790417366</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -202,7 +202,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-333-image-1.jpg?v=1790417362</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -223,7 +223,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-392-image-1.jpg?v=1790417360</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Outdoor Spaces</g:product_type>
@@ -244,7 +244,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-336-image-1.png?v=1790417358</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -266,7 +266,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-334-image-1.jpg?v=1790417356</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -287,7 +287,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-335-image-1.png?v=1790417356</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -330,7 +330,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-326-image-1.jpg?v=1790417351</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>MotoTec</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3950</g:google_product_category>
       <g:product_type>Electric Bicycles</g:product_type>
@@ -372,7 +372,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-332-image-1.png?v=1790417349</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -477,7 +477,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-327-image-1.jpg?v=1790417339</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Troy-Bilt</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Walk-Behind Lawn Mowers</g:product_type>
@@ -498,7 +498,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-325-image-1.png?v=1790417339</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>John Deere</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -519,7 +519,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-324-image-1.png?v=1790417336</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sunny Health &amp; Fitness</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>499812</g:google_product_category>
       <g:product_type>Cardio Machines</g:product_type>
@@ -541,7 +541,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-323-image-1.jpg?v=1790417334</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sunny Health &amp; Fitness</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>499812</g:google_product_category>
       <g:product_type>Cardio Machines</g:product_type>
@@ -763,7 +763,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-258-image-1.png?v=1790417322</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Arrow Storage Products</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1042,7 +1042,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-279-image-1.png?v=1790417307</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1127,7 +1127,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-278-image-1.png?v=1790417303</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Handy Home Products</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1148,7 +1148,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-281-image-1.png?v=1790417302</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Suncast</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1169,7 +1169,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-282-image-1.png?v=1790417300</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Handy Home Products</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1254,7 +1254,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-262-image-1.png?v=1790417296</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1275,7 +1275,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-263-image-1.png?v=1790417293</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1488,7 +1488,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-235-image-1.png?v=1790417282</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Cedarshed</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1509,7 +1509,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-259-image-1.png?v=1790417281</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Handy Home Products</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1596,7 +1596,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-255-image-1.jpg?v=1790417276</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Little Cottage Co.</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1618,7 +1618,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-187-image-1.jpg?v=1790417275</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Auto Lift</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -1639,7 +1639,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-242-image-1.png?v=1790417274</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1724,7 +1724,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-240-image-1.png?v=1790417268</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Handy Home Products</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1767,7 +1767,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-232-image-1.png?v=1790417266</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1830,7 +1830,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-236-image-1.webp?v=1790417263</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Cedarshed</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -1957,7 +1957,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-164-image-1.webp?v=1790417256</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>XKUSA</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2020,7 +2020,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-194-image-1.jpg?v=1790417252</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Global Industrial</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2170,7 +2170,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-168-image-1.png?v=1790417244</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2255,7 +2255,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-192-image-1.jpg?v=1790417238</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>S&amp;S Diesel Motorsport</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2341,7 +2341,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-191-image-1.png?v=1790417231</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2404,7 +2404,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-186-image-1.png?v=1790417226</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>XKUSA</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2425,7 +2425,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-163-image-1.png?v=1790417225</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2510,7 +2510,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-178-image-1.png?v=1790417219</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2553,7 +2553,7 @@
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-171-image-1.png?v=1790417216</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2623,7 +2623,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-166-image-1.png?v=1790417212</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2645,7 +2645,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-169-image-1.png?v=1790417210</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2666,7 +2666,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-170-image-1.png?v=1790417211</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2708,7 +2708,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-162-image-1.png?v=1790417206</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Atlas</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -2751,7 +2751,7 @@ This 5,000 LB Adjustable Car Lift with Remote Control is the ultimate tool for h
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-159-image-1.png?v=1790417204</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3222,7 +3222,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-130-image-1.jpg?v=1790417171</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Alpinestars</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3950</g:google_product_category>
       <g:product_type>Electric Bicycles</g:product_type>
@@ -3349,7 +3349,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-121-image-1.jpg?v=1790417162</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Dannmar</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3391,7 +3391,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-123-image-1.jpg?v=1790417158</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>XKUSA</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3433,7 +3433,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-112-image-1.png?v=1790417155</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3519,7 +3519,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-117-image-1.png?v=1790417149</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3540,7 +3540,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-106-image-1.jpg?v=1790417148</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Yardistry</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -3582,7 +3582,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-114-image-1.png?v=1790417145</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>BendPak</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -3625,7 +3625,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-103-image-1.jpg?v=1790417141</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -3731,7 +3731,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-97-image-1.png?v=1790417135</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -3752,7 +3752,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-99-image-1.png?v=1790417133</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -3795,7 +3795,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-98-image-1.jpg?v=1790417131</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Gazebo &amp;amp;amp; Pergolas</g:product_type>
@@ -3816,7 +3816,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-69-image-1.png?v=1790417129</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -3879,7 +3879,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-92-image-1.jpg?v=1790417125</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Troy-Bilt</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Lawn Mowers</g:product_type>
@@ -3921,7 +3921,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-78-image-1.png?v=1790417122</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4111,7 +4111,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-65-image-1.png?v=1790417109</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4154,7 +4154,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-79-image-1.png?v=1790417106</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4217,7 +4217,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-76-image-1.png?v=1790417102</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4238,7 +4238,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-58-image-1.png?v=1790417100</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Outdoor Spaces</g:product_type>
@@ -4259,7 +4259,7 @@ Experience the freedom, power, and performance of the Ridstar E26 Pro Electric B
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-62-image-1.png?v=1790417099</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4314,7 +4314,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-59-image-1.png?v=1790417098</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4356,7 +4356,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-73-image-1.png?v=1790417095</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Outdoor Spaces</g:product_type>
@@ -4441,7 +4441,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-68-image-1.png?v=1790417090</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4462,7 +4462,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-63-image-1.png?v=1790417088</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Gorilla Playsets</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4525,7 +4525,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-66-image-1.png?v=1790417084</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Backyard Discovery</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4568,7 +4568,7 @@ Order now and create the ultimate backyard play space today!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-57-image-1.png?v=1790417081</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4730,7 +4730,7 @@ Upgrade your outdoor space today—bring the adventure home!</g:description>
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-56-image-1.png?v=1790417075</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Sportspower</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>1249</g:google_product_category>
       <g:product_type>Swing sets</g:product_type>
@@ -4985,7 +4985,7 @@ The Agri-Fab 50-Inch Tow-Behind Lawn Sweeper is designed to simplify seasonal ya
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-23.png?v=1790416361</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Agri-Fab</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Tow-Behind Mowers</g:product_type>
@@ -5129,7 +5129,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-30.png?v=1790416358</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Yarbo</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5197,7 +5197,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-28.png?v=1790416357</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Mowrator</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5276,7 +5276,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-27.png?v=1790416355</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Mowrator</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5459,7 +5459,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-26.png?v=1790416350</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Segway</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5606,7 +5606,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-29.png?v=1790416348</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>ECOVACS</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5762,7 +5762,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-25.png?v=1790416344</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>YARDCARE</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Robotic Mowers</g:product_type>
@@ -5838,7 +5838,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-21.png?v=1790416343</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Swisher</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Tow-Behind Mowers</g:product_type>
@@ -5912,7 +5912,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-17.png?v=1790416342</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Ariens</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Mowers</g:product_type>
@@ -5990,7 +5990,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-18.png?v=1790416340</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>PRORUN</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Riding Mowers</g:product_type>
@@ -6064,7 +6064,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/5-18.png?v=1790416339</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>MechMaxx</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Tow-Behind Mowers</g:product_type>
@@ -6200,7 +6200,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/1-22.png?v=1790416336</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Garvee</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3650</g:google_product_category>
       <g:product_type>Tow-Behind Mowers</g:product_type>
@@ -7102,7 +7102,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-371-image-1.jpg?v=1790416314</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>ProCom</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>537</g:google_product_category>
       <g:product_type>Home Deals</g:product_type>
@@ -7329,7 +7329,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-373-image-1.jpg?v=1790416307</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Terminator</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>3950</g:google_product_category>
       <g:product_type>Electric Bicycles</g:product_type>
@@ -7372,7 +7372,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-233-image-1.png?v=1790416304</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Heartland</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>6867</g:google_product_category>
       <g:product_type>Sheds</g:product_type>
@@ -7393,7 +7393,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-218-image-1.png?v=1790416302</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>799.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -7414,7 +7414,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-179-image-1.png?v=1790416301</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>899.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>ATD Tools</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -7435,7 +7435,7 @@ Specifications
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-157-image-1.png?v=1790416298</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Triumph</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>8526</g:google_product_category>
       <g:product_type>Car Lift</g:product_type>
@@ -7722,7 +7722,7 @@ Highlights
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/laitmm-product-155-image-1.jpg?v=1790416291</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>5599.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Yardistry</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Garden Essentials</g:product_type>
@@ -10142,7 +10142,7 @@ With its powerful features and rugged build, the Detail K2 Big Dump Electric Pow
       <g:image_link>https://cdn.shopify.com/s/files/1/1008/3418/1416/files/laitmm-product-12-image-1.png?v=1790416244</g:image_link>
       <g:availability>in_stock</g:availability>
       <g:price>699.00 USD</g:price>
-      <g:brand>Leafanoo</g:brand>
+      <g:brand>Detail K2</g:brand>
       <g:condition>new</g:condition>
       <g:google_product_category>2473</g:google_product_category>
       <g:product_type>Garden Essentials</g:product_type>
