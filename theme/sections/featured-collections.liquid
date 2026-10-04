@@ -19,14 +19,14 @@
       {%- assign cat_img_url = block.settings.image_url -%}
 
       {%- comment -%}
-        Prioritize block.settings.link_url, then fallback to automatic working filter URL
+        Prioritize block.settings.link_url, then fallback to types URL
       {%- endcomment -%}
       {%- if block.settings.link_url != blank -%}
         {%- assign card_href = block.settings.link_url -%}
       {%- elsif col != blank and col.url != blank and col.url != '' -%}
         {%- assign card_href = col.url -%}
       {%- else -%}
-        {%- assign card_href = '/collections/all?filter.p.product_type=' | append: label | url_encode -%}
+        {%- assign card_href = '/collections/types?q=' | append: label | url_encode -%}
       {%- endif -%}
 
       <a href="{{ card_href }}" class="laitm-cat-card" {{ block.shopify_attributes }}>
