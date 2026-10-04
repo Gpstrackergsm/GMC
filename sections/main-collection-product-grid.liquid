@@ -1,10 +1,27 @@
+<script>
+  (function() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var pt = params.get('filter.p.product_type');
+      if (pt && window.location.pathname.indexOf('/collections/types') === -1) {
+        var newUrl = '/collections/types?q=' + encodeURIComponent(pt);
+        var page = params.get('page');
+        if (page) newUrl += '&page=' + encodeURIComponent(page);
+        var sort = params.get('sort_by');
+        if (sort) newUrl += '&sort_by=' + encodeURIComponent(sort);
+        window.location.replace(newUrl);
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <div class="collection-page-section section-padding" style="padding: 2rem 0 4rem 0;">
   <div class="container">
     {% render 'structured-data-breadcrumb' %}
 
     <div class="collection-header" style="margin-bottom: 2.5rem; text-align: center;">
       <h1 class="collection-title" style="font-family: var(--font-heading-family, serif); font-size: 2.5rem; color: var(--color-text, #1A1A1A); margin-bottom: 0.75rem;">
-        {{ collection.title }}
+        {{ collection.title | replace: '&amp;amp;amp;', '&' | replace: '&amp;amp;', '&' | replace: '&amp;', '&' }}
       </h1>
       {%- if collection.description != blank -%}
         <div class="collection-description rte" style="max-width: 750px; margin: 0 auto; color: #555; font-size: 1.05rem; line-height: 1.6;">
@@ -22,17 +39,24 @@
           Showing <strong>{{ collection.products_count }}</strong> items
         </div>
 
+        {%- assign sort_base_url = collection.url -%}
+        {%- if collection.current_type -%}
+          {%- assign sort_base_url = '/collections/types?q=' | append: collection.current_type | append: '&' -%}
+        {%- else -%}
+          {%- assign sort_base_url = collection.url | append: '?' -%}
+        {%- endif -%}
+
         <div class="collection-sort" style="display: flex; align-items: center; gap: 0.5rem;">
           <label for="SortBy" style="font-size: 0.9rem; font-weight: 500;">Sort By:</label>
           <select id="SortBy" name="sort_by" class="sort-select" style="padding: 0.5rem 1rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 0.9rem; background: #fff;" onchange="location = this.value;">
             {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
-            <option value="{{ collection.url }}?sort_by=manual" {% if current_sort == 'manual' %}selected{% endif %}>Featured</option>
-            <option value="{{ collection.url }}?sort_by=best-selling" {% if current_sort == 'best-selling' %}selected{% endif %}>Best Selling</option>
-            <option value="{{ collection.url }}?sort_by=title-ascending" {% if current_sort == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
-            <option value="{{ collection.url }}?sort_by=title-descending" {% if current_sort == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
-            <option value="{{ collection.url }}?sort_by=price-ascending" {% if current_sort == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
-            <option value="{{ collection.url }}?sort_by=price-descending" {% if current_sort == 'price-descending' %}selected{% endif %}>Price, high to low</option>
-            <option value="{{ collection.url }}?sort_by=created-descending" {% if current_sort == 'created-descending' %}selected{% endif %}>Date, new to old</option>
+            <option value="{{ sort_base_url }}sort_by=manual" {% if current_sort == 'manual' %}selected{% endif %}>Featured</option>
+            <option value="{{ sort_base_url }}sort_by=best-selling" {% if current_sort == 'best-selling' %}selected{% endif %}>Best Selling</option>
+            <option value="{{ sort_base_url }}sort_by=title-ascending" {% if current_sort == 'title-ascending' %}selected{% endif %}>Alphabetically, A-Z</option>
+            <option value="{{ sort_base_url }}sort_by=title-descending" {% if current_sort == 'title-descending' %}selected{% endif %}>Alphabetically, Z-A</option>
+            <option value="{{ sort_base_url }}sort_by=price-ascending" {% if current_sort == 'price-ascending' %}selected{% endif %}>Price, low to high</option>
+            <option value="{{ sort_base_url }}sort_by=price-descending" {% if current_sort == 'price-descending' %}selected{% endif %}>Price, high to low</option>
+            <option value="{{ sort_base_url }}sort_by=created-descending" {% if current_sort == 'created-descending' %}selected{% endif %}>Date, new to old</option>
           </select>
         </div>
       </div>

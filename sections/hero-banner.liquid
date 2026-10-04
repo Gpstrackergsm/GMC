@@ -1,6 +1,6 @@
 {%- liquid
   assign text_align = section.settings.text_alignment | default: 'left'
-  assign hero_cta = section.settings.button_link | default: '/collections/all?filter.p.product_type=Garden+Essentials'
+  assign hero_cta = section.settings.button_link | default: '/collections/types?q=Garden+Essentials'
 -%}
 
 <section class="section-{{ section.id }}-hero" style="background-color: #faf6ee; padding: 20px 0 24px;">

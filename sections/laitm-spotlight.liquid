@@ -13,7 +13,7 @@
   assign spot_cta_label = section.settings.cta_label | default: 'Shop this product'
   assign spot_cta_link = section.settings.cta_link | default: '/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench'
   assign spot_secondary_label = section.settings.secondary_label | default: 'See more like this'
-  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/all?filter.p.product_type=Swing+sets'
+  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/types?q=Swing+sets'
 
   if spot_product != blank
     assign spot_title = spot_title | default: spot_product.title
@@ -315,7 +315,7 @@
         "cta_label": "Shop this product",
         "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
         "secondary_label": "See more like this",
-        "secondary_link": "/collections/all?filter.p.product_type=Swing+sets"
+        "secondary_link": "/collections/types?q=Swing+sets"
       },
       "blocks": [
         { "type": "feature", "settings": { "text": "Solid cedar frame, weather-sealed finish" } },
