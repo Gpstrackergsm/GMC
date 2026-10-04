@@ -8,7 +8,7 @@
  * passing real order value, currency, and unique transaction ID
  * to prevent duplicate conversion counting.
  *
- * The base Google tag (AW-18488363853) is already present
+ * The base Google tag (AW-18488363853) is present
  * in theme/layout/theme.liquid on every page.
  */
 
