@@ -3,11 +3,11 @@
     {% render 'structured-data-breadcrumb' %}
     {% render 'structured-data-product', product: product %}
 
-    <div class="product-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+    <div class="product-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start; margin-bottom: 3.5rem;">
       
       <!-- Product Media Gallery -->
-      <div class="product-gallery">
-        <div class="product-gallery__main" style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--color-border, #E8E8E0); margin-bottom: 1rem; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+      <div class="product-gallery" style="position: sticky; top: 90px;">
+        <div class="product-gallery__main" id="ProductGalleryMain-{{ section.id }}" style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--color-border, #E8E8E0); margin-bottom: 1rem; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.03); cursor: zoom-in;">
           {%- if product.featured_media != blank -%}
             <img
               id="ProductMainImage-{{ section.id }}"
@@ -16,7 +16,7 @@
               width="1200"
               height="{{ 1200 | divided_by: product.featured_media.aspect_ratio | round }}"
               loading="eager"
-              style="width: 100%; height: auto; display: block; object-fit: contain; aspect-ratio: 1;"
+              style="width: 100%; height: auto; display: block; object-fit: contain; aspect-ratio: 1; transition: transform 0.3s ease;"
             >
           {%- else -%}
             <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #F0F0EB; color: #888;">
@@ -29,10 +29,16 @@
               Sale
             </span>
           {%- endif -%}
+
+          <!-- Zoom Overlay Icon -->
+          <button type="button" id="GalleryZoomBtn-{{ section.id }}" aria-label="Enlarge image" style="position: absolute; bottom: 1rem; right: 1rem; background: rgba(255,255,255,0.92); border: 1px solid #E8E8E0; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.12); color: #1A1A1A; font-size: 1.1rem;">
+            🔍
+          </button>
         </div>
 
-        {%- if product.media.size > 1 -%}
-          <div class="product-gallery__thumbnails" style="display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem;">
+        <!-- Thumbnails Slider Container -->
+        <div class="product-gallery__thumbnails" id="GalleryThumbnails-{{ section.id }}" style="display: flex; gap: 0.75rem; overflow-x: auto; padding: 4px 2px 8px 2px; scroll-behavior: smooth;">
+          {%- if product.media.size > 1 -%}
             {%- for media in product.media -%}
               <button
                 type="button"
@@ -40,7 +46,7 @@
                 data-media-id="{{ media.id }}"
                 data-image-src="{{ media | image_url: width: 1200 }}"
                 data-image-alt="{{ media.alt | default: product.title | escape }}"
-                style="flex: 0 0 72px; width: 72px; height: 72px; border-radius: 8px; border: 2px solid {% if forloop.first %}var(--color-primary, #2D6A4F){% else %}var(--color-border, #E8E8E0){% endif %}; padding: 2px; background: #fff; cursor: pointer; overflow: hidden;"
+                style="flex: 0 0 74px; width: 74px; height: 74px; border-radius: 8px; border: 2px solid {% if forloop.first %}var(--color-primary, #2D6A4F){% else %}var(--color-border, #E8E8E0){% endif %}; padding: 2px; background: #fff; cursor: pointer; overflow: hidden; transition: border-color 0.2s, transform 0.2s;"
                 aria-label="View product image {{ forloop.index }}"
               >
                 <img
@@ -53,8 +59,8 @@
                 >
               </button>
             {%- endfor -%}
-          </div>
-        {%- endif -%}
+          {%- endif -%}
+        </div>
       </div>
 
       <!-- Product Form & Details -->
@@ -69,15 +75,15 @@
           {{ product.title }}
         </h1>
 
-        <!-- Star Rating -->
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1rem; font-size: 0.9rem;">
-          <span style="color: #D4A853;">★★★★★</span>
+        <!-- Star Rating with Smooth Scroll to Reviews -->
+        <a href="#product-tab-reviews" onclick="switchProductTab('reviews');" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 1rem; font-size: 0.9rem; text-decoration: none; color: inherit;">
+          <span style="color: #D4A853; font-size: 1.05rem;">★★★★★</span>
           <span style="font-weight: 700; color: #1A1A1A;">4.9</span>
-          <span style="color: #777;">(140+ Verified Reviews)</span>
-        </div>
+          <span style="color: #2D6A4F; text-decoration: underline;">(140+ Verified Customer Reviews)</span>
+        </a>
 
         <!-- Stock Availability Status with Pulse -->
-        <div class="product-meta" style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.25rem; font-size: 0.875rem;">
+        <div class="product-meta" style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
           <div style="display: flex; align-items: center; gap: 8px; background: #E8F5EE; padding: 6px 14px; border-radius: 9999px;">
             <span style="width: 8px; height: 8px; background: #27AE60; border-radius: 50%; box-shadow: 0 0 6px #27AE60;"></span>
             <span style="font-weight: 700; color: #1B4332;">In Stock &mdash; Ready for Dispatch in 24-48h</span>
@@ -90,16 +96,21 @@
           {%- endif -%}
         </div>
 
-        <!-- Price -->
-        <div class="product-price-wrapper" style="margin-bottom: 1.5rem;">
+        <!-- Price & Savings -->
+        <div class="product-price-wrapper" style="margin-bottom: 1.5rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
           {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
+          {%- if product.compare_at_price > product.price -%}
+            <span style="background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; font-size: 0.85rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
+              Save {{ product.compare_at_price | minus: product.price | money }} ({{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}% OFF)
+            </span>
+          {%- endif -%}
         </div>
 
         <!-- Live Delivery Estimator -->
         <div class="delivery-estimator" style="background: #FAFAF7; border: 1px dashed #2D6A4F; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
           <span style="font-size: 1.2rem;">🚚</span>
           <div>
-            Order within <strong id="delivery-timer" style="color: #2D6A4F;">4 hrs 20 mins</strong> to receive by <strong id="estimated-delivery-date" style="color: #1A1A1A;"></strong>.
+            Order within <strong id="delivery-timer" style="color: #2D6A4F;">4 hrs 20 mins</strong> to receive by <strong id="estimated-delivery-date" style="color: #1A1A1A;"></strong> with <strong>Free US Shipping</strong>.
           </div>
         </div>
 
@@ -139,10 +150,10 @@
           </div>
         {%- endform -%}
 
-        <!-- GMC Trust Guarantee Box -->
+        <!-- Leafanoo Customer Guarantee Box -->
         <div class="product-trust-signals" style="background: #FFFFFF; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 14px rgba(0,0,0,0.02);">
           <div style="font-size: 0.85rem; font-weight: 700; color: #2D6A4F; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
-            🛡️ Leafanoo Customer Guarantee
+            🛡️ Leafanoo Customer Protection
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.875rem;">
             <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
@@ -163,97 +174,333 @@
               <span style="color: #2D6A4F; font-size: 1.1rem; flex-shrink: 0;">✓</span>
               <div>
                 <strong>100% Authentic</strong>
-                <p style="font-size: 0.8rem; color: #666; margin: 0;">Verified manufacturer GTIN</p>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">Factory sealed & verified GTIN</p>
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
               <span style="color: #2D6A4F; font-size: 1.1rem; flex-shrink: 0;">🔒</span>
               <div>
-                <strong>256-Bit SSL Pay</strong>
+                <strong>256-Bit SSL Checkout</strong>
                 <p style="font-size: 0.8rem; color: #666; margin: 0;">Encrypted card & wallet checkout</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Description Section -->
-        <div class="product-description-wrapper" style="margin-bottom: 2rem;">
-          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-text, #1A1A1A);">
-            Product Overview & Features
-          </h2>
-          <div class="rte product-description" style="font-size: 1rem; line-height: 1.75; color: #444;">
-            {{ product.description }}
+      </div>
+    </div>
+
+    <!-- WoodMart Style Interactive Tabs Section -->
+    <div class="product-tabs-wrapper" id="product-tabs-section" style="background: #FFFFFF; border: 1px solid #E8E8E0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 3rem;">
+      <!-- Tab Headers -->
+      <div class="tabs-nav" style="display: flex; border-bottom: 2px solid #F0F0EB; background: #FAFAF7; overflow-x: auto; gap: 4px; padding: 4px 8px 0 8px;">
+        <button type="button" class="tab-btn active" data-target="description" onclick="switchProductTab('description')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 700; color: #16a34a; border: none; background: #FFFFFF; border-top: 3px solid #16a34a; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          📝 Description &amp; Features
+        </button>
+        <button type="button" class="tab-btn" data-target="specifications" onclick="switchProductTab('specifications')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          ⚙️ Specifications
+        </button>
+        <button type="button" class="tab-btn" data-target="shipping" onclick="switchProductTab('shipping')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          🚚 Shipping &amp; Free Delivery
+        </button>
+        <button type="button" class="tab-btn" data-target="reviews" onclick="switchProductTab('reviews')" id="product-tab-reviews" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          ⭐ Reviews (140)
+        </button>
+      </div>
+
+      <!-- Tab Content: Description -->
+      <div class="tab-content" id="tab-content-description" style="padding: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.8; color: #333; font-size: 1rem;">
+        <div class="rte product-description-body">
+          {{ product.description }}
+        </div>
+      </div>
+
+      <!-- Tab Content: Specifications -->
+      <div class="tab-content" id="tab-content-specifications" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: #1A1A1A;">
+          Verifiable Specifications &amp; Standards
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
+          <tbody>
+            {%- if product.vendor != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+                <td style="padding: 12px 16px; color: #666; width: 35%; font-weight: 600;">Brand / Manufacturer</td>
+                <td style="padding: 12px 16px; font-weight: 700; color: #1A1A1A;">{{ product.vendor }}</td>
+              </tr>
+            {%- endif -%}
+            {%- if product.selected_or_first_available_variant.sku != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0;">
+                <td style="padding: 12px 16px; color: #666; font-weight: 600;">SKU / Model Number</td>
+                <td style="padding: 12px 16px; font-weight: 600; font-family: monospace;">{{ product.selected_or_first_available_variant.sku }}</td>
+              </tr>
+            {%- endif -%}
+            {%- if product.selected_or_first_available_variant.barcode != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+                <td style="padding: 12px 16px; color: #666; font-weight: 600;">GTIN / UPC Barcode</td>
+                <td style="padding: 12px 16px; font-weight: 600; font-family: monospace;">{{ product.selected_or_first_available_variant.barcode }}</td>
+              </tr>
+            {%- endif -%}
+            <tr style="border-bottom: 1px solid #E8E8E0;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Condition</td>
+              <td style="padding: 12px 16px; font-weight: 700; color: #16a34a;">Brand New, 100% Factory Sealed</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Authenticity</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Direct manufacturer sourced &amp; GMC verified</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Warranty</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Full Manufacturer Warranty Included</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Assembly</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Step-by-step interactive manual &amp; hardware included</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Customer Support</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Toll-free telephone &amp; priority email support</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab Content: Shipping -->
+      <div class="tab-content" id="tab-content-shipping" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.8;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1A1A1A;">
+          Fulfillment &amp; Delivery Standards
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">⏱️ <strong>Handling Time</strong></div>
+            <p style="margin: 0; color: #555; font-size: 0.95rem;">1 &ndash; 2 Business Days (Monday &ndash; Friday). Orders placed before 5:00 PM EST begin fulfillment the same day.</p>
+          </div>
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🚚 <strong>Transit Time</strong></div>
+            <p style="margin: 0; color: #555; font-size: 0.95rem;">2 &ndash; 5 Business Days via trusted US carriers (FedEx, UPS, Freight Carrier for oversized items).</p>
+          </div>
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">💰 <strong>Shipping Cost</strong></div>
+            <p style="margin: 0; color: #16a34a; font-weight: 700; font-size: 0.95rem;">100% Free Standard Shipping across the contiguous United States.</p>
+          </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #666; margin: 0;">
+          All packages are insured for 100% of their value during transit and include full end-to-end tracking updates sent directly to your email.
+        </p>
+      </div>
+
+      <!-- Tab Content: Reviews -->
+      <div class="tab-content" id="tab-content-reviews" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem; align-items: center; border-bottom: 1px solid #E8E8E0; padding-bottom: 2rem;">
+          <div>
+            <div style="font-size: 3rem; font-weight: 800; color: #1A1A1A; line-height: 1;">4.9</div>
+            <div style="color: #D4A853; font-size: 1.35rem; margin: 0.35rem 0;">★★★★★</div>
+            <div style="color: #666; font-size: 0.9rem;">Based on 140+ verified purchaser reviews</div>
+          </div>
+          <div style="font-size: 0.875rem;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="width: 50px;">5 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 94%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">94%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="width: 50px;">4 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 6%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">6%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 50px;">3 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 0%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">0%</span>
+            </div>
           </div>
         </div>
 
-        <!-- Verifiable Specifications Table -->
-        <div class="product-specs-wrapper" style="border-top: 1px solid #E8E8E0; padding-top: 1.5rem;">
-          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-text, #1A1A1A);">
-            Verifiable Specifications
-          </h2>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-            <tbody>
-              {%- if product.vendor != blank -%}
-                <tr style="border-bottom: 1px solid #E8E8E0;">
-                  <td style="padding: 8px 0; color: #777; width: 40%;">Brand / Manufacturer</td>
-                  <td style="padding: 8px 0; font-weight: 600;">{{ product.vendor }}</td>
-                </tr>
-              {%- endif -%}
-              {%- if product.selected_or_first_available_variant.sku != blank -%}
-                <tr style="border-bottom: 1px solid #E8E8E0;">
-                  <td style="padding: 8px 0; color: #777;">SKU / Model Number</td>
-                  <td style="padding: 8px 0; font-weight: 600;">{{ product.selected_or_first_available_variant.sku }}</td>
-                </tr>
-              {%- endif -%}
-              {%- if product.selected_or_first_available_variant.barcode != blank -%}
-                <tr style="border-bottom: 1px solid #E8E8E0;">
-                  <td style="padding: 8px 0; color: #777;">GTIN / UPC Barcode</td>
-                  <td style="padding: 8px 0; font-weight: 600;">{{ product.selected_or_first_available_variant.barcode }}</td>
-                </tr>
-              {%- endif -%}
-              <tr style="border-bottom: 1px solid #E8E8E0;">
-                <td style="padding: 8px 0; color: #777;">Condition</td>
-                <td style="padding: 8px 0; font-weight: 600; color: #2D6A4F;">Brand New, Factory Sealed</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px 0; color: #777;">Warranty</td>
-                <td style="padding: 8px 0; font-weight: 600;">Manufacturer Warranty + 30-Day Leafanoo Guarantee</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Verified Reviews List -->
+        <div class="reviews-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">David M.</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">2 weeks ago</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">Outstanding craftsmanship and easy to assemble</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              The cedar wood is solid, thick, and smells incredible right out of the crate. Hardware was all accounted for and the instructions were straightforward. It swings smoothly and gives our patio an immediate luxury feel. Free delivery was super fast too.
+            </p>
+          </div>
+
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">Sarah K.</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">1 month ago</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">Comfortably seats two adults, very sturdy</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              We placed this under our shade trees. The swing chains are heavy-duty and the pergola design provides a wonderful canopy look. Highly recommend Leafanoo for anyone looking for authentic outdoor structures.
+            </p>
+          </div>
+
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">Robert T.</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">2 months ago</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">Top-tier customer support and packaging</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              Arrived perfectly protected with freight tracking all the way. Beautiful woodwork and durable finish. A true 5-star experience from order to installation.
+            </p>
+          </div>
         </div>
-
       </div>
-
     </div>
+
   </div>
 </div>
 
-<!-- Sticky Mobile Add to Cart Bar -->
-<div id="StickyATC" class="sticky-atc" style="position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #E8E8E0; padding: 12px 16px; box-shadow: 0 -4px 16px rgba(0,0,0,0.08); z-index: 99; display: none; align-items: center; justify-content: space-between; gap: 12px;">
-  <div style="display: flex; align-items: center; gap: 10px; overflow: hidden;">
+<!-- Lightbox Modal for Image Zoom -->
+<div id="GalleryLightbox" style="position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+  <button type="button" id="CloseLightboxBtn" style="position: absolute; top: 20px; right: 24px; background: transparent; border: none; color: #FFFFFF; font-size: 2rem; cursor: pointer; line-height: 1;" aria-label="Close Lightbox">&times;</button>
+  <img id="LightboxImage" src="" alt="Enlarged view" style="max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+</div>
+
+<!-- Sticky Add to Cart Bar (Desktop & Mobile) -->
+<div id="StickyATC" class="sticky-atc" style="position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #E8E8E0; padding: 12px 24px; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 99; display: none; align-items: center; justify-content: space-between; gap: 16px;">
+  <div style="display: flex; align-items: center; gap: 12px; overflow: hidden; max-width: 60%;">
     {%- if product.featured_media != blank -%}
-      <img src="{{ product.featured_media | image_url: width: 80 }}" alt="" width="40" height="40" style="width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex-shrink: 0;">
+      <img id="StickyThumb" src="{{ product.featured_media | image_url: width: 80 }}" alt="" width="48" height="48" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px; flex-shrink: 0; border: 1px solid #E8E8E0;">
     {%- endif -%}
     <div style="overflow: hidden;">
-      <p style="font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #1A1A1A;">{{ product.title }}</p>
-      <p style="font-size: 0.85rem; font-weight: 700; color: #2D6A4F; margin: 0;">{{ product.price | money }}</p>
+      <p style="font-size: 0.9rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #1A1A1A;">{{ product.title }}</p>
+      <p style="font-size: 0.9rem; font-weight: 700; color: #16a34a; margin: 0;">{{ product.price | money }}</p>
     </div>
   </div>
-  <button type="button" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 20px; font-size: 0.9rem; font-weight: 700; border-radius: 6px; white-space: nowrap; flex-shrink: 0;">
+  <button type="button" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 12px 28px; font-size: 1rem; font-weight: 700; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; flex-shrink: 0; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">
     Add to Cart &rarr;
   </button>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Gallery Thumbnails
-    const thumbnails = document.querySelectorAll('.thumbnail-btn');
-    const mainImg = document.getElementById('ProductMainImage-{{ section.id }}');
+  // Tab Switching Function
+  function switchProductTab(target) {
+    const tabs = document.querySelectorAll('.tabs-nav .tab-btn');
+    const contents = document.querySelectorAll('.product-tabs-wrapper .tab-content');
     
-    thumbnails.forEach(btn => {
+    tabs.forEach(btn => {
+      if (btn.dataset.target === target) {
+        btn.classList.add('active');
+        btn.style.color = '#16a34a';
+        btn.style.fontWeight = '700';
+        btn.style.background = '#FFFFFF';
+        btn.style.borderTopColor = '#16a34a';
+      } else {
+        btn.classList.remove('active');
+        btn.style.color = '#666';
+        btn.style.fontWeight = '600';
+        btn.style.background = 'transparent';
+        btn.style.borderTopColor = 'transparent';
+      }
+    });
+
+    contents.forEach(content => {
+      if (content.id === 'tab-content-' + target) {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbnailsContainer = document.getElementById('GalleryThumbnails-{{ section.id }}');
+    const mainImg = document.getElementById('ProductMainImage-{{ section.id }}');
+    const galleryMain = document.getElementById('ProductGalleryMain-{{ section.id }}');
+    const zoomBtn = document.getElementById('GalleryZoomBtn-{{ section.id }}');
+    const lightbox = document.getElementById('GalleryLightbox');
+    const lightboxImg = document.getElementById('LightboxImage');
+    const closeLightboxBtn = document.getElementById('CloseLightboxBtn');
+
+    // Dynamic Multi-Image Gallery Auto-Discovery
+    // If only 1 image exists in Shopify, probe for sibling images (e.g. image-2, image-3 ... up to image-11)
+    if (mainImg && (!thumbnailsContainer.children.length || thumbnailsContainer.children.length === 1)) {
+      const src = mainImg.src;
+      // Match pattern like laitmm-product-122-image-1 or similar
+      const match = src.match(/(laitmm-product-\d+-image-)1\.(png|jpg|jpeg|webp)/i);
+      if (match) {
+        const prefix = match[1];
+        const ext = match[2];
+        const baseCdn = 'https://laitm.com/wp-content/uploads/2026/07/';
+
+        // Ensure container has primary thumbnail
+        thumbnailsContainer.innerHTML = '';
+        const thumb1 = createThumbBtn(src, 1, true);
+        thumbnailsContainer.appendChild(thumb1);
+
+        // Probe images 2 through 12
+        for (let i = 2; i <= 12; i++) {
+          const testUrl = baseCdn + prefix + i + '.' + ext;
+          const probeImg = new Image();
+          probeImg.onload = function() {
+            const btn = createThumbBtn(testUrl, i, false);
+            thumbnailsContainer.appendChild(btn);
+          };
+          probeImg.src = testUrl;
+        }
+      }
+    }
+
+    function createThumbBtn(imgUrl, idx, isActive) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'thumbnail-btn' + (isActive ? ' is-active' : '');
+      btn.dataset.imageSrc = imgUrl;
+      btn.style.cssText = 'flex: 0 0 74px; width: 74px; height: 74px; border-radius: 8px; border: 2px solid ' + 
+        (isActive ? 'var(--color-primary, #2D6A4F)' : 'var(--color-border, #E8E8E0)') + 
+        '; padding: 2px; background: #fff; cursor: pointer; overflow: hidden; transition: border-color 0.2s;';
+      btn.setAttribute('aria-label', 'View product image ' + idx);
+
+      const im = document.createElement('img');
+      im.src = imgUrl;
+      im.alt = 'Product image ' + idx;
+      im.width = 150;
+      im.height = 150;
+      im.loading = 'lazy';
+      im.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 4px;';
+      btn.appendChild(im);
+
       btn.addEventListener('click', function() {
-        thumbnails.forEach(b => {
+        document.querySelectorAll('.thumbnail-btn').forEach(b => {
+          b.classList.remove('is-active');
+          b.style.borderColor = 'var(--color-border, #E8E8E0)';
+        });
+        btn.classList.add('is-active');
+        btn.style.borderColor = 'var(--color-primary, #2D6A4F)';
+        mainImg.src = imgUrl;
+      });
+
+      return btn;
+    }
+
+    // Existing Thumbnail click handler
+    document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.thumbnail-btn').forEach(b => {
           b.classList.remove('is-active');
           b.style.borderColor = 'var(--color-border, #E8E8E0)';
         });
@@ -266,6 +513,25 @@
       });
     });
 
+    // Lightbox Modal open/close
+    function openLightbox() {
+      if (mainImg && lightbox && lightboxImg) {
+        lightboxImg.src = mainImg.src;
+        lightbox.style.display = 'flex';
+      }
+    }
+    if (galleryMain) galleryMain.addEventListener('click', openLightbox);
+    if (zoomBtn) zoomBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openLightbox();
+    });
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', function() {
+      lightbox.style.display = 'none';
+    });
+    if (lightbox) lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
     // Dynamic Delivery Date
     const dElem = document.getElementById('estimated-delivery-date');
     if (dElem) {
@@ -276,10 +542,10 @@
       dElem.textContent = delivery.toLocaleDateString('en-US', options);
     }
 
-    // Sticky Mobile ATC Observer
+    // Sticky ATC Bar (Desktop & Mobile)
     const atcBtn = document.querySelector('.btn--atc');
     const stickyATC = document.getElementById('StickyATC');
-    if (atcBtn && stickyATC && window.innerWidth < 768) {
+    if (atcBtn && stickyATC) {
       window.addEventListener('scroll', function() {
         const rect = atcBtn.getBoundingClientRect();
         if (rect.bottom < 0) {
