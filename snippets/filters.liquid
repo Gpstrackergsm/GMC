@@ -81,9 +81,12 @@
       </summary>
       <div class="laitm-filter-content">
         <ul class="laitm-cat-filter-list">
-          {%- assign current_type = '' -%}
-          {%- if request.query_string contains 'filter.p.product_type=' -%}
+          {%- assign current_type = collection.current_type | default: '' -%}
+          {%- if current_type == blank and request.query_string contains 'filter.p.product_type=' -%}
             {%- assign query_parts = request.query_string | split: 'filter.p.product_type=' -%}
+            {%- assign current_type = query_parts[1] | split: '&' | first | replace: '+', ' ' | url_decode -%}
+          {%- elsif current_type == blank and request.query_string contains 'q=' -%}
+            {%- assign query_parts = request.query_string | split: 'q=' -%}
             {%- assign current_type = query_parts[1] | split: '&' | first | replace: '+', ' ' | url_decode -%}
           {%- endif -%}
 
@@ -94,57 +97,57 @@
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Garden+Essentials" class="laitm-cat-filter-link {% if current_type == 'Garden Essentials' %}is-active{% endif %}">
+            <a href="/collections/types?q=Garden+Essentials" class="laitm-cat-filter-link {% if current_type == 'Garden Essentials' %}is-active{% endif %}">
               <span>🌿 Garden Essentials</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Riding Lawn Mowers' %}is-active{% endif %}">
+            <a href="/collections/types?q=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Riding Lawn Mowers' or current_type == 'Ride Mowers' %}is-active{% endif %}">
               <span>🚜 Ride Mowers</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Power+Generators" class="laitm-cat-filter-link {% if current_type == 'Power Generators' %}is-active{% endif %}">
+            <a href="/collections/types?q=Power+Generators" class="laitm-cat-filter-link {% if current_type == 'Power Generators' or current_type == 'Portable Generators' %}is-active{% endif %}">
               <span>⚡ Portable Generators</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Self-Propelled+Mowers" class="laitm-cat-filter-link {% if current_type == 'Self-Propelled Mowers' %}is-active{% endif %}">
+            <a href="/collections/types?q=Self-Propelled+Mowers" class="laitm-cat-filter-link {% if current_type == 'Self-Propelled Mowers' %}is-active{% endif %}">
               <span>🌱 Self-Propelled Mowers</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Car+Lift" class="laitm-cat-filter-link {% if current_type == 'Car Lift' %}is-active{% endif %}">
+            <a href="/collections/types?q=Car+Lift" class="laitm-cat-filter-link {% if current_type == 'Car Lift' %}is-active{% endif %}">
               <span>🚗 Car Lift</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Sheds" class="laitm-cat-filter-link {% if current_type == 'Sheds' %}is-active{% endif %}">
+            <a href="/collections/types?q=Sheds" class="laitm-cat-filter-link {% if current_type == 'Sheds' %}is-active{% endif %}">
               <span>🏠 Sheds & Storage</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Electric+Bicycles" class="laitm-cat-filter-link {% if current_type == 'Electric Bicycles' %}is-active{% endif %}">
+            <a href="/collections/types?q=Electric+Bicycles" class="laitm-cat-filter-link {% if current_type == 'Electric Bicycles' %}is-active{% endif %}">
               <span>🚲 Electric Bicycles</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Cardio+Machines" class="laitm-cat-filter-link {% if current_type == 'Cardio Machines' %}is-active{% endif %}">
+            <a href="/collections/types?q=Cardio+Machines" class="laitm-cat-filter-link {% if current_type == 'Cardio Machines' %}is-active{% endif %}">
               <span>🏃 Cardio Machines</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Swing+sets" class="laitm-cat-filter-link {% if current_type == 'Swing sets' %}is-active{% endif %}">
+            <a href="/collections/types?q=Swing+sets" class="laitm-cat-filter-link {% if current_type == 'Swing sets' %}is-active{% endif %}">
               <span>🎠 Swing Sets</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Trampoline" class="laitm-cat-filter-link {% if current_type == 'Trampoline' %}is-active{% endif %}">
+            <a href="/collections/types?q=Trampoline" class="laitm-cat-filter-link {% if current_type == 'Trampoline' %}is-active{% endif %}">
               <span>🤸 Trampoline</span>
             </a>
           </li>
           <li>
-            <a href="/collections/all?filter.p.product_type=Walk-Behind+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Walk-Behind Lawn Mowers' %}is-active{% endif %}">
+            <a href="/collections/types?q=Walk-Behind+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Walk-Behind Lawn Mowers' %}is-active{% endif %}">
               <span>🌾 Walk-Behind Mowers</span>
             </a>
           </li>
