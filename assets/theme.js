@@ -78,8 +78,25 @@ function initAjaxAddToCart() {
     const form = e.target.closest('form[action*="/cart/add"]');
     if (!form) return;
 
+    // Do NOT intercept if the submitter is a dynamic checkout / buy now button
+    if (e.submitter) {
+      if (
+        e.submitter.classList.contains('shopify-payment-button__button') ||
+        e.submitter.closest('.shopify-payment-button') ||
+        e.submitter.name === 'checkout' ||
+        e.submitter.id === 'DirectBuyNowBtn' ||
+        e.submitter.hasAttribute('data-buy-now')
+      ) {
+        return; // Let native direct checkout proceed
+      }
+      // If submitter has another specific name other than 'add', do not intercept
+      if (e.submitter.name && e.submitter.name !== 'add') {
+        return;
+      }
+    }
+
     e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = form.querySelector('button[name="add"], button[type="submit"]');
     const originalHTML = submitBtn ? submitBtn.innerHTML : '';
 
     if (submitBtn) {

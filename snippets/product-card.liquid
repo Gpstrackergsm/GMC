@@ -107,13 +107,15 @@
 
   <div class="product-card__info">
     {%- if show_vendor and product.vendor != blank -%}
+      {%- assign clean_card_vendor = product.vendor | replace: '&amp;amp;', '&' | replace: '&amp;', '&' -%}
       <p class="product-card__vendor">
-        <a href="{{ product.vendor | url_for_vendor }}" class="product-card__vendor-link">{{ product.vendor }}</a>
+        <a href="{{ clean_card_vendor | url_for_vendor }}" class="product-card__vendor-link">{{ clean_card_vendor }}</a>
       </p>
     {%- endif -%}
 
+    {%- assign clean_card_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
     <h3 class="product-card__title">
-      <a href="{{ product.url }}" class="product-card__title-link">{{ product.title | escape }}</a>
+      <a href="{{ product.url }}" class="product-card__title-link">{{ clean_card_title }}</a>
     </h3>
 
     <div class="product-card__price">
