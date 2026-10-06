@@ -115,13 +115,26 @@
         </div>
 
         <!-- Price & Savings -->
-        <div class="product-price-wrapper" style="margin-bottom: 1.5rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+        <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
           {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
           {%- if product.compare_at_price > product.price -%}
             <span style="background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; font-size: 0.85rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
               Save {{ product.compare_at_price | minus: product.price | money }} ({{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}% OFF)
             </span>
           {%- endif -%}
+        </div>
+
+        <!-- Buy Now Pay Later / Flexible Financing Badge -->
+        <div class="product-bnpl-badge" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 0.65rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.85rem; color: #334155;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 1rem;">💳</span>
+            <span>Starting at <strong style="color: #0F172A;">{{ product.selected_or_first_available_variant.price | divided_by: 4 | money }}</strong>/mo with flexible financing</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="background: #5A31F4; color: #FFFFFF; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.02em;">Shop Pay</span>
+            <span style="background: #000000; color: #FFFFFF; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px;">affirm</span>
+            <span style="background: #FFB3C7; color: #000000; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px;">Klarna.</span>
+          </div>
         </div>
 
         <!-- Live Delivery Estimator -->
@@ -204,14 +217,26 @@
           </div>
         </div>
 
+        <!-- Heavy Freight & LTL Delivery Assurance -->
+        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #166534; font-size: 0.9rem; margin-bottom: 0.4rem;">
+            <span>🚛 Heavy Cargo &amp; LTL Freight Delivery Guarantee:</span>
+          </div>
+          <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.825rem; color: #15803D; line-height: 1.6;">
+            <li><strong>Free Liftgate Service Included ($150 Value):</strong> Safe hydraulic lowering to your driveway/curb.</li>
+            <li><strong>Delivery Appointment:</strong> Carrier calls 24 hours in advance to schedule exact drop-off time.</li>
+            <li><strong>Fully Insured Transit:</strong> 100% covered against transit damage with instant replacement.</li>
+          </ul>
+        </div>
+
         <!-- Leafanoo Customer Guarantee Box -->
         <div class="product-trust-signals" style="background: #FFFFFF; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 14px rgba(0,0,0,0.02);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 8px;">
             <div style="font-size: 0.85rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.05em;">
               🛡️ Leafanoo Buyer Protection &amp; Guarantee
             </div>
-            <a href="tel:+13202644135" style="font-size: 0.85rem; font-weight: 700; color: #1A1A1A; text-decoration: none; display: flex; align-items: center; gap: 4px;">
-              📞 Call Support: (320) 264-4135
+            <a href="tel:+18006142395" style="font-size: 0.85rem; font-weight: 700; color: #1A1A1A; text-decoration: none; display: flex; align-items: center; gap: 4px;">
+              📞 Toll-Free Support: 1-800-614-2395
             </a>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.875rem;">
@@ -318,7 +343,7 @@
             </tr>
             <tr>
               <td style="padding: 12px 16px; color: #666; font-weight: 600;">Customer Support</td>
-              <td style="padding: 12px 16px; font-weight: 600;">US Phone Support: (320) 264-4135 | support@leafanoo.com</td>
+              <td style="padding: 12px 16px; font-weight: 600;">US Toll-Free Support: 1-800-614-2395 | support@leafanoo.com</td>
             </tr>
           </tbody>
         </table>
@@ -594,34 +619,8 @@
     const lightboxImg = document.getElementById('LightboxImage');
     const closeLightboxBtn = document.getElementById('CloseLightboxBtn');
 
-    // Dynamic Multi-Image Gallery Auto-Discovery
-    // If only 1 image exists in Shopify, probe for sibling images (e.g. image-2, image-3 ... up to image-11)
-    if (mainImg && (!thumbnailsContainer.children.length || thumbnailsContainer.children.length === 1)) {
-      const src = mainImg.src;
-      // Match pattern like laitmm-product-122-image-1 or similar
-      const match = src.match(/(laitmm-product-\d+-image-)1\.(png|jpg|jpeg|webp)/i);
-      if (match) {
-        const prefix = match[1];
-        const ext = match[2];
-        const baseCdn = 'https://laitm.com/wp-content/uploads/2026/07/';
-
-        // Ensure container has primary thumbnail
-        thumbnailsContainer.innerHTML = '';
-        const thumb1 = createThumbBtn(src, 1, true);
-        thumbnailsContainer.appendChild(thumb1);
-
-        // Probe images 2 through 12
-        for (let i = 2; i <= 12; i++) {
-          const testUrl = baseCdn + prefix + i + '.' + ext;
-          const probeImg = new Image();
-          probeImg.onload = function() {
-            const btn = createThumbBtn(testUrl, i, false);
-            thumbnailsContainer.appendChild(btn);
-          };
-          probeImg.src = testUrl;
-        }
-      }
-    }
+    // Multi-Image Gallery
+    // Thumbnails are handled directly via Shopify product images
 
     function createThumbBtn(imgUrl, idx, isActive) {
       const btn = document.createElement('button');
