@@ -100,19 +100,31 @@
           <span style="color: #16a34a; text-decoration: underline;">(Verified Purchaser Feedback)</span>
         </a>
 
-        <!-- Stock Availability Status with Pulse -->
-        <div class="product-meta" style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
-          <div style="display: flex; align-items: center; gap: 8px; background: #E8F5EE; padding: 6px 14px; border-radius: 9999px;">
-            <span style="width: 8px; height: 8px; background: #27AE60; border-radius: 50%; box-shadow: 0 0 6px #27AE60;"></span>
-            <span style="font-weight: 700; color: #1B4332;">In Stock &mdash; Ready for Dispatch in 24-48h</span>
+        <!-- Stock Availability + Scarcity Urgency Block -->
+        <div class="product-meta" style="margin-bottom: 1.25rem; font-size: 0.875rem;">
+          <!-- In Stock + Units Left -->
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px; background: #E8F5EE; padding: 6px 14px; border-radius: 9999px;">
+              <span style="width: 8px; height: 8px; background: #27AE60; border-radius: 50%; box-shadow: 0 0 6px #27AE60; animation: pulse-dot 1.5s infinite;"></span>
+              <span style="font-weight: 700; color: #1B4332;">In Stock — Ships in 24-48h</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; background: #FFF7ED; border: 1px solid #FED7AA; padding: 5px 12px; border-radius: 9999px;">
+              <span style="font-size: 0.95rem;">🔥</span>
+              <span style="font-weight: 700; color: #C2410C;" id="units-left-badge">Only <span id="units-left-count">{{ product.id | modulo: 4 | plus: 2 }}</span> Left at This Price</span>
+            </div>
           </div>
-
+          <!-- Live viewers counter -->
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #64748B;">
+            <span style="width: 7px; height: 7px; background: #EF4444; border-radius: 50%; display: inline-block; animation: pulse-dot 1.2s infinite;"></span>
+            <span id="live-viewers-text"><strong style="color: #1A1A1A;" id="live-viewers-count">{{ product.id | modulo: 14 | plus: 8 }}</strong> people are viewing this right now</span>
+          </div>
           {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
-            <span class="product-sku" style="color: #666;">
-              SKU: <strong id="ProductSku-{{ section.id }}">{{ product.selected_or_first_available_variant.sku }}</strong>
-            </span>
+            <span class="product-sku" style="color: #888; font-size: 0.78rem; display: block; margin-top: 4px;">SKU: <strong id="ProductSku-{{ section.id }}">{{ product.selected_or_first_available_variant.sku }}</strong></span>
           {%- endif -%}
         </div>
+        <style>
+          @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+        </style>
 
         <!-- Price & Savings -->
         <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
@@ -155,8 +167,32 @@
             </div>
           {%- endunless -%}
 
+          <!-- Flash Sale Countdown Timer -->
+          <div id="countdown-bar" style="background: linear-gradient(135deg, #7F1D1D, #DC2626); border-radius: 10px; padding: 10px 16px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px; color: #fff; font-size: 0.88rem; font-weight: 700;">
+              <span style="font-size: 1.1rem;">⚡</span>
+              <span>FLASH PRICE — Ends in:</span>
+            </div>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <div style="background: rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 8px; text-align: center; min-width: 42px;">
+                <div style="font-size: 1.2rem; font-weight: 900; color: #fff; line-height: 1;" id="ctdown-h">02</div>
+                <div style="font-size: 0.6rem; color: rgba(255,255,255,0.75); text-transform: uppercase;">hrs</div>
+              </div>
+              <span style="color: #fff; font-weight: 900; font-size: 1.2rem;">:</span>
+              <div style="background: rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 8px; text-align: center; min-width: 42px;">
+                <div style="font-size: 1.2rem; font-weight: 900; color: #fff; line-height: 1;" id="ctdown-m">47</div>
+                <div style="font-size: 0.6rem; color: rgba(255,255,255,0.75); text-transform: uppercase;">min</div>
+              </div>
+              <span style="color: #fff; font-weight: 900; font-size: 1.2rem;">:</span>
+              <div style="background: rgba(255,255,255,0.15); border-radius: 6px; padding: 4px 8px; text-align: center; min-width: 42px;">
+                <div style="font-size: 1.2rem; font-weight: 900; color: #fff; line-height: 1;" id="ctdown-s">30</div>
+                <div style="font-size: 0.6rem; color: rgba(255,255,255,0.75); text-transform: uppercase;">sec</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Quantity, Add to Cart & Buy Now Buttons -->
-          <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
             <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
               {%- if section.settings.show_quantity_selector -%}
                 <div class="product-quantity">
@@ -169,11 +205,13 @@
                 name="add"
                 class="btn btn--primary btn--atc"
                 {% unless product.available %}disabled{% endunless %}
-                style="flex: 1 1 200px; padding: 1.1rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 4px 16px rgba(22,163,74,0.3); transition: transform 0.2s, box-shadow 0.2s;"
+                style="flex: 1 1 200px; padding: 1.2rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
+                onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 25px rgba(22,163,74,0.5)'"
+                onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(22,163,74,0.4)'"
               >
                 <span class="atc-text">
                   {%- if product.available -%}
-                    Add to Cart &rarr;
+                    🛒 Add to Cart — Free Shipping
                   {%- else -%}
                     Sold Out
                   {%- endif -%}
@@ -189,10 +227,20 @@
                 data-buy-now="true"
                 class="btn btn--buy-now"
                 onclick="buyNowDirectly()"
-                style="width: 100%; padding: 1.1rem 2rem; background: #111827; color: #FFFFFF; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: all 0.2s;"
+                style="width: 100%; padding: 1.15rem 2rem; background: #111827; color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.22); transition: all 0.15s; letter-spacing: 0.02em;"
+                onmouseover="this.style.transform='scale(1.02)'"
+                onmouseout="this.style.transform='scale(1)'"
               >
-                <span>⚡ Buy It Now &mdash; Instant Checkout</span>
+                <span>⚡ Buy It Now — Instant Secure Checkout</span>
               </button>
+
+              <!-- Reassurance under buttons -->
+              <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
+                <span>🔒 256-bit SSL Secure</span>
+                <span>📦 Free US Shipping</span>
+                <span>↩️ 30-Day Returns</span>
+                <span>✅ Genuine Product</span>
+              </div>
 
               {%- if section.settings.show_dynamic_checkout -%}
                 <div class="dynamic-checkout-wrapper" style="width: 100%;">
@@ -729,15 +777,13 @@
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
       body: formData
     })
-    .then(function(res) {
-      return res.json();
-    })
+    .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.status && data.status >= 400) {
         alert(data.description || 'Unable to proceed to checkout.');
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = '<span>⚡ Buy It Now &mdash; Instant Checkout</span>';
+          btn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
         }
       } else {
         window.location.href = '/checkout';
@@ -748,6 +794,39 @@
       window.location.href = '/checkout';
     });
   };
+
+  // ── Countdown Timer ─────────────────────────────────────────
+  (function() {
+    // Set countdown end = midnight tonight (US time) so it resets each day
+    var now = new Date();
+    var end = new Date(now);
+    end.setHours(23, 59, 59, 0);
+    function updateTimer() {
+      var diff = Math.max(0, end - new Date());
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var hEl = document.getElementById('ctdown-h');
+      var mEl = document.getElementById('ctdown-m');
+      var sEl = document.getElementById('ctdown-s');
+      if (hEl) hEl.textContent = String(h).padStart(2,'0');
+      if (mEl) mEl.textContent = String(m).padStart(2,'0');
+      if (sEl) sEl.textContent = String(s).padStart(2,'0');
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  })();
+
+  // ── Fluctuating Viewer Count ─────────────────────────────────
+  (function() {
+    var base = parseInt(document.getElementById('live-viewers-count')?.textContent || '12');
+    setInterval(function() {
+      var delta = Math.floor(Math.random() * 3) - 1; // -1, 0, or +1
+      base = Math.max(6, Math.min(base + delta, 28));
+      var el = document.getElementById('live-viewers-count');
+      if (el) el.textContent = base;
+    }, 7000);
+  })();
 </script>
 
 {% schema %}
