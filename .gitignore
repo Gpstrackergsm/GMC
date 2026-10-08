@@ -7,6 +7,8 @@ private_app_credentials.json
 shopify_access_token.txt
 gmc_credentials.json
 spartan-shadow-*.json
+google_ads_auth/
+google_ads_credentials.json
 invoices/
 payments/
 catalog/*backup*.xml
