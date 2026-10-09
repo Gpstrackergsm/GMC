@@ -136,6 +136,21 @@
           {%- endif -%}
         </div>
 
+        {%- if product.compare_at_price > product.price -%}
+        <!-- WHY SO CHEAP — Price Justification Banner (critical trust converter) -->
+        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1.5px solid #f59e0b; border-radius: 10px; padding: 0.85rem 1.1rem; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
+          <span style="font-size: 1.4rem; flex-shrink: 0;">🏭</span>
+          <div>
+            <div style="font-size: 0.82rem; font-weight: 800; color: #92400e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px;">Why Is Our Price Lower Than Retail?</div>
+            <div style="font-size: 0.82rem; color: #78350f; line-height: 1.5;">
+              We source directly from US-based authorized distributors and warehouse overstock — cutting out middlemen entirely.
+              <strong>No showroom. No sales rep commissions. Savings passed 100% to you.</strong>
+              Same factory-sealed product. Same manufacturer warranty.
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+
         <!-- Buy Now Pay Later / Flexible Financing Badge -->
         <div class="product-bnpl-badge" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 0.65rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.85rem; color: #334155;">
           <div style="display: flex; align-items: center; gap: 6px;">
