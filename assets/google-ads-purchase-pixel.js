@@ -1,7 +1,7 @@
 /**
  * Leafanoo — Google Ads Purchase Conversion Pixel
- * Conversion Action: Purchase (2)
- * send_to: AW-18488363853/CaBUCPfu7pAdEM2W-O9E
+ * Conversion Action: Purchase (3)
+ * send_to: AW-18488363853/V3orCLDeuJQdEM2W-O9E
  *
  * Installed via Shopify Customer Events (Custom Pixel).
  * This pixel fires ONLY on successful checkout_completed events,
@@ -28,7 +28,7 @@ analytics.subscribe('checkout_completed', (event) => {
 
   // Fire Google Ads Purchase conversion
   gtag('event', 'conversion', {
-    'send_to':        'AW-18488363853/CaBUCPfu7pAdEM2W-O9E',
+    'send_to':        'AW-18488363853/V3orCLDeuJQdEM2W-O9E',
     'value':          orderValue,
     'currency':       currency,
     'transaction_id': orderId
