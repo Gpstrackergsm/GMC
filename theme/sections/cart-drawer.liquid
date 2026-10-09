@@ -42,17 +42,27 @@
 
     <!-- Drawer Footer -->
     <div class="cart-drawer__footer" style="padding: 1.25rem 1.5rem; border-top: 1px solid var(--color-border, #E8E8E0); background: #FAFBF9;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; font-size: 1.1rem; font-weight: 700;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 1.15rem; font-weight: 800;">
         <span>Subtotal:</span>
         <span class="cart-drawer-subtotal" style="color: var(--color-primary, #16a34a);">{{ cart.total_price | money_with_currency }}</span>
       </div>
-      <p style="font-size: 0.775rem; color: #777; margin-bottom: 1.25rem; line-height: 1.4;">
-        Taxes calculated at checkout. Free shipping applied.
-      </p>
-      <a href="/checkout" class="btn btn--primary" style="display: block; width: 100%; padding: 1rem; text-align: center; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.05rem; box-shadow: 0 4px 14px rgba(22,163,74,0.3); margin-bottom: 0.65rem;">
-        🔒 Proceed to Secure Checkout &rarr;
+
+      <!-- Financing Installment teaser -->
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 6px; padding: 6px 10px; margin-bottom: 0.85rem; font-size: 0.78rem; color: #166534; display: flex; align-items: center; justify-content: space-between;">
+        <span>💳 Or pay in flexible installments with Shop Pay / Affirm</span>
+        <span style="font-weight: 800; text-transform: uppercase; font-size: 0.7rem; background: #DCFCE7; padding: 2px 6px; border-radius: 4px;">0% APR</span>
+      </div>
+
+      <a href="/checkout" class="btn btn--primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 1.15rem; text-align: center; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(22,163,74,0.35); margin-bottom: 0.65rem; transition: all 0.2s;">
+        <span>🔒 Proceed to Secure Checkout</span>
       </a>
-      <a href="{{ routes.cart_url }}" class="btn btn--secondary" style="display: block; width: 100%; padding: 0.65rem; text-align: center; border: 1px solid var(--color-border, #E8E8E0); background: #fff; color: var(--color-text, #1A1A1A); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">
+
+      <!-- Accepted Cards Strip -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0.65rem; font-size: 0.72rem; color: #64748B;">
+        <span>Guaranteed Safe & Secure Checkout: Visa, MC, Amex, Apple Pay</span>
+      </div>
+
+      <a href="{{ routes.cart_url }}" class="btn btn--secondary" style="display: block; width: 100%; padding: 0.55rem; text-align: center; border: 1px solid var(--color-border, #E8E8E0); background: #fff; color: var(--color-text, #1A1A1A); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
         View Cart Details
       </a>
       <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed #E0E2DE; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem; color: #4B5563;">
