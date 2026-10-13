@@ -17,7 +17,7 @@
           </span>
 
           <h1 class="laitm-ghero-h1">
-            Shade built for <span>slow afternoons</span>
+            {{ section.settings.heading | default: 'Built for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>' }}
           </h1>
 
           <p class="laitm-ghero-sub">
@@ -322,19 +322,25 @@
       "type": "text",
       "id": "badge_text",
       "label": "Eyebrow Badge",
-      "default": "GARDEN ESSENTIALS"
+      "default": "COMMERCIAL & RESIDENTIAL TURF EQUIPMENT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Pergolas and gazebos for the corner of the yard you'll actually use — sturdy frames, easy assembly, and a look that gets better with every season."
+      "default": "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere, Cub Cadet, Husqvarna, and top American turf brands. Factory-sealed with complimentary hydraulic liftgate residential delivery."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Primary Button Label",
-      "default": "Shop Garden Essentials"
+      "default": "Shop John Deere Series"
     },
     {
       "type": "url",

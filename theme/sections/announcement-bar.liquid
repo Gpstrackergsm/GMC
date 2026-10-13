@@ -1,0 +1,63 @@
+<div class="laitm-topbar">
+  <div class="laitm-topbar__inner page-width">
+    <p class="laitm-topbar__message">
+      {{ section.settings.message | default: '🚚 FREE RESIDENTIAL LIFTGATE FREIGHT ON ALL RIDING MOWERS | 100% US FACTORY WARRANTY | CALL TOLL-FREE: 1-800-614-2395' }}
+    </p>
+  </div>
+</div>
+
+<style>
+  .laitm-topbar {
+    background-color: {{ section.settings.bg_color | default: '#16a34a' }};
+    color: #ffffff;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 101;
+  }
+  .laitm-topbar__inner {
+    width: 100%;
+    text-align: center;
+    padding: 0 16px;
+  }
+  .laitm-topbar__message {
+    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ffffff;
+    line-height: 38px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "class": "section-announcement-bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Announcement text",
+      "default": "🚚 FREE RESIDENTIAL LIFTGATE FREIGHT ON ALL RIDING MOWERS | 100% US FACTORY WARRANTY | CALL TOLL-FREE: 1-800-614-2395"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#16a34a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

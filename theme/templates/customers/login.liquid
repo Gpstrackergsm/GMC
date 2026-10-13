@@ -1,0 +1,279 @@
+{% comment %}
+  Leafanoo — Customer Login Template
+  Layout: theme.liquid
+{% endcomment %}
+
+<div class="leafanoo-login page-width">
+
+  {%- if form.errors -%}
+    <div class="form__message form__message--error" role="alert" aria-live="assertive">
+      <span class="visually-hidden">Error</span>
+      {%- for error in form.errors -%}
+        <p>{{ form.errors.messages[error] }}</p>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <div class="login__grid">
+
+    {%- comment -%} ── Login Form ────────────────────────────────────────────── {%- endcomment -%}
+    <div class="login__form-wrapper" id="CustomerLoginForm">
+      <h1 class="login__title">Sign In</h1>
+      <p class="login__subtitle">Welcome back to Leafanoo. Sign in to your account.</p>
+
+      {%- form 'customer_login', id: 'customer-login-form', class: 'login__form' -%}
+        <div class="field">
+          <label class="field__label" for="CustomerEmail">
+            Email address
+            <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="field__input"
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+            placeholder="you@example.com"
+            {%- if form.email != blank -%}value="{{ form.email }}"{% endif %}
+          >
+        </div>
+
+        <div class="field">
+          <div class="field__label-wrapper">
+            <label class="field__label" for="CustomerPassword">
+              Password
+              <span aria-hidden="true">*</span>
+            </label>
+            <a
+              href="#forgot-password"
+              class="link underlined-link field__forgot-link"
+              onclick="document.getElementById('CustomerLoginForm').classList.add('is-hidden'); document.getElementById('ResetPasswordForm').classList.remove('is-hidden');"
+            >
+              Forgot password?
+            </a>
+          </div>
+          <input
+            class="field__input"
+            type="password"
+            name="customer[password]"
+            id="CustomerPassword"
+            autocomplete="current-password"
+            required
+            placeholder="Your password"
+          >
+        </div>
+
+        <button type="submit" class="button button--primary button--full-width">
+          Sign In
+        </button>
+      {%- endform -%}
+
+      <p class="login__register-link">
+        New to Leafanoo?
+        <a href="{{ routes.account_register_url }}" class="link underlined-link">
+          Create an account
+        </a>
+      </p>
+    </div>
+
+    {%- comment -%} ── Forgot Password Form ─────────────────────────────────── {%- endcomment -%}
+    <div class="login__form-wrapper is-hidden" id="ResetPasswordForm">
+      <h1 class="login__title">Reset Password</h1>
+      <p class="login__subtitle">We'll send you an email to reset your password.</p>
+
+      {%- if form.errors contains 'form' -%}
+        <div class="form__message form__message--success" role="status">
+          <p>{{ 'customer.recover_password.success' | t }}</p>
+        </div>
+      {%- endif -%}
+
+      {%- form 'recover_customer_password', class: 'login__form' -%}
+        <div class="field">
+          <label class="field__label" for="RecoverEmail">
+            Email address
+            <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="field__input"
+            type="email"
+            name="email"
+            id="RecoverEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+            placeholder="you@example.com"
+          >
+        </div>
+
+        <button type="submit" class="button button--primary button--full-width">
+          Send Reset Email
+        </button>
+      {%- endform -%}
+
+      <p class="login__register-link">
+        <a
+          href="#login"
+          class="link underlined-link"
+          onclick="document.getElementById('ResetPasswordForm').classList.add('is-hidden'); document.getElementById('CustomerLoginForm').classList.remove('is-hidden');"
+        >
+          &larr; Back to Sign In
+        </a>
+      </p>
+    </div>
+
+    {%- comment -%} ── Right-side Promo ─────────────────────────────────────── {%- endcomment -%}
+    <div class="login__promo" aria-hidden="true">
+      <div class="login__promo-inner">
+        <h2 class="login__promo-title">Member Benefits</h2>
+        <ul class="login__promo-list">
+          <li>&#10003;&nbsp; Track your orders in real-time</li>
+          <li>&#10003;&nbsp; Save multiple shipping addresses</li>
+          <li>&#10003;&nbsp; Faster checkout every time</li>
+          <li>&#10003;&nbsp; Exclusive member-only offers</li>
+          <li>&#10003;&nbsp; Easy returns & refund tracking</li>
+        </ul>
+        <a href="{{ routes.account_register_url }}" class="button button--secondary">
+          Create Free Account
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .leafanoo-login {
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .login__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    width: 100%;
+    max-width: 96rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 750px) {
+    .login__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+  .login__title {
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .login__subtitle {
+    color: rgba(var(--color-foreground), 0.65);
+    font-size: 1.5rem;
+    margin-bottom: 2.4rem;
+  }
+  .login__form .field {
+    margin-bottom: 1.6rem;
+  }
+  .field__label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+  .field__label {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: rgba(var(--color-foreground), 0.85);
+  }
+  .field__label-wrapper .field__label {
+    margin-bottom: 0;
+  }
+  .field__forgot-link {
+    font-size: 1.2rem;
+  }
+  .field__input {
+    display: block;
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    border-radius: var(--inputs-radius, 0.4rem);
+    font-size: 1.4rem;
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+  }
+  .field__input:focus {
+    outline: none;
+    border-color: rgb(var(--color-button));
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-button), 0.15);
+  }
+  .button--full-width {
+    width: 100%;
+    margin-top: 0.8rem;
+  }
+  .login__register-link {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .login__promo {
+    background: rgba(var(--color-foreground), 0.04);
+    border-radius: var(--popup-corner-radius, 0.4rem);
+    padding: 3.6rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+  .login__promo-title {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+  }
+  .login__promo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.4rem;
+  }
+  .login__promo-list li {
+    font-size: 1.5rem;
+    padding: 0.7rem 0;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    line-height: 1.5;
+  }
+  .login__promo-list li:last-child {
+    border-bottom: none;
+  }
+  .form__message {
+    padding: 1.4rem 1.8rem;
+    border-radius: 0.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+  }
+  .form__message--error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 0.1rem solid #f5c6cb;
+  }
+  .form__message--success {
+    background: #d4edda;
+    color: #155724;
+    border: 0.1rem solid #c3e6cb;
+  }
+  .is-hidden { display: none !important; }
+</style>
+
+<script>
+  // Show reset form if recovery email was sent
+  {%- if form.errors contains 'form' -%}
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('CustomerLoginForm').classList.add('is-hidden');
+      document.getElementById('ResetPasswordForm').classList.remove('is-hidden');
+    });
+  {%- endif -%}
+</script>

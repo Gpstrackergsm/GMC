@@ -1,0 +1,92 @@
+{%- comment -%}
+  Snippet: quantity-input.liquid
+  Accessible quantity stepper.
+  Accepts:
+  - min    {Number} Default: 1.
+  - max    {Number} Optional. Variant inventory quantity if tracked.
+  - value  {Number} Default: 1.
+  - id     {String} Optional. Unique identifier suffix.
+  - name   {String} Default: 'quantity'.
+  - form   {String} Optional. Form ID to associate with.
+  Usage: {%- render 'quantity-input', min: 1, max: variant.inventory_quantity, value: 1, id: section.id -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign qty_min   = min   | default: 1
+  assign qty_value = value | default: 1
+  assign qty_name  = name  | default: 'quantity'
+  assign qty_id    = id    | default: 'qty'
+-%}
+
+<div class="quantity-input" data-quantity-input>
+  <button
+    class="quantity-input__btn quantity-input__btn--minus"
+    type="button"
+    aria-label="Decrease quantity"
+    data-action="decrement"
+    {% if qty_value <= qty_min %}aria-disabled="true"{% endif %}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="2" viewBox="0 0 12 2" fill="currentColor" aria-hidden="true">
+      <rect width="12" height="2" rx="1"/>
+    </svg>
+  </button>
+
+  <label class="visually-hidden" for="quantity-{{ qty_id }}">Quantity</label>
+  <input
+    class="quantity-input__field"
+    type="number"
+    id="quantity-{{ qty_id }}"
+    name="{{ qty_name }}"
+    value="{{ qty_value }}"
+    min="{{ qty_min }}"
+    {%- if max != nil %} max="{{ max }}"{% endif %}
+    inputmode="numeric"
+    pattern="[0-9]*"
+    autocomplete="off"
+    {%- if form != blank %} form="{{ form }}"{% endif %}
+    aria-label="Quantity"
+    data-quantity-field
+  >
+
+  <button
+    class="quantity-input__btn quantity-input__btn--plus"
+    type="button"
+    aria-label="Increase quantity"
+    data-action="increment"
+    {% if max != nil and qty_value >= max %}aria-disabled="true"{% endif %}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+      <rect y="5" width="12" height="2" rx="1"/>
+      <rect x="5" width="2" height="12" rx="1"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-quantity-input]').forEach(function (wrapper) {
+      if (wrapper._qtyInit) return;
+      wrapper._qtyInit = true;
+
+      var field = wrapper.querySelector('[data-quantity-field]');
+      var min   = parseInt(field.min) || 1;
+      var max   = field.max ? parseInt(field.max) : Infinity;
+
+      wrapper.querySelectorAll('[data-action]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var current = parseInt(field.value) || min;
+          if (btn.dataset.action === 'decrement') {
+            field.value = Math.max(min, current - 1);
+          } else {
+            field.value = Math.min(max, current + 1);
+          }
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+          wrapper.querySelector('[data-action="decrement"]').setAttribute('aria-disabled', field.value <= min);
+          if (isFinite(max)) {
+            wrapper.querySelector('[data-action="increment"]').setAttribute('aria-disabled', parseInt(field.value) >= max);
+          }
+        });
+      });
+    });
+  })();
+</script>

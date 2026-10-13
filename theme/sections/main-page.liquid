@@ -1,0 +1,31 @@
+<div class="page-section section-padding" style="padding: 2.5rem 0 4rem 0;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+    {% render 'structured-data-breadcrumb' %}
+
+    {%- if section.settings.show_title -%}
+      <h1 class="page-title" style="font-family: var(--font-heading-family, serif); font-size: 2.5rem; margin-bottom: 2rem; color: var(--color-text, #1A1A1A); text-align: center;">
+        {{ page.title }}
+      </h1>
+    {%- endif -%}
+
+    <div class="rte page-content" style="font-size: 1.05rem; line-height: 1.8; color: #333;">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "tag": "section",
+  "class": "section-main-page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Page Title",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
