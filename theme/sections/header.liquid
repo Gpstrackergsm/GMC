@@ -10,12 +10,18 @@
       <!-- Logo -->
       <a href="{{ routes.root_url }}" class="laitm-header__logo" aria-label="Leafanoo - Home">
         <span class="laitm-logo-wrap">
-          <svg class="laitm-logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="34" height="34" rx="8" fill="#16a34a"/>
-            <path d="M11 13V10C11 7.23858 13.2386 5 16 5C18.7614 5 21 7.23858 21 10V13M7 11H25L26 27C26 28.1046 25.1046 29 24 29H8C6.89543 29 6 28.1046 6 27L7 11Z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M16 17C16 17 19 19.5 19 23C16.5 23 13 22 13 18C13 18 16 18 16 17Z" fill="#86efac"/>
+          <svg class="laitm-logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="38" rx="10" fill="#0f391b" stroke="#16a34a" stroke-width="1.5"/>
+            <polygon points="7,14 6,18 31,24 32,20" fill="#eab308"/>
+            <path d="M19 6 C28 13 28 24 19 32 C10 24 10 13 19 6 Z" fill="#22c55e"/>
+            <line x1="19" y1="7" x2="19" y2="30" stroke="#86efac" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="19" cy="19" r="3.6" fill="#ffffff" stroke="#0f391b" stroke-width="1"/>
+            <circle cx="19" cy="19" r="1.5" fill="#eab308"/>
           </svg>
-          <span class="laitm-logo-text">Leafanoo</span>
+          <span class="laitm-logo-brand">
+            <span class="laitm-logo-text">Leafanoo</span>
+            <span class="laitm-logo-sub">TURF &amp; MOWER CO.</span>
+          </span>
         </span>
       </a>
 
@@ -135,8 +141,10 @@
   <div class="laitm-mobile-drawer" id="LaitmMobileDrawer">
     <div class="laitm-mobile-drawer__overlay" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');"></div>
     <div class="laitm-mobile-drawer__panel">
-      <div class="laitm-mobile-drawer__head">
-        <span class="laitm-logo-text">Leafanoo</span>
+        <div class="laitm-logo-brand">
+          <span class="laitm-logo-text">Leafanoo</span>
+          <span class="laitm-logo-sub">TURF &amp; MOWER CO.</span>
+        </div>
         <button type="button" class="laitm-mobile-drawer__close" aria-label="Close menu" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');">
           &times;
         </button>
@@ -225,12 +233,26 @@
   .laitm-logo-icon {
     flex-shrink: 0;
   }
+  .laitm-logo-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
   .laitm-logo-text {
     font-family: "Lexend Deca", sans-serif;
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 800;
     color: #1c1a16;
     letter-spacing: -0.03em;
+  }
+  .laitm-logo-sub {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: #16a34a;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 2px;
   }
 
   /* Search */
