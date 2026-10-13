@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0f391b" stroke="#16a34a" stroke-width="2"/>
+  <!-- Gold Mower Blade -->
+  <polygon points="12,24 10,30 52,40 54,34" fill="#eab308"/>
+  <!-- Turf Leaf Emblem -->
+  <path d="M32 10 C46 22 46 40 32 54 C18 40 18 22 32 10 Z" fill="#22c55e"/>
+  <line x1="32" y1="12" x2="32" y2="50" stroke="#86efac" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Power Hub -->
+  <circle cx="32" cy="32" r="6" fill="#ffffff" stroke="#0f391b" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="2.5" fill="#eab308"/>
+</svg>
