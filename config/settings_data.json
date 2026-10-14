@@ -30,6 +30,27 @@
     "show_quick_add": true,
     "product_card_image_ratio": "square",
     "enable_animations": true,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "message": "🚚 FREE RESIDENTIAL LIFTGATE FREIGHT ON ALL RIDING MOWERS | 100% US FACTORY WARRANTY | CALL TOLL-FREE: 1-800-614-2395",
+          "bg_color": "#16a34a"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "6615124273980966592": {
@@ -41,8 +62,8 @@
         "type": "shopify://apps/downpay/blocks/downpay-form-embed/da700d84-7ed1-410a-a8b5-5cb99a33758a",
         "disabled": false,
         "settings": {
-          "default_to_pay_in_full": false,
-          "show_payment_methods": false,
+          "default_to_pay_in_full": true,
+          "show_payment_methods": true,
           "show_deposit_amount": true,
           "show_border": true,
           "show_help_text2": "deposit",
