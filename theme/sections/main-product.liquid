@@ -129,27 +129,7 @@
         <!-- Price & Savings -->
         <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
           {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
-          {%- if product.compare_at_price > product.price -%}
-            <span style="background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; font-size: 0.85rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
-              Save {{ product.compare_at_price | minus: product.price | money }} ({{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}% OFF)
-            </span>
-          {%- endif -%}
         </div>
-
-        {%- if product.compare_at_price > product.price -%}
-        <!-- WHY SO CHEAP — Price Justification Banner (critical trust converter) -->
-        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1.5px solid #f59e0b; border-radius: 10px; padding: 0.85rem 1.1rem; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
-          <span style="font-size: 1.4rem; flex-shrink: 0;">🏭</span>
-          <div>
-            <div style="font-size: 0.82rem; font-weight: 800; color: #92400e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px;">Why Is Our Price Lower Than Retail?</div>
-            <div style="font-size: 0.82rem; color: #78350f; line-height: 1.5;">
-              We source directly from US-based authorized distributors and warehouse overstock — cutting out middlemen entirely.
-              <strong>No showroom. No sales rep commissions. Savings passed 100% to you.</strong>
-              Same factory-sealed product. Same manufacturer warranty.
-            </div>
-          </div>
-        </div>
-        {%- endif -%}
 
         <!-- 50% Flexible Delivery Deposit Callout (High-Converting Trust Trigger) -->
         <div class="product-deposit-highlight" style="background: linear-gradient(135deg, #ECFDF5, #DCFCE7); border: 2px solid #16a34a; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.15rem; box-shadow: 0 4px 14px rgba(22,163,74,0.12);">

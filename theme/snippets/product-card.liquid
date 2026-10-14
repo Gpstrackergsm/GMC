@@ -78,10 +78,6 @@
     <div class="product-card__badges" aria-hidden="true">
       {%- if sold_out -%}
         <span class="badge badge-sold-out">Sold Out</span>
-      {%- elsif on_sale -%}
-        {%- assign discount = current_variant.compare_at_price | minus: current_variant.price -%}
-        {%- assign discount_pct = discount | times: 100 | divided_by: current_variant.compare_at_price -%}
-        <span class="badge badge-sale">-{{ discount_pct }}%</span>
       {%- elsif product.tags contains 'new' or product.tags contains 'New' -%}
         <span class="badge badge-new">New</span>
       {%- endif -%}
