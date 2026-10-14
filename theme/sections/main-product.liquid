@@ -326,7 +326,12 @@
                 <span>✅ Genuine Product</span>
               </div>
 
-              {%- if section.settings.show_dynamic_checkout -%}
+              {%- comment -%}
+                Suppress Shopify's native uncustomizable accelerated checkout button when deposit plan is active.
+                Shopify's native payment_button forces 100% full payment and ignores selling plans.
+                DirectBuyNowBtn above handles instant 1-click checkout with the 50% deposit.
+              {%- endcomment -%}
+              {%- if section.settings.show_dynamic_checkout and deposit_plan_id == nil -%}
                 <div class="dynamic-checkout-wrapper" style="width: 100%;">
                   {{ form | payment_button }}
                 </div>
@@ -706,11 +711,19 @@
     </div>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-    <button type="button" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">
-      Add to Cart
+    <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">
+      {%- if deposit_plan_id != nil -%}
+        Reserve 50% Deposit
+      {%- else -%}
+        Add to Cart
+      {%- endif -%}
     </button>
-    <button type="button" onclick="buyNowDirectly()" class="btn btn--dark" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #111827; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-      ⚡ Buy Now
+    <button type="button" id="StickyBuyNowBtn" onclick="buyNowDirectly()" class="btn btn--dark" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #111827; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      {%- if deposit_plan_id != nil -%}
+        ⚡ Pay 50% Deposit
+      {%- else -%}
+        ⚡ Buy Now
+      {%- endif -%}
     </button>
   </div>
 </div>
@@ -859,6 +872,8 @@
     const radioFull = document.getElementById('RadioPlanFull');
     const atcText = document.querySelector('.btn--atc .atc-text');
     const buyNowBtn = document.getElementById('DirectBuyNowBtn');
+    const stickyAtcBtn = document.getElementById('StickyATCBtn');
+    const stickyBuyNowBtn = document.getElementById('StickyBuyNowBtn');
 
     if (choice === 'deposit') {
       if (planInput) planInput.value = planId;
@@ -876,6 +891,8 @@
       }
       if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
       if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
+      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Reserve 50% Deposit';
+      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Pay 50% Deposit';
     } else {
       if (planInput) planInput.value = '';
       if (radioDeposit) radioDeposit.checked = false;
@@ -892,6 +909,8 @@
       }
       if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Shipping';
       if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
+      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Add to Cart';
+      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Buy Now';
     }
   };
 
