@@ -1,0 +1,846 @@
+{
+  "account": {
+    "id": 4143615535,
+    "name": "",
+    "currency": "MAD",
+    "tz": "Africa/Casablanca"
+  },
+  "campaigns_today": [
+    {
+      "id": "24318560132",
+      "name": "[USA] Standard Shopping - Top Products",
+      "status": "ENABLED",
+      "type": "SHOPPING",
+      "budget_daily": 1500.0,
+      "impressions": 235,
+      "clicks": 3,
+      "cost": 52.5,
+      "cpc": 17.5,
+      "ctr": 1.28,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "id": "24328651612",
+      "name": "[USA] PMax - Pure Sales Mode",
+      "status": "PAUSED",
+      "type": "PERFORMANCE_MAX",
+      "budget_daily": 75.0,
+      "impressions": 0,
+      "clicks": 0,
+      "cost": 0,
+      "cpc": 0,
+      "ctr": 0.0,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    }
+  ],
+  "campaigns_yesterday": [
+    {
+      "id": "24318560132",
+      "name": "[USA] Standard Shopping - Top Products",
+      "status": "ENABLED",
+      "type": "SHOPPING",
+      "budget_daily": 1500.0,
+      "impressions": 8447,
+      "clicks": 117,
+      "cost": 1899.45,
+      "cpc": 16.23,
+      "ctr": 1.39,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "id": "24328651612",
+      "name": "[USA] PMax - Pure Sales Mode",
+      "status": "PAUSED",
+      "type": "PERFORMANCE_MAX",
+      "budget_daily": 75.0,
+      "impressions": 0,
+      "clicks": 0,
+      "cost": 0,
+      "cpc": 0,
+      "ctr": 0.0,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    }
+  ],
+  "campaigns_last_7_days": [
+    {
+      "id": "24318560132",
+      "name": "[USA] Standard Shopping - Top Products",
+      "status": "ENABLED",
+      "type": "SHOPPING",
+      "budget_daily": 1500.0,
+      "impressions": 41941,
+      "clicks": 670,
+      "cost": 11080.51,
+      "cpc": 16.54,
+      "ctr": 1.6,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "id": "24328651612",
+      "name": "[USA] PMax - Pure Sales Mode",
+      "status": "PAUSED",
+      "type": "PERFORMANCE_MAX",
+      "budget_daily": 75.0,
+      "impressions": 18836,
+      "clicks": 189,
+      "cost": 1423.15,
+      "cpc": 7.53,
+      "ctr": 1.0,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    }
+  ],
+  "campaigns_all_time": [
+    {
+      "id": "24318560132",
+      "name": "[USA] Standard Shopping - Top Products",
+      "status": "ENABLED",
+      "type": "SHOPPING",
+      "budget_daily": 1500.0,
+      "impressions": 45780,
+      "clicks": 719,
+      "cost": 11693.53,
+      "cpc": 16.26,
+      "ctr": 1.57,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "id": "24328651612",
+      "name": "[USA] PMax - Pure Sales Mode",
+      "status": "PAUSED",
+      "type": "PERFORMANCE_MAX",
+      "budget_daily": 75.0,
+      "impressions": 69032,
+      "clicks": 1295,
+      "cost": 2162.03,
+      "cpc": 1.67,
+      "ctr": 1.88,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    }
+  ],
+  "conversion_actions": [
+    {
+      "id": "7812721881",
+      "name": "Purchase",
+      "status": "REMOVED",
+      "type": "WEBPAGE_CODELESS",
+      "category": "PURCHASE",
+      "primary": true
+    },
+    {
+      "id": "7812817875",
+      "name": "Shopping Cart",
+      "status": "REMOVED",
+      "type": "WEBPAGE_CODELESS",
+      "category": "ADD_TO_CART",
+      "primary": false
+    },
+    {
+      "id": "7817685288",
+      "name": "Purchase (1)",
+      "status": "REMOVED",
+      "type": "WEBPAGE",
+      "category": "PURCHASE",
+      "primary": true
+    },
+    {
+      "id": "7819999095",
+      "name": "Purchase (2)",
+      "status": "REMOVED",
+      "type": "WEBPAGE",
+      "category": "PURCHASE",
+      "primary": true
+    },
+    {
+      "id": "7820474564",
+      "name": "Shopping Cart (1)",
+      "status": "REMOVED",
+      "type": "WEBPAGE_CODELESS",
+      "category": "ADD_TO_CART",
+      "primary": false
+    },
+    {
+      "id": "7820590687",
+      "name": "Product",
+      "status": "REMOVED",
+      "type": "WEBPAGE_CODELESS",
+      "category": "PAGE_VIEW",
+      "primary": true
+    },
+    {
+      "id": "7826024388",
+      "name": "Clicks to call",
+      "status": "REMOVED",
+      "type": "GOOGLE_HOSTED",
+      "category": "CONTACT",
+      "primary": true
+    },
+    {
+      "id": "7827500848",
+      "name": "Purchase (3)",
+      "status": "ENABLED",
+      "type": "WEBPAGE",
+      "category": "PURCHASE",
+      "primary": true
+    },
+    {
+      "id": "7837370361",
+      "name": "leafanoo (web) purchase",
+      "status": "ENABLED",
+      "type": "GOOGLE_ANALYTICS_4_PURCHASE",
+      "category": "PURCHASE",
+      "primary": false
+    }
+  ],
+  "top_search_queries": [
+    {
+      "term": "riding lawn mower",
+      "clicks": 13,
+      "impressions": 593,
+      "cost": 205.0,
+      "conversions": 0.0
+    },
+    {
+      "term": "zero turn mowers",
+      "clicks": 9,
+      "impressions": 265,
+      "cost": 131.98,
+      "conversions": 0.0
+    },
+    {
+      "term": "lawn mower",
+      "clicks": 8,
+      "impressions": 705,
+      "cost": 145.14,
+      "conversions": 0.0
+    },
+    {
+      "term": "golf cart",
+      "clicks": 7,
+      "impressions": 154,
+      "cost": 100.72,
+      "conversions": 0.0
+    },
+    {
+      "term": "golf carts for sale near me",
+      "clicks": 6,
+      "impressions": 47,
+      "cost": 103.68,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere lawn mower",
+      "clicks": 5,
+      "impressions": 79,
+      "cost": 68.6,
+      "conversions": 0.0
+    },
+    {
+      "term": "mowers",
+      "clicks": 5,
+      "impressions": 51,
+      "cost": 74.58,
+      "conversions": 0.0
+    },
+    {
+      "term": "golf carts for sale",
+      "clicks": 4,
+      "impressions": 71,
+      "cost": 47.36,
+      "conversions": 0.0
+    },
+    {
+      "term": "inverter generator",
+      "clicks": 4,
+      "impressions": 144,
+      "cost": 80.2,
+      "conversions": 0.0
+    },
+    {
+      "term": "ride mower",
+      "clicks": 4,
+      "impressions": 51,
+      "cost": 67.56,
+      "conversions": 0.0
+    },
+    {
+      "term": "riding lawn mowers for sale near me",
+      "clicks": 4,
+      "impressions": 197,
+      "cost": 57.26,
+      "conversions": 0.0
+    },
+    {
+      "term": "vehicle lift",
+      "clicks": 4,
+      "impressions": 24,
+      "cost": 82.18,
+      "conversions": 0.0
+    },
+    {
+      "term": "car lifts",
+      "clicks": 3,
+      "impressions": 68,
+      "cost": 52.07,
+      "conversions": 0.0
+    },
+    {
+      "term": "craftsman riding mower",
+      "clicks": 3,
+      "impressions": 71,
+      "cost": 39.62,
+      "conversions": 0.0
+    },
+    {
+      "term": "garage lift",
+      "clicks": 3,
+      "impressions": 30,
+      "cost": 53.89,
+      "conversions": 0.0
+    },
+    {
+      "term": "golf carts",
+      "clicks": 3,
+      "impressions": 62,
+      "cost": 50.27,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere d110 lawn mower",
+      "clicks": 3,
+      "impressions": 3,
+      "cost": 56.51,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere riding mowers for sale",
+      "clicks": 3,
+      "impressions": 16,
+      "cost": 53.22,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere s 120",
+      "clicks": 3,
+      "impressions": 4,
+      "cost": 42.34,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere x370 lawn tractor with 42 inch deck",
+      "clicks": 3,
+      "impressions": 11,
+      "cost": 56.02,
+      "conversions": 0.0
+    },
+    {
+      "term": "john deere z345m",
+      "clicks": 3,
+      "impressions": 10,
+      "cost": 37.21,
+      "conversions": 0.0
+    },
+    {
+      "term": "predator generator",
+      "clicks": 3,
+      "impressions": 109,
+      "cost": 49.49,
+      "conversions": 0.0
+    },
+    {
+      "term": "shed kits",
+      "clicks": 3,
+      "impressions": 27,
+      "cost": 52.61,
+      "conversions": 0.0
+    },
+    {
+      "term": "tutio",
+      "clicks": 3,
+      "impressions": 5,
+      "cost": 53.51,
+      "conversions": 0.0
+    },
+    {
+      "term": "whisper outdoor golf carts",
+      "clicks": 3,
+      "impressions": 3,
+      "cost": 59.89,
+      "conversions": 0.0
+    }
+  ],
+  "top_products": [
+    {
+      "title": "John Deere Z345r ZTrak 42-in 22-hp Lawn Mower",
+      "id": "lf-9865",
+      "clicks": 100,
+      "impressions": 5728,
+      "cost": 1604.19,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Cedar Sunshed Garden Shed | 12×12",
+      "id": "lf-9680",
+      "clicks": 76,
+      "impressions": 3804,
+      "cost": 1320.52,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Terminator 48v Electric Golf Cart Four Seater – Massive Rims/Tires Flip Seat – Optionally Fully Loaded – Black Model",
+      "id": "lf-9968",
+      "clicks": 74,
+      "impressions": 2292,
+      "cost": 1161.85,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower",
+      "id": "lf-9390",
+      "clicks": 69,
+      "impressions": 5356,
+      "cost": 1154.97,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "John Deere Z345m 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower",
+      "id": "lf-9896",
+      "clicks": 65,
+      "impressions": 4575,
+      "cost": 1189.79,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Predator 9500 Watt Super Quiet Inverter Generator with CO Secure Technology",
+      "id": "lf-5312",
+      "clicks": 51,
+      "impressions": 3424,
+      "cost": 922.8,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Craftsman T3200 – 24HP Kohler V-Twin Automatic 54\" Riding Lawn Mower",
+      "id": "lf-5269",
+      "clicks": 44,
+      "impressions": 1762,
+      "cost": 669.92,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Craftsman 30′′ 10.5 HP 344cc 6-Speed Riding Lawn Mower",
+      "id": "lf-5260",
+      "clicks": 36,
+      "impressions": 1935,
+      "cost": 495.72,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Super73-zx Core",
+      "id": "lf-9539",
+      "clicks": 22,
+      "impressions": 2145,
+      "cost": 342.43,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Platinum 12000 LB Certified 2-Post Lift – Atlas Pvl-12",
+      "id": "lf-9656",
+      "clicks": 20,
+      "impressions": 374,
+      "cost": 347.6,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Super73-r Adventure Series Core",
+      "id": "lf-9502",
+      "clicks": 11,
+      "impressions": 767,
+      "cost": 182.75,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Genmax Portable Inverter Generator 11000w Tri-fuel",
+      "id": "lf-9312",
+      "clicks": 11,
+      "impressions": 1037,
+      "cost": 202.41,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Super73-zx SE",
+      "id": "lf-9540",
+      "clicks": 10,
+      "impressions": 857,
+      "cost": 163.31,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "John Deere Z345M 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower | Leafanoo",
+      "id": "shopify_zz_15394777530664_67605371388200",
+      "clicks": 9,
+      "impressions": 459,
+      "cost": 101.47,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Lifetime 8′ x 17.5′ Outdoor Storage Shed Dual Entry, Tan",
+      "id": "lf-9727",
+      "clicks": 6,
+      "impressions": 137,
+      "cost": 68.81,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower | Leafanoo",
+      "id": "shopify_zz_15394768126248_67605342585128",
+      "clicks": 6,
+      "impressions": 351,
+      "cost": 47.16,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "HALO Lifts XL 4 Post Car Lift – 9,000 LBS Capacity",
+      "id": "lf-9618",
+      "clicks": 5,
+      "impressions": 368,
+      "cost": 87.87,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Westinghouse 28,000 Peak Watt Home Backup Portable Generator | Leafanoo",
+      "id": "shopify_zz_15394752397608_67605264335144",
+      "clicks": 5,
+      "impressions": 447,
+      "cost": 47.74,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Z515e 60 In. 24 HP V-Twin ELS Gas Dual Hydrostatic Zero-Turn Riding Mower",
+      "id": "lf-9897",
+      "clicks": 4,
+      "impressions": 199,
+      "cost": 23.7,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Halo 4 Post Car Lift – 9,000 LBS Capacity",
+      "id": "lf-9610",
+      "clicks": 4,
+      "impressions": 265,
+      "cost": 72.48,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "2.0 HP Tire Changer And Wheel Balancer Machine Combo 580 & 690",
+      "id": "lf-9549",
+      "clicks": 4,
+      "impressions": 92,
+      "cost": 40.35,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Terminator 48v Electric Golf Cart Four Seater – Massive Rims/Tires Flip Seat – Optionally Fully Loaded – Black Model | Leafanoo",
+      "id": "shopify_zz_15394752856360_67605265776936",
+      "clicks": 4,
+      "impressions": 363,
+      "cost": 52.47,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Super73-z Adventure Series SE",
+      "id": "lf-9537",
+      "clicks": 4,
+      "impressions": 1790,
+      "cost": 20.7,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Super73-z Miami SE",
+      "id": "lf-9538",
+      "clicks": 4,
+      "impressions": 358,
+      "cost": 63.24,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    },
+    {
+      "title": "Cub Cadet Ultima ZT2 60 in. 24 HP Gas Zero-Turn Mower",
+      "id": "lf-9383",
+      "clicks": 4,
+      "impressions": 267,
+      "cost": 106.2,
+      "conversions": 0.0,
+      "conv_value": 0.0
+    }
+  ],
+  "device_breakdown": {
+    "OTHER": {
+      "clicks": 0,
+      "impressions": 14,
+      "cost": 0.0,
+      "conversions": 0.0
+    },
+    "DESKTOP": {
+      "clicks": 623,
+      "impressions": 44476,
+      "cost": 10634.04,
+      "conversions": 0.0
+    },
+    "MOBILE": {
+      "clicks": 213,
+      "impressions": 12789,
+      "cost": 1733.79,
+      "conversions": 0.0
+    },
+    "TABLET": {
+      "clicks": 23,
+      "impressions": 3498,
+      "cost": 135.84,
+      "conversions": 0.0
+    }
+  },
+  "ga4_realtime_users": 0,
+  "ga4_events": {
+    "page_view": {
+      "count": 3318,
+      "users": 1235
+    },
+    "session_start": {
+      "count": 1337,
+      "users": 1229
+    },
+    "first_visit": {
+      "count": 1216,
+      "users": 1210
+    },
+    "scroll": {
+      "count": 1205,
+      "users": 600
+    },
+    "user_engagement": {
+      "count": 943,
+      "users": 573
+    },
+    "view_item": {
+      "count": 809,
+      "users": 710
+    },
+    "view_search_results": {
+      "count": 179,
+      "users": 37
+    },
+    "add_to_cart": {
+      "count": 65,
+      "users": 33
+    },
+    "view_item_list": {
+      "count": 46,
+      "users": 24
+    },
+    "form_start": {
+      "count": 42,
+      "users": 25
+    },
+    "form_submit": {
+      "count": 36,
+      "users": 20
+    },
+    "begin_checkout": {
+      "count": 35,
+      "users": 29
+    },
+    "search": {
+      "count": 33,
+      "users": 12
+    },
+    "add_shipping_info": {
+      "count": 15,
+      "users": 10
+    },
+    "add_payment_info": {
+      "count": 9,
+      "users": 3
+    },
+    "view_cart": {
+      "count": 7,
+      "users": 5
+    },
+    "purchase": {
+      "count": 1,
+      "users": 1
+    }
+  },
+  "ga4_sources": [
+    {
+      "source": "google / cpc",
+      "sessions": 1170,
+      "users": 1089,
+      "engaged": 820,
+      "avg_dur_sec": 87.6
+    },
+    {
+      "source": "(not set)",
+      "sessions": 142,
+      "users": 123,
+      "engaged": 0,
+      "avg_dur_sec": 221.3
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 76,
+      "users": 72,
+      "engaged": 49,
+      "avg_dur_sec": 40.4
+    },
+    {
+      "source": "(data not available)",
+      "sessions": 38,
+      "users": 38,
+      "engaged": 14,
+      "avg_dur_sec": 59.6
+    },
+    {
+      "source": "google / organic",
+      "sessions": 31,
+      "users": 19,
+      "engaged": 26,
+      "avg_dur_sec": 849.2
+    },
+    {
+      "source": "bing / organic",
+      "sessions": 5,
+      "users": 4,
+      "engaged": 4,
+      "avg_dur_sec": 89.2
+    }
+  ],
+  "ga4_countries": [
+    {
+      "country": "United States",
+      "users": 1183,
+      "sessions": 1266
+    },
+    {
+      "country": "India",
+      "users": 23,
+      "sessions": 28
+    },
+    {
+      "country": "Morocco",
+      "users": 8,
+      "sessions": 19
+    },
+    {
+      "country": "(not set)",
+      "users": 6,
+      "sessions": 6
+    },
+    {
+      "country": "Pakistan",
+      "users": 6,
+      "sessions": 6
+    },
+    {
+      "country": "Iraq",
+      "users": 3,
+      "sessions": 3
+    },
+    {
+      "country": "Singapore",
+      "users": 3,
+      "sessions": 3
+    },
+    {
+      "country": "Germany",
+      "users": 2,
+      "sessions": 2
+    },
+    {
+      "country": "Ireland",
+      "users": 2,
+      "sessions": 2
+    },
+    {
+      "country": "Thailand",
+      "users": 2,
+      "sessions": 2
+    },
+    {
+      "country": "Vietnam",
+      "users": 2,
+      "sessions": 7
+    },
+    {
+      "country": "Angola",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "Bangladesh",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "Indonesia",
+      "users": 1,
+      "sessions": 2
+    },
+    {
+      "country": "Jordan",
+      "users": 1,
+      "sessions": 3
+    },
+    {
+      "country": "Nepal",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "Philippines",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "United Kingdom",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "Taiwan",
+      "users": 0,
+      "sessions": 1
+    }
+  ],
+  "storefront_status": 200,
+  "store_currency": "USD"
+}
