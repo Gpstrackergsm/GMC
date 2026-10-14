@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "shop_name": "Leafanoo",
@@ -157,5 +166,12 @@
     "newsletter_success": "Thank you for subscribing!",
     "copyright": "All rights reserved.",
     "payment_methods": "Accepted Payment Methods"
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "enter_shipping_address": "Free shipping "
+      }
+    }
   }
 }
