@@ -120,6 +120,9 @@
 
     <div class="product-card__price">
       {%- render 'price', product: product -%}
+      <div style="margin-top: 5px; font-size: 0.78rem; color: #15803D; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+        <span>🛡️ Pay 50% Today: <strong>{{ current_variant.price | divided_by: 2 | money }}</strong></span>
+      </div>
     </div>
   </div>
 </article>
