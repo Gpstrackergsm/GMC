@@ -200,6 +200,71 @@
             </div>
           </div>
 
+          <!-- 50% Flexible Delivery Deposit Selector (Direct Shopify Selling Plan) -->
+          {%- assign deposit_plan_id = nil -%}
+          {%- for group in product.selling_plan_groups -%}
+            {%- for plan in group.selling_plans -%}
+              {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131332392 -%}
+                {%- assign deposit_plan_id = plan.id -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if deposit_plan_id == nil and product.price >= 50000 -%}
+            {%- assign deposit_plan_id = 692131332392 -%}
+          {%- endif -%}
+
+          {%- if deposit_plan_id != nil -%}
+            <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
+            
+            <div class="deposit-plan-selector" style="margin-bottom: 1.25rem;">
+              <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+                <span>Select Payment Schedule:</span>
+                <span style="background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 800;">🔒 Zero Risk Delivery</span>
+              </div>
+
+              <!-- Option 1: 50% Deposit (Active / Default) -->
+              <div id="PlanOptionDeposit" onclick="selectPaymentOption('deposit', '{{ deposit_plan_id }}')" style="display: flex; align-items: center; justify-content: space-between; border: 2px solid #16a34a; background: #F0FDF4; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(22,163,74,0.12);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment_plan_choice" id="RadioPlanDeposit" value="deposit" checked style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
+                  <div>
+                    <div style="font-weight: 800; font-size: 0.95rem; color: #14532D; display: flex; align-items: center; gap: 6px;">
+                      50% Flexible Delivery Deposit
+                      <span style="background: #16a34a; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em;">POPULAR</span>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #166534; margin-top: 2px;">
+                      Pay balance <strong>only upon freight carrier delivery</strong>.
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
+                  <div style="font-size: 1.15rem; font-weight: 900; color: #15803D;">{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}</div>
+                  <div style="font-size: 0.7rem; color: #166534; font-weight: 700; text-transform: uppercase;">Due Today</div>
+                </div>
+              </div>
+
+              <!-- Option 2: Pay in Full -->
+              <div id="PlanOptionFull" onclick="selectPaymentOption('full', '')" style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #E2E8F0; background: #FFFFFF; border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment_plan_choice" id="RadioPlanFull" value="full" style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem; color: #334155;">
+                      Pay in Full Today
+                    </div>
+                    <div style="font-size: 0.8rem; color: #64748B; margin-top: 2px;">
+                      Standard one-time full payment.
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
+                  <div style="font-size: 1.15rem; font-weight: 800; color: #1E293B;">{{ product.selected_or_first_available_variant.price | money }}</div>
+                  <div style="font-size: 0.7rem; color: #64748B; font-weight: 600; text-transform: uppercase;">Total</div>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
           <!-- Quantity, Add to Cart & Buy Now Buttons -->
           <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
             <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
@@ -220,7 +285,11 @@
               >
                 <span class="atc-text">
                   {%- if product.available -%}
-                    🛒 Add to Cart — Free Shipping
+                    {%- if deposit_plan_id != nil -%}
+                      🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
+                    {%- else -%}
+                      🛒 Add to Cart — Free Shipping
+                    {%- endif -%}
                   {%- else -%}
                     Sold Out
                   {%- endif -%}
@@ -240,7 +309,13 @@
                 onmouseover="this.style.transform='scale(1.02)'"
                 onmouseout="this.style.transform='scale(1)'"
               >
-                <span>⚡ Buy It Now — Instant Secure Checkout</span>
+                <span>
+                  {%- if deposit_plan_id != nil -%}
+                    ⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout
+                  {%- else -%}
+                    ⚡ Buy It Now — Instant Secure Checkout
+                  {%- endif -%}
+                </span>
               </button>
 
               <!-- Reassurance under buttons -->
@@ -623,7 +698,11 @@
     {%- endif -%}
     <div style="overflow: hidden;">
       <p style="font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #1A1A1A;">{{ clean_title }}</p>
-      <p style="font-size: 0.85rem; font-weight: 700; color: #16a34a; margin: 0;">{{ product.price | money }}</p>
+      {%- if deposit_plan_id != nil -%}
+        <p style="font-size: 0.85rem; font-weight: 800; color: #16a34a; margin: 0;">{{ product.price | divided_by: 2 | money }} <span style="font-size: 0.72rem; color: #666; font-weight: normal;">(50% deposit)</span></p>
+      {%- else -%}
+        <p style="font-size: 0.85rem; font-weight: 700; color: #16a34a; margin: 0;">{{ product.price | money }}</p>
+      {%- endif -%}
     </div>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
@@ -771,6 +850,51 @@
     }
   });
 
+  // Interactive Payment Option Selector (50% Deposit vs Pay In Full)
+  window.selectPaymentOption = function(choice, planId) {
+    const planInput = document.getElementById('ProductSellingPlanInput');
+    const optDeposit = document.getElementById('PlanOptionDeposit');
+    const optFull = document.getElementById('PlanOptionFull');
+    const radioDeposit = document.getElementById('RadioPlanDeposit');
+    const radioFull = document.getElementById('RadioPlanFull');
+    const atcText = document.querySelector('.btn--atc .atc-text');
+    const buyNowBtn = document.getElementById('DirectBuyNowBtn');
+
+    if (choice === 'deposit') {
+      if (planInput) planInput.value = planId;
+      if (radioDeposit) radioDeposit.checked = true;
+      if (radioFull) radioFull.checked = false;
+      if (optDeposit) {
+        optDeposit.style.borderColor = '#16a34a';
+        optDeposit.style.background = '#F0FDF4';
+        optDeposit.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
+      }
+      if (optFull) {
+        optFull.style.borderColor = '#E2E8F0';
+        optFull.style.background = '#FFFFFF';
+        optFull.style.boxShadow = 'none';
+      }
+      if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
+      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
+    } else {
+      if (planInput) planInput.value = '';
+      if (radioDeposit) radioDeposit.checked = false;
+      if (radioFull) radioFull.checked = true;
+      if (optDeposit) {
+        optDeposit.style.borderColor = '#E2E8F0';
+        optDeposit.style.background = '#FFFFFF';
+        optDeposit.style.boxShadow = 'none';
+      }
+      if (optFull) {
+        optFull.style.borderColor = '#16a34a';
+        optFull.style.background = '#F0FDF4';
+        optFull.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
+      }
+      if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Shipping';
+      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
+    }
+  };
+
   // Direct 1-Click Buy Now (Instant Checkout)
   window.buyNowDirectly = function() {
     const form = document.getElementById('ProductForm');
@@ -781,6 +905,9 @@
       btn.innerHTML = '<span>⏳ Preparing Secure Checkout...</span>';
     }
     const formData = new FormData(form);
+    if (!formData.get('selling_plan')) {
+      formData.delete('selling_plan');
+    }
     fetch('/cart/add.js', {
       method: 'POST',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
