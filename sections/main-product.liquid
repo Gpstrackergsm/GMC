@@ -215,70 +215,24 @@
 
           {%- if deposit_plan_id != nil -%}
             <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
-            
-            <div class="deposit-plan-selector" style="margin-bottom: 1.25rem;">
-              <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
-                <span>Select Payment Schedule:</span>
-                <span style="background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 800;">🔒 Zero Risk Delivery</span>
-              </div>
-
-              <!-- Option 1: 50% Deposit (Active / Default) -->
-              <div id="PlanOptionDeposit" onclick="selectPaymentOption('deposit', '{{ deposit_plan_id }}')" style="display: flex; align-items: center; justify-content: space-between; border: 2px solid #16a34a; background: #F0FDF4; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(22,163,74,0.12);">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <input type="radio" name="payment_plan_choice" id="RadioPlanDeposit" value="deposit" checked style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
-                  <div>
-                    <div style="font-weight: 800; font-size: 0.95rem; color: #14532D; display: flex; align-items: center; gap: 6px;">
-                      50% Flexible Delivery Deposit
-                      <span style="background: #16a34a; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em;">POPULAR</span>
-                    </div>
-                    <div style="font-size: 0.8rem; color: #166534; margin-top: 2px;">
-                      Pay balance <strong>only upon freight carrier delivery</strong>.
-                    </div>
-                  </div>
-                </div>
-                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
-                  <div style="font-size: 1.15rem; font-weight: 900; color: #15803D;">{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}</div>
-                  <div style="font-size: 0.7rem; color: #166534; font-weight: 700; text-transform: uppercase;">Due Today</div>
-                </div>
-              </div>
-
-              <!-- Option 2: Pay in Full -->
-              <div id="PlanOptionFull" onclick="selectPaymentOption('full', '')" style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #E2E8F0; background: #FFFFFF; border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <input type="radio" name="payment_plan_choice" id="RadioPlanFull" value="full" style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
-                  <div>
-                    <div style="font-weight: 700; font-size: 0.95rem; color: #334155;">
-                      Pay in Full Today
-                    </div>
-                    <div style="font-size: 0.8rem; color: #64748B; margin-top: 2px;">
-                      Standard one-time full payment.
-                    </div>
-                  </div>
-                </div>
-                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
-                  <div style="font-size: 1.15rem; font-weight: 800; color: #1E293B;">{{ product.selected_or_first_available_variant.price | money }}</div>
-                  <div style="font-size: 0.7rem; color: #64748B; font-weight: 600; text-transform: uppercase;">Total</div>
-                </div>
-              </div>
-            </div>
           {%- endif -%}
 
-          <!-- Add to Cart & Buy Now Buttons (Single Unit Equipment Order) -->
-          <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
+          <!-- Single Primary Action Button: 50% Deposit -->
+          <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 1rem;">
             <input type="hidden" name="quantity" value="1">
             <button
               type="submit"
               name="add"
               class="btn btn--primary btn--atc"
               {% unless product.available %}disabled{% endunless %}
-              style="width: 100%; padding: 1.2rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
+              style="width: 100%; padding: 1.25rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.15rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
               onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 25px rgba(22,163,74,0.5)'"
               onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(22,163,74,0.4)'"
             >
               <span class="atc-text">
                 {%- if product.available -%}
                   {%- if deposit_plan_id != nil -%}
-                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
+                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Free Delivery
                   {%- else -%}
                     🛒 Add to Cart — Free Liftgate Delivery
                   {%- endif -%}
@@ -288,46 +242,13 @@
               </span>
             </button>
 
-            {%- if product.available -%}
-              <!-- Direct 1-Click Buy Now Button -->
-              <button
-                type="button"
-                id="DirectBuyNowBtn"
-                data-buy-now="true"
-                class="btn btn--buy-now"
-                onclick="buyNowDirectly()"
-                style="width: 100%; padding: 1.15rem 2rem; background: #111827; color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.22); transition: all 0.15s; letter-spacing: 0.02em;"
-                onmouseover="this.style.transform='scale(1.02)'"
-                onmouseout="this.style.transform='scale(1)'"
-              >
-                <span>
-                  {%- if deposit_plan_id != nil -%}
-                    ⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout
-                  {%- else -%}
-                    ⚡ Buy It Now — Instant Secure Checkout
-                  {%- endif -%}
-                </span>
-              </button>
-
-              <!-- Reassurance under buttons -->
-              <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
-                <span>🔒 256-bit SSL Secure</span>
-                <span>📦 Free US Shipping</span>
-                <span>↩️ 30-Day Returns</span>
-                <span>✅ Genuine Product</span>
-              </div>
-
-              {%- comment -%}
-                Shopify accelerated dynamic checkout button.
-                Shopify's native payment_button forces 100% full payment and ignores selling plans.
-                DirectBuyNowBtn provides 1-click instant checkout.
-              {%- endcomment -%}
-              {%- if section.settings.show_dynamic_checkout and deposit_plan_id == nil -%}
-                <div class="dynamic-checkout-wrapper" style="width: 100%;">
-                  {{ form | payment_button }}
-                </div>
-              {%- endif -%}
-            {%- endif -%}
+            <!-- Reassurance under button -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
+              <span>🔒 256-bit SSL Secure</span>
+              <span>📦 Free Residential Liftgate Delivery</span>
+              <span>↩️ 30-Day Money-Back Guarantee</span>
+              <span>✅ Genuine Factory Product</span>
+            </div>
           </div>
         {%- endform -%}
 
@@ -702,18 +623,11 @@
     </div>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-    <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">
+    <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 11px 22px; font-size: 0.95rem; font-weight: 800; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.35);">
       {%- if deposit_plan_id != nil -%}
-        Reserve 50% Deposit
+        Reserve 50% Deposit ({{ product.price | divided_by: 2 | money }})
       {%- else -%}
         Add to Cart
-      {%- endif -%}
-    </button>
-    <button type="button" id="StickyBuyNowBtn" onclick="buyNowDirectly()" class="btn btn--dark" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #111827; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-      {%- if deposit_plan_id != nil -%}
-        ⚡ Pay 50% Deposit
-      {%- else -%}
-        ⚡ Buy Now
       {%- endif -%}
     </button>
   </div>
@@ -854,116 +768,26 @@
     }
   });
 
-  // Payment Option Selector Function (50% Deposit vs Full Payment)
-  window.selectPaymentOption = function(choice, planId) {
-    const planInput = document.getElementById('ProductSellingPlanInput');
-    const radioDeposit = document.getElementById('RadioPlanDeposit');
-    const radioFull = document.getElementById('RadioPlanFull');
-    const optDeposit = document.getElementById('PlanOptionDeposit');
-    const optFull = document.getElementById('PlanOptionFull');
-    const atcText = document.querySelector('.btn--atc .atc-text');
-    const buyNowBtn = document.getElementById('DirectBuyNowBtn');
-    const stickyAtcBtn = document.getElementById('StickyATCBtn');
-    const stickyBuyNowBtn = document.getElementById('StickyBuyNowBtn');
-
-    if (choice === 'deposit') {
-      if (planInput) planInput.value = planId || '692131725608';
-      if (radioDeposit) radioDeposit.checked = true;
-      if (radioFull) radioFull.checked = false;
-      if (optDeposit) {
-        optDeposit.style.borderColor = '#16a34a';
-        optDeposit.style.background = '#F0FDF4';
-        optDeposit.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
-      }
-      if (optFull) {
-        optFull.style.borderColor = '#E2E8F0';
-        optFull.style.background = '#FFFFFF';
-        optFull.style.boxShadow = 'none';
-      }
-      const hDeposit = document.getElementById('HeaderPriceDeposit');
-      const hBadge = document.getElementById('HeaderPriceDepositBadge');
-      const hFull = document.getElementById('HeaderPriceFull');
-      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}';
-      if (hBadge) hBadge.style.display = 'inline-block';
-      if (hFull) {
-        hFull.textContent = 'Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}';
-        hFull.style.display = 'inline';
-      }
-      if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
-      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
-      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Reserve 50% Deposit';
-      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Pay 50% Deposit';
-    } else {
-      if (planInput) planInput.value = '';
-      if (radioDeposit) radioDeposit.checked = false;
-      if (radioFull) radioFull.checked = true;
-      if (optDeposit) {
-        optDeposit.style.borderColor = '#E2E8F0';
-        optDeposit.style.background = '#FFFFFF';
-        optDeposit.style.boxShadow = 'none';
-      }
-      if (optFull) {
-        optFull.style.borderColor = '#16a34a';
-        optFull.style.background = '#F0FDF4';
-        optFull.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
-      }
-      const hDeposit = document.getElementById('HeaderPriceDeposit');
-      const hBadge = document.getElementById('HeaderPriceDepositBadge');
-      const hFull = document.getElementById('HeaderPriceFull');
-      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | money }}';
-      if (hBadge) hBadge.style.display = 'none';
-      if (hFull) hFull.style.display = 'none';
-      if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Liftgate Delivery';
-      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
-      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Add to Cart';
-      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Buy Now';
-    }
-  };
-
-  // Direct 1-Click Buy Now (Instant Checkout)
-  window.buyNowDirectly = function() {
-    const form = document.getElementById('ProductForm');
-    if (!form) return;
-    const btn = document.getElementById('DirectBuyNowBtn');
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = '<span>⏳ Preparing 50% Deposit Checkout...</span>';
-    }
-    const formData = new FormData(form);
-    const spVal = formData.get('selling_plan');
-    if (!spVal || spVal.trim() === '') {
-      formData.delete('selling_plan');
-    }
-
-    // Always clear old cart items first to prevent variant conflicts, then add fresh with selling plan
-    fetch('/cart/clear.js', {
-      method: 'POST',
-      headers: { 'X-Requested-With': 'XMLHttpRequest' }
-    })
-    .then(function() {
-      return fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'X-Requested-With': 'XMLHttpRequest' },
-        body: formData
-      });
-    })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      if (data.status && data.status >= 400) {
-        alert(data.description || 'Unable to proceed to checkout.');
-        if (btn) {
-          btn.disabled = false;
-          btn.innerHTML = '<span>⚡ Pay 50% Deposit Now — Instant Checkout</span>';
+  // Auto-verify Downpay 50% deposit option is active
+  document.addEventListener('DOMContentLoaded', function() {
+    function ensureDownpayDepositSelected() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach(function(r) {
+        const val = (r.value || '').toLowerCase();
+        const id = (r.id || '').toLowerCase();
+        const name = (r.name || '').toLowerCase();
+        if (val.includes('deposit') || val === '692131725608' || id.includes('deposit') || name.includes('downpay')) {
+          if (!r.checked) {
+            r.click();
+          }
         }
-      } else {
-        window.location.href = '/checkout';
-      }
-    })
-    .catch(function(err) {
-      console.error('Instant checkout error:', err);
-      window.location.href = '/checkout';
-    });
-  };
+      });
+    }
+    ensureDownpayDepositSelected();
+    setTimeout(ensureDownpayDepositSelected, 400);
+    setTimeout(ensureDownpayDepositSelected, 1200);
+    setTimeout(ensureDownpayDepositSelected, 2500);
+  });
 </script>
 
 {% schema %}
