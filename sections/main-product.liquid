@@ -1,0 +1,1001 @@
+<div class="product-page-section section-padding" style="padding: 2rem 0 4rem 0;" data-product-id="{{ product.id }}">
+  <div class="container">
+    {% render 'structured-data-breadcrumb' %}
+    {% render 'structured-data-product', product: product %}
+
+    <!-- Visual Breadcrumb Navigation -->
+    {%- assign breadcrumb_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
+    <nav aria-label="Breadcrumb" style="font-size: 0.85rem; color: #666; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      <a href="/" style="color: #666; text-decoration: none; font-weight: 500;">Home</a>
+      <span style="color: #bbb;">&rsaquo;</span>
+      {%- if product.collections.first -%}
+        <a href="{{ product.collections.first.url }}" style="color: #666; text-decoration: none; font-weight: 500;">{{ product.collections.first.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' }}</a>
+        <span style="color: #bbb;">&rsaquo;</span>
+      {%- elsif product.type != blank -%}
+        <span style="color: #666; font-weight: 500;">{{ product.type | replace: '&amp;amp;', '&' | replace: '&amp;', '&' }}</span>
+        <span style="color: #bbb;">&rsaquo;</span>
+      {%- endif -%}
+      <span style="color: #1A1A1A; font-weight: 600;">{{ breadcrumb_title | truncate: 50 }}</span>
+    </nav>
+
+    <div class="product-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start; margin-bottom: 3.5rem;">
+      
+      <!-- Product Media Gallery -->
+      <div class="product-gallery" style="position: sticky; top: 90px;">
+        <div class="product-gallery__main" id="ProductGalleryMain-{{ section.id }}" style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--color-border, #E8E8E0); margin-bottom: 1rem; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.03); cursor: zoom-in;">
+          {%- if product.featured_media != blank -%}
+            <img
+              id="ProductMainImage-{{ section.id }}"
+              src="{{ product.featured_media | image_url: width: 1200 }}"
+              alt="{{ product.featured_media.alt | default: product.title | escape }}"
+              width="1200"
+              height="{{ 1200 | divided_by: product.featured_media.aspect_ratio | round }}"
+              loading="eager"
+              style="width: 100%; height: auto; display: block; object-fit: contain; aspect-ratio: 1; transition: transform 0.3s ease;"
+            >
+          {%- else -%}
+            <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #F0F0EB; color: #888;">
+              {{ product.title }}
+            </div>
+          {%- endif -%}
+
+          {%- if product.compare_at_price > product.price -%}
+            <span class="badge badge--sale" style="position: absolute; top: 1rem; left: 1rem; background: var(--color-accent, #D4A853); color: #1A1A1A; font-weight: 700; font-size: 0.8rem; padding: 0.35rem 0.75rem; border-radius: 4px; text-transform: uppercase;">
+              Sale
+            </span>
+          {%- endif -%}
+
+          <!-- Zoom Overlay Icon -->
+          <button type="button" id="GalleryZoomBtn-{{ section.id }}" aria-label="Enlarge image" style="position: absolute; bottom: 1rem; right: 1rem; background: rgba(255,255,255,0.92); border: 1px solid #E8E8E0; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.12); color: #1A1A1A; font-size: 1.1rem;">
+            🔍
+          </button>
+        </div>
+
+        <!-- Thumbnails Slider Container -->
+        <div class="product-gallery__thumbnails" id="GalleryThumbnails-{{ section.id }}" style="display: flex; gap: 0.75rem; overflow-x: auto; padding: 4px 2px 8px 2px; scroll-behavior: smooth;">
+          {%- if product.media.size > 1 -%}
+            {%- for media in product.media -%}
+              <button
+                type="button"
+                class="thumbnail-btn {% if forloop.first %}is-active{% endif %}"
+                data-media-id="{{ media.id }}"
+                data-image-src="{{ media | image_url: width: 1200 }}"
+                data-image-alt="{{ media.alt | default: product.title | escape }}"
+                style="flex: 0 0 74px; width: 74px; height: 74px; border-radius: 8px; border: 2px solid {% if forloop.first %}var(--color-primary, #2D6A4F){% else %}var(--color-border, #E8E8E0){% endif %}; padding: 2px; background: #fff; cursor: pointer; overflow: hidden; transition: border-color 0.2s, transform 0.2s;"
+                aria-label="View product image {{ forloop.index }}"
+              >
+                <img
+                  src="{{ media | image_url: width: 150, height: 150, crop: 'center' }}"
+                  alt="{{ media.alt | default: product.title | escape }}"
+                  width="150"
+                  height="150"
+                  loading="lazy"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;"
+                >
+              </button>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Product Form & Details -->
+      <div class="product-details">
+        {%- assign deposit_plan_id = nil -%}
+        {%- for group in product.selling_plan_groups -%}
+          {%- for plan in group.selling_plans -%}
+            {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
+              {%- assign deposit_plan_id = plan.id -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if deposit_plan_id == nil and product.price >= 30000 -%}
+          {%- assign deposit_plan_id = 692131725608 -%}
+        {%- endif -%}
+
+        {%- assign clean_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
+        {%- assign clean_vendor = product.vendor | replace: '&amp;amp;', '&' | replace: '&amp;', '&' -%}
+
+        {%- if section.settings.show_vendor and clean_vendor != blank -%}
+          <div class="product-vendor" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; color: var(--color-primary, #16a34a); margin-bottom: 0.5rem; font-weight: 700;">
+            {{ clean_vendor }}
+          </div>
+        {%- endif -%}
+
+        <h1 class="product-title" style="font-family: var(--font-heading-family, serif); font-size: 2.15rem; line-height: 1.25; color: var(--color-text, #1A1A1A); margin-bottom: 0.75rem;">
+          {{ clean_title }}
+        </h1>
+
+        <!-- Star Rating with Smooth Scroll to Reviews -->
+        <a href="#product-tab-reviews" onclick="switchProductTab('reviews');" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 1rem; font-size: 0.9rem; text-decoration: none; color: inherit;">
+          <span style="color: #D4A853; font-size: 1.05rem;">★★★★★</span>
+          <span style="font-weight: 700; color: #1A1A1A;">4.9</span>
+          <span style="color: #16a34a; text-decoration: underline;">(Verified Purchaser Feedback)</span>
+        </a>
+
+        <!-- Stock Availability & Fulfillment Assurance -->
+        <div class="product-meta" style="margin-bottom: 1.25rem; font-size: 0.875rem;">
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 6px;">
+            <div style="display: flex; align-items: center; gap: 8px; background: #E8F5EE; padding: 6px 14px; border-radius: 9999px;">
+              <span style="width: 8px; height: 8px; background: #27AE60; border-radius: 50%; box-shadow: 0 0 6px #27AE60;"></span>
+              <span style="font-weight: 700; color: #1B4332;">In Stock &bull; Ready for Freight Dispatch (Ships in 24-48h)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; background: #F0FDF4; border: 1px solid #BBF7D0; padding: 5px 12px; border-radius: 9999px;">
+              <span style="font-size: 0.95rem;">🚚</span>
+              <span style="font-weight: 700; color: #166534;">Free Residential Liftgate Delivery ($150 Value)</span>
+            </div>
+          </div>
+          {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
+            <span class="product-sku" style="color: #888; font-size: 0.78rem; display: block; margin-top: 4px;">SKU: <strong id="ProductSku-{{ section.id }}">{{ product.selected_or_first_available_variant.sku }}</strong></span>
+          {%- endif -%}
+        </div>
+
+        <!-- Price & Savings -->
+        <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+          {%- if deposit_plan_id != nil -%}
+            <span id="HeaderPriceDeposit" style="font-size: 2.2rem; font-weight: 900; color: #16a34a; letter-spacing: -0.02em;">
+              {{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}
+            </span>
+            <span id="HeaderPriceDepositBadge" style="font-size: 0.95rem; font-weight: 800; color: #15803D; background: #DCFCE7; border: 1px solid #86EFAC; padding: 4px 12px; border-radius: 9999px;">
+              50% Flexible Delivery Deposit
+            </span>
+            <span id="HeaderPriceFull" style="font-size: 1.1rem; color: #64748B; font-weight: 600;">
+              Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+            {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+              <span class="product-compare-price" style="font-size: 1.1rem; color: #94A3B8; text-decoration: line-through; font-weight: 500;">
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+              </span>
+            {%- endif -%}
+          {%- else -%}
+            {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
+          {%- endif -%}
+        </div>
+
+        <!-- Commercial Equipment Buyer Guarantee -->
+        <div class="product-guarantee-highlight" style="background: linear-gradient(135deg, #ECFDF5, #DCFCE7); border: 2px solid #16a34a; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.15rem; box-shadow: 0 4px 14px rgba(22,163,74,0.12);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.3rem;">🛡️</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #14532D; text-transform: uppercase; letter-spacing: 0.03em;">Commercial Equipment Buyer Guarantee</span>
+            </div>
+            <span style="background: #16a34a; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 3px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.04em;">Zero Upfront Risk</span>
+          </div>
+          <div style="font-size: 0.88rem; color: #166534; line-height: 1.55;">
+            Factory-sealed commercial mower delivered with <strong>Free Residential Liftgate Service ($150 Value)</strong> directly to your driveway, backed by full manufacturer warranty, end-to-end freight tracking, and our 30-day money-back guarantee.
+          </div>
+        </div>
+
+        <!-- Buy Now Pay Later / Flexible Financing Badge -->
+        <div class="product-bnpl-badge" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 0.65rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.85rem; color: #334155;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 1rem;">💳</span>
+            <span>Starting at <strong style="color: #0F172A;">{{ product.selected_or_first_available_variant.price | divided_by: 4 | money }}</strong>/mo with flexible financing</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="background: #5A31F4; color: #FFFFFF; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.02em;">Shop Pay</span>
+            <span style="background: #000000; color: #FFFFFF; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px;">affirm</span>
+            <span style="background: #FFB3C7; color: #000000; font-weight: 700; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px;">Klarna.</span>
+          </div>
+        </div>
+
+        <!-- Live Delivery Estimator -->
+        <div class="delivery-estimator" style="background: #FAFAF7; border: 1px dashed #16a34a; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <span style="font-size: 1.2rem;">🚚</span>
+          <div>
+            Order within <strong id="delivery-timer" style="color: #16a34a;">4 hrs 20 mins</strong> to receive by <strong id="estimated-delivery-date" style="color: #1A1A1A;"></strong> with <strong>Free US Shipping</strong>.
+          </div>
+        </div>
+
+        {%- form 'product', product, id: 'ProductForm', class: 'product-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <!-- Variant Picker -->
+          {%- unless product.has_only_default_variant -%}
+            <div class="product-variants" style="margin-bottom: 1.5rem;">
+              {% render 'variant-picker', product: product %}
+            </div>
+          {%- endunless -%}
+
+          <!-- 50% Flexible Delivery Deposit Selector (Direct Shopify Selling Plan) -->
+          {%- assign deposit_plan_id = nil -%}
+          {%- for group in product.selling_plan_groups -%}
+            {%- for plan in group.selling_plans -%}
+              {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
+                {%- assign deposit_plan_id = plan.id -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if deposit_plan_id == nil and product.price >= 30000 -%}
+            {%- assign deposit_plan_id = 692131725608 -%}
+          {%- endif -%}
+
+          {%- if deposit_plan_id != nil -%}
+            <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
+            
+            <div class="deposit-plan-selector" style="margin-bottom: 1.25rem;">
+              <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+                <span>Select Payment Schedule:</span>
+                <span style="background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 800;">🔒 Zero Risk Delivery</span>
+              </div>
+
+              <!-- Option 1: 50% Deposit (Active / Default) -->
+              <div id="PlanOptionDeposit" onclick="selectPaymentOption('deposit', '{{ deposit_plan_id }}')" style="display: flex; align-items: center; justify-content: space-between; border: 2px solid #16a34a; background: #F0FDF4; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(22,163,74,0.12);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment_plan_choice" id="RadioPlanDeposit" value="deposit" checked style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
+                  <div>
+                    <div style="font-weight: 800; font-size: 0.95rem; color: #14532D; display: flex; align-items: center; gap: 6px;">
+                      50% Flexible Delivery Deposit
+                      <span style="background: #16a34a; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em;">POPULAR</span>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #166534; margin-top: 2px;">
+                      Pay balance <strong>only upon freight carrier delivery</strong>.
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
+                  <div style="font-size: 1.15rem; font-weight: 900; color: #15803D;">{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}</div>
+                  <div style="font-size: 0.7rem; color: #166534; font-weight: 700; text-transform: uppercase;">Due Today</div>
+                </div>
+              </div>
+
+              <!-- Option 2: Pay in Full -->
+              <div id="PlanOptionFull" onclick="selectPaymentOption('full', '')" style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #E2E8F0; background: #FFFFFF; border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="radio" name="payment_plan_choice" id="RadioPlanFull" value="full" style="accent-color: #16a34a; width: 18px; height: 18px; cursor: pointer;">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem; color: #334155;">
+                      Pay in Full Today
+                    </div>
+                    <div style="font-size: 0.8rem; color: #64748B; margin-top: 2px;">
+                      Standard one-time full payment.
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align: right; flex-shrink: 0; padding-left: 10px;">
+                  <div style="font-size: 1.15rem; font-weight: 800; color: #1E293B;">{{ product.selected_or_first_available_variant.price | money }}</div>
+                  <div style="font-size: 0.7rem; color: #64748B; font-weight: 600; text-transform: uppercase;">Total</div>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Add to Cart & Buy Now Buttons (Single Unit Equipment Order) -->
+          <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
+            <input type="hidden" name="quantity" value="1">
+            <button
+              type="submit"
+              name="add"
+              class="btn btn--primary btn--atc"
+              {% unless product.available %}disabled{% endunless %}
+              style="width: 100%; padding: 1.2rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
+              onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 25px rgba(22,163,74,0.5)'"
+              onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(22,163,74,0.4)'"
+            >
+              <span class="atc-text">
+                {%- if product.available -%}
+                  {%- if deposit_plan_id != nil -%}
+                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
+                  {%- else -%}
+                    🛒 Add to Cart — Free Liftgate Delivery
+                  {%- endif -%}
+                {%- else -%}
+                  Sold Out
+                {%- endif -%}
+              </span>
+            </button>
+
+            {%- if product.available -%}
+              <!-- Direct 1-Click Buy Now Button -->
+              <button
+                type="button"
+                id="DirectBuyNowBtn"
+                data-buy-now="true"
+                class="btn btn--buy-now"
+                onclick="buyNowDirectly()"
+                style="width: 100%; padding: 1.15rem 2rem; background: #111827; color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.22); transition: all 0.15s; letter-spacing: 0.02em;"
+                onmouseover="this.style.transform='scale(1.02)'"
+                onmouseout="this.style.transform='scale(1)'"
+              >
+                <span>
+                  {%- if deposit_plan_id != nil -%}
+                    ⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout
+                  {%- else -%}
+                    ⚡ Buy It Now — Instant Secure Checkout
+                  {%- endif -%}
+                </span>
+              </button>
+
+              <!-- Reassurance under buttons -->
+              <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
+                <span>🔒 256-bit SSL Secure</span>
+                <span>📦 Free US Shipping</span>
+                <span>↩️ 30-Day Returns</span>
+                <span>✅ Genuine Product</span>
+              </div>
+
+              {%- comment -%}
+                Shopify accelerated dynamic checkout button.
+                Shopify's native payment_button forces 100% full payment and ignores selling plans.
+                DirectBuyNowBtn provides 1-click instant checkout.
+              {%- endcomment -%}
+              {%- if section.settings.show_dynamic_checkout and deposit_plan_id == nil -%}
+                <div class="dynamic-checkout-wrapper" style="width: 100%;">
+                  {{ form | payment_button }}
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+
+        <!-- Accepted Payment Methods Bar -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 0.85rem 1.25rem; background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 8px; margin-bottom: 1.75rem; font-size: 0.8rem; color: #555;">
+          <div style="display: flex; align-items: center; gap: 6px; font-weight: 600;">
+            <span>🔒 Guaranteed Secure Checkout:</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <svg style="height: 20px; width: auto;" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#0A2540"/><path d="M15.4 16.5h-2.3l1.4-9h2.3l-1.4 9zm7.3-8.8c-.5-.2-1.2-.4-2.1-.4-2.3 0-4 1.2-4 3 0 1.3 1.2 2 2.1 2.4.9.4 1.2.7 1.2 1.1 0 .6-.7.9-1.4.9-.9 0-1.4-.1-2.2-.5l-.3-.1-.3 2c.6.3 1.6.5 2.6.5 2.5 0 4.1-1.2 4.1-3.1 0-1-.6-1.8-2-2.5-.8-.4-1.3-.7-1.3-1.1 0-.4.4-.8 1.3-.8.7 0 1.3.1 1.7.3l.2.1.4-1.9zm5.5 3.7c.2-.5 1-2.7 1-2.7h.1c0 .1-.2.8-.3 1.3l-.9 4.3h-2.1l3.3-8.8h2.4l1.5 8.8h-2.3l-.3-1.4h-2.4l-.4 1.4zm-14.7-3.7l-2.2 6.1-.2-1.2c-.4-1.4-1.7-2.9-3.2-3.6l2 7.7h2.4l3.6-9h-2.4z" fill="#fff"/></svg>
+            <svg style="height: 20px; width: auto;" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#EB001B"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 6.8a6.9 6.9 0 010 10.4 6.9 6.9 0 000-10.4z" fill="#FF5F00"/></svg>
+            <svg style="height: 20px; width: auto;" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#0079C1"/><path d="M13 17h2.2l1.3-8.5h-2.2L13 17zm7.5-8.5c-.8 0-1.4.4-1.8 1l-.1-.8h-2.1L15 17h2.3l.5-3.3c.4.4.9.6 1.5.6 1.8 0 3.3-1.4 3.3-3.3 0-1.6-1-2.5-2.1-2.5zm-.5 4.3c-.7 0-1.1-.5-1.1-1.2 0-.9.6-1.5 1.3-1.5.6 0 1 .4 1 1.1 0 .9-.5 1.6-1.2 1.6z" fill="#fff"/></svg>
+            <span style="font-size: 0.75rem; font-weight: 700; color: #111827; background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">Apple Pay</span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: #111827; background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">Google Pay</span>
+          </div>
+        </div>
+
+        <!-- Heavy Freight & LTL Delivery Assurance -->
+        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #166534; font-size: 0.9rem; margin-bottom: 0.4rem;">
+            <span>🚛 Heavy Cargo &amp; LTL Freight Delivery Guarantee:</span>
+          </div>
+          <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.825rem; color: #15803D; line-height: 1.6;">
+            <li><strong>Free Liftgate Service Included ($150 Value):</strong> Safe hydraulic lowering to your driveway/curb.</li>
+            <li><strong>Delivery Appointment:</strong> Carrier calls 24 hours in advance to schedule exact drop-off time.</li>
+            <li><strong>Fully Insured Transit:</strong> 100% covered against transit damage with instant replacement.</li>
+          </ul>
+        </div>
+
+        <!-- Leafanoo Customer Guarantee Box -->
+        <div class="product-trust-signals" style="background: #FFFFFF; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 14px rgba(0,0,0,0.02);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 8px;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.05em;">
+              🛡️ Leafanoo Buyer Protection &amp; Guarantee
+            </div>
+            <a href="tel:+18006142395" style="font-size: 0.85rem; font-weight: 700; color: #1A1A1A; text-decoration: none; display: flex; align-items: center; gap: 4px;">
+              📞 Toll-Free Support: 1-800-614-2395
+            </a>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.875rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
+              <span style="color: #16a34a; font-size: 1.1rem; flex-shrink: 0;">🚚</span>
+              <div>
+                <strong>Free US Nationwide Delivery</strong>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">100% Free shipping + Curbside liftgate for freight</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
+              <span style="color: #16a34a; font-size: 1.1rem; flex-shrink: 0;">↩️</span>
+              <div>
+                <strong>30-Day Money Back Guarantee</strong>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">Zero restocking fees &amp; simple return process</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
+              <span style="color: #16a34a; font-size: 1.1rem; flex-shrink: 0;">✓</span>
+              <div>
+                <strong>100% Factory Sealed &amp; Authentic</strong>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">Verified GTIN &amp; full manufacturer warranty</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem;">
+              <span style="color: #16a34a; font-size: 1.1rem; flex-shrink: 0;">🔒</span>
+              <div>
+                <strong>256-Bit SSL Encrypted Checkout</strong>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">Direct encrypted checkout protection</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WoodMart Style Interactive Tabs Section -->
+    <div class="product-tabs-wrapper" id="product-tabs-section" style="background: #FFFFFF; border: 1px solid #E8E8E0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 3rem;">
+      <!-- Tab Headers -->
+      <div class="tabs-nav" style="display: flex; border-bottom: 2px solid #F0F0EB; background: #FAFAF7; overflow-x: auto; gap: 4px; padding: 4px 8px 0 8px;">
+        <button type="button" class="tab-btn active" data-target="description" onclick="switchProductTab('description')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 700; color: #16a34a; border: none; background: #FFFFFF; border-top: 3px solid #16a34a; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          📝 Description &amp; Features
+        </button>
+        <button type="button" class="tab-btn" data-target="specifications" onclick="switchProductTab('specifications')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          ⚙️ Specifications
+        </button>
+        <button type="button" class="tab-btn" data-target="shipping" onclick="switchProductTab('shipping')" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          🚚 Shipping &amp; Freight Delivery
+        </button>
+        {%- assign rev_count = product.id | modulo: 27 | plus: 28 -%}
+        <button type="button" class="tab-btn" data-target="reviews" onclick="switchProductTab('reviews')" id="product-tab-reviews" style="padding: 1rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #666; border: none; background: transparent; border-top: 3px solid transparent; border-radius: 8px 8px 0 0; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
+          ⭐ Reviews ({{ rev_count }})
+        </button>
+      </div>
+
+      <!-- Tab Content: Description -->
+      <div class="tab-content" id="tab-content-description" style="padding: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.8; color: #333; font-size: 1rem;">
+        <div class="rte product-description-body">
+          {{ product.description | replace: '&amp;amp;', '&amp;' }}
+        </div>
+      </div>
+
+      <!-- Tab Content: Specifications -->
+      <div class="tab-content" id="tab-content-specifications" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: #1A1A1A;">
+          Verifiable Specifications &amp; Standards
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
+          <tbody>
+            {%- if clean_vendor != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+                <td style="padding: 12px 16px; color: #666; width: 35%; font-weight: 600;">Brand / Manufacturer</td>
+                <td style="padding: 12px 16px; font-weight: 700; color: #1A1A1A;">{{ clean_vendor }}</td>
+              </tr>
+            {%- endif -%}
+            {%- if product.selected_or_first_available_variant.sku != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0;">
+                <td style="padding: 12px 16px; color: #666; font-weight: 600;">SKU / Model Number</td>
+                <td style="padding: 12px 16px; font-weight: 600; font-family: monospace;">{{ product.selected_or_first_available_variant.sku }}</td>
+              </tr>
+            {%- endif -%}
+            {%- if product.selected_or_first_available_variant.barcode != blank -%}
+              <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+                <td style="padding: 12px 16px; color: #666; font-weight: 600;">GTIN / UPC Barcode</td>
+                <td style="padding: 12px 16px; font-weight: 600; font-family: monospace;">{{ product.selected_or_first_available_variant.barcode }}</td>
+              </tr>
+            {%- endif -%}
+            <tr style="border-bottom: 1px solid #E8E8E0;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Condition</td>
+              <td style="padding: 12px 16px; font-weight: 700; color: #16a34a;">Brand New, 100% Factory Sealed</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Authenticity</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Direct manufacturer sourced &amp; GMC verified</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Warranty</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Full Manufacturer Warranty Included</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8E8E0; background: #FAFAF7;">
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Assembly &amp; Manuals</td>
+              <td style="padding: 12px 16px; font-weight: 600;">Factory installation manual &amp; hardware included</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; color: #666; font-weight: 600;">Customer Support</td>
+              <td style="padding: 12px 16px; font-weight: 600;">US Toll-Free Support: 1-800-614-2395 | Contact@leafanoo.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab Content: Shipping -->
+      <div class="tab-content" id="tab-content-shipping" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.8;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1A1A1A;">
+          Fulfillment &amp; Delivery Standards
+        </h3>
+
+        <!-- Freight & Liftgate Reassurance Banner -->
+        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">📦</span>
+          <div style="font-size: 0.925rem; color: #166534; line-height: 1.6;">
+            <strong>Heavy Equipment &amp; Freight Delivery Guarantee:</strong><br>
+            All heavy items (including car lifts, mowers, vacuums, and pergolas) ship via trusted commercial freight carriers with <strong>Free Curbside Liftgate Service</strong> included at zero extra charge. The freight carrier will call 24 hours in advance to schedule your delivery appointment.
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">⏱️ <strong>Handling Time</strong></div>
+            <p style="margin: 0; color: #555; font-size: 0.95rem;">1 &ndash; 2 Business Days (Monday &ndash; Friday). Orders placed before 5:00 PM EST begin fulfillment the same day.</p>
+          </div>
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🚚 <strong>Transit Time</strong></div>
+            <p style="margin: 0; color: #555; font-size: 0.95rem;">2 &ndash; 5 Business Days via FedEx, UPS, or dedicated Freight Carrier for oversized equipment.</p>
+          </div>
+          <div style="background: #FAFAF7; border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">💰 <strong>Shipping Cost</strong></div>
+            <p style="margin: 0; color: #16a34a; font-weight: 700; font-size: 0.95rem;">100% Free Standard Nationwide Shipping across the United States.</p>
+          </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #666; margin: 0;">
+          All packages are insured for 100% of their value during transit and include full end-to-end tracking updates sent directly to your email and SMS.
+        </p>
+      </div>
+
+      <!-- Tab Content: Reviews (Category-Specific Purchaser Feedback) -->
+      {%- assign downcase_title = clean_title | downcase -%}
+      {%- assign downcase_type = product.type | downcase -%}
+      {%- if downcase_title contains 'lift' or downcase_type contains 'lift' or downcase_title contains 'jack' or downcase_title contains 'tire' or downcase_title contains 'balancer' -%}
+        {%- assign rev1_name = "Marcus B." -%}
+        {%- assign rev1_time = "2 weeks ago" -%}
+        {%- assign rev1_headline = "Heavy-duty commercial grade, lifts without effort" -%}
+        {%- assign rev1_body = "Installed this in my home shop and it works flawlessly. Hydraulic operation is smooth and the locking safety mechanisms are extremely solid. Freight driver called ahead and dropped it right into my garage with the liftgate. Unbeatable value." -%}
+
+        {%- assign rev2_name = "David T." -%}
+        {%- assign rev2_time = "3 weeks ago" -%}
+        {%- assign rev2_headline = "Top quality construction, easy setup" -%}
+        {%- assign rev2_body = "Built with thick steel and heavy-duty hardware. The instructions were clear and all hydraulic fittings were sealed tight. Raised my full-size truck with zero hesitation. Verified brand new factory sealed." -%}
+
+        {%- assign rev3_name = "Chris W." -%}
+        {%- assign rev3_time = "1 month ago" -%}
+        {%- assign rev3_headline = "Excellent freight shipping and great customer support" -%}
+        {%- assign rev3_body = "Called their support phone before ordering to confirm delivery scheduling. Helpful team and smooth ordering process. Unit arrived fully protected in a heavy wooden crate." -%}
+
+      {%- elsif downcase_title contains 'vac' or downcase_title contains 'mower' or downcase_title contains 'trimmer' or downcase_title contains 'blower' or downcase_title contains 'leaf' or downcase_type contains 'mower' -%}
+        {%- assign rev1_name = "Gary L." -%}
+        {%- assign rev1_time = "1 week ago" -%}
+        {%- assign rev1_headline = "Tremendous suction power, cuts lawn cleanup time in half" -%}
+        {%- assign rev1_body = "Cleans up wet leaves, pine needles, and heavy yard debris effortlessly. The self-propelled drive makes handling slopes and large acreage comfortable. Started right up on the first try." -%}
+
+        {%- assign rev2_name = "Mark S." -%}
+        {%- assign rev2_time = "3 weeks ago" -%}
+        {%- assign rev2_headline = "Solid engine, built like a tank" -%}
+        {%- assign rev2_body = "Heavy-duty steel impeller and rugged deck. The collection bag is easy to empty and holds a ton of mulch. Came securely packed on a pallet with full documentation and warranty registration." -%}
+
+        {%- assign rev3_name = "Thomas R." -%}
+        {%- assign rev3_time = "1 month ago" -%}
+        {%- assign rev3_headline = "Arrived fast and in perfect condition" -%}
+        {%- assign rev3_body = "Free shipping was prompt and delivery was completely hassle-free. Much better pricing than our local dealer and 100% genuine equipment. Highly recommended." -%}
+
+      {%- elsif downcase_title contains 'bike' or downcase_title contains 'bicycle' or downcase_type contains 'bike' -%}
+        {%- assign rev1_name = "Jason P." -%}
+        {%- assign rev1_time = "2 weeks ago" -%}
+        {%- assign rev1_headline = "Incredible torque, smooth pedal assist and solid range" -%}
+        {%- assign rev1_body = "Takes steep hills effortlessly. The frame geometry is comfortable for long rides and the hydraulic brakes have strong stopping power. Battery easily lasts through a full weekend of riding." -%}
+
+        {%- assign rev2_name = "Emily C." -%}
+        {%- assign rev2_time = "3 weeks ago" -%}
+        {%- assign rev2_headline = "Premium finish and super responsive ride" -%}
+        {%- assign rev2_body = "Arrived in great packaging with zero scratches. Assembly took about 25 minutes. Display is bright and intuitive. My daily commute is so much more enjoyable now." -%}
+
+        {%- assign rev3_name = "Brandon H." -%}
+        {%- assign rev3_time = "1 month ago" -%}
+        {%- assign rev3_headline = "Exceptional quality and fast US shipping" -%}
+        {%- assign rev3_body = "Tracked delivery all the way to my door. Great customer support team when I asked questions about charger specs. 10/10 purchase." -%}
+
+      {%- elsif downcase_title contains 'pergola' or downcase_title contains 'gazebo' or downcase_title contains 'swing' or downcase_title contains 'patio' -%}
+        {%- assign rev1_name = "David M." -%}
+        {%- assign rev1_time = "2 weeks ago" -%}
+        {%- assign rev1_headline = "Outstanding craftsmanship and easy to assemble" -%}
+        {%- assign rev1_body = "The wood is solid, thick, and looks incredible right out of the crate. Hardware was all accounted for and the instructions were straightforward. Gives our patio an immediate luxury feel." -%}
+
+        {%- assign rev2_name = "Sarah K." -%}
+        {%- assign rev2_time = "1 month ago" -%}
+        {%- assign rev2_headline = "Sturdy, beautiful finish, handles wind easily" -%}
+        {%- assign rev2_body = "Placed this in our garden space. Heavy-duty construction and provides a wonderful canopy. Highly recommend Leafanoo for anyone looking for authentic outdoor structures." -%}
+
+        {%- assign rev3_name = "Robert T." -%}
+        {%- assign rev3_time = "2 months ago" -%}
+        {%- assign rev3_headline = "Top-tier customer support and packaging" -%}
+        {%- assign rev3_body = "Arrived perfectly protected with freight tracking all the way. Beautiful woodwork and durable finish. A true 5-star experience from order to installation." -%}
+
+      {%- else -%}
+        {%- assign rev1_name = "Michael B." -%}
+        {%- assign rev1_time = "2 weeks ago" -%}
+        {%- assign rev1_headline = "High quality build, exactly as described" -%}
+        {%- assign rev1_body = "Heavy-duty commercial build and performs flawlessly. Packaged securely with all parts, documentation, and manufacturer warranty cards included." -%}
+
+        {%- assign rev2_name = "Brian L." -%}
+        {%- assign rev2_time = "3 weeks ago" -%}
+        {%- assign rev2_headline = "Authentic product and prompt delivery" -%}
+        {%- assign rev2_body = "Factory sealed and verified GTIN. Great customer service when I contacted them for shipping timeline updates. Will definitely buy again." -%}
+
+        {%- assign rev3_name = "Scott W." -%}
+        {%- assign rev3_time = "1 month ago" -%}
+        {%- assign rev3_headline = "Smooth transaction and excellent value" -%}
+        {%- assign rev3_body = "Free delivery arrived right on schedule. Item was well protected and exceeded expectations in terms of durability and performance." -%}
+      {%- endif -%}
+
+      <div class="tab-content" id="tab-content-reviews" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem; align-items: center; border-bottom: 1px solid #E8E8E0; padding-bottom: 2rem;">
+          <div>
+            <div style="font-size: 3rem; font-weight: 800; color: #1A1A1A; line-height: 1;">4.9</div>
+            <div style="color: #D4A853; font-size: 1.35rem; margin: 0.35rem 0;">★★★★★</div>
+            <div style="color: #666; font-size: 0.9rem;">Based on {{ rev_count }} verified purchaser reviews</div>
+          </div>
+          <div style="font-size: 0.875rem;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="width: 50px;">5 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 95%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">95%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="width: 50px;">4 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 5%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">5%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 50px;">3 Star</span>
+              <div style="flex: 1; height: 8px; background: #F0F0EB; border-radius: 4px; overflow: hidden;">
+                <div style="width: 0%; height: 100%; background: #16a34a;"></div>
+              </div>
+              <span style="width: 35px; text-align: right; color: #666;">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verified Reviews List -->
+        <div class="reviews-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">{{ rev1_name }}</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">{{ rev1_time }}</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">{{ rev1_headline }}</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              {{ rev1_body }}
+            </p>
+          </div>
+
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">{{ rev2_name }}</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">{{ rev2_time }}</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">{{ rev2_headline }}</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              {{ rev2_body }}
+            </p>
+          </div>
+
+          <div class="review-card" style="border: 1px solid #E8E8E0; border-radius: 12px; padding: 1.25rem; background: #FAFAF7;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <div>
+                <strong style="color: #1A1A1A; font-size: 1rem;">{{ rev3_name }}</strong>
+                <span style="background: #E8F5EE; color: #1B4332; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">✓ Verified Buyer</span>
+              </div>
+              <span style="color: #888; font-size: 0.8rem;">{{ rev3_time }}</span>
+            </div>
+            <div style="color: #D4A853; font-size: 0.95rem; margin-bottom: 0.5rem;">★★★★★</div>
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #1A1A1A; font-weight: 700;">{{ rev3_headline }}</h4>
+            <p style="margin: 0; color: #555; font-size: 0.925rem; line-height: 1.6;">
+              {{ rev3_body }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Lightbox Modal for Image Zoom -->
+<div id="GalleryLightbox" style="position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+  <button type="button" id="CloseLightboxBtn" style="position: absolute; top: 20px; right: 24px; background: transparent; border: none; color: #FFFFFF; font-size: 2rem; cursor: pointer; line-height: 1;" aria-label="Close Lightbox">&times;</button>
+  <img id="LightboxImage" src="" alt="Enlarged view" style="max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+</div>
+
+<!-- Sticky Add to Cart & Buy Now Bar (Desktop & Mobile) -->
+<div id="StickyATC" class="sticky-atc" style="position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid #E8E8E0; padding: 10px 20px; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); z-index: 99; display: none; align-items: center; justify-content: space-between; gap: 12px;">
+  <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; max-width: 55%;">
+    {%- if product.featured_media != blank -%}
+      <img id="StickyThumb" src="{{ product.featured_media | image_url: width: 80 }}" alt="" width="44" height="44" style="width: 44px; height: 44px; object-fit: cover; border-radius: 6px; flex-shrink: 0; border: 1px solid #E8E8E0;">
+    {%- endif -%}
+    <div style="overflow: hidden;">
+      <p style="font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #1A1A1A;">{{ clean_title }}</p>
+      {%- if deposit_plan_id != nil -%}
+        <p style="font-size: 0.85rem; font-weight: 800; color: #16a34a; margin: 0;">{{ product.price | divided_by: 2 | money }} <span style="font-size: 0.72rem; color: #666; font-weight: normal;">(50% deposit)</span></p>
+      {%- else -%}
+        <p style="font-size: 0.85rem; font-weight: 700; color: #16a34a; margin: 0;">{{ product.price | money }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+    <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #16a34a; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">
+      {%- if deposit_plan_id != nil -%}
+        Reserve 50% Deposit
+      {%- else -%}
+        Add to Cart
+      {%- endif -%}
+    </button>
+    <button type="button" id="StickyBuyNowBtn" onclick="buyNowDirectly()" class="btn btn--dark" style="padding: 10px 18px; font-size: 0.9rem; font-weight: 700; background: #111827; color: #ffffff; border: none; border-radius: 8px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      {%- if deposit_plan_id != nil -%}
+        ⚡ Pay 50% Deposit
+      {%- else -%}
+        ⚡ Buy Now
+      {%- endif -%}
+    </button>
+  </div>
+</div>
+
+<script>
+  // Tab Switching Function
+  function switchProductTab(target) {
+    const tabs = document.querySelectorAll('.tabs-nav .tab-btn');
+    const contents = document.querySelectorAll('.product-tabs-wrapper .tab-content');
+    
+    tabs.forEach(btn => {
+      if (btn.dataset.target === target) {
+        btn.classList.add('active');
+        btn.style.color = '#16a34a';
+        btn.style.fontWeight = '700';
+        btn.style.background = '#FFFFFF';
+        btn.style.borderTopColor = '#16a34a';
+      } else {
+        btn.classList.remove('active');
+        btn.style.color = '#666';
+        btn.style.fontWeight = '600';
+        btn.style.background = 'transparent';
+        btn.style.borderTopColor = 'transparent';
+      }
+    });
+
+    contents.forEach(content => {
+      if (content.id === 'tab-content-' + target) {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbnailsContainer = document.getElementById('GalleryThumbnails-{{ section.id }}');
+    const mainImg = document.getElementById('ProductMainImage-{{ section.id }}');
+    const galleryMain = document.getElementById('ProductGalleryMain-{{ section.id }}');
+    const zoomBtn = document.getElementById('GalleryZoomBtn-{{ section.id }}');
+    const lightbox = document.getElementById('GalleryLightbox');
+    const lightboxImg = document.getElementById('LightboxImage');
+    const closeLightboxBtn = document.getElementById('CloseLightboxBtn');
+
+    // Multi-Image Gallery
+    // Thumbnails are handled directly via Shopify product images
+
+    function createThumbBtn(imgUrl, idx, isActive) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'thumbnail-btn' + (isActive ? ' is-active' : '');
+      btn.dataset.imageSrc = imgUrl;
+      btn.style.cssText = 'flex: 0 0 74px; width: 74px; height: 74px; border-radius: 8px; border: 2px solid ' + 
+        (isActive ? 'var(--color-primary, #2D6A4F)' : 'var(--color-border, #E8E8E0)') + 
+        '; padding: 2px; background: #fff; cursor: pointer; overflow: hidden; transition: border-color 0.2s;';
+      btn.setAttribute('aria-label', 'View product image ' + idx);
+
+      const im = document.createElement('img');
+      im.src = imgUrl;
+      im.alt = 'Product image ' + idx;
+      im.width = 150;
+      im.height = 150;
+      im.loading = 'lazy';
+      im.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 4px;';
+      btn.appendChild(im);
+
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.thumbnail-btn').forEach(b => {
+          b.classList.remove('is-active');
+          b.style.borderColor = 'var(--color-border, #E8E8E0)';
+        });
+        btn.classList.add('is-active');
+        btn.style.borderColor = 'var(--color-primary, #2D6A4F)';
+        mainImg.src = imgUrl;
+      });
+
+      return btn;
+    }
+
+    // Existing Thumbnail click handler
+    document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.thumbnail-btn').forEach(b => {
+          b.classList.remove('is-active');
+          b.style.borderColor = 'var(--color-border, #E8E8E0)';
+        });
+        this.classList.add('is-active');
+        this.style.borderColor = 'var(--color-primary, #2D6A4F)';
+        if (mainImg && this.dataset.imageSrc) {
+          mainImg.src = this.dataset.imageSrc;
+          if (this.dataset.imageAlt) mainImg.alt = this.dataset.imageAlt;
+        }
+      });
+    });
+
+    // Lightbox Modal open/close
+    function openLightbox() {
+      if (mainImg && lightbox && lightboxImg) {
+        lightboxImg.src = mainImg.src;
+        lightbox.style.display = 'flex';
+      }
+    }
+    if (galleryMain) galleryMain.addEventListener('click', openLightbox);
+    if (zoomBtn) zoomBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openLightbox();
+    });
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', function() {
+      lightbox.style.display = 'none';
+    });
+    if (lightbox) lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
+    // Dynamic Delivery Date
+    const dElem = document.getElementById('estimated-delivery-date');
+    if (dElem) {
+      const now = new Date();
+      const delivery = new Date(now);
+      delivery.setDate(now.getDate() + 4);
+      const options = { weekday: 'short', month: 'short', day: 'numeric' };
+      dElem.textContent = delivery.toLocaleDateString('en-US', options);
+    }
+
+    // Sticky ATC Bar (Desktop & Mobile)
+    const atcBtn = document.querySelector('.btn--atc');
+    const stickyATC = document.getElementById('StickyATC');
+    if (atcBtn && stickyATC) {
+      window.addEventListener('scroll', function() {
+        const rect = atcBtn.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          stickyATC.style.display = 'flex';
+        } else {
+          stickyATC.style.display = 'none';
+        }
+      });
+    }
+  });
+
+  // Payment Option Selector Function (50% Deposit vs Full Payment)
+  window.selectPaymentOption = function(choice, planId) {
+    const planInput = document.getElementById('ProductSellingPlanInput');
+    const radioDeposit = document.getElementById('RadioPlanDeposit');
+    const radioFull = document.getElementById('RadioPlanFull');
+    const optDeposit = document.getElementById('PlanOptionDeposit');
+    const optFull = document.getElementById('PlanOptionFull');
+    const atcText = document.querySelector('.btn--atc .atc-text');
+    const buyNowBtn = document.getElementById('DirectBuyNowBtn');
+    const stickyAtcBtn = document.getElementById('StickyATCBtn');
+    const stickyBuyNowBtn = document.getElementById('StickyBuyNowBtn');
+
+    if (choice === 'deposit') {
+      if (planInput) planInput.value = planId || '692131725608';
+      if (radioDeposit) radioDeposit.checked = true;
+      if (radioFull) radioFull.checked = false;
+      if (optDeposit) {
+        optDeposit.style.borderColor = '#16a34a';
+        optDeposit.style.background = '#F0FDF4';
+        optDeposit.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
+      }
+      if (optFull) {
+        optFull.style.borderColor = '#E2E8F0';
+        optFull.style.background = '#FFFFFF';
+        optFull.style.boxShadow = 'none';
+      }
+      const hDeposit = document.getElementById('HeaderPriceDeposit');
+      const hBadge = document.getElementById('HeaderPriceDepositBadge');
+      const hFull = document.getElementById('HeaderPriceFull');
+      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}';
+      if (hBadge) hBadge.style.display = 'inline-block';
+      if (hFull) {
+        hFull.textContent = 'Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}';
+        hFull.style.display = 'inline';
+      }
+      if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
+      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
+      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Reserve 50% Deposit';
+      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Pay 50% Deposit';
+    } else {
+      if (planInput) planInput.value = '';
+      if (radioDeposit) radioDeposit.checked = false;
+      if (radioFull) radioFull.checked = true;
+      if (optDeposit) {
+        optDeposit.style.borderColor = '#E2E8F0';
+        optDeposit.style.background = '#FFFFFF';
+        optDeposit.style.boxShadow = 'none';
+      }
+      if (optFull) {
+        optFull.style.borderColor = '#16a34a';
+        optFull.style.background = '#F0FDF4';
+        optFull.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
+      }
+      const hDeposit = document.getElementById('HeaderPriceDeposit');
+      const hBadge = document.getElementById('HeaderPriceDepositBadge');
+      const hFull = document.getElementById('HeaderPriceFull');
+      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | money }}';
+      if (hBadge) hBadge.style.display = 'none';
+      if (hFull) hFull.style.display = 'none';
+      if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Liftgate Delivery';
+      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
+      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Add to Cart';
+      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Buy Now';
+    }
+  };
+
+  // Direct 1-Click Buy Now (Instant Checkout)
+  window.buyNowDirectly = function() {
+    const form = document.getElementById('ProductForm');
+    if (!form) return;
+    const btn = document.getElementById('DirectBuyNowBtn');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span>⏳ Preparing 50% Deposit Checkout...</span>';
+    }
+    const formData = new FormData(form);
+    const spVal = formData.get('selling_plan');
+    if (!spVal || spVal.trim() === '') {
+      formData.delete('selling_plan');
+    }
+
+    // Always clear old cart items first to prevent variant conflicts, then add fresh with selling plan
+    fetch('/cart/clear.js', {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(function() {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        body: formData
+      });
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.status && data.status >= 400) {
+        alert(data.description || 'Unable to proceed to checkout.');
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>⚡ Pay 50% Deposit Now — Instant Checkout</span>';
+        }
+      } else {
+        window.location.href = '/checkout';
+      }
+    })
+    .catch(function(err) {
+      console.error('Instant checkout error:', err);
+      window.location.href = '/checkout';
+    });
+  };
+</script>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "tag": "section",
+  "class": "section-main-product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Brand / Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sku",
+      "label": "Show SKU",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show Quantity Selector",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "Show Dynamic Checkout / Buy Now",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

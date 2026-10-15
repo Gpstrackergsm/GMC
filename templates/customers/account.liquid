@@ -1,0 +1,229 @@
+{% comment %}
+  Leafanoo — Customer Account Template
+  Layout: theme.liquid
+{% endcomment %}
+
+<div class="leafanoo-account page-width">
+  <div class="account__header">
+    <h1 class="account__title">My Account</h1>
+    <a href="{{ routes.account_logout_url }}" class="account__logout link underlined-link">
+      Sign Out
+    </a>
+  </div>
+
+  <div class="account__grid">
+
+    {%- comment -%} ── Account Details ─────────────────────────────────────── {%- endcomment -%}
+    <div class="account__details card">
+      <h2 class="account__section-title">Account Details</h2>
+
+      <address class="account__address">
+        <p class="account__customer-name">{{ customer.name }}</p>
+        <p class="account__customer-email">{{ customer.email }}</p>
+
+        {%- if customer.default_address -%}
+          <div class="account__default-address">
+            <h3 class="account__address-label">Default Shipping Address</h3>
+            <p>
+              {{ customer.default_address.name }}<br>
+              {%- if customer.default_address.company != blank -%}
+                {{ customer.default_address.company }}<br>
+              {%- endif -%}
+              {{ customer.default_address.address1 }}<br>
+              {%- if customer.default_address.address2 != blank -%}
+                {{ customer.default_address.address2 }}<br>
+              {%- endif -%}
+              {{ customer.default_address.city }},
+              {{ customer.default_address.province_code }}
+              {{ customer.default_address.zip }}<br>
+              {{ customer.default_address.country }}
+            </p>
+          </div>
+        {%- endif -%}
+      </address>
+
+      <a href="{{ routes.account_addresses_url }}" class="button button--secondary button--small">
+        Manage Addresses
+      </a>
+    </div>
+
+    {%- comment -%} ── Order History ────────────────────────────────────────── {%- endcomment -%}
+    <div class="account__orders">
+      <h2 class="account__section-title">Order History</h2>
+
+      {%- if customer.orders.size > 0 -%}
+        <div class="account__orders-table-wrapper">
+          <table class="account__orders-table" role="table">
+            <caption class="visually-hidden">Order history for {{ customer.name }}</caption>
+            <thead>
+              <tr>
+                <th scope="col">Order</th>
+                <th scope="col">Date</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Fulfillment Status</th>
+                <th scope="col">Total</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for order in customer.orders -%}
+                <tr>
+                  <td data-label="Order">
+                    <a href="{{ order.customer_url }}" class="account__order-link link underlined-link">
+                      #{{ order.name }}
+                    </a>
+                  </td>
+                  <td data-label="Date">
+                    {{ order.created_at | time_tag: format: 'date' }}
+                  </td>
+                  <td data-label="Payment Status">
+                    <span class="badge badge--{{ order.financial_status }}">
+                      {{ order.financial_status_label }}
+                    </span>
+                  </td>
+                  <td data-label="Fulfillment Status">
+                    <span class="badge badge--{{ order.fulfillment_status }}">
+                      {{ order.fulfillment_status_label }}
+                    </span>
+                  </td>
+                  <td data-label="Total">
+                    {{ order.total_price | money_with_currency }}
+                  </td>
+                  <td>
+                    <a href="{{ order.customer_url }}" class="button button--tertiary button--small">
+                      View Order
+                    </a>
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      {%- else -%}
+        <div class="account__orders-empty">
+          <p class="account__orders-empty-text">You haven't placed any orders yet.</p>
+          <a href="/collections/all" class="button button--primary">
+            Start Shopping
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .leafanoo-account {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+  .account__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .account__title {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+  .account__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  @media (min-width: 750px) {
+    .account__grid {
+      grid-template-columns: 26rem 1fr;
+      align-items: start;
+    }
+  }
+  .account__section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+  .card {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    border-radius: var(--popup-corner-radius, 0.4rem);
+    padding: 2.4rem;
+    background: rgb(var(--color-background));
+  }
+  .account__customer-name {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .account__customer-email {
+    color: rgba(var(--color-foreground), 0.65);
+    font-size: 1.3rem;
+    margin-bottom: 1.6rem;
+  }
+  .account__default-address {
+    margin: 1.6rem 0;
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+  .account__address-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: rgba(var(--color-foreground), 0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .account__orders-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .account__orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+  }
+  .account__orders-table th,
+  .account__orders-table td {
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+  .account__orders-table thead th {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(var(--color-foreground), 0.65);
+    white-space: nowrap;
+  }
+  .account__order-link {
+    font-weight: 600;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgba(var(--color-foreground), 0.85);
+  }
+  .badge--paid, .badge--fulfilled { background: #d4edda; color: #155724; }
+  .badge--pending, .badge--unfulfilled { background: #fff3cd; color: #856404; }
+  .badge--refunded, .badge--voided { background: #f8d7da; color: #721c24; }
+  .account__orders-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    border-radius: var(--popup-corner-radius, 0.4rem);
+  }
+  .account__orders-empty-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: rgba(var(--color-foreground), 0.65);
+  }
+</style>

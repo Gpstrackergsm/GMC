@@ -1,0 +1,536 @@
+/* ==========================================================================
+   Leafanoo Shopify OS 2.0 Theme Stylesheet
+   Style: Matches laitm.com — Lexend Deca + Parchment + Forest Green
+   ========================================================================== */
+
+/* --- Custom Properties / Design Tokens (laitm.com palette) --- */
+:root {
+  /* Primary green — matches laitm.com #16a34a */
+  --color-primary: #16a34a;
+  --color-primary-dark: #0f7a37;
+  --color-primary-light: #4ade80;
+  --color-primary-contrast: #FFFFFF;
+  --color-primary-tint: #e7f6ec;
+
+  /* Secondary / accent */
+  --color-secondary: #16a34a;
+  --color-accent: #16a34a;
+  --color-accent-hover: #0f7a37;
+
+  /* Backgrounds — parchment like laitm.com */
+  --color-bg: #faf6ee;
+  --color-surface: #FFFFFF;
+  --color-bg-muted: #f4f4f0;
+
+  /* Text — ink colors from laitm.com */
+  --color-text: #1c1a16;
+  --color-text-muted: #57534e;
+  --color-text-subtle: #78716c;
+
+  /* Borders */
+  --color-border: rgba(28,26,22,.1);
+  --color-border-light: rgba(28,26,22,.06);
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #d97706;
+
+  /* Fonts — Lexend Deca matches laitm.com exactly */
+  --font-heading-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-base: 16px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --container-max-width: 1280px;
+  --container-padding: 1.5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}
+
+/* --- Box Sizing & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main#MainContent {
+  flex: 1 0 auto;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* --- Accessibility Helpers --- */
+.skip-to-content-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  z-index: 9999;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-to-content-link:focus {
+  top: 1rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-family);
+  color: var(--color-text);
+  line-height: 1.25;
+  font-weight: var(--font-weight-bold);
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.btn--lg {
+  padding: 1rem 2.25rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-text);
+  background-color: #F0F0EC;
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--accent {
+  background-color: var(--color-accent);
+  color: #1A1A1A;
+  font-weight: var(--font-weight-bold);
+}
+
+.btn--accent:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* --- Product Cards --- */
+.product-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #F4F5F2;
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.03);
+}
+
+.product-card__info {
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card__vendor {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-subtle);
+  margin-bottom: 0.25rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.product-card__title {
+  font-family: var(--font-body-family);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  flex-grow: 1;
+}
+
+.product-card__price {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-top: 0.25rem;
+}
+
+/* --- Price Styling --- */
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.price__regular {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.price__sale {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.price__compare {
+  text-decoration: line-through;
+  color: var(--color-text-subtle);
+  font-size: 0.9em;
+}
+
+.price--large .price__regular,
+.price--large .price__sale {
+  font-size: 1.75rem;
+}
+
+/* --- Badges --- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge--sale {
+  background-color: var(--color-accent);
+  color: #1A1A1A;
+}
+
+.badge--sold-out {
+  background-color: #E0E0E0;
+  color: #666666;
+}
+
+/* --- Forms & Inputs --- */
+.form-input, input[type="text"], input[type="email"], input[type="password"], input[type="search"], select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus, input:focus, select:focus, textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast);
+}
+
+.site-header.is-scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Responsive Utilities --- */
+@media (max-width: 767px) {
+  .hide-mobile { display: none !important; }
+  .collection-main-layout { grid-template-columns: 1fr !important; }
+}
+
+@media (min-width: 768px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* Modern Horizontal Pagination */
+.laitm-pagination-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0 2rem;
+  width: 100%;
+}
+.laitm-pagination {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-wrap: wrap !important;
+}
+.laitm-pagination__item {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-block !important;
+}
+.laitm-pagination__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 42px !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid #E5E7EB !important;
+  background-color: #FFFFFF !important;
+  color: #1F2937 !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+}
+.laitm-pagination__btn:hover {
+  border-color: #16a34a !important;
+  color: #16a34a !important;
+  background-color: #F0FDF4 !important;
+  transform: translateY(-1px) !important;
+}
+.laitm-pagination__btn.is-active {
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.28) !important;
+  cursor: default !important;
+  transform: none !important;
+}
+.laitm-pagination__btn--prev,
+.laitm-pagination__btn--next {
+  padding: 0 16px !important;
+  gap: 6px !important;
+}
+.laitm-pagination__ellipsis {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px !important;
+  height: 42px !important;
+  color: #9CA3AF !important;
+  font-size: 16px !important;
+  letter-spacing: 2px !important;
+}
+@media (max-width: 640px) {
+  .laitm-pagination {
+    gap: 6px !important;
+  }
+  .laitm-pagination__btn {
+    min-width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    padding: 0 8px !important;
+  }
+  .laitm-pagination__btn--prev span,
+  .laitm-pagination__btn--next span {
+    display: none !important;
+  }
+  .laitm-pagination__btn--prev,
+  .laitm-pagination__btn--next {
+    padding: 0 10px !important;
+  }
+}
+
+/* ==========================================================================
+   Leafanoo High-Converting Cart Drawer & Cart Item Styles
+   ========================================================================== */
+.cart-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 9999999 !important;
+}
+
+.cart-drawer__container {
+  font-family: var(--font-body-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+.cart-item {
+  transition: opacity 0.2s ease;
+}
+
+.cart-qty-btn {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.cart-qty-btn:active {
+  background: #D1D5DB !important;
+}
+
+/* Hide native number spinners */
+.cart-item input[type=number]::-webkit-inner-spin-button,
+.cart-item input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cart-item input[type=number] {
+  -moz-appearance: textfield;
+}

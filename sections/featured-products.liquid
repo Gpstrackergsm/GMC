@@ -1,0 +1,223 @@
+<div class="featured-products section-padding" style="padding: {{ section.settings.padding_top | default: 64 }}px 0 {{ section.settings.padding_bottom | default: 64 }}px 0; background-color: #ffffff;">
+  <div class="container">
+    {%- if section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="section-header text-{{ section.settings.text_alignment | default: 'center' }}" style="margin-bottom: 3rem; text-align: {{ section.settings.text_alignment | default: 'center' }};">
+        <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: 'Lexend Deca', sans-serif;">
+          {{ section.settings.caption | default: 'Handpicked For Quality' }}
+        </span>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="section-heading" style="font-family: 'Lexend Deca', sans-serif; font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #1c1a16; margin-bottom: 0.75rem;">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="section-subheading" style="color: #666; font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign collection = section.settings.collection -%}
+    {%- if collection == blank or collection.products.size == 0 -%}
+      {%- assign collection = collections['all'] -%}
+      {%- if collection == blank or collection.products.size == 0 -%}
+        {%- assign collection = collections.first -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- assign limit = section.settings.products_to_show | default: 8 -%}
+
+    <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.75rem;">
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- for product in collection.products limit: limit -%}
+          <div class="product-grid-item">
+            {% render 'product-card',
+              product: product,
+              show_vendor: section.settings.show_vendor,
+              show_quick_add: section.settings.show_quick_add,
+              image_ratio: section.settings.image_ratio
+            %}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign fallback_titles = "16 Ft. X 16 Ft. Pacific Douglas Fir Wood Traditional Pergola,Backyard Discovery 12′ x 9.5′ Arcadia Slope Roof Cedar Gazebo with PowerPort,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Backyard Discovery 14′ X 10′ Somerville Pergola W/ Electric – Dark Walnut DIY,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Backyard Discovery 20′ x 12′ Beaumont Pergola – Premium Cedar Wood,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower" | split: "," -%}
+        {%- assign fallback_prices = "$4,299.00,$2,199.00,$2,499.00,$2,799.00,$1,799.00,$3,199.00,$1,999.00,$1,599.00" | split: "," -%}
+        {%- assign fallback_vendors = "Pacific Pergolas,Backyard Discovery,Craftsman,Backyard Discovery,Craftsman,Backyard Discovery,Troy-Bilt,Craftsman" | split: "," -%}
+        {%- assign fallback_badges = "Best Seller,Trending,Top Rated,Staff Pick,Popular,Must Have,Verified,Hot Deal" | split: "," -%}
+        {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png" | split: "," -%}
+
+        {%- for i in (0..7) -%}
+          {%- assign p_title = fallback_titles[i] -%}
+          {%- assign p_price = fallback_prices[i] -%}
+          {%- assign p_vendor = fallback_vendors[i] -%}
+          {%- assign p_badge = fallback_badges[i] -%}
+          {%- assign p_img = fallback_imgs[i] -%}
+          {%- if forloop.index > limit %}{% break %}{% endif -%}
+
+          <article class="product-card" style="border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #FAF6EE; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; z-index: 2; font-family: 'Lexend Deca', sans-serif;">
+                {{ p_badge }}
+              </span>
+              <img src="{{ p_img }}" alt="{{ p_title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <div class="product-card__info" style="padding: 1.25rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+              <div>
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #78716c; margin-bottom: 0.25rem; font-weight: 600; font-family: 'Lexend Deca', sans-serif;">
+                  {{ p_vendor }}
+                </p>
+                <h3 style="font-family: 'Lexend Deca', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; color: #1c1a16;">
+                  {{ p_title }}
+                </h3>
+                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #f59e0b;">
+                  <span>★★★★★</span>
+                  <span style="color: #78716c; font-size: 0.75rem;">(verified)</span>
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 1.2rem; font-weight: 800; color: #0f7a37; margin-bottom: 0.75rem; font-family: 'Lexend Deca', sans-serif;">
+                  {{ p_price }}
+                </div>
+                <a href="/collections/all" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 11px 16px; font-size: 0.875rem; border-radius: 8px; background: #16a34a; color: #fff; font-weight: 700; text-align: center; text-decoration: none; display: flex; font-family: 'Lexend Deca', sans-serif;">
+                  View Product &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div class="view-all-wrapper" style="text-align: center; margin-top: 3.5rem;">
+        <a href="/collections/all" class="btn btn--primary btn--lg" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: #2D6A4F; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 16px rgba(45,106,79,0.3);">
+          {{ section.settings.view_all_label | default: 'Explore All 1,000+ Products' }}
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M10 5l5 5-5 5"/></svg>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "tag": "section",
+  "class": "section-featured-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption Tag",
+      "default": "Handpicked For Quality"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trending Essentials"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Subheading",
+      "default": "Carefully selected, practical everyday items engineered for durability, utility, and transparent value."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 16,
+      "step": 2,
+      "default": 8,
+      "label": "Products to Show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Desktop Columns"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image Ratio",
+      "options": [
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Brand / Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_add",
+      "label": "Show Quick Add",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "'View All' Button Label",
+      "default": "Explore All 1,000+ Products"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products",
+      "settings": {
+        "heading": "Trending Essentials"
+      }
+    }
+  ]
+}
+{% endschema %}

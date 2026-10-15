@@ -1,6 +1,6 @@
 {%- comment -%}
   Snippet: cart-item.liquid
-  High-Converting Mower Cart Line Item with 50% Deposit Breakdown & Working Stepper
+  High-Converting Mower Cart Line Item with Working Stepper
 {%- endcomment -%}
 
 <div
@@ -52,19 +52,18 @@
       </button>
     </div>
 
-    <!-- 50% Flexible Delivery Deposit Box -->
-    <div style="background: #ECFDF5; border: 1px solid #10B981; border-radius: 8px; padding: 7px 10px; margin: 8px 0; font-size: 0.8rem;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
-        <span style="color: #065F46; font-weight: 800; display: flex; align-items: center; gap: 4px;">
-          <span>🛡️ 50% Deposit Option:</span>
-        </span>
-        <strong style="color: #047857; font-size: 0.9rem;">{{ item.final_line_price | divided_by: 2 | money }} Due Today</strong>
+    {%- if item.selling_plan_allocation != nil -%}
+      <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 8px; padding: 7px 10px; margin: 8px 0; font-size: 0.8rem;">
+        <div style="color: #065F46; font-weight: 800;">🛡️ 50% Flexible Delivery Deposit</div>
+        <div style="color: #047857; font-size: 0.75rem; margin-top: 2px;">
+          Due Today: <strong>{{ item.final_line_price | divided_by: 2 | money }}</strong> &bull; Balance on delivery: {{ item.final_line_price | divided_by: 2 | money }}
+        </div>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; color: #047857; font-size: 0.74rem;">
-        <span>Remaining 50% balance on carrier delivery:</span>
-        <span style="font-weight: 600;">{{ item.final_line_price | divided_by: 2 | money }}</span>
+    {%- else -%}
+      <div style="background: #ECFDF5; border: 1px solid #10B981; border-radius: 8px; padding: 6px 10px; margin: 6px 0; font-size: 0.78rem; color: #065F46; font-weight: 700;">
+        🛡️ 50% Delivery Deposit: {{ item.final_line_price | divided_by: 2 | money }} Due Today
       </div>
-    </div>
+    {%- endif -%}
 
     <!-- Quantity Stepper & Full Line Price -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">

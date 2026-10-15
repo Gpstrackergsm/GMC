@@ -1,0 +1,91 @@
+<section class="promo-banner-section section-padding" style="padding: 48px 0; background-color: #FAFAF7;">
+  <div class="container">
+    <div class="promo-banner" style="background: linear-gradient(135deg, #0F2D1E 0%, #165330 100%); border-radius: 20px; padding: clamp(2rem, 5vw, 3.5rem); color: #ffffff; position: relative; overflow: hidden; box-shadow: 0 16px 48px rgba(15,35,25,0.25); border: 2px solid #16a34a;">
+      
+      <!-- Ambient Glow Accents -->
+      <div style="position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(74,222,128,0.25) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+      <div style="position: absolute; bottom: -80px; left: 10%; width: 240px; height: 240px; background: radial-gradient(circle, rgba(22,163,74,0.3) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+
+      <div style="position: relative; z-index: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; align-items: center;">
+        <div>
+          <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(74,222,128,0.2); border: 1px solid #4ade80; padding: 6px 16px; border-radius: 9999px; font-size: 0.82rem; font-weight: 800; color: #86efac; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+            🛡️ Zero-Risk Equipment Buying
+          </span>
+          <h2 style="font-family: var(--font-heading-family, serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #ffffff; line-height: 1.25; margin-bottom: 1rem;">
+            Pay Only 50% Deposit Today. <span style="color: #4ade80;">Remaining 50% on Delivery.</span>
+          </h2>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.9); margin-bottom: 1.75rem; max-width: 520px;">
+            Reserve any commercial or residential riding mower with just 50% down. We safely process your order, crate the unit, and schedule residential hydraulic liftgate freight to your driveway. You are only charged the second half once carrier dispatch is confirmed!
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <a href="/collections/all" class="btn btn--primary" style="padding: 14px 32px; background: #22c55e; color: #052e16; font-weight: 800; font-size: 1.05rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(34,197,94,0.4);">
+              Explore Mowers with 50% Deposit &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">💳</div>
+            <h3 style="font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">50% Down</h3>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0;">Lowest upfront commitment on market</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🚚</div>
+            <h3 style="font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">Free Liftgate</h3>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0;">Hydraulic curb drop-off ($150 value)</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🛡️</div>
+            <h3 style="font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">Factory Warranty</h3>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0;">100% brand-new sealed equipment</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📞</div>
+            <h3 style="font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">Phone Support</h3>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0;">Call toll-free: 1-800-614-2395</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promo Banner",
+  "tag": "section",
+  "class": "section-promo-banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Upgrade Your Daily Routine with Verified Essentials"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Explore 1,000 top-trending physical products across Smart Tech, Kitchen, Ergonomics, and Wellness at transparent manufacturer prices."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Trending Catalog"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Banner"
+    }
+  ]
+}
+{% endschema %}

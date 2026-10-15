@@ -1,0 +1,77 @@
+<article class="article-template section-padding" style="padding: 2rem 0 4rem 0;" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container" style="max-width: 780px; margin: 0 auto; padding: 0 1rem;">
+    {% render 'structured-data-breadcrumb' %}
+
+    <header class="article-header text-center" style="margin-bottom: 2.5rem; text-align: center;">
+      <div class="article-meta" style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">
+        <span itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
+        {%- if article.author != blank -%}
+          &bull; <span itemprop="author">{{ article.author }}</span>
+        {%- endif -%}
+      </div>
+
+      <h1 class="article-title" itemprop="headline" style="font-family: var(--font-heading-family, serif); font-size: 2.5rem; line-height: 1.25; color: var(--color-text, #1A1A1A); margin-bottom: 1.5rem;">
+        {{ article.title }}
+      </h1>
+    </header>
+
+    {%- if article.image -%}
+      <div class="article-featured-image" style="border-radius: 12px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+        <img
+          src="{{ article.image | image_url: width: 1200 }}"
+          alt="{{ article.image.alt | default: article.title | escape }}"
+          itemprop="image"
+          loading="eager"
+          style="width: 100%; height: auto; display: block;"
+        >
+      </div>
+    {%- endif -%}
+
+    <div class="rte article-body" itemprop="articleBody" style="font-size: 1.1rem; line-height: 1.85; color: #333; margin-bottom: 3rem;">
+      {{ article.content }}
+    </div>
+
+    <div class="article-footer" style="border-top: 1px solid var(--color-border, #E8E8E0); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+      <a href="{{ blog.url }}" style="color: var(--color-primary, #2D6A4F); font-weight: 600; text-decoration: none;">
+        &larr; Back to {{ blog.title }}
+      </a>
+    </div>
+  </div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ canonical_url | json }}
+  },
+  "headline": {{ article.title | json }},
+  {% if article.image %}
+    "image": [
+      {{ article.image | image_url: width: 1200 | prepend: "https:" | json }}
+    ],
+  {% endif %}
+  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "author": {
+    "@type": "Person",
+    "name": {{ article.author | default: shop.name | json }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }}
+  },
+  "description": {{ article.excerpt_or_content | strip_html | truncatewords: 30 | json }}
+}
+</script>
+
+{% schema %}
+{
+  "name": "Article Content",
+  "tag": "section",
+  "class": "section-main-article",
+  "settings": []
+}
+{% endschema %}

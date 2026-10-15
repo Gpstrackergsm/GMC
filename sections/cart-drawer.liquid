@@ -1,0 +1,108 @@
+<div id="CartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart" style="display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9999999;">
+  <!-- Backdrop -->
+  <div class="cart-drawer__backdrop" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0.55); backdrop-filter: blur(3px);"></div>
+
+  <!-- Drawer Body -->
+  <div class="cart-drawer__container" style="position: absolute; top: 0; right: 0; bottom: 0; width: 100%; max-width: 440px; background: #FFFFFF; display: flex; flex-direction: column; box-shadow: -4px 0 28px rgba(0,0,0,0.22); transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);">
+    
+    <!-- Drawer Header -->
+    <div class="cart-drawer__header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.15rem 1.4rem; border-bottom: 1px solid var(--color-border, #E8E8E0); background: #FAFBF9;">
+      <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: #111827;">
+        Your Cart (<span class="cart-drawer-count">{{ cart.item_count }}</span>)
+      </h2>
+      <button type="button" class="cart-drawer-close" aria-label="Close cart drawer" style="background: none; border: none; cursor: pointer; padding: 0.4rem; color: #4B5563; font-size: 1.5rem; line-height: 1;" onmouseover="this.style.color='#111827'" onmouseout="this.style.color='#4B5563'">
+        &times;
+      </button>
+    </div>
+
+    <!-- Free Shipping & Liftgate Freight Bar -->
+    <div class="cart-drawer__shipping-bar" style="background: #F0FDF4; padding: 0.75rem 1.25rem; border-bottom: 1px solid #DCFCE7; font-size: 0.82rem; color: #166534;">
+      <div id="FreeShippingMessage" style="display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 800;">
+        <span>🚚 Free Residential Liftgate Freight Included ($150 Value)</span>
+      </div>
+      <div style="font-size: 0.74rem; color: #15803D; margin-top: 3px; text-align: center;">
+        Hydraulic driveway lowering &amp; 24h carrier appointment scheduling.
+      </div>
+    </div>
+
+    <!-- Drawer Content / Items -->
+    <div class="cart-drawer__content" style="flex: 1; overflow-y: auto; padding: 0.75rem 1.4rem;">
+      <div id="CartDrawerItems">
+        {%- if cart.item_count > 0 -%}
+          {%- for item in cart.items -%}
+            {% render 'cart-item', item: item, index: forloop.index %}
+          {%- endfor -%}
+        {%- else -%}
+          <div class="cart-drawer__empty" style="text-align: center; padding: 3.5rem 1rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🛒</div>
+            <p style="color: #6B7280; font-size: 1rem; margin-bottom: 1.5rem;">Your cart is currently empty.</p>
+            <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 1.75rem; background: var(--color-primary, #16a34a); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700;">
+              Explore All Riding Mowers
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer__footer" style="padding: 1.15rem 1.4rem 2rem 1.4rem; border-top: 1px solid var(--color-border, #E8E8E0); background: #FAFBF9;">
+      
+      <!-- 50% Flexible Delivery Deposit Breakdown -->
+      <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; padding: 12px 14px; margin-bottom: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+          <span style="font-size: 0.92rem; font-weight: 800; color: #065F46;">Due Today (50% Deposit):</span>
+          <span class="cart-drawer-deposit" style="font-size: 1.35rem; font-weight: 900; color: #047857;">{{ cart.total_price | divided_by: 2 | money }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #065F46; border-top: 1px dashed #A7F3D0; padding-top: 6px; margin-bottom: 4px;">
+          <span>Remaining 50% on carrier delivery:</span>
+          <span style="font-weight: 800;">{{ cart.total_price | divided_by: 2 | money }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px;">
+          <span>Total Order Value:</span>
+          <span class="cart-drawer-subtotal" style="font-weight: 700; color: #111827;">{{ cart.total_price | money }}</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <a href="/checkout" class="btn btn--primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 1.15rem 1rem; text-align: center; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 16px rgba(22,163,74,0.38); margin-bottom: 0.65rem; transition: all 0.2s; letter-spacing: 0.01em;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">
+        <span>🔒 Pay 50% Deposit Now ({{ cart.total_price | divided_by: 2 | money }}) &rarr;</span>
+      </a>
+
+      <!-- Guarantees Below Button -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 3px; margin-bottom: 0.65rem; font-size: 0.74rem; color: #6B7280;">
+        <span style="color: #15803D; font-weight: 700;">✓ Free Liftgate Delivery Included &bull; Zero Freight Surcharges</span>
+        <span>Guaranteed Safe &amp; Encrypted: Visa, Mastercard, Amex, Apple Pay</span>
+      </div>
+
+      <!-- Footer Trust Badges Grid -->
+      <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed #E0E2DE; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.76rem; color: #374151;">
+        <div style="display: flex; align-items: center; gap: 0.35rem;">
+          <span style="color: #16a34a; font-size: 0.85rem;">✓</span>
+          <span><strong>Free US Delivery</strong></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.35rem;">
+          <span style="color: #16a34a; font-size: 0.85rem;">✓</span>
+          <span><strong>30-Day Returns</strong></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.35rem;">
+          <span style="color: #16a34a; font-size: 0.85rem;">🔒</span>
+          <span><strong>SSL Encrypted</strong></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.35rem;">
+          <span style="color: #16a34a; font-size: 0.85rem;">📞</span>
+          <span><strong>1-800-614-2395</strong></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "tag": "section",
+  "class": "section-cart-drawer",
+  "settings": []
+}
+{% endschema %}

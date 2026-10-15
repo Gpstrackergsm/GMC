@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "policy-payment",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

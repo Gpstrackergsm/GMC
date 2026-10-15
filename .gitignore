@@ -45,12 +45,3 @@ Thumbs.db
 *.swp
 *.swo
 *~
-
-# Unpacked root theme mirrors (canonical theme is in theme/)
-/assets/
-/config/
-/layout/
-/locales/
-/sections/
-/snippets/
-/templates/

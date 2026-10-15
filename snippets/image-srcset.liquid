@@ -1,0 +1,50 @@
+{%- comment -%}
+  Snippet: image-srcset.liquid
+  Accepts:
+  - image   {Object}  Required.
+  - widths  {String}  Comma-separated widths. Default: '375,550,750,1000,1500'.
+  - sizes   {String}  HTML sizes attribute.
+  - class   {String}  CSS classes for <img>.
+  - alt     {String}  Alt text.
+  - lazy    {Boolean} Use loading=lazy. Default: true.
+{%- endcomment -%}
+
+{%- liquid
+  assign widths_str = widths | default: '375,550,750,1000,1500'
+  assign alt_text   = alt    | default: image.alt | default: ''
+  assign loading    = 'lazy'
+  if lazy == false
+    assign loading = 'eager'
+  endif
+  assign fetch_priority = 'auto'
+  if lazy == false
+    assign fetch_priority = 'high'
+  endif
+  assign widths_arr = widths_str | split: ','
+-%}
+
+{%- if image != blank -%}
+  {%- capture srcset_value -%}
+    {%- for w in widths_arr -%}
+      {%- assign w_int = w | strip | times: 1 -%}
+      {{ image | image_url: width: w_int }} {{ w_int }}w{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  <img
+    src="{{ image | image_url: width: 750 }}"
+    srcset="{{ srcset_value | strip_newlines | strip }}"
+    {%- if sizes != blank %} sizes="{{ sizes }}"{% endif %}
+    width="{{ image.width }}"
+    height="{{ image.height }}"
+    alt="{{ alt_text | escape }}"
+    loading="{{ loading }}"
+    fetchpriority="{{ fetch_priority }}"
+    decoding="async"
+    {%- if class != blank %} class="{{ class }}"{% endif %}
+  >
+{%- else -%}
+  <div class="image-placeholder{% if class != blank %} {{ class }}{% endif %}" role="img" aria-label="{{ alt_text | default: 'Image placeholder' | escape }}">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+  </div>
+{%- endif -%}

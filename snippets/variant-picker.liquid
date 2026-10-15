@@ -1,0 +1,217 @@
+{%- comment -%}
+  Snippet: variant-picker.liquid
+  Product variant selector with radio buttons and select dropdowns.
+  Accepts:
+  - product {Object} Required.
+  - block   {Object} Optional. Section block for schema settings.
+  - section_id {String} Required for unique IDs.
+  Usage: {%- render 'variant-picker', product: product, block: block, section_id: section.id -%}
+{%- endcomment -%}
+
+{%- unless product.has_only_default_variant -%}
+  <variant-picker
+    class="variant-picker"
+    data-section="{{ section_id }}"
+    data-url="{{ product.url }}"
+    data-hide-variants="{{ block.settings.hide_out_of_stock | default: false }}"
+  >
+    {%- for option in product.options_with_values -%}
+      {%- liquid
+        assign option_name   = option.name | downcase
+        assign is_color      = false
+        assign is_size       = false
+        if option_name == 'color' or option_name == 'colour'
+          assign is_color = true
+        endif
+        if option_name == 'size'
+          assign is_size = true
+        endif
+        assign picker_type = 'select'
+        if is_color or is_size
+          assign picker_type = 'radio'
+        endif
+      -%}
+
+      <div
+        class="variant-picker__option"
+        data-option-index="{{ forloop.index0 }}"
+      >
+        <div class="variant-picker__option-header">
+          <label class="variant-picker__option-label" id="option-label-{{ section_id }}-{{ forloop.index }}">
+            {{ option.name }}:
+          </label>
+          <span class="variant-picker__selected-value" data-selected-value-{{ forloop.index0 }}>
+            {{ option.selected_value }}
+          </span>
+        </div>
+
+        {%- if picker_type == 'radio' -%}
+          <fieldset
+            class="variant-picker__fieldset{% if is_color %} variant-picker__fieldset--color{% endif %}"
+            aria-labelledby="option-label-{{ section_id }}-{{ forloop.index }}"
+          >
+            <legend class="visually-hidden">{{ option.name }}</legend>
+            {%- for value in option.values -%}
+              {%- liquid
+                assign variant_available = false
+                for variant in product.variants
+                  if variant.available
+                    case option.position
+                      when 1
+                        if variant.option1 == value
+                          assign variant_available = true
+                        endif
+                      when 2
+                        if variant.option2 == value
+                          assign variant_available = true
+                        endif
+                      when 3
+                        if variant.option3 == value
+                          assign variant_available = true
+                        endif
+                    endcase
+                  endif
+                endfor
+              -%}
+              <div class="variant-picker__value">
+                <input
+                  class="variant-picker__radio visually-hidden"
+                  type="radio"
+                  id="{{ section_id }}-{{ option.name | handle }}-{{ forloop.index }}"
+                  name="{{ option.name }}"
+                  value="{{ value | escape }}"
+                  form="product-form-{{ section_id }}"
+                  {% if option.selected_value == value %}checked{% endif %}
+                  {% unless variant_available %}data-unavailable="true"{% endunless %}
+                >
+                <label
+                  class="variant-picker__radio-label{% if is_color %} variant-picker__radio-label--color{% endif %}{% unless variant_available %} variant-picker__radio-label--unavailable{% endunless %}"
+                  for="{{ section_id }}-{{ option.name | handle }}-{{ forloop.index }}"
+                  title="{{ value | escape }}{% unless variant_available %} — Sold Out{% endunless %}"
+                  {%- if is_color %}
+                  style="background-color: {{ value | downcase | replace: ' ', '' }};"
+                  {%- endif %}
+                >
+                  {%- unless is_color -%}
+                    {{ value }}
+                  {%- endunless -%}
+                </label>
+              </div>
+            {%- endfor -%}
+          </fieldset>
+
+        {%- else -%}
+          <div class="variant-picker__select-wrapper">
+            <select
+              class="variant-picker__select"
+              name="{{ option.name }}"
+              id="{{ section_id }}-{{ option.name | handle }}"
+              form="product-form-{{ section_id }}"
+              aria-labelledby="option-label-{{ section_id }}-{{ forloop.index }}"
+            >
+              {%- for value in option.values -%}
+                {%- liquid
+                  assign opt_available = false
+                  for variant in product.variants
+                    if variant.available
+                      case option.position
+                        when 1
+                          if variant.option1 == value
+                            assign opt_available = true
+                          endif
+                        when 2
+                          if variant.option2 == value
+                            assign opt_available = true
+                          endif
+                        when 3
+                          if variant.option3 == value
+                            assign opt_available = true
+                          endif
+                      endcase
+                    endif
+                  endfor
+                -%}
+                <option
+                  value="{{ value | escape }}"
+                  {% if option.selected_value == value %}selected{% endif %}
+                >
+                  {{ value }}{% unless opt_available %} — Sold Out{% endunless %}
+                </option>
+              {%- endfor -%}
+            </select>
+            {%- render 'icon-chevron-down' -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+
+    <script type="application/json" id="product-variants-{{ section_id }}">
+      {{ product.variants | json }}
+    </script>
+  </variant-picker>
+
+  <script>
+    if (!customElements.get('variant-picker')) {
+      customElements.define('variant-picker', class VariantPicker extends HTMLElement {
+        constructor() {
+          super();
+          this.sectionId  = this.dataset.section;
+          this.productUrl = this.dataset.url;
+          this.variants   = JSON.parse(this.querySelector(`#product-variants-${this.sectionId}`).textContent);
+          this.addEventListener('change', this.onVariantChange.bind(this));
+        }
+
+        onVariantChange(e) {
+          const selectedVariant = this.getSelectedVariant();
+          if (!selectedVariant) return;
+
+          this.updateSelectedLabels();
+          this.updateURL(selectedVariant);
+          this.dispatchVariantChanged(selectedVariant);
+        }
+
+        getSelectedVariant() {
+          const selectedOptions = Array.from(
+            this.querySelectorAll('[name]')
+          ).reduce((acc, el) => {
+            if (el.tagName === 'SELECT') {
+              acc[el.name] = el.value;
+            } else if (el.type === 'radio' && el.checked) {
+              acc[el.name] = el.value;
+            }
+            return acc;
+          }, {});
+
+          return this.variants.find(variant =>
+            variant.options.every((opt, i) => {
+              const optionKey = Object.keys(selectedOptions)[i];
+              return optionKey && selectedOptions[optionKey] === opt;
+            })
+          );
+        }
+
+        updateSelectedLabels() {
+          this.querySelectorAll('[data-selected-value-0],[data-selected-value-1],[data-selected-value-2]').forEach((el, i) => {
+            const radios = this.querySelectorAll(`[data-option-index="${i}"] input[type="radio"]:checked`);
+            const selects = this.querySelectorAll(`[data-option-index="${i}"] select`);
+            if (radios.length) el.textContent = radios[0].value;
+            else if (selects.length) el.textContent = selects[0].value;
+          });
+        }
+
+        updateURL(variant) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('variant', variant.id);
+          window.history.replaceState({}, '', url.toString());
+        }
+
+        dispatchVariantChanged(variant) {
+          this.dispatchEvent(new CustomEvent('variant:changed', {
+            bubbles: true,
+            detail: { variant }
+          }));
+        }
+      });
+    }
+  </script>
+{%- endunless -%}

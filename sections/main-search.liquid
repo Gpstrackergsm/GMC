@@ -1,0 +1,65 @@
+<div class="search-page-section section-padding" style="padding: 2.5rem 0 4rem 0;">
+  <div class="container">
+    <div class="search-header text-center" style="max-width: 650px; margin: 0 auto 3rem auto; text-align: center;">
+      <h1 style="font-family: var(--font-heading-family, serif); font-size: 2.25rem; margin-bottom: 1.5rem;">
+        Search Our Catalog
+      </h1>
+
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-form" style="display: flex; gap: 0.5rem;">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Search by keyword, department, or SKU..."
+          aria-label="Search"
+          style="flex: 1; padding: 0.85rem 1.25rem; border: 1px solid var(--color-border, #E8E8E0); border-radius: 6px; font-size: 1rem;"
+        >
+        <button type="submit" class="btn btn--primary" style="padding: 0.85rem 1.75rem; background: var(--color-primary, #2D6A4F); color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+          Search
+        </button>
+      </form>
+
+      {%- if search.performed -%}
+        <p style="margin-top: 1.5rem; color: #666; font-size: 0.95rem;">
+          {{ search.results_count }} results found for "<strong>{{ search.terms }}</strong>"
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- if search.performed -%}
+      {%- paginate search.results by 24 -%}
+        {%- if search.results_count > 0 -%}
+          <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.75rem;">
+            {%- for item in search.results -%}
+              {%- if item.object_type == 'product' -%}
+                <div class="product-grid-item">
+                  {% render 'product-card', product: item, show_vendor: true, show_quick_add: true %}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- if paginate.pages > 1 -%}
+            <div class="pagination-wrapper" style="margin-top: 3.5rem; text-align: center;">
+              {% render 'pagination', paginate: paginate %}
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div style="text-align: center; padding: 3rem 1rem;">
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 1.5rem;">No products found matching your search. Please check your spelling or try more general keywords.</p>
+            <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: var(--color-primary, #2D6A4F); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600;">Browse All Products</a>
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "tag": "section",
+  "class": "section-main-search",
+  "settings": []
+}
+{% endschema %}

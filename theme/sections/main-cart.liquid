@@ -84,9 +84,20 @@
               Order Summary
             </h2>
 
-            <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;">
-              <span>Subtotal:</span>
-              <span style="color: var(--color-primary, #16a34a);">{{ cart.total_price | money_with_currency }}</span>
+            <!-- 50% Flexible Delivery Deposit Breakdown -->
+            <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; padding: 12px 14px; margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #065F46;">Due Today (50% Deposit):</span>
+                <span style="font-size: 1.35rem; font-weight: 900; color: #047857;">{{ cart.total_price | divided_by: 2 | money }}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #065F46; border-top: 1px dashed #A7F3D0; padding-top: 6px; margin-bottom: 4px;">
+                <span>Remaining 50% on carrier delivery:</span>
+                <span style="font-weight: 800;">{{ cart.total_price | divided_by: 2 | money }}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px;">
+                <span>Total Mower Order Value:</span>
+                <span style="font-weight: 700; color: #111827;">{{ cart.total_price | money }}</span>
+              </div>
             </div>
 
             <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.25rem;">
@@ -117,9 +128,9 @@
               type="submit"
               name="checkout"
               class="btn btn--primary"
-              style="width: 100%; padding: 1rem; background: var(--color-primary, #16a34a); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;"
+              style="width: 100%; padding: 1.15rem; background: var(--color-primary, #16a34a); color: #fff; font-size: 1.05rem; font-weight: 800; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; box-shadow: 0 4px 14px rgba(22,163,74,0.35);"
             >
-              Proceed to Secure Checkout &rarr;
+              🔒 Proceed to Checkout — Pay 50% Deposit ({{ cart.total_price | divided_by: 2 | money }}) &rarr;
             </button>
 
             <div style="margin-top: 1.5rem; text-align: center; font-size: 0.8rem; color: #777;">
