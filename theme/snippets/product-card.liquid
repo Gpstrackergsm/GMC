@@ -91,8 +91,11 @@
           <form action="/cart/add" method="post" class="product-card__atc-form">
             <input type="hidden" name="id" value="{{ current_variant.id }}">
             <input type="hidden" name="quantity" value="1">
+            {%- if product.price >= 30000 -%}
+              <input type="hidden" name="selling_plan" value="692131725608">
+            {%- endif -%}
             <button type="submit" name="add" class="btn btn-primary product-card__quick-add-btn" aria-label="Add {{ product.title | escape }} to cart" data-product-title="{{ product.title | escape }}">
-              <span class="btn__text">Add to Cart</span>
+              <span class="btn__text">{% if product.price >= 30000 %}Reserve 50% Deposit ({{ product.price | divided_by: 2 | money }}){% else %}Add to Cart{% endif %}</span>
               <span class="btn__loading" aria-hidden="true"><span class="spinner"></span></span>
             </button>
           </form>

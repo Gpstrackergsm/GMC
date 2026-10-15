@@ -927,44 +927,33 @@
     const btn = document.getElementById('DirectBuyNowBtn');
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = '<span>⏳ Preparing Secure Checkout...</span>';
+      btn.innerHTML = '<span>⏳ Preparing 50% Deposit Checkout...</span>';
     }
     const formData = new FormData(form);
     const spVal = formData.get('selling_plan');
     if (!spVal || spVal.trim() === '') {
       formData.delete('selling_plan');
     }
-    fetch('/cart/add.js', {
+
+    // Always clear old cart items first to prevent variant conflicts, then add fresh with selling plan
+    fetch('/cart/clear.js', {
       method: 'POST',
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-      body: formData
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(function() {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        body: formData
+      });
     })
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.status && data.status >= 400) {
-        // Auto-recovery: if selling_plan caused failure, retry without it immediately
-        if (formData.has('selling_plan')) {
-          formData.delete('selling_plan');
-          return fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            body: formData
-          }).then(function(r) { return r.json(); }).then(function(rData) {
-            if (rData.status && rData.status >= 400) {
-              alert(rData.description || 'Unable to proceed to checkout.');
-              if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
-              }
-            } else {
-              window.location.href = '/checkout';
-            }
-          });
-        }
         alert(data.description || 'Unable to proceed to checkout.');
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
+          btn.innerHTML = '<span>⚡ Pay 50% Deposit Now — Instant Checkout</span>';
         }
       } else {
         window.location.href = '/checkout';

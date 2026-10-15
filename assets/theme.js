@@ -120,8 +120,9 @@ function initAjaxAddToCart() {
       .then(data => {
         if (data.status && data.status >= 400) {
           if (!isRetry && bodyData.has('selling_plan')) {
-            bodyData.delete('selling_plan');
-            return executeAdd(bodyData, true);
+            // Clear existing cart collision first and retry with the 50% deposit selling plan
+            return fetch('/cart/clear.js', { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+              .then(() => executeAdd(bodyData, true));
           }
           alert(data.description || 'Unable to add product to cart.');
         } else {
