@@ -53,12 +53,15 @@
     </div>
 
     {%- if item.selling_plan_allocation != nil -%}
-      <div style="background: #ECFDF5; border: 1px solid #10B981; border-radius: 8px; padding: 7px 10px; margin: 8px 0; font-size: 0.8rem;">
-        <span style="color: #065F46; font-weight: 800;">🛡️ Plan: {{ item.selling_plan_allocation.selling_plan.name }}</span>
+      <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 8px; padding: 7px 10px; margin: 8px 0; font-size: 0.8rem;">
+        <div style="color: #065F46; font-weight: 800;">🛡️ 50% Flexible Delivery Deposit</div>
+        <div style="color: #047857; font-size: 0.75rem; margin-top: 2px;">
+          Due Today: <strong>{{ item.final_line_price | divided_by: 2 | money }}</strong> &bull; Balance on delivery: {{ item.final_line_price | divided_by: 2 | money }}
+        </div>
       </div>
     {%- else -%}
-      <div style="margin: 6px 0; font-size: 0.78rem; color: #166534; font-weight: 600; display: flex; align-items: center; gap: 4px;">
-        <span>🚚 Free Residential Liftgate Freight Included</span>
+      <div style="background: #ECFDF5; border: 1px solid #10B981; border-radius: 8px; padding: 6px 10px; margin: 6px 0; font-size: 0.78rem; color: #065F46; font-weight: 700;">
+        🛡️ 50% Delivery Deposit: {{ item.final_line_price | divided_by: 2 | money }} Due Today
       </div>
     {%- endif -%}
 
