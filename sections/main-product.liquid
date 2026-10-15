@@ -188,37 +188,30 @@
             <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
           {%- endif -%}
 
-          <!-- Quantity, Add to Cart & Buy Now Buttons -->
+          <!-- Add to Cart & Buy Now Buttons (Single Unit Equipment Order) -->
           <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
-            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-              {%- if section.settings.show_quantity_selector -%}
-                <div class="product-quantity">
-                  {% render 'quantity-input', product: product %}
-                </div>
-              {%- endif -%}
-
-              <button
-                type="submit"
-                name="add"
-                class="btn btn--primary btn--atc"
-                {% unless product.available %}disabled{% endunless %}
-                style="flex: 1 1 200px; padding: 1.2rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
-                onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 25px rgba(22,163,74,0.5)'"
-                onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(22,163,74,0.4)'"
-              >
-                <span class="atc-text">
-                  {%- if product.available -%}
-                    {%- if deposit_plan_id != nil -%}
-                      🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
-                    {%- else -%}
-                      🛒 Add to Cart — Free Liftgate Delivery
-                    {%- endif -%}
+            <input type="hidden" name="quantity" value="1">
+            <button
+              type="submit"
+              name="add"
+              class="btn btn--primary btn--atc"
+              {% unless product.available %}disabled{% endunless %}
+              style="width: 100%; padding: 1.2rem 2rem; background: var(--color-primary, #16a34a); color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 10px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 6px 20px rgba(22,163,74,0.4); transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em;"
+              onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 25px rgba(22,163,74,0.5)'"
+              onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(22,163,74,0.4)'"
+            >
+              <span class="atc-text">
+                {%- if product.available -%}
+                  {%- if deposit_plan_id != nil -%}
+                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
                   {%- else -%}
-                    Sold Out
+                    🛒 Add to Cart — Free Liftgate Delivery
                   {%- endif -%}
-                </span>
-              </button>
-            </div>
+                {%- else -%}
+                  Sold Out
+                {%- endif -%}
+              </span>
+            </button>
 
             {%- if product.available -%}
               <!-- Direct 1-Click Buy Now Button -->
@@ -901,7 +894,7 @@
       "type": "checkbox",
       "id": "show_quantity_selector",
       "label": "Show Quantity Selector",
-      "default": true
+      "default": false
     },
     {
       "type": "checkbox",

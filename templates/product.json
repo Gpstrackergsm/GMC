@@ -5,7 +5,7 @@
       "settings": {
         "show_vendor": true,
         "show_sku": true,
-        "show_quantity_selector": true,
+        "show_quantity_selector": false,
         "show_dynamic_checkout": true
       }
     },
