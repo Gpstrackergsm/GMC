@@ -123,7 +123,7 @@
         </div>
 
         <!-- Commercial Equipment Buyer Guarantee -->
-        <div class="product-deposit-highlight" style="background: linear-gradient(135deg, #ECFDF5, #DCFCE7); border: 2px solid #16a34a; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.15rem; box-shadow: 0 4px 14px rgba(22,163,74,0.12);">
+        <div class="product-guarantee-highlight" style="background: linear-gradient(135deg, #ECFDF5, #DCFCE7); border: 2px solid #16a34a; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.15rem; box-shadow: 0 4px 14px rgba(22,163,74,0.12);">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="font-size: 1.3rem;">🛡️</span>
@@ -170,24 +170,6 @@
           
           </div>
 
-          <!-- Clean Selling Plan Check (Only if actively configured in Shopify backend) -->
-          {%- assign deposit_plan_id = nil -%}
-          {%- if product.selling_plan_groups.size > 0 -%}
-            {%- for group in product.selling_plan_groups -%}
-              {%- for plan in group.selling_plans -%}
-                {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' -%}
-                  {%- assign deposit_plan_id = plan.id -%}
-                  {%- break -%}
-                {%- endif -%}
-              {%- endfor -%}
-              {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
-            {%- endfor -%}
-          {%- endif -%}
-
-          {%- if deposit_plan_id != nil -%}
-            <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
-          {%- endif -%}
-
           <!-- Add to Cart & Buy Now Buttons (Single Unit Equipment Order) -->
           <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
             <input type="hidden" name="quantity" value="1">
@@ -202,11 +184,7 @@
             >
               <span class="atc-text">
                 {%- if product.available -%}
-                  {%- if deposit_plan_id != nil -%}
-                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})
-                  {%- else -%}
-                    🛒 Add to Cart — Free Liftgate Delivery
-                  {%- endif -%}
+                  🛒 Add to Cart — Free Liftgate Delivery
                 {%- else -%}
                   Sold Out
                 {%- endif -%}
@@ -225,13 +203,7 @@
                 onmouseover="this.style.transform='scale(1.02)'"
                 onmouseout="this.style.transform='scale(1)'"
               >
-                <span>
-                  {%- if deposit_plan_id != nil -%}
-                    ⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout
-                  {%- else -%}
-                    ⚡ Buy It Now — Instant Secure Checkout
-                  {%- endif -%}
-                </span>
+                <span>⚡ Buy It Now — Instant Secure Checkout</span>
               </button>
 
               <!-- Reassurance under buttons -->
@@ -243,11 +215,11 @@
               </div>
 
               {%- comment -%}
-                Suppress Shopify's native uncustomizable accelerated checkout button when deposit plan is active.
+                Shopify accelerated dynamic checkout button.
                 Shopify's native payment_button forces 100% full payment and ignores selling plans.
-                DirectBuyNowBtn above handles instant 1-click checkout with the 50% deposit.
+                DirectBuyNowBtn provides 1-click instant checkout.
               {%- endcomment -%}
-              {%- if section.settings.show_dynamic_checkout and deposit_plan_id == nil -%}
+              {%- if section.settings.show_dynamic_checkout -%}
                 <div class="dynamic-checkout-wrapper" style="width: 100%;">
                   {{ form | payment_button }}
                 </div>
@@ -767,58 +739,6 @@
     }
   });
 
-  // Interactive Payment Option Selector (50% Deposit vs Pay In Full)
-  window.selectPaymentOption = function(choice, planId) {
-    const planInput = document.getElementById('ProductSellingPlanInput');
-    const optDeposit = document.getElementById('PlanOptionDeposit');
-    const optFull = document.getElementById('PlanOptionFull');
-    const radioDeposit = document.getElementById('RadioPlanDeposit');
-    const radioFull = document.getElementById('RadioPlanFull');
-    const atcText = document.querySelector('.btn--atc .atc-text');
-    const buyNowBtn = document.getElementById('DirectBuyNowBtn');
-    const stickyAtcBtn = document.getElementById('StickyATCBtn');
-    const stickyBuyNowBtn = document.getElementById('StickyBuyNowBtn');
-
-    if (choice === 'deposit') {
-      if (planInput) planInput.value = planId;
-      if (radioDeposit) radioDeposit.checked = true;
-      if (radioFull) radioFull.checked = false;
-      if (optDeposit) {
-        optDeposit.style.borderColor = '#16a34a';
-        optDeposit.style.background = '#F0FDF4';
-        optDeposit.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
-      }
-      if (optFull) {
-        optFull.style.borderColor = '#E2E8F0';
-        optFull.style.background = '#FFFFFF';
-        optFull.style.boxShadow = 'none';
-      }
-      if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
-      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
-      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Reserve 50% Deposit';
-      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Pay 50% Deposit';
-    } else {
-      if (planInput) planInput.value = '';
-      if (radioDeposit) radioDeposit.checked = false;
-      if (radioFull) radioFull.checked = true;
-      if (optDeposit) {
-        optDeposit.style.borderColor = '#E2E8F0';
-        optDeposit.style.background = '#FFFFFF';
-        optDeposit.style.boxShadow = 'none';
-      }
-      if (optFull) {
-        optFull.style.borderColor = '#16a34a';
-        optFull.style.background = '#F0FDF4';
-        optFull.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
-      }
-      if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Liftgate Delivery';
-      if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
-      if (stickyAtcBtn) stickyAtcBtn.textContent = 'Add to Cart';
-      if (stickyBuyNowBtn) stickyBuyNowBtn.textContent = '⚡ Buy Now';
-    }
-  };
-
-  // Direct 1-Click Buy Now (Instant Checkout)
   window.buyNowDirectly = function() {
     const form = document.getElementById('ProductForm');
     if (!form) return;
@@ -828,10 +748,7 @@
       btn.innerHTML = '<span>⏳ Preparing Secure Checkout...</span>';
     }
     const formData = new FormData(form);
-    const spVal = formData.get('selling_plan');
-    if (!spVal || spVal.trim() === '') {
-      formData.delete('selling_plan');
-    }
+    formData.delete('selling_plan');
     fetch('/cart/add.js', {
       method: 'POST',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
@@ -840,22 +757,6 @@
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.status && data.status >= 400) {
-        // Auto-recovery: if selling_plan caused failure, retry without it immediately
-        if (formData.has('selling_plan')) {
-          formData.delete('selling_plan');
-          return fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            body: formData
-          }).then(r => r.json()).then(rData => {
-            if (rData.status && rData.status >= 400) {
-              alert(rData.description || 'Unable to proceed to checkout.');
-              if (btn) { btn.disabled = false; btn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>'; }
-            } else {
-              window.location.href = '/checkout';
-            }
-          });
-        }
         alert(data.description || 'Unable to proceed to checkout.');
         if (btn) {
           btn.disabled = false;

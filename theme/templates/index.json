@@ -3,9 +3,9 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "badge_text": "🛡️ 50% Delivery Deposit Available — Pay Half Today",
+        "badge_text": "🚚 Complimentary Liftgate Freight on All Mowers",
         "heading": "Built for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>",
-        "subheading": "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere, Cub Cadet, Husqvarna, and top American turf brands. Factory-sealed with complimentary hydraulic liftgate residential delivery and 50% flexible deposit options.",
+        "subheading": "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere, Cub Cadet, Husqvarna, and top American turf brands. Factory-sealed with complimentary hydraulic liftgate residential delivery and 100% US factory warranty.",
         "button_label": "Shop John Deere Series",
         "button_link": "/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower",
         "secondary_button_label": "Explore All Mowers",
@@ -13,8 +13,8 @@
         "hero_image_url": "https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124",
         "stat_1_num": "76+",
         "stat_1_label": "Mower Models",
-        "stat_2_num": "50%",
-        "stat_2_label": "Deposit Option",
+        "stat_2_num": "100%",
+        "stat_2_label": "Factory Warranty",
         "stat_3_num": "Free",
         "stat_3_label": "Liftgate Delivery",
         "text_alignment": "left"
@@ -123,8 +123,8 @@
         "title_override": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower",
         "description_override": "The gold standard in acreage lawn care. Equipped with a high-output 22-HP V-Twin engine, 42-inch Edge™ precision cutting deck, and smooth hydrostatic foot-pedal transmission for effortless maneuverability across up to 2 acres.",
         "override_image_url": "https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124",
-        "price_override": "$1,799.00 — Pay Just $899.50 Today",
-        "cta_label": "Order with 50% Deposit",
+        "price_override": "$1,799.00 — Free Liftgate Delivery",
+        "cta_label": "Order John Deere S120",
         "cta_link": "/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower",
         "secondary_label": "View All Riding Mowers",
         "secondary_link": "/collections/types?q=Riding+Lawn+Mowers"
@@ -144,7 +144,7 @@
         },
         "feat-4": {
           "type": "feature",
-          "settings": { "text": "🛡️ 50% Delivery Deposit: Pay $899.50 Today, 50% on Delivery" }
+          "settings": { "text": "🛡️ 100% US Factory Warranty & 30-Day Money-Back Guarantee" }
         }
       },
       "block_order": ["feat-1","feat-2","feat-3","feat-4"]
