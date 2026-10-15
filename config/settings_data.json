@@ -60,7 +60,7 @@
       },
       "9722350677240811717": {
         "type": "shopify://apps/downpay/blocks/downpay-form-embed/da700d84-7ed1-410a-a8b5-5cb99a33758a",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "default_to_pay_in_full": true,
           "show_payment_methods": true,
