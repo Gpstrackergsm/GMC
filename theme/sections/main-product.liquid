@@ -80,6 +80,20 @@
 
       <!-- Product Form & Details -->
       <div class="product-details">
+        {%- assign deposit_plan_id = nil -%}
+        {%- for group in product.selling_plan_groups -%}
+          {%- for plan in group.selling_plans -%}
+            {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
+              {%- assign deposit_plan_id = plan.id -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if deposit_plan_id == nil and product.price >= 30000 -%}
+          {%- assign deposit_plan_id = 692131725608 -%}
+        {%- endif -%}
+
         {%- assign clean_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
         {%- assign clean_vendor = product.vendor | replace: '&amp;amp;', '&' | replace: '&amp;', '&' -%}
 
@@ -119,7 +133,24 @@
 
         <!-- Price & Savings -->
         <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-          {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
+          {%- if deposit_plan_id != nil -%}
+            <span id="HeaderPriceDeposit" style="font-size: 2.2rem; font-weight: 900; color: #16a34a; letter-spacing: -0.02em;">
+              {{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}
+            </span>
+            <span id="HeaderPriceDepositBadge" style="font-size: 0.95rem; font-weight: 800; color: #15803D; background: #DCFCE7; border: 1px solid #86EFAC; padding: 4px 12px; border-radius: 9999px;">
+              50% Flexible Delivery Deposit
+            </span>
+            <span id="HeaderPriceFull" style="font-size: 1.1rem; color: #64748B; font-weight: 600;">
+              Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+            {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+              <span class="product-compare-price" style="font-size: 1.1rem; color: #94A3B8; text-decoration: line-through; font-weight: 500;">
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+              </span>
+            {%- endif -%}
+          {%- else -%}
+            {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
+          {%- endif -%}
         </div>
 
         <!-- Commercial Equipment Buyer Guarantee -->
@@ -291,7 +322,7 @@
                 Shopify's native payment_button forces 100% full payment and ignores selling plans.
                 DirectBuyNowBtn provides 1-click instant checkout.
               {%- endcomment -%}
-              {%- if section.settings.show_dynamic_checkout -%}
+              {%- if section.settings.show_dynamic_checkout and deposit_plan_id == nil -%}
                 <div class="dynamic-checkout-wrapper" style="width: 100%;">
                   {{ form | payment_button }}
                 </div>
@@ -849,6 +880,15 @@
         optFull.style.background = '#FFFFFF';
         optFull.style.boxShadow = 'none';
       }
+      const hDeposit = document.getElementById('HeaderPriceDeposit');
+      const hBadge = document.getElementById('HeaderPriceDepositBadge');
+      const hFull = document.getElementById('HeaderPriceFull');
+      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}';
+      if (hBadge) hBadge.style.display = 'inline-block';
+      if (hFull) {
+        hFull.textContent = 'Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}';
+        hFull.style.display = 'inline';
+      }
       if (atcText) atcText.innerHTML = '🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }})';
       if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Pay 50% Deposit Now ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Instant Checkout</span>';
       if (stickyAtcBtn) stickyAtcBtn.textContent = 'Reserve 50% Deposit';
@@ -867,6 +907,12 @@
         optFull.style.background = '#F0FDF4';
         optFull.style.boxShadow = '0 2px 8px rgba(22,163,74,0.12)';
       }
+      const hDeposit = document.getElementById('HeaderPriceDeposit');
+      const hBadge = document.getElementById('HeaderPriceDepositBadge');
+      const hFull = document.getElementById('HeaderPriceFull');
+      if (hDeposit) hDeposit.textContent = '{{ product.selected_or_first_available_variant.price | money }}';
+      if (hBadge) hBadge.style.display = 'none';
+      if (hFull) hFull.style.display = 'none';
       if (atcText) atcText.innerHTML = '🛒 Add to Cart — Free Liftgate Delivery';
       if (buyNowBtn) buyNowBtn.innerHTML = '<span>⚡ Buy It Now — Instant Secure Checkout</span>';
       if (stickyAtcBtn) stickyAtcBtn.textContent = 'Add to Cart';

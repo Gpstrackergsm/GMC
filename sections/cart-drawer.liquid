@@ -47,25 +47,25 @@
     <!-- Drawer Footer -->
     <div class="cart-drawer__footer" style="padding: 1.15rem 1.4rem 2rem 1.4rem; border-top: 1px solid var(--color-border, #E8E8E0); background: #FAFBF9;">
       
-      <!-- Order Summary Box -->
-      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 0.9rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.88rem; color: #4B5563;">
-          <span>Subtotal:</span>
+      <!-- 50% Flexible Delivery Deposit Breakdown -->
+      <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; padding: 12px 14px; margin-bottom: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+          <span style="font-size: 0.92rem; font-weight: 800; color: #065F46;">Due Today (50% Deposit):</span>
+          <span class="cart-drawer-deposit" style="font-size: 1.35rem; font-weight: 900; color: #047857;">{{ cart.total_price | divided_by: 2 | money }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #065F46; border-top: 1px dashed #A7F3D0; padding-top: 6px; margin-bottom: 4px;">
+          <span>Remaining 50% on carrier delivery:</span>
+          <span style="font-weight: 800;">{{ cart.total_price | divided_by: 2 | money }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px;">
+          <span>Total Order Value:</span>
           <span class="cart-drawer-subtotal" style="font-weight: 700; color: #111827;">{{ cart.total_price | money }}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.82rem; color: #166534;">
-          <span style="display: flex; align-items: center; gap: 4px;">🚚 Residential Liftgate Delivery:</span>
-          <span style="font-weight: 800; color: #15803D;">FREE ($150 Value)</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #E5E7EB; padding-top: 8px; margin-top: 4px;">
-          <span style="font-size: 0.95rem; font-weight: 800; color: #111827;">Estimated Total:</span>
-          <span class="cart-drawer-total" style="font-size: 1.35rem; font-weight: 900; color: #15803D;">{{ cart.total_price | money }}</span>
         </div>
       </div>
 
       <!-- Checkout Button -->
       <a href="/checkout" class="btn btn--primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 1.15rem 1rem; text-align: center; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 16px rgba(22,163,74,0.38); margin-bottom: 0.65rem; transition: all 0.2s; letter-spacing: 0.01em;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">
-        <span>🔒 Proceed to Secure Checkout</span>
+        <span>🔒 Pay 50% Deposit Now ({{ cart.total_price | divided_by: 2 | money }}) &rarr;</span>
       </a>
 
       <!-- Guarantees Below Button -->
