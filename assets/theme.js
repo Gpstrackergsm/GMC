@@ -105,29 +105,41 @@ function initAjaxAddToCart() {
     }
 
     const formData = new FormData(form);
+    const sp = formData.get('selling_plan');
+    if (!sp || sp.trim() === '') {
+      formData.delete('selling_plan');
+    }
 
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.status && data.status >= 400) {
-        alert(data.description || 'Unable to add product to cart.');
-      } else {
-        // Dispatch event for cart drawer, then update count
-        document.dispatchEvent(new CustomEvent('cart:item-added', { detail: data }));
-        // Update cart count badges immediately
-        fetch('/cart.js')
-          .then(r => r.json())
-          .then(cart => {
-            document.querySelectorAll('.cart-count-badge').forEach(el => {
-              el.textContent = cart.item_count;
+    function executeAdd(bodyData, isRetry) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        body: bodyData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status && data.status >= 400) {
+          if (!isRetry && bodyData.has('selling_plan')) {
+            bodyData.delete('selling_plan');
+            return executeAdd(bodyData, true);
+          }
+          alert(data.description || 'Unable to add product to cart.');
+        } else {
+          // Dispatch event for cart drawer, then update count
+          document.dispatchEvent(new CustomEvent('cart:item-added', { detail: data }));
+          // Update cart count badges immediately
+          fetch('/cart.js')
+            .then(r => r.json())
+            .then(cart => {
+              document.querySelectorAll('.cart-count-badge').forEach(el => {
+                el.textContent = cart.item_count;
+              });
             });
-          });
-      }
-    })
+        }
+      });
+    }
+
+    executeAdd(formData, false)
     .catch(err => {
       console.error('Cart add error:', err);
       // Fallback: submit the form normally

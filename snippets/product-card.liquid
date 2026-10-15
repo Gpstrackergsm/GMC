@@ -88,27 +88,11 @@
         {%- if product.variants.size > 1 -%}
           <a href="{{ product.url }}" class="btn btn-primary product-card__quick-add-btn" aria-label="View options for {{ product.title | escape }}">View Options</a>
         {%- else -%}
-          {%- assign card_deposit_plan_id = nil -%}
-          {%- for group in product.selling_plan_groups -%}
-            {%- for plan in group.selling_plans -%}
-              {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
-                {%- assign card_deposit_plan_id = plan.id -%}
-                {%- break -%}
-              {%- endif -%}
-            {%- endfor -%}
-            {%- if card_deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
-          {%- endfor -%}
-          {%- if card_deposit_plan_id == nil and current_variant.price >= 50000 -%}
-            {%- assign card_deposit_plan_id = 692131725608 -%}
-          {%- endif -%}
           <form action="/cart/add" method="post" class="product-card__atc-form">
             <input type="hidden" name="id" value="{{ current_variant.id }}">
             <input type="hidden" name="quantity" value="1">
-            {%- if card_deposit_plan_id != nil -%}
-              <input type="hidden" name="selling_plan" value="{{ card_deposit_plan_id }}">
-            {%- endif -%}
             <button type="submit" name="add" class="btn btn-primary product-card__quick-add-btn" aria-label="Add {{ product.title | escape }} to cart" data-product-title="{{ product.title | escape }}">
-              <span class="btn__text">{% if card_deposit_plan_id != nil %}Pay 50% Deposit ({{ current_variant.price | divided_by: 2 | money }}){% else %}Add to Cart{% endif %}</span>
+              <span class="btn__text">Add to Cart</span>
               <span class="btn__loading" aria-hidden="true"><span class="spinner"></span></span>
             </button>
           </form>
@@ -132,8 +116,8 @@
 
     <div class="product-card__price">
       {%- render 'price', product: product -%}
-      <div style="margin-top: 5px; font-size: 0.78rem; color: #15803D; font-weight: 700; display: flex; align-items: center; gap: 4px;">
-        <span>🛡️ Pay 50% Today: <strong>{{ current_variant.price | divided_by: 2 | money }}</strong></span>
+      <div style="margin-top: 5px; font-size: 0.78rem; color: #166534; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+        <span>🚚 Free Residential Liftgate Delivery</span>
       </div>
     </div>
   </div>

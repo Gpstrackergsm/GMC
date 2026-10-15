@@ -59,7 +59,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Can I change or cancel my order?",
-            "answer": "<p>Orders can be modified or cancelled within 2 hours of placement. After that, our fulfilment team will have already begun processing your order. Please contact us immediately at support@leafanoo.com.</p>"
+            "answer": "<p>Orders can be modified or cancelled within 2 hours of placement. After that, our fulfilment team will have already begun processing your order. Please contact us immediately at Contact@leafanoo.com.</p>"
           }
         },
         "faq-6": {
@@ -80,7 +80,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I contact customer support?",
-            "answer": "<p>Our customer support team is available Monday–Friday, 9am–6pm EST. You can reach us by email at support@leafanoo.com, by toll-free phone at +1 (800) 614-2395, or via our <a href=\"/pages/contact-us\">contact form</a>.</p>"
+            "answer": "<p>Our customer support team is available Monday–Friday, 9am–6pm EST. You can reach us by email at Contact@leafanoo.com, by toll-free phone at +1 (800) 614-2395, or via our <a href=\"/pages/contact-us\">contact form</a>.</p>"
           }
         }
       },
