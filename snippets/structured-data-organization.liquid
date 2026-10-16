@@ -50,3 +50,21 @@
   }
 }
 </script>
+
+{%- comment -%} WebSite schema with SearchAction for Google Sitelinks Search Box {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ shop.url | append: '/search?q={search_term_string}' | json }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>

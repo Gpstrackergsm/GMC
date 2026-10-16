@@ -16,7 +16,7 @@
             {%- if article.image -%}
               <div class="article-card__image" style="aspect-ratio: 16/9; overflow: hidden;">
                 <a href="{{ article.url }}">
-                  <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.image.alt | default: article.title | escape }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                  <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.image.alt | default: article.title | escape }}" width="600" height="338" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
                 </a>
               </div>
             {%- endif -%}
