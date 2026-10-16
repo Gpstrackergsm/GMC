@@ -54,14 +54,22 @@
           <span class="cart-drawer-deposit" style="font-size: 1.35rem; font-weight: 900; color: #047857;">{{ cart.total_price | divided_by: 2 | money }}</span>
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #065F46; border-top: 1px dashed #A7F3D0; padding-top: 6px; margin-bottom: 4px;">
-          <span>Remaining 50% on carrier delivery:</span>
+          <span>Remaining 50% collected at delivery by carrier:</span>
           <span style="font-weight: 800;">{{ cart.total_price | divided_by: 2 | money }}</span>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px;">
+        <div style="font-size: 0.73rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px; margin-bottom: 4px;">
+          ✓ If you decline delivery, your deposit is <strong>fully refunded</strong> within 3 business days.
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #6B7280;">
           <span>Total Order Value:</span>
           <span class="cart-drawer-subtotal" style="font-weight: 700; color: #111827;">{{ cart.total_price | money }}</span>
         </div>
       </div>
+
+      <!-- Phone number — clickable, above checkout button -->
+      <a href="tel:+18006142395" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 10px; margin-bottom: 10px; text-decoration: none; color: #166534; font-weight: 700; font-size: 0.88rem;">
+        📞 Questions? Call us: <strong>1-800-614-2395</strong>
+      </a>
 
       <!-- Checkout Button -->
       <a href="/checkout" class="btn btn--primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 1.15rem 1rem; text-align: center; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 10px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 16px rgba(22,163,74,0.38); margin-bottom: 0.65rem; transition: all 0.2s; letter-spacing: 0.01em;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">
