@@ -2,30 +2,30 @@
 <span id="faq" style="display: block; position: relative; top: -100px; visibility: hidden; pointer-events: none;"></span>
 <span id="faqs" style="display: block; position: relative; top: -100px; visibility: hidden; pointer-events: none;"></span>
 
-<div class="faq-section section-padding" style="padding: 3.5rem 0; background-color: {{ section.settings.bg_color | default: '#faf6ee' }};">
+<div class="faq-section section-padding" style="padding: 3.5rem 0; background-color: {{ section.settings.bg_color | default: '#F7F7F7' }};">
   <div class="container" style="max-width: 840px; margin: 0 auto; padding: 0 1.25rem;">
     {%- if section.settings.heading != blank -%}
       <div class="section-header text-center" style="margin-bottom: 2.5rem; text-align: center;">
-        <span style="display: inline-block; font-size: 0.8rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
-          Help & Support
+        <span style="display: inline-block; font-size: 0.8rem; font-weight: 800; color: #367C2B; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; font-family: var(--font-heading-family);">
+          Official Equipment Support
         </span>
-        <h2 style="font-family: var(--font-heading-family, serif); font-size: clamp(1.85rem, 3vw, 2.5rem); font-weight: 700; color: var(--color-text, #1A1A1A); margin: 0;">
+        <h2 style="font-family: var(--font-heading-family, sans-serif); font-size: clamp(1.85rem, 3vw, 2.5rem); font-weight: 800; color: var(--color-text, #111111); margin: 0; letter-spacing: -0.02em;">
           {{ section.settings.heading }}
         </h2>
         {%- if section.settings.subheading != blank -%}
-          <p style="color: #666; font-size: 1rem; margin-top: 0.65rem;">{{ section.settings.subheading }}</p>
+          <p style="color: #555555; font-size: 1rem; margin-top: 0.65rem;">{{ section.settings.subheading }}</p>
         {%- endif -%}
       </div>
     {%- endif -%}
 
     <div class="faq-accordion-list" style="display: flex; flex-direction: column; gap: 0.85rem;">
       {%- for block in section.blocks -%}
-        <details class="faq-item" {{ block.shopify_attributes }} style="background: #ffffff; border: 1px solid #E8E8E0; border-radius: 10px; overflow: hidden; padding: 1.25rem 1.5rem; transition: border-color 0.2s, box-shadow 0.2s;">
-          <summary style="font-weight: 600; font-size: 1.05rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #1A1A1A; list-style: none;">
+        <details class="faq-item" {{ block.shopify_attributes }} style="background: #ffffff; border: 1px solid #E2E2E2; border-radius: 8px; overflow: hidden; padding: 1.25rem 1.5rem; transition: border-color 0.2s, box-shadow 0.2s;">
+          <summary style="font-weight: 700; font-size: 1.05rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #111111; list-style: none;">
             <span>{{ block.settings.question }}</span>
-            <span class="faq-icon" style="color: #16a34a; font-size: 1.5rem; font-weight: 400; line-height: 1; margin-left: 1rem; transition: transform 0.25s ease;">+</span>
+            <span class="faq-icon" style="color: #367C2B; font-size: 1.5rem; font-weight: 400; line-height: 1; margin-left: 1rem; transition: transform 0.25s ease;">+</span>
           </summary>
-          <div class="faq-answer rte" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.7; color: #4A4A4A; border-top: 1px solid #F0F0EB; padding-top: 0.85rem;">
+          <div class="faq-answer rte" style="margin-top: 1rem; font-size: 0.95rem; line-height: 1.7; color: #4A4A4A; border-top: 1px solid #EAEAEA; padding-top: 0.85rem;">
             {{ block.settings.answer }}
           </div>
         </details>
@@ -37,11 +37,12 @@
 <style>
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item[open] {
-    border-color: #16a34a !important;
-    box-shadow: 0 4px 16px rgba(22, 163, 74, 0.08);
+    border-color: #367C2B !important;
+    box-shadow: 0 4px 16px rgba(54, 124, 43, 0.12);
   }
   .faq-item[open] .faq-icon {
     transform: rotate(45deg);
+    color: #367C2B;
   }
 </style>
 

@@ -2,16 +2,16 @@
   <div class="container">
     {%- if section.settings.heading != blank or section.settings.description != blank -%}
       <div class="section-header text-{{ section.settings.text_alignment | default: 'center' }}" style="margin-bottom: 3rem; text-align: {{ section.settings.text_alignment | default: 'center' }};">
-        <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: 'Lexend Deca', sans-serif;">
-          {{ section.settings.caption | default: 'Handpicked For Quality' }}
+        <span style="display: inline-block; font-size: 0.85rem; font-weight: 800; color: #367C2B; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">
+          {{ section.settings.caption | default: 'AUTHENTIC TURF MACHINERY' }}
         </span>
         {%- if section.settings.heading != blank -%}
-          <h2 class="section-heading" style="font-family: 'Lexend Deca', sans-serif; font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #1c1a16; margin-bottom: 0.75rem;">
+          <h2 class="section-heading" style="font-family: 'Inter', sans-serif; font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 900; color: #111111; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
         {%- if section.settings.description != blank -%}
-          <p class="section-subheading" style="color: #666; font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+          <p class="section-subheading" style="font-family: 'Open Sans', sans-serif; color: #555555; font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
             {{ section.settings.description }}
           </p>
         {%- endif -%}
@@ -54,32 +54,32 @@
           {%- assign p_img = fallback_imgs[i] -%}
           {%- if forloop.index > limit %}{% break %}{% endif -%}
 
-          <article class="product-card" style="border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-            <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #FAF6EE; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-              <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; z-index: 2; font-family: 'Lexend Deca', sans-serif;">
+          <article class="product-card" style="border: 1px solid #E2E2E2; border-radius: 8px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+            <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #F7F7F7; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #FFDE00; color: #111111; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; z-index: 2; font-family: 'Inter', sans-serif;">
                 {{ p_badge }}
               </span>
-              <img src="{{ p_img }}" alt="{{ p_title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              <img src="{{ p_img }}" alt="{{ p_title }}" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;" loading="lazy">
             </div>
             <div class="product-card__info" style="padding: 1.25rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
               <div>
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #78716c; margin-bottom: 0.25rem; font-weight: 600; font-family: 'Lexend Deca', sans-serif;">
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666666; margin-bottom: 0.25rem; font-weight: 700; font-family: 'Inter', sans-serif;">
                   {{ p_vendor }}
                 </p>
-                <h3 style="font-family: 'Lexend Deca', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; color: #1c1a16;">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; color: #111111;">
                   {{ p_title }}
                 </h3>
-                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #f59e0b;">
+                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #FFDE00;">
                   <span>★★★★★</span>
-                  <span style="color: #78716c; font-size: 0.75rem;">(verified)</span>
+                  <span style="color: #666666; font-size: 0.75rem;">(verified)</span>
                 </div>
               </div>
               <div>
-                <div style="font-size: 1.2rem; font-weight: 800; color: #0f7a37; margin-bottom: 0.75rem; font-family: 'Lexend Deca', sans-serif;">
+                <div style="font-size: 1.2rem; font-weight: 900; color: #367C2B; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
                   {{ p_price }}
                 </div>
-                <a href="/collections/all" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 11px 16px; font-size: 0.875rem; border-radius: 8px; background: #16a34a; color: #fff; font-weight: 700; text-align: center; text-decoration: none; display: flex; font-family: 'Lexend Deca', sans-serif;">
-                  View Product &rarr;
+                <a href="/collections/all" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 12px 16px; font-size: 0.875rem; border-radius: 6px; background: #FFDE00; color: #111111; font-weight: 800; text-align: center; text-decoration: none; display: flex; font-family: 'Inter', sans-serif;">
+                  View Equipment &rarr;
                 </a>
               </div>
             </div>
@@ -90,9 +90,9 @@
 
     {%- if section.settings.show_view_all -%}
       <div class="view-all-wrapper" style="text-align: center; margin-top: 3.5rem;">
-        <a href="/collections/all" class="btn btn--primary btn--lg" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: #2D6A4F; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 16px rgba(45,106,79,0.3);">
-          {{ section.settings.view_all_label | default: 'Explore All 1,000+ Products' }}
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M10 5l5 5-5 5"/></svg>
+        <a href="/collections/all" class="btn btn--primary btn--lg" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: #FFDE00; color: #111111; text-decoration: none; border-radius: 6px; font-weight: 800; box-shadow: 0 4px 16px rgba(255,222,0,0.4); font-family: 'Inter', sans-serif;">
+          {{ section.settings.view_all_label | default: 'Explore All Mower Equipment' }}
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 10h10M10 5l5 5-5 5"/></svg>
         </a>
       </div>
     {%- endif -%}

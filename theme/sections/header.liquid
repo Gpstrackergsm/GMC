@@ -1,45 +1,76 @@
-<header class="laitm-header" role="banner">
-  <!-- ROW 1: Logo, Main Search Bar, User Actions -->
-  <div class="laitm-header__main">
-    <div class="page-width laitm-header__main-inner">
+<header class="deere-header" role="banner">
+  <!-- UTILITY BAR (John Deere Global Utility Strip) -->
+  <div class="deere-header__utility">
+    <div class="page-width deere-header__utility-inner">
+      <div class="deere-utility-left">
+        <span class="deere-utility-item deere-utility-country">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          United States (English)
+        </span>
+        <a href="/pages/contact-us" class="deere-utility-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Find Equipment / Dealer
+        </a>
+        <a href="/pages/shipping-policy" class="deere-utility-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          Track Freight Order
+        </a>
+      </div>
+
+      <div class="deere-utility-right">
+        <span class="deere-utility-item deere-highlight-tag">
+          <span class="deere-yellow-dot"></span>
+          50% Flexible Delivery Deposit Available
+        </span>
+        <a href="tel:+18006142395" class="deere-utility-item deere-utility-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          1-800-614-2395
+        </a>
+        <a href="/account" class="deere-utility-item">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 1: Logo, Search Bar, User Tools -->
+  <div class="deere-header__main">
+    <div class="page-width deere-header__main-inner">
       <!-- Mobile Menu Toggle -->
-      <button type="button" class="laitm-header__mobile-toggle" aria-label="Open menu" onclick="document.getElementById('LaitmMobileDrawer').classList.add('is-open');">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button type="button" class="deere-header__mobile-toggle" aria-label="Open navigation menu" onclick="document.getElementById('DeereMobileDrawer').classList.add('is-open');">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
 
-      <!-- Logo -->
-      <a href="{{ routes.root_url }}" class="laitm-header__logo" aria-label="Leafanoo - Home">
-        <span class="laitm-logo-wrap">
-          <svg class="laitm-logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="38" height="38" rx="10" fill="#0f391b" stroke="#16a34a" stroke-width="1.5"/>
-            <polygon points="7,14 6,18 31,24 32,20" fill="#eab308"/>
-            <path d="M19 6 C28 13 28 24 19 32 C10 24 10 13 19 6 Z" fill="#22c55e"/>
-            <line x1="19" y1="7" x2="19" y2="30" stroke="#86efac" stroke-width="1.6" stroke-linecap="round"/>
-            <circle cx="19" cy="19" r="3.6" fill="#ffffff" stroke="#0f391b" stroke-width="1"/>
-            <circle cx="19" cy="19" r="1.5" fill="#eab308"/>
+      <!-- John Deere Official Brand Logo -->
+      <a href="{{ routes.root_url }}" class="deere-header__logo" aria-label="John Deere Leafanoo Home">
+        <span class="deere-logo-wrap">
+          <!-- Official Shield Silhouette with Leaping Stag -->
+          <svg class="deere-logo-icon" width="46" height="42" viewBox="0 0 46 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="43" height="39" rx="8" fill="#367C2B" stroke="#FFDE00" stroke-width="2.8"/>
+            <!-- Leaping Deer Silhouette in John Deere Yellow -->
+            <path d="M11 28 C13 26 15 25 18 24 C17 22 16 20 15 18 C14 16 13 15 12 15 C11 15 10 16 9 17 L8 15 C10 13 12 12 15 12 C17 12 19 14 20 17 C21 16 22 15 24 14 C27 13 30 13 32 15 C33 16 34 18 34 19 C32 19 30 20 28 21 C30 22 32 23 34 24 C32 25 29 25 27 25 C25 25 23 24 22 23 C20 25 18 27 15 29 Z" fill="#FFDE00"/>
+            <path d="M28 10 L30 7 M31 11 L34 6 M27 12 C29 10 31 9 33 9" stroke="#FFDE00" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          <span class="laitm-logo-brand">
-            <span class="laitm-logo-text">Leafanoo</span>
-            <span class="laitm-logo-sub">TURF &amp; MOWER CO.</span>
+          <span class="deere-logo-brand">
+            <span class="deere-logo-text">JOHN DEERE</span>
+            <span class="deere-logo-sub">LEAFANOO TURF EQUIPMENT CO.</span>
           </span>
         </span>
       </a>
 
-      <!-- Center Search Bar -->
-      <div class="laitm-header__search">
-        <form action="{{ routes.search_url }}" method="get" class="laitm-search-form" role="search">
-          <input type="hidden" name="type" value="product">
+      <!-- Center Equipment Search Bar -->
+      <div class="deere-header__search">
+        <form action="{{ routes.search_url }}" method="get" class="deere-search-form" role="search">
+          <input type="hidden" name="type" value="product,article,page">
           <input
             type="search"
             name="q"
-            class="laitm-search-input"
-            placeholder="Search riding mowers, zero-turns, tractors..."
+            class="deere-search-input"
+            placeholder="Search equipment, lawn tractors, zero-turns, parts..."
             value="{{ search.terms | escape }}"
             autocomplete="off"
             required
           >
-          <button type="submit" class="laitm-search-btn" aria-label="Search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <button type="submit" class="deere-search-btn" aria-label="Search equipment">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
@@ -47,11 +78,11 @@
         </form>
       </div>
 
-      <!-- Right Tools: Account, Wishlist, Cart -->
-      <div class="laitm-header__tools">
+      <!-- Right Action Tools: Account, Wishlist, Cart Drawer -->
+      <div class="deere-header__tools">
         <!-- Account -->
-        <a href="/account" class="laitm-tool-btn laitm-tool-account" aria-label="My Account" title="My account">
-          <div class="laitm-account-circle">
+        <a href="/account" class="deere-tool-btn deere-tool-account" aria-label="Account" title="My Equipment Account">
+          <div class="deere-account-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
@@ -59,132 +90,136 @@
           </div>
         </a>
 
-        <!-- Wishlist -->
-        <a href="/collections/all" class="laitm-tool-btn laitm-tool-wishlist" aria-label="Wishlist" title="Wishlist">
+        <!-- Wishlist / Catalog -->
+        <a href="/collections/all" class="deere-tool-btn deere-tool-wishlist" aria-label="Saved Equipment" title="Saved Equipment">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          <span class="laitm-tool-badge">0</span>
+          <span class="deere-tool-badge">0</span>
         </a>
 
-        <!-- Cart -->
-        <a href="/cart" class="laitm-header-cart" aria-label="Shopping Cart" data-drawer-trigger="cart">
-          <div class="laitm-cart-inner">
-            <div class="laitm-cart-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Cart Pill Button with John Deere Yellow Badge -->
+        <a href="/cart" class="deere-header-cart" aria-label="Shopping Cart" data-drawer-trigger="cart">
+          <div class="deere-cart-inner">
+            <div class="deere-cart-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              <span class="laitm-cart-count" data-cart-count>{{ cart.item_count }}</span>
+              <span class="deere-cart-count" data-cart-count>{{ cart.item_count }}</span>
             </div>
-            <span class="laitm-cart-total" data-cart-total>{{ cart.total_price | money }}</span>
+            <span class="deere-cart-total" data-cart-total>{{ cart.total_price | money }}</span>
           </div>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ROW 2: Browse Categories, Nav Links, Support Info -->
-  <div class="laitm-header__nav-row">
-    <div class="page-width laitm-header__nav-inner">
-      <!-- Left: Browse Categories Dropdown Button -->
-      <div class="laitm-cats-dropdown-wrap">
-        <button type="button" class="laitm-cats-btn" id="LaitmCatsBtn" aria-expanded="false">
+  <!-- ROW 2: Primary Equipment Categories & Navigation -->
+  <div class="deere-header__nav-row">
+    <div class="page-width deere-header__nav-inner">
+      <!-- Left: Products & Solutions Mega-Dropdown Button -->
+      <div class="deere-cats-dropdown-wrap">
+        <button type="button" class="deere-cats-btn" id="DeereCatsBtn" aria-expanded="false">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span>Browse Categories</span>
-          <svg class="laitm-cats-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          <span>Products &amp; Solutions</span>
+          <svg class="deere-cats-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
 
-        <!-- Dropdown Menu with verified working URLs -->
-        <div class="laitm-cats-menu" id="LaitmCatsMenu">
+        <!-- Dropdown Menu -->
+        <div class="deere-cats-menu" id="DeereCatsMenu">
           <ul>
-            <li><a href="/collections/types?q=Riding+Lawn+Mowers">🚜 John Deere Riding Mowers</a></li>
-            <li><a href="/collections/types?q=Riding+Lawn+Mowers">⚡ Zero-Turn Mowers</a></li>
-            <li><a href="/collections/types?q=Ride+Mowers">🌾 Lawn Tractors</a></li>
-            <li><a href="/collections/types?q=Ride+Mowers">🔋 Electric Zero-Turns</a></li>
+            <li><a href="/collections/types?q=Riding+Lawn+Mowers">🚜 John Deere Lawn Tractors (100 &amp; 200 Series)</a></li>
+            <li><a href="/collections/types?q=Riding+Lawn+Mowers">⚡ Zero-Turn Mowers (Z300 &amp; Z500 Series)</a></li>
+            <li><a href="/collections/types?q=Ride+Mowers">🌾 Heavy-Duty Riding Mowers</a></li>
+            <li><a href="/collections/types?q=Ride+Mowers">🔋 Electric &amp; Battery Zero-Turns</a></li>
             <li><a href="/collections/types?q=Riding+Mowers">🏆 Commercial Turf Tractors</a></li>
-            <li><a href="/collections/types?q=Tow-Behind+Mowers">🛠️ Tow-Behind Attachments</a></li>
-            <li><a href="/collections/types?q=Self-Propelled+Mowers">🌱 Self-Propelled Walk Mowers</a></li>
-            <li><a href="/collections/types?q=Robotic+Mowers">🤖 Robotic Smart Mowers</a></li>
+            <li><a href="/collections/types?q=Tow-Behind+Mowers">🛠️ Tow-Behind Attachments &amp; Baggers</a></li>
+            <li><a href="/collections/types?q=Self-Propelled+Mowers">🌱 Walk-Behind Self-Propelled Mowers</a></li>
+            <li><a href="/collections/types?q=Robotic+Mowers">🤖 Autonomous &amp; Robotic Smart Mowers</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Center: Navigation Links -->
-      <nav class="laitm-nav" aria-label="Main Navigation">
-        <ul class="laitm-nav__list">
-          <li><a href="/" class="laitm-nav__link {% if request.path == '/' %}is-active{% endif %}">Home</a></li>
-          <li><a href="/collections/all" class="laitm-nav__link {% if request.path contains '/collections' %}is-active{% endif %}">Shop</a></li>
-          <li><a href="/pages/shipping-policy" class="laitm-nav__link">Order Status</a></li>
-          <li><a href="/pages/contact-us" class="laitm-nav__link">Contact us</a></li>
-          <li><a href="/pages/terms-of-service" class="laitm-nav__link">About us</a></li>
-          <li><a href="/#shopify-section-faq-accordion" class="laitm-nav__link">FAQs</a></li>
+      <!-- Center: Deere Nav Links -->
+      <nav class="deere-nav" aria-label="Main Navigation">
+        <ul class="deere-nav__list">
+          <li><a href="/" class="deere-nav__link {% if request.path == '/' %}is-active{% endif %}">Home</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers" class="deere-nav__link">Riding Mowers</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers" class="deere-nav__link">Zero-Turn Mowers</a></li>
+          <li><a href="/collections/types?q=Tow-Behind+Mowers" class="deere-nav__link">Attachments</a></li>
+          <li><a href="/collections/all" class="deere-nav__link {% if request.path contains '/collections' %}is-active{% endif %}">Shop All</a></li>
+          <li><a href="/pages/shipping-policy" class="deere-nav__link">50% Deposit &amp; Delivery</a></li>
+          <li><a href="/pages/contact-us" class="deere-nav__link">Contact Support</a></li>
+          <li><a href="/#shopify-section-faq-accordion" class="deere-nav__link">FAQs</a></li>
         </ul>
       </nav>
 
-      <!-- Right: Store Address & Phone -->
-      <div class="laitm-header__contact">
-        <div class="laitm-header__address">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          <span>694 Maple St, Brooklyn, NY 11203, USA</span>
-        </div>
-        <a href="tel:+18006142395" class="laitm-header__phone">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          <span>+1 (800) 614-2395</span>
+      <!-- Right: Direct Toll-Free Phone -->
+      <div class="deere-header__contact">
+        <a href="tel:+18006142395" class="deere-header__phone">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#367C2B" stroke-width="2.4" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>1-800-614-2395</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Mobile Drawer -->
-  <div class="laitm-mobile-drawer" id="LaitmMobileDrawer">
-    <div class="laitm-mobile-drawer__overlay" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');"></div>
-    <div class="laitm-mobile-drawer__panel">
-        <div class="laitm-logo-brand">
-          <span class="laitm-logo-text">Leafanoo</span>
-          <span class="laitm-logo-sub">TURF &amp; MOWER CO.</span>
+  <!-- Mobile Navigation Drawer -->
+  <div class="deere-mobile-drawer" id="DeereMobileDrawer">
+    <div class="deere-mobile-drawer__overlay" onclick="document.getElementById('DeereMobileDrawer').classList.remove('is-open');"></div>
+    <div class="deere-mobile-drawer__panel">
+      <div class="deere-mobile-drawer__head">
+        <div class="deere-logo-wrap">
+          <svg class="deere-logo-icon" width="36" height="34" viewBox="0 0 46 42" fill="none">
+            <rect x="1.5" y="1.5" width="43" height="39" rx="8" fill="#367C2B" stroke="#FFDE00" stroke-width="2.8"/>
+            <path d="M11 28 C13 26 15 25 18 24 C17 22 16 20 15 18 C14 16 13 15 12 15 C11 15 10 16 9 17 L8 15 C10 13 12 12 15 12 C17 12 19 14 20 17 C21 16 22 15 24 14 C27 13 30 13 32 15 C33 16 34 18 34 19 C32 19 30 20 28 21 C30 22 32 23 34 24 C32 25 29 25 27 25 C25 25 23 24 22 23 C20 25 18 27 15 29 Z" fill="#FFDE00"/>
+            <path d="M28 10 L30 7 M31 11 L34 6 M27 12 C29 10 31 9 33 9" stroke="#FFDE00" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div class="deere-logo-brand">
+            <span class="deere-logo-text" style="font-size: 18px;">JOHN DEERE</span>
+            <span class="deere-logo-sub" style="font-size: 8px;">LEAFANOO TURF EQUIPMENT</span>
+          </div>
         </div>
-        <button type="button" class="laitm-mobile-drawer__close" aria-label="Close menu" onclick="document.getElementById('LaitmMobileDrawer').classList.remove('is-open');">
+        <button type="button" class="deere-mobile-drawer__close" aria-label="Close menu" onclick="document.getElementById('DeereMobileDrawer').classList.remove('is-open');">
           &times;
         </button>
       </div>
 
-      <!-- Mobile Search -->
-      <form action="{{ routes.search_url }}" method="get" class="laitm-mobile-search">
+      <!-- Mobile Search Form -->
+      <form action="{{ routes.search_url }}" method="get" class="deere-mobile-search">
         <input type="hidden" name="type" value="product">
-        <input type="search" name="q" placeholder="Search for products..." required>
+        <input type="search" name="q" placeholder="Search John Deere equipment..." required>
         <button type="submit">Search</button>
       </form>
 
-      <!-- Mobile Links with verified working URLs -->
-      <nav class="laitm-mobile-nav">
-        <h4>Menu</h4>
+      <!-- Mobile Navigation Links -->
+      <nav class="deere-mobile-nav">
+        <h4>Equipment Navigation</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/collections/all">Shop All</a></li>
-          <li><a href="/pages/shipping-policy">Order Status</a></li>
-          <li><a href="/pages/contact-us">Contact us</a></li>
-          <li><a href="/pages/terms-of-service">About us</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers">John Deere Riding Mowers</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers">Zero-Turn Mowers</a></li>
+          <li><a href="/collections/types?q=Tow-Behind+Mowers">Tow-Behind Attachments</a></li>
+          <li><a href="/collections/all">Complete Equipment Catalog</a></li>
+          <li><a href="/pages/shipping-policy">50% Delivery Deposit</a></li>
+          <li><a href="/pages/contact-us">Customer Support</a></li>
           <li><a href="/#shopify-section-faq-accordion">FAQs</a></li>
         </ul>
 
-        <h4>Categories</h4>
+        <h4>Products &amp; Solutions</h4>
         <ul>
-          <li><a href="/collections/types?q=Riding+Lawn+Mowers">John Deere Riding Mowers</a></li>
-          <li><a href="/collections/types?q=Riding+Lawn+Mowers">Zero-Turn Mowers</a></li>
-          <li><a href="/collections/types?q=Ride+Mowers">Lawn Tractors</a></li>
-          <li><a href="/collections/types?q=Ride+Mowers">Electric Zero-Turns</a></li>
-          <li><a href="/collections/types?q=Riding+Mowers">Commercial Turf Tractors</a></li>
-          <li><a href="/collections/types?q=Tow-Behind+Mowers">Tow-Behind Attachments</a></li>
-          <li><a href="/collections/types?q=Self-Propelled+Mowers">Self-Propelled Walk Mowers</a></li>
-          <li><a href="/collections/types?q=Robotic+Mowers">Robotic Smart Mowers</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers">100 &amp; 200 Series Lawn Tractors</a></li>
+          <li><a href="/collections/types?q=Riding+Lawn+Mowers">Z300 &amp; Z500 Zero-Turns</a></li>
+          <li><a href="/collections/types?q=Ride+Mowers">Heavy-Duty Yard Tractors</a></li>
+          <li><a href="/collections/types?q=Riding+Mowers">Commercial Turf Series</a></li>
         </ul>
       </nav>
 
-      <div class="laitm-mobile-contact">
+      <div class="deere-mobile-contact">
         <p>📍 694 Maple St, Brooklyn, NY 11203, USA</p>
-        <p>📞 +1 (800) 614-2395</p>
+        <p>📞 +1 (800) 614-2395 (Toll-Free)</p>
         <p>✉️ Contact@leafanoo.com</p>
       </div>
     </div>
@@ -192,258 +227,307 @@
 </header>
 
 <style>
-  .laitm-header {
+  .deere-header {
     background: #ffffff;
     width: 100%;
     position: relative;
     z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  .laitm-header__main {
-    border-bottom: 1px solid #f0f0ed;
-    padding: 16px 0;
-  }
-  .laitm-header__main-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-  }
-  .laitm-header__mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #1c1a16;
-    cursor: pointer;
-    padding: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
-  /* Logo */
-  .laitm-header__logo {
-    text-decoration: none;
-    color: inherit;
-    flex-shrink: 0;
+  /* Utility Strip */
+  .deere-header__utility {
+    background: #1E3F20;
+    color: #E2E8F0;
+    font-size: 11.5px;
+    height: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .laitm-logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .laitm-logo-icon {
-    flex-shrink: 0;
-  }
-  .laitm-logo-brand {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-  .laitm-logo-text {
-    font-family: "Lexend Deca", sans-serif;
-    font-size: 25px;
-    font-weight: 800;
-    color: #1c1a16;
-    letter-spacing: -0.03em;
-  }
-  .laitm-logo-sub {
-    font-family: "Lexend Deca", sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    color: #16a34a;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  /* Search */
-  .laitm-header__search {
-    flex: 1;
-    max-width: 580px;
-  }
-  .laitm-search-form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .laitm-search-input {
-    width: 100%;
-    height: 46px;
-    padding: 0 52px 0 22px;
-    background: #f7f7f5;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 999px;
-    font-family: "Lexend Deca", sans-serif;
-    font-size: 14.5px;
-    color: #1c1a16;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  }
-  .laitm-search-input:focus {
-    background: #ffffff;
-    border-color: #16a34a;
-    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
-  }
-  .laitm-search-btn {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: none;
-    color: #16a34a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.2s, color 0.2s;
-  }
-  .laitm-search-btn:hover {
-    background: #e7f6ec;
-  }
-
-  /* Tools */
-  .laitm-header__tools {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-shrink: 0;
-  }
-  .laitm-tool-btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1c1a16;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .laitm-account-circle {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #16a34a;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .laitm-account-circle:hover {
-    background: #0f7a37;
-    transform: scale(1.05);
-  }
-  .laitm-tool-wishlist {
-    color: #57534e;
-    padding: 6px;
-  }
-  .laitm-tool-wishlist:hover {
-    color: #16a34a;
-  }
-  .laitm-tool-badge {
-    position: absolute;
-    top: 0;
-    right: -2px;
-    background: #16a34a;
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    min-width: 17px;
-    height: 17px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-  }
-
-  /* Cart Pill */
-  .laitm-header-cart {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-  }
-  .laitm-cart-inner {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #1c1a16;
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 999px;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .laitm-cart-inner:hover {
-    background: #16a34a;
-    transform: translateY(-1px);
-  }
-  .laitm-cart-icon-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  .laitm-cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #16a34a;
-    color: #ffffff;
-    font-size: 10.5px;
-    font-weight: 700;
-    min-width: 17px;
-    height: 17px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    border: 1.5px solid #1c1a16;
-  }
-  .laitm-cart-inner:hover .laitm-cart-count {
-    background: #ffffff;
-    color: #16a34a;
-    border-color: #16a34a;
-  }
-  .laitm-cart-total {
-    font-family: "Lexend Deca", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  /* ROW 2: Subheader Navigation */
-  .laitm-header__nav-row {
-    background: #ffffff;
-    border-bottom: 1px solid #e8e8e3;
-    height: 48px;
-  }
-  .laitm-header__nav-inner {
+  .deere-header__utility-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    gap: 24px;
+    padding: 0 16px;
+  }
+  .deere-utility-left,
+  .deere-utility-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .deere-utility-item {
+    color: #E2E8F0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .deere-utility-item:hover {
+    color: #FFDE00;
+  }
+  .deere-highlight-tag {
+    color: #FFDE00;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .deere-yellow-dot {
+    width: 7px;
+    height: 7px;
+    background: #FFDE00;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .deere-utility-phone {
+    font-weight: 700;
+    color: #FFFFFF;
   }
 
-  /* Browse Categories Dropdown */
-  .laitm-cats-dropdown-wrap {
+  /* Main Header Row */
+  .deere-header__main {
+    border-bottom: 1px solid #EAEAEA;
+    padding: 14px 0;
+    background: #FFFFFF;
+  }
+  .deere-header__main-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .deere-header__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #111111;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  /* John Deere Logo */
+  .deere-header__logo {
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+  .deere-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .deere-logo-icon {
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(54, 124, 43, 0.2));
+  }
+  .deere-logo-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+  .deere-logo-text {
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #111111;
+    letter-spacing: -0.02em;
+  }
+  .deere-logo-sub {
+    font-family: "Inter", sans-serif;
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #367C2B;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* Search */
+  .deere-header__search {
+    flex: 1;
+    max-width: 540px;
+  }
+  .deere-search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .deere-search-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 50px 0 20px;
+    background: #F7F7F7;
+    border: 1.5px solid #E2E2E2;
+    border-radius: 999px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .deere-search-input:focus {
+    background: #ffffff;
+    border-color: #367C2B;
+    box-shadow: 0 0 0 3px rgba(54, 124, 43, 0.15);
+  }
+  .deere-search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    background: #367C2B;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+  .deere-search-btn:hover {
+    background: #275e20;
+  }
+
+  /* Tools */
+  .deere-header__tools {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .deere-tool-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .deere-account-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #367C2B;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .deere-account-circle:hover {
+    background: #275e20;
+    transform: scale(1.04);
+  }
+  .deere-tool-wishlist {
+    color: #555555;
+    padding: 6px;
+  }
+  .deere-tool-wishlist:hover {
+    color: #367C2B;
+  }
+  .deere-tool-badge {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    background: #FFDE00;
+    color: #111111;
+    font-size: 11px;
+    font-weight: 800;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+
+  /* Cart Pill Button */
+  .deere-header-cart {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+  .deere-cart-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #111111;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .deere-cart-inner:hover {
+    background: #367C2B;
+    transform: translateY(-1px);
+  }
+  .deere-cart-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .deere-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #FFDE00;
+    color: #111111;
+    font-size: 10.5px;
+    font-weight: 900;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 1.5px solid #111111;
+  }
+  .deere-cart-total {
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* ROW 2: Primary Sub-Nav */
+  .deere-header__nav-row {
+    background: #FFFFFF;
+    border-bottom: 2px solid #E2E2E2;
+    height: 48px;
+  }
+  .deere-header__nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 20px;
+  }
+
+  /* Products & Solutions Dropdown */
+  .deere-cats-dropdown-wrap {
     position: relative;
     height: 100%;
     display: flex;
     align-items: flex-end;
   }
-  .laitm-cats-btn {
-    background: #16a34a;
+  .deere-cats-btn {
+    background: #367C2B;
     color: #ffffff;
     border: none;
-    height: 42px;
+    height: 44px;
     padding: 0 20px;
-    border-radius: 8px 8px 0 0;
-    font-family: "Lexend Deca", sans-serif;
+    border-radius: 6px 6px 0 0;
+    font-family: "Inter", sans-serif;
     font-size: 13.5px;
     font-weight: 700;
     display: flex;
@@ -452,115 +536,120 @@
     cursor: pointer;
     transition: background 0.2s;
   }
-  .laitm-cats-btn:hover {
-    background: #0f7a37;
+  .deere-cats-btn:hover {
+    background: #275e20;
   }
-  .laitm-cats-menu {
+  .deere-cats-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 260px;
+    width: 290px;
     background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    border: 1px solid #E2E2E2;
+    border-top: 3px solid #FFDE00;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.12);
     z-index: 200;
   }
-  .laitm-cats-dropdown-wrap:hover .laitm-cats-menu,
-  .laitm-cats-dropdown-wrap.is-open .laitm-cats-menu {
+  .deere-cats-dropdown-wrap:hover .deere-cats-menu,
+  .deere-cats-dropdown-wrap.is-open .deere-cats-menu {
     display: block;
   }
-  .laitm-cats-menu ul {
+  .deere-cats-menu ul {
     list-style: none;
     padding: 8px 0;
     margin: 0;
   }
-  .laitm-cats-menu li a {
+  .deere-cats-menu li a {
     display: block;
-    padding: 10px 20px;
-    color: #1c1a16;
+    padding: 10px 18px;
+    color: #111111;
     text-decoration: none;
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 600;
     transition: background 0.15s, color 0.15s;
   }
-  .laitm-cats-menu li a:hover {
-    background: #f0fdf4;
-    color: #16a34a;
+  .deere-cats-menu li a:hover {
+    background: #EEF7EC;
+    color: #367C2B;
   }
 
   /* Center Nav Links */
-  .laitm-nav {
+  .deere-nav {
     flex: 1;
   }
-  .laitm-nav__list {
+  .deere-nav__list {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .laitm-nav__link {
-    font-family: "Lexend Deca", sans-serif;
-    font-size: 14px;
+  .deere-nav__link {
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
     font-weight: 600;
-    color: #242424;
+    color: #222222;
     text-decoration: none;
     transition: color 0.2s;
     padding: 6px 0;
+    position: relative;
   }
-  .laitm-nav__link:hover,
-  .laitm-nav__link.is-active {
-    color: #16a34a;
+  .deere-nav__link:hover,
+  .deere-nav__link.is-active {
+    color: #367C2B;
+  }
+  .deere-nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #367C2B;
+    border-radius: 2px;
   }
 
-  /* Right Contact */
-  .laitm-header__contact {
+  /* Right Phone */
+  .deere-header__contact {
     display: flex;
     align-items: center;
-    gap: 20px;
-    font-size: 12.5px;
     flex-shrink: 0;
   }
-  .laitm-header__address {
+  .deere-header__phone {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #57534e;
-  }
-  .laitm-header__phone {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #16a34a;
-    font-weight: 700;
+    color: #367C2B;
+    font-weight: 800;
+    font-size: 13px;
     text-decoration: none;
   }
 
-  /* Mobile Drawer Styles */
-  .laitm-mobile-drawer {
+  /* Mobile Drawer */
+  .deere-mobile-drawer {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 9999;
   }
-  .laitm-mobile-drawer.is-open {
+  .deere-mobile-drawer.is-open {
     display: block;
   }
-  .laitm-mobile-drawer__overlay {
+  .deere-mobile-drawer__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
   }
-  .laitm-mobile-drawer__panel {
+  .deere-mobile-drawer__panel {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 82%;
-    max-width: 320px;
+    width: 85%;
+    max-width: 330px;
     background: #ffffff;
     padding: 24px;
     overflow-y: auto;
@@ -568,89 +657,91 @@
     flex-direction: column;
     gap: 20px;
   }
-  .laitm-mobile-drawer__head {
+  .deere-mobile-drawer__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .laitm-mobile-drawer__close {
+  .deere-mobile-drawer__close {
     background: none;
     border: none;
     font-size: 28px;
     cursor: pointer;
-    color: #57534e;
+    color: #555555;
   }
-  .laitm-mobile-search {
+  .deere-mobile-search {
     display: flex;
     gap: 8px;
   }
-  .laitm-mobile-search input {
+  .deere-mobile-search input {
     flex: 1;
     padding: 10px 14px;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
     font-size: 14px;
   }
-  .laitm-mobile-search button {
-    background: #16a34a;
+  .deere-mobile-search button {
+    background: #367C2B;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 0 14px;
-    font-weight: 600;
+    font-weight: 700;
   }
-  .laitm-mobile-nav h4 {
+  .deere-mobile-nav h4 {
     margin: 16px 0 8px;
-    font-size: 12px;
+    font-size: 11.5px;
     text-transform: uppercase;
-    color: #78716c;
+    color: #888888;
+    letter-spacing: 0.05em;
   }
-  .laitm-mobile-nav ul {
+  .deere-mobile-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .laitm-mobile-nav li a {
+  .deere-mobile-nav li a {
     display: block;
-    padding: 8px 0;
-    color: #1c1a16;
+    padding: 9px 0;
+    color: #111111;
     text-decoration: none;
     font-size: 14.5px;
-    font-weight: 500;
+    font-weight: 600;
   }
-  .laitm-mobile-contact {
+  .deere-mobile-contact {
     margin-top: auto;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid #E2E2E2;
     padding-top: 16px;
     font-size: 12px;
-    color: #57534e;
+    color: #666666;
   }
 
   @media (max-width: 1080px) {
-    .laitm-header__contact { display: none; }
+    .deere-header__contact { display: none; }
+    .deere-utility-right .deere-highlight-tag { display: none; }
   }
   @media (max-width: 860px) {
-    .laitm-header__mobile-toggle { display: block; }
-    .laitm-header__search { display: none; }
-    .laitm-tool-wishlist { display: none; }
-    .laitm-header__nav-row { display: none; }
-    .laitm-cart-total { display: none; }
+    .deere-header__utility { display: none; }
+    .deere-header__mobile-toggle { display: block; }
+    .deere-header__search { display: none; }
+    .deere-tool-wishlist { display: none; }
+    .deere-header__nav-row { display: none; }
+    .deere-cart-total { display: none; }
   }
 </style>
 
 <script>
-  // Simple dropdown toggle for mobile/click
   document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('LaitmCatsBtn');
+    var btn = document.getElementById('DeereCatsBtn');
     if (btn) {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
-        var wrap = btn.closest('.laitm-cats-dropdown-wrap');
+        var wrap = btn.closest('.deere-cats-dropdown-wrap');
         wrap.classList.toggle('is-open');
       });
     }
     document.addEventListener('click', function() {
-      var wrap = document.querySelector('.laitm-cats-dropdown-wrap.is-open');
+      var wrap = document.querySelector('.deere-cats-dropdown-wrap.is-open');
       if (wrap) wrap.classList.remove('is-open');
     });
   });
@@ -658,12 +749,12 @@
 
 {% schema %}
 {
-  "name": "Laitm Header",
+  "name": "Deere Header",
   "class": "section-header",
   "settings": [],
   "presets": [
     {
-      "name": "Laitm Header"
+      "name": "Deere Header"
     }
   ]
 }
