@@ -119,12 +119,20 @@ function initAjaxAddToCart() {
       .then(res => res.json())
       .then(data => {
         if (data.status && data.status >= 400) {
-          if (!isRetry && bodyData.has('selling_plan')) {
-            // Clear existing cart collision first and retry
+          if (!isRetry) {
+            // Auto-clear any stale cart session/line-item collisions from prior tests and retry cleanly
             return fetch('/cart/clear.js', { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
               .then(() => executeAdd(bodyData, true));
           }
-          alert(data.description || 'Unable to add product to cart.');
+          // Fallback: direct checkout permalink so customer can order seamlessly
+          const variantId = bodyData.get('id');
+          if (variantId) {
+            window.location.href = `/cart/${variantId}:1`;
+            return;
+          }
+          if (typeof showToast === 'function') {
+            showToast(data.description || 'Product temporarily unavailable.', 'error');
+          }
         } else {
           // Dispatch event for cart drawer, then update count
           document.dispatchEvent(new CustomEvent('cart:item-added', { detail: data }));
