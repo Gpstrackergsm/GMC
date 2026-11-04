@@ -71,13 +71,18 @@
               }
             </script>
 
-            <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
               <a href="{{ routes.all_products_collection_url }}" style="color: #367C2B; font-weight: 700; text-decoration: underline; font-size: 0.95rem;">
                 &larr; Continue Shopping
               </a>
-              <button type="submit" name="update" class="btn" style="background: transparent; border: 1px solid var(--color-border, #E2E2E2); padding: 0.6rem 1.25rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
-                Update Cart
-              </button>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="/cart/clear" style="color: #EF4444; font-size: 0.85rem; font-weight: 600; text-decoration: underline;">
+                  Clear Cart
+                </a>
+                <button type="submit" name="update" class="btn" style="background: transparent; border: 1px solid var(--color-border, #E2E2E2); padding: 0.6rem 1.25rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+                  Update Cart
+                </button>
+              </div>
             </div>
           </div>
 

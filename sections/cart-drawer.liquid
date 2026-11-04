@@ -10,9 +10,14 @@
       <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: #111827;">
         Your Cart (<span class="cart-drawer-count">{{ cart.item_count }}</span>)
       </h2>
-      <button type="button" class="cart-drawer-close" aria-label="Close cart drawer" style="background: none; border: none; cursor: pointer; padding: 0.4rem; color: #4B5563; font-size: 1.5rem; line-height: 1;" onmouseover="this.style.color='#111827'" onmouseout="this.style.color='#4B5563'">
-        &times;
-      </button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        {%- if cart.item_count > 0 -%}
+          <a href="/cart/clear" style="font-size: 0.78rem; color: #9CA3AF; text-decoration: underline;">Clear Cart</a>
+        {%- endif -%}
+        <button type="button" class="cart-drawer-close" aria-label="Close cart drawer" style="background: none; border: none; cursor: pointer; padding: 0.4rem; color: #4B5563; font-size: 1.5rem; line-height: 1;" onmouseover="this.style.color='#111827'" onmouseout="this.style.color='#4B5563'">
+          &times;
+        </button>
+      </div>
     </div>
 
     <!-- Free Shipping & Liftgate Freight Bar -->
