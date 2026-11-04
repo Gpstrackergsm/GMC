@@ -287,7 +287,7 @@
       "settings": {
         "heading": "Frequently Asked Questions",
         "subheading": "Everything you need to know about our mower delivery, warranty, and authentic equipment.",
-        "bg_color": "#faf6ee"
+        "bg_color": "#FFFFFF"
       }
     },
     "newsletter": {
@@ -295,7 +295,7 @@
       "settings": {
         "heading": "Join the Lawn Care Community",
         "subtext": "Sign up for seasonal turf maintenance tips, equipment guides, and exclusive offers on riding mowers and accessories.",
-        "bg_color": "#1a2e1e",
+        "bg_color": "#1E3F20",
         "text_color": "#FFFFFF",
         "padding_top": 64,
         "padding_bottom": 64

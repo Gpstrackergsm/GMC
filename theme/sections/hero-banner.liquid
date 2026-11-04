@@ -3,74 +3,74 @@
   assign hero_cta = section.settings.button_link | default: '/collections/types?q=Garden+Essentials'
 -%}
 
-<section class="section-{{ section.id }}-hero" style="background-color: #faf6ee; padding: 20px 0 24px;">
+<section class="section-{{ section.id }}-hero" style="background-color: #FFFFFF; padding: 24px 0 28px;">
   <div class="page-width">
-    <div class="laitm-ghero-wrap">
-      <div class="laitm-ghero-grid">
+    <div class="deere-hero-wrap">
+      <div class="deere-hero-grid">
         <!-- Left Copy Column -->
-        <div class="laitm-ghero-copy">
-          <span class="laitm-ghero-eyebrow">
+        <div class="deere-hero-copy">
+          <span class="deere-hero-eyebrow">
             <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true" width="13" height="13">
               <path d="M12 5v14M5 12h14"></path>
             </svg>
-            {{ section.settings.badge_text | default: 'GARDEN ESSENTIALS' }}
+            {{ section.settings.badge_text | default: 'NOTHING RUNS LIKE A DEERE.™' }}
           </span>
 
-          <h1 class="laitm-ghero-h1">
-            {{ section.settings.heading | default: 'Built for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>' }}
+          <h1 class="deere-hero-h1">
+            {{ section.settings.heading | default: 'Engineered for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>' }}
           </h1>
 
-          <p class="laitm-ghero-sub">
-            {{ section.settings.subheading | default: "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere, Cub Cadet, Husqvarna, and top American turf brands. Factory-sealed with complimentary hydraulic liftgate residential delivery." }}
+          <p class="deere-hero-sub">
+            {{ section.settings.subheading | default: "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere. Factory-sealed with complimentary hydraulic liftgate residential delivery and flexible 50% deposit options." }}
           </p>
 
           <!-- Liftgate Freight Hero Pill -->
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: #E8F5EE; border: 1.5px solid #16a34a; border-radius: 9999px; padding: 6px 16px; margin-bottom: 1.25rem;">
-            <span style="font-size: 1.1rem;">🛡️</span>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #166534; letter-spacing: 0.02em;">50% Flexible Delivery Deposit Available — Pay Half Today</span>
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #EEF7EC; border: 1.5px solid #367C2B; border-radius: 9999px; padding: 6px 16px; margin-bottom: 0.5rem; width: fit-content;">
+            <span style="font-size: 1.05rem;">🛡️</span>
+            <span style="font-size: 0.85rem; font-weight: 800; color: #275e20; letter-spacing: 0.02em;">50% Flexible Delivery Deposit Available — Pay Half Today</span>
           </div>
 
-          <div class="laitm-ghero-actions">
-            <a class="laitm-ghero-cta" href="{{ hero_cta }}">
-              {{ section.settings.button_label | default: 'Shop Riding Mowers' }}
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="deere-hero-actions">
+            <a class="deere-hero-cta" href="{{ hero_cta }}">
+              {{ section.settings.button_label | default: 'Shop John Deere Series' }}
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </a>
-            <a class="laitm-ghero-cta-secondary" href="{{ section.settings.secondary_button_link | default: '/collections/all' }}">
-              {{ section.settings.secondary_button_label | default: 'View all mowers' }}
+            <a class="deere-hero-cta-secondary" href="{{ section.settings.secondary_button_link | default: '/collections/all' }}">
+              {{ section.settings.secondary_button_label | default: 'Explore All Mowers' }}
             </a>
           </div>
 
-          <div class="laitm-ghero-stats">
+          <div class="deere-hero-stats">
             <div>
-              <span class="laitm-ghero-stat-num">{{ section.settings.stat_1_num | default: '76+' }}</span>
-              <span class="laitm-ghero-stat-label">{{ section.settings.stat_1_label | default: 'Mower models' }}</span>
+              <span class="deere-hero-stat-num">{{ section.settings.stat_1_num | default: '76+' }}</span>
+              <span class="deere-hero-stat-label">{{ section.settings.stat_1_label | default: 'Mower Models' }}</span>
             </div>
             <div>
-              <span class="laitm-ghero-stat-num">{{ section.settings.stat_2_num | default: '100%' }}</span>
-              <span class="laitm-ghero-stat-label">{{ section.settings.stat_2_label | default: 'Deposit option' }}</span>
+              <span class="deere-hero-stat-num">{{ section.settings.stat_2_num | default: '50%' }}</span>
+              <span class="deere-hero-stat-label">{{ section.settings.stat_2_label | default: 'Deposit Option' }}</span>
             </div>
             <div>
-              <span class="laitm-ghero-stat-num">{{ section.settings.stat_3_num | default: 'Free' }}</span>
-              <span class="laitm-ghero-stat-label">{{ section.settings.stat_3_label | default: 'Liftgate delivery' }}</span>
+              <span class="deere-hero-stat-num">{{ section.settings.stat_3_num | default: 'Free' }}</span>
+              <span class="deere-hero-stat-label">{{ section.settings.stat_3_label | default: 'Liftgate Delivery' }}</span>
             </div>
           </div>
         </div>
 
         <!-- Right Scene / Photo Frame Column -->
-        <div class="laitm-ghero-scene">
-          <div class="laitm-ghero-photo-frame">
+        <div class="deere-hero-scene">
+          <div class="deere-hero-photo-frame">
             <img
-              src="{{ section.settings.hero_image_url | default: 'https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg' }}"
-              alt="Pergola in a backyard garden setting"
+              src="{{ section.settings.hero_image_url | default: 'https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124' }}"
+              alt="John Deere Riding Lawn Mower on manicured turf"
               loading="eager"
               fetchpriority="high"
             >
           </div>
-          <div class="laitm-ghero-tag">
-            <span class="laitm-ghero-tag-dot"></span>
-            <span>In stock — ships this week</span>
+          <div class="deere-hero-tag">
+            <span class="deere-hero-tag-dot"></span>
+            <span>Factory Sealed — Ships This Week</span>
           </div>
         </div>
       </div>
@@ -79,170 +79,223 @@
 </section>
 
 <style>
-  .laitm-ghero-wrap {
-    --laitm-green: #16a34a;
-    --laitm-green-dark: #0f7a37;
-    --laitm-green-tint: #e7f6ec;
-    --laitm-parchment: #faf6ee;
-    --laitm-ink: #1c1a16;
-    --laitm-ink-soft: #57534e;
-    --laitm-line: rgba(28,26,22,.1);
+  .deere-hero-wrap {
+    --deere-green: #367C2B;
+    --deere-green-dark: #275e20;
+    --deere-green-tint: #EEF7EC;
+    --deere-yellow: #FFDE00;
+    --deere-yellow-hover: #E6C800;
+    --deere-ink: #111111;
+    --deere-ink-soft: #4A4A4A;
+    --deere-line: #E2E2E2;
     position: relative;
     width: 100%;
-    background: var(--laitm-parchment);
-    border-radius: 20px;
+    background: #F7F7F7;
+    border-radius: 12px;
     overflow: hidden;
     box-sizing: border-box;
-    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--laitm-ink);
-    border: 1px solid rgba(28,26,22,.08);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--deere-ink);
+    border: 1px solid var(--deere-line);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
   }
-  .laitm-ghero-wrap *, .laitm-ghero-wrap *::before, .laitm-ghero-wrap *::after {
+  .deere-hero-wrap *, .deere-hero-wrap *::before, .deere-hero-wrap *::after {
     box-sizing: border-box;
   }
-  .laitm-ghero-grid {
+  .deere-hero-grid {
     display: grid;
     grid-template-columns: 1.05fr .95fr;
     align-items: stretch;
     min-height: 480px;
   }
-  .laitm-ghero-copy {
+  .deere-hero-copy {
     position: relative;
-    padding: 56px 52px;
+    padding: 52px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
     z-index: 2;
   }
-  .laitm-ghero-eyebrow {
+  .deere-hero-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 7px;
     width: fit-content;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .1em;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: .08em;
     text-transform: uppercase;
-    color: var(--laitm-green-dark);
-    background: var(--laitm-green-tint);
-    border: 1px solid rgba(22,163,74,.25);
+    color: var(--deere-green-dark);
+    background: var(--deere-green-tint);
+    border: 1.5px solid rgba(54,124,43,.3);
     padding: 6px 14px;
     border-radius: 999px;
   }
-  .laitm-ghero-eyebrow svg {
-    color: var(--laitm-green-dark);
+  .deere-hero-eyebrow svg {
+    color: var(--deere-green-dark);
     flex-shrink: 0;
   }
-  .laitm-ghero-h1 {
-    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 700;
-    font-size: clamp(30px, 3.6vw, 46px);
+  .deere-hero-h1 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 900;
+    font-size: clamp(28px, 3.6vw, 44px);
     line-height: 1.15;
-    letter-spacing: -.02em;
+    letter-spacing: -.025em;
     margin: 0;
-    color: var(--laitm-ink);
+    color: var(--deere-ink);
   }
-  .laitm-ghero-h1 span {
-    color: var(--laitm-green);
+  .deere-hero-h1 span {
+    color: var(--deere-green);
   }
-  .laitm-ghero-sub {
-    font-size: 15.5px;
+  .deere-hero-sub {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.65;
-    color: var(--laitm-ink-soft);
+    color: var(--deere-ink-soft);
     max-width: 48ch;
     margin: 0;
   }
-  .laitm-ghero-actions {
+  .deere-hero-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     margin-top: 4px;
     flex-wrap: wrap;
   }
-  .laitm-ghero-cta {
+  .deere-hero-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--laitm-green);
-    color: #fff;
-    font-weight: 700;
+    background: var(--deere-yellow);
+    color: #111111;
+    font-weight: 800;
     font-size: 14.5px;
     text-decoration: none;
     padding: 14px 26px;
-    border-radius: 10px;
-    transition: background .2s ease, transform .2s ease;
-    box-shadow: 0 4px 14px rgba(22,163,74,.25);
+    border-radius: 6px;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 4px 14px rgba(255,222,0,.4);
+    letter-spacing: 0.02em;
   }
-  .laitm-ghero-cta:hover {
-    background: var(--laitm-green-dark);
+  .deere-hero-cta:hover {
+    background: var(--deere-yellow-hover);
     transform: translateY(-1px);
-    color: #fff;
+    color: #000000;
+    box-shadow: 0 6px 18px rgba(255,222,0,.5);
   }
-  .laitm-ghero-cta svg {
+  .deere-hero-cta svg {
     width: 16px;
     height: 16px;
     transition: transform .2s ease;
   }
-  .laitm-ghero-cta:hover svg {
+  .deere-hero-cta:hover svg {
     transform: translateX(3px);
   }
-  .laitm-ghero-cta-secondary {
-    font-size: 14.5px;
-    font-weight: 600;
-    color: var(--laitm-ink);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1.5px;
-    transition: color 0.2s;
+  .deere-hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--deere-green);
+    background: #FFFFFF;
+    border: 2px solid var(--deere-green);
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
   }
-  .laitm-ghero-cta-secondary:hover {
-    color: var(--laitm-green);
+  .deere-hero-cta-secondary:hover {
+    background: var(--deere-green);
+    color: #FFFFFF;
   }
-  .laitm-ghero-stats {
+  .deere-hero-stats {
     display: flex;
     gap: 32px;
-    margin-top: 16px;
-    padding-top: 20px;
-    border-top: 1px solid var(--laitm-line);
+    margin-top: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--deere-line);
   }
-  .laitm-ghero-stat-num {
-    font-family: "Lexend Deca", sans-serif;
+  .deere-hero-stat-num {
+    font-family: "Inter", sans-serif;
     font-size: 22px;
-    font-weight: 700;
-    color: var(--laitm-green-dark);
+    font-weight: 800;
+    color: var(--deere-green);
     display: block;
     line-height: 1.2;
   }
-  .laitm-ghero-stat-label {
-    font-size: 12.5px;
-    color: var(--laitm-ink-soft);
-    font-weight: 500;
+  .deere-hero-stat-label {
+    font-size: 12px;
+    color: var(--deere-ink-soft);
+    font-weight: 600;
     margin-top: 2px;
     display: block;
   }
 
-  .laitm-ghero-scene {
+  .deere-hero-scene {
     position: relative;
     min-height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(155deg, var(--laitm-green-tint) 0%, var(--laitm-parchment) 60%);
+    background: linear-gradient(155deg, var(--deere-green-tint) 0%, #FFFFFF 65%);
     overflow: hidden;
   }
-  .laitm-ghero-photo-frame {
+  .deere-hero-photo-frame {
     position: absolute;
     left: 8%;
     right: 8%;
     bottom: 9%;
     top: 9%;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 45px rgba(28,26,22,.16);
-    border: 6px solid #fff;
+    box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    border: 5px solid #FFFFFF;
+    background: #FFFFFF;
+  }
+  .deere-hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+  .deere-hero-tag {
+    position: absolute;
+    bottom: 22px;
+    right: 22px;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--deere-line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--deere-ink);
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    z-index: 3;
+  }
+  .deere-hero-tag-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--deere-green);
+    box-shadow: 0 0 0 3px rgba(54,124,43,.25);
+  }
+
+  @media (max-width: 990px) {
+    .deere-hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .deere-hero-copy {
+      padding: 36px 24px;
+    }
+    .deere-hero-scene {
+      min-height: 320px;
+    }
   }
   .laitm-ghero-photo-frame img {
     width: 100%;

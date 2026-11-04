@@ -9,15 +9,15 @@
  */
 {
   "current": {
-    "color_primary": "#16a34a",
+    "color_primary": "#367C2B",
     "color_primary_contrast": "#FFFFFF",
-    "color_secondary": "#0f7a37",
-    "color_accent": "#16a34a",
-    "color_background": "#faf6ee",
-    "color_text": "#1c1a16",
-    "color_border": "#e5e7eb",
-    "color_success": "#16a34a",
-    "color_error": "#dc2626",
+    "color_secondary": "#FFDE00",
+    "color_accent": "#FFDE00",
+    "color_background": "#FFFFFF",
+    "color_text": "#111111",
+    "color_border": "#E2E2E2",
+    "color_success": "#367C2B",
+    "color_error": "#D92D20",
     "font_size_base": 16,
     "logo_width": 150,
     "sticky_header": true,
@@ -30,12 +30,55 @@
     "show_quick_add": true,
     "product_card_image_ratio": "square",
     "enable_animations": true,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "message": "🚜 OFFICIAL US DIRECT FREIGHT • FREE RESIDENTIAL LIFTGATE DELIVERY • 50% FLEXIBLE DEPOSIT OPTION • TOLL-FREE: 1-800-614-2395",
+          "bg_color": "#1E3F20"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "6615124273980966592": {
         "type": "shopify://apps/chatty/blocks/app-embed/1c0e135d-e8e1-4fe2-86be-1c36def46675",
         "disabled": false,
         "settings": {}
+      },
+      "9722350677240811717": {
+        "type": "shopify://apps/downpay/blocks/downpay-form-embed/da700d84-7ed1-410a-a8b5-5cb99a33758a",
+        "disabled": false,
+        "settings": {
+          "default_to_pay_in_full": false,
+          "show_payment_methods": true,
+          "show_deposit_amount": true,
+          "show_border": true,
+          "show_help_text2": "deposit",
+          "show_release_date2": "never",
+          "select_style": "radio",
+          "custom_css": "",
+          "section_header": "Purchase Options",
+          "deposit_option_label": "50% deposit",
+          "full_pay_option_label": "",
+          "deposit_help_text": "Pay just 50% deposit today. Remaining balance is billed upon freight delivery.",
+          "release_date_text": "",
+          "add_to_cart_button_label": "",
+          "insert_area": "",
+          "insert_position": "afterend"
+        }
       }
     }
   }

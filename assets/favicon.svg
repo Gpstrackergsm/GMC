@@ -1,11 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0f391b" stroke="#16a34a" stroke-width="2"/>
-  <!-- Gold Mower Blade -->
-  <polygon points="12,24 10,30 52,40 54,34" fill="#eab308"/>
-  <!-- Turf Leaf Emblem -->
-  <path d="M32 10 C46 22 46 40 32 54 C18 40 18 22 32 10 Z" fill="#22c55e"/>
-  <line x1="32" y1="12" x2="32" y2="50" stroke="#86efac" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Power Hub -->
-  <circle cx="32" cy="32" r="6" fill="#ffffff" stroke="#0f391b" stroke-width="1.5"/>
-  <circle cx="32" cy="32" r="2.5" fill="#eab308"/>
+  <!-- John Deere Shield Favicon -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#367C2B" stroke="#FFDE00" stroke-width="4"/>
+  <!-- John Deere Leaping Stag in Gold/Yellow -->
+  <path d="M 46 22 C 45 20 43 18 40 19 C 39 17 37 16 35 17 C 34 16 31 16 30 18 C 30 20 32 21 34 22 L 31 24 C 29 25 28 27 28 29 L 24 28 C 21 28 18 30 17 32 C 16 34 16 37 17 39 L 22 41 C 24 42 27 41 29 39 L 32 37 L 34 44 L 37 47 L 38 46 L 36 42 L 39 37 L 43 38 C 45 38 47 36 47 34 L 46 30 C 47 28 48 25 46 22 Z" fill="#FFDE00"/>
 </svg>

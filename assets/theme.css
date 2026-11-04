@@ -1,60 +1,64 @@
 /* ==========================================================================
    Leafanoo Shopify OS 2.0 Theme Stylesheet
-   Style: Matches laitm.com — Lexend Deca + Parchment + Forest Green
+   Style: John Deere Enterprise Design System (deere.com/en-us)
    ========================================================================== */
 
-/* --- Custom Properties / Design Tokens (laitm.com palette) --- */
+/* --- Custom Properties / Design Tokens (John Deere Palette) --- */
 :root {
-  /* Primary green — matches laitm.com #16a34a */
-  --color-primary: #16a34a;
-  --color-primary-dark: #0f7a37;
-  --color-primary-light: #4ade80;
+  /* Official John Deere Green */
+  --color-primary: #367C2B;
+  --color-primary-dark: #275e20;
+  --color-primary-deep: #1E3F20;
+  --color-primary-light: #4A9E3A;
   --color-primary-contrast: #FFFFFF;
-  --color-primary-tint: #e7f6ec;
+  --color-primary-tint: #EEF7EC;
 
-  /* Secondary / accent */
-  --color-secondary: #16a34a;
-  --color-accent: #16a34a;
-  --color-accent-hover: #0f7a37;
+  /* Official John Deere Yellow / Gold */
+  --color-secondary: #FFDE00;
+  --color-accent: #FFDE00;
+  --color-accent-hover: #E6C800;
+  --color-accent-contrast: #111111;
 
-  /* Backgrounds — parchment like laitm.com */
-  --color-bg: #faf6ee;
+  /* Backgrounds — Pure crisp white & clean enterprise gray */
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F7F7F7;
   --color-surface: #FFFFFF;
-  --color-bg-muted: #f4f4f0;
+  --color-bg-muted: #F4F4F4;
 
-  /* Text — ink colors from laitm.com */
-  --color-text: #1c1a16;
-  --color-text-muted: #57534e;
-  --color-text-subtle: #78716c;
+  /* Text — Authoritative charcoal/black from deere.com */
+  --color-text: #111111;
+  --color-text-muted: #4A4A4A;
+  --color-text-subtle: #666666;
 
   /* Borders */
-  --color-border: rgba(28,26,22,.1);
-  --color-border-light: rgba(28,26,22,.06);
+  --color-border: #E2E2E2;
+  --color-border-light: #EFEFEF;
 
   /* Status */
-  --color-success: #16a34a;
-  --color-error: #dc2626;
-  --color-warning: #d97706;
+  --color-success: #367C2B;
+  --color-error: #D92D20;
+  --color-warning: #B58500;
 
-  /* Fonts — Lexend Deca matches laitm.com exactly */
-  --font-heading-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Fonts — Official John Deere typography */
+  --font-heading-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body-family: "Open Sans", "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-size-base: 16px;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-heavy: 800;
 
-  --container-max-width: 1280px;
+  --container-max-width: 1320px;
   --container-padding: 1.5rem;
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
 
   --transition-fast: 0.15s ease;
   --transition-base: 0.25s ease;
@@ -201,31 +205,51 @@ a {
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-contrast);
-  border-color: var(--color-primary);
+  background-color: var(--color-accent);
+  color: #111111;
+  border-color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .btn--primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(255, 222, 0, 0.35);
+}
+
+.btn--green {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  font-weight: 700;
+}
+
+.btn--green:hover {
   background-color: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
+  color: #FFFFFF;
 }
 
 .btn--secondary {
   background-color: transparent;
   color: var(--color-text);
-  border-color: var(--color-border);
+  border: 1.5px solid var(--color-border);
+  font-weight: 600;
 }
 
 .btn--secondary:hover {
-  border-color: var(--color-text);
-  background-color: #F0F0EC;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-primary-tint);
 }
 
 .btn--outline {
   background-color: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
+  font-weight: 700;
 }
 
 .btn--outline:hover {
@@ -235,12 +259,14 @@ a {
 
 .btn--accent {
   background-color: var(--color-accent);
-  color: #1A1A1A;
-  font-weight: var(--font-weight-bold);
+  color: #111111;
+  font-weight: 800;
+  border-color: var(--color-accent);
 }
 
 .btn--accent:hover {
   background-color: var(--color-accent-hover);
+  color: #000000;
 }
 
 /* --- Product Cards --- */
@@ -447,16 +473,16 @@ a {
   line-height: 1 !important;
 }
 .laitm-pagination__btn:hover {
-  border-color: #16a34a !important;
-  color: #16a34a !important;
-  background-color: #F0FDF4 !important;
+  border-color: #367C2B !important;
+  color: #367C2B !important;
+  background-color: #F4F8F4 !important;
   transform: translateY(-1px) !important;
 }
 .laitm-pagination__btn.is-active {
-  background-color: #16a34a !important;
-  border-color: #16a34a !important;
+  background-color: #367C2B !important;
+  border-color: #367C2B !important;
   color: #FFFFFF !important;
-  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.28) !important;
+  box-shadow: 0 2px 8px rgba(54, 124, 43, 0.3) !important;
   cursor: default !important;
   transform: none !important;
 }

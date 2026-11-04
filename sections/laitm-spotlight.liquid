@@ -90,17 +90,19 @@
 
 <style>
   .laitm-spot-wrap {
-    --laitm-green: #16a34a;
-    --laitm-green-dark: #0f7a37;
-    --laitm-green-tint: #e7f6ec;
-    --laitm-parchment: #faf6ee;
-    --laitm-ink: #1c1a16;
-    --laitm-ink-soft: #57534e;
-    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--laitm-parchment);
-    border-radius: 20px;
+    --deere-green: #367C2B;
+    --deere-green-dark: #275e20;
+    --deere-green-tint: #EEF7EC;
+    --deere-yellow: #FFDE00;
+    --deere-yellow-hover: #E6C800;
+    --deere-ink: #111111;
+    --deere-ink-soft: #4A4A4A;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #F7F7F7;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(28,26,22,.06);
+    border: 1px solid #E2E2E2;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
   }
   .laitm-spot-grid {
     display: grid;
@@ -112,8 +114,13 @@
     position: relative;
     height: 100%;
     min-height: 480px;
-    background: #f4f4f0;
+    background: #FFFFFF;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-right: 1px solid #E2E2E2;
   }
   .laitm-spot-featured-tag {
     position: absolute;
@@ -123,50 +130,53 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--laitm-green-dark);
-    background: var(--laitm-green-tint);
-    border: 1px solid rgba(22,163,74,.25);
-    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #111111;
+    background: #FFDE00;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
     padding: 5px 12px;
-    letter-spacing: .04em;
+    letter-spacing: .06em;
+    text-transform: uppercase;
   }
   .laitm-spot-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-    min-height: 480px;
+    max-height: 420px;
     transition: transform 0.4s ease;
   }
   .laitm-spot-media:hover .laitm-spot-img {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
   .laitm-spot-copy {
-    padding: 56px 52px;
+    padding: 48px 44px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
   .laitm-spot-eyebrow {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: .1em;
-    color: var(--laitm-green-dark);
+    color: var(--deere-green);
     margin: 0;
   }
   .laitm-spot-title {
+    font-family: "Inter", sans-serif;
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 800;
-    color: var(--laitm-ink);
-    line-height: 1.2;
+    color: var(--deere-ink);
+    line-height: 1.25;
     margin: 0;
   }
   .laitm-spot-desc {
+    font-family: "Open Sans", sans-serif;
     font-size: 15px;
-    color: var(--laitm-ink-soft);
+    color: var(--deere-ink-soft);
     line-height: 1.6;
     margin: 0;
   }
@@ -183,41 +193,51 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 14px;
-    color: var(--laitm-ink);
-    font-weight: 500;
+    color: var(--deere-ink);
+    font-weight: 600;
   }
-  .laitm-spot-features li svg { color: var(--laitm-green); flex-shrink: 0; margin-top: 2px; }
+  .laitm-spot-features li svg { color: var(--deere-green); flex-shrink: 0; margin-top: 2px; }
   .laitm-spot-price-row { display: flex; align-items: center; gap: 12px; }
   .laitm-spot-price {
     font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--laitm-green-dark);
+    font-weight: 900;
+    color: var(--deere-green);
     letter-spacing: -.02em;
   }
-  .laitm-spot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .laitm-spot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 6px; }
   .laitm-spot-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 13px 26px;
-    background: var(--laitm-green);
-    color: #fff;
-    font-family: "Lexend Deca", sans-serif;
+    padding: 14px 28px;
+    background: var(--deere-yellow);
+    color: #111111;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
-    font-weight: 700;
-    border-radius: 10px;
+    font-weight: 800;
+    border-radius: 6px;
     text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255,222,0,.35);
     transition: background 0.2s, transform 0.2s;
   }
-  .laitm-spot-cta:hover { background: var(--laitm-green-dark); transform: translateY(-1px); }
+  .laitm-spot-cta:hover { background: var(--deere-yellow-hover); transform: translateY(-1px); color: #000000; }
   .laitm-spot-cta-secondary {
+    display: inline-flex;
+    align-items: center;
     font-size: 14px;
-    font-weight: 600;
-    color: var(--laitm-green-dark);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: rgba(22,163,74,.4);
-    transition: text-decoration-color 0.2s;
+    font-weight: 700;
+    color: var(--deere-green);
+    background: #FFFFFF;
+    border: 2px solid var(--deere-green);
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .laitm-spot-cta-secondary:hover {
+    background: var(--deere-green);
+    color: #FFFFFF;
+  }
   }
   .laitm-spot-cta-secondary:hover { text-decoration-color: var(--laitm-green); }
 

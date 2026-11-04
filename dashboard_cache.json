@@ -1,0 +1,103 @@
+{
+  "last_updated": "03:28:07 PM",
+  "total_spend": 4596.19,
+  "today_spend": 452.07,
+  "total_clicks": 1648,
+  "today_clicks": 58,
+  "today_impressions": 7807,
+  "live_us_users": 0,
+  "campaigns": [
+    {
+      "name": "[USA] Standard Shopping - Top Products",
+      "status": "نشط ✅",
+      "budget": 75.0,
+      "spend": 253.95,
+      "clicks": 11,
+      "impressions": 890
+    },
+    {
+      "name": "[USA] PMax - Pure Sales Mode",
+      "status": "نشط ✅",
+      "budget": 100.0,
+      "spend": 198.12,
+      "clicks": 47,
+      "impressions": 6917
+    }
+  ],
+  "today_products": [
+    {
+      "title": "KidKraft Ridgemoor Perch Swing Set – Endless ",
+      "clicks": 3,
+      "spend": 3.61
+    },
+    {
+      "title": "Super73-zx Core",
+      "clicks": 3,
+      "spend": 42.5
+    },
+    {
+      "title": "Craftsman R110 – 11.5hp Manual/Gear 36\" Ridin",
+      "clicks": 2,
+      "spend": 51.8
+    },
+    {
+      "title": "SUPER73-Z Adventure Series SE | Leafanoo",
+      "clicks": 2,
+      "spend": 20.63
+    },
+    {
+      "title": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas",
+      "clicks": 2,
+      "spend": 2.63
+    },
+    {
+      "title": "Greenworks 30in 60V 16HP Equivalent Riding La",
+      "clicks": 2,
+      "spend": 3.43
+    }
+  ],
+  "today_queries": [
+    {
+      "term": "vehicle lift",
+      "clicks": 2,
+      "spend": 47.19
+    },
+    {
+      "term": "abris de jardin double porte",
+      "clicks": 1,
+      "spend": 26.33
+    },
+    {
+      "term": "golf cart",
+      "clicks": 1,
+      "spend": 15.97
+    },
+    {
+      "term": "super 73",
+      "clicks": 1,
+      "spend": 20.12
+    },
+    {
+      "term": "zooz",
+      "clicks": 1,
+      "spend": 14.11
+    },
+    {
+      "term": "10 ft w x 7.5 ft d metal storage shed for garden and backyard",
+      "clicks": 0,
+      "spend": 0.0
+    },
+    {
+      "term": "10000 watt dual fuel generator",
+      "clicks": 0,
+      "spend": 0.0
+    },
+    {
+      "term": "18kw generator",
+      "clicks": 0,
+      "spend": 0.0
+    }
+  ],
+  "live_pages": [],
+  "error": null
+}

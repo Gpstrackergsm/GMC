@@ -2,19 +2,17 @@
   <div class="laitm-footer-inner page-width">
     <!-- Col 1: About, Contact, Hours -->
     <div>
-      <a class="laitm-footer-logo" href="/" aria-label="Leafanoo Home">
+      <a class="laitm-footer-logo" href="/" aria-label="John Deere Leafanoo Home">
         <span style="display: flex; align-items: center; gap: 12px;">
-          <svg width="36" height="36" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="38" height="38" rx="10" fill="#0f391b" stroke="#16a34a" stroke-width="1.5"/>
-            <polygon points="7,14 6,18 31,24 32,20" fill="#eab308"/>
-            <path d="M19 6 C28 13 28 24 19 32 C10 24 10 13 19 6 Z" fill="#22c55e"/>
-            <line x1="19" y1="7" x2="19" y2="30" stroke="#86efac" stroke-width="1.6" stroke-linecap="round"/>
-            <circle cx="19" cy="19" r="3.6" fill="#ffffff" stroke="#0f391b" stroke-width="1"/>
-            <circle cx="19" cy="19" r="1.5" fill="#eab308"/>
+          <!-- Official Shield Silhouette with Leaping Stag -->
+          <svg width="42" height="38" viewBox="0 0 46 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="43" height="39" rx="8" fill="#367C2B" stroke="#FFDE00" stroke-width="2.8"/>
+            <path d="M11 28 C13 26 15 25 18 24 C17 22 16 20 15 18 C14 16 13 15 12 15 C11 15 10 16 9 17 L8 15 C10 13 12 12 15 12 C17 12 19 14 20 17 C21 16 22 15 24 14 C27 13 30 13 32 15 C33 16 34 18 34 19 C32 19 30 20 28 21 C30 22 32 23 34 24 C32 25 29 25 27 25 C25 25 23 24 22 23 C20 25 18 27 15 29 Z" fill="#FFDE00"/>
+            <path d="M28 10 L30 7 M31 11 L34 6 M27 12 C29 10 31 9 33 9" stroke="#FFDE00" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          <span style="display: flex; flex-direction: column; line-height: 1.1;">
-            <span style="font-family: 'Lexend Deca', sans-serif; font-size: 25px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em;">Leafanoo</span>
-            <span style="font-family: 'Lexend Deca', sans-serif; font-size: 9px; font-weight: 700; color: #86efac; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 2px;">TURF &amp; MOWER CO.</span>
+          <span style="display: flex; flex-direction: column; line-height: 1.05;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 900; color: #ffffff; letter-spacing: -0.02em;">JOHN DEERE</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 8.5px; font-weight: 800; color: #FFDE00; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 3px;">LEAFANOO TURF EQUIPMENT</span>
           </span>
         </span>
       </a>
@@ -128,7 +126,15 @@
     <div class="laitm-footer-bottom-inner page-width">
       <span>&copy; {{ 'now' | date: '%Y' }} Leafanoo LLC. All Rights Reserved.</span>
       <span class="laitm-pay">
-        <img src="https://laitm.com/wp-content/uploads/2026/07/Business-payment-methods.png" alt="Accepted payment methods" loading="lazy" style="max-height: 38px;">
+        <span style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+          <span style="background: #1a1f36; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Visa</span>
+          <span style="background: #eb001b; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Mastercard</span>
+          <span style="background: #006fcf; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Amex</span>
+          <span style="background: #003087; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">PayPal</span>
+          <span style="background: #000; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Apple Pay</span>
+          <span style="background: #4285f4; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Google Pay</span>
+          <span style="background: #5a31f4; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Shop Pay</span>
+        </span>
       </span>
     </div>
   </div>
@@ -136,19 +142,20 @@
 
 <style>
   .laitm-footer {
-    --lf-green: #16a34a;
-    --lf-green-hover: #4ade80;
-    --lf-bg: #0d1a12;
-    --lf-text: #b5b5b5;
-    --lf-line: rgba(255,255,255,.1);
-    --lf-soft: rgba(255,255,255,.04);
-    background: radial-gradient(900px 420px at 10% 0%, rgba(22,163,74,.15), transparent 60%), var(--lf-bg);
+    --lf-green: #367C2B;
+    --lf-green-hover: #4A9E3A;
+    --lf-yellow: #FFDE00;
+    --lf-bg: #111111;
+    --lf-text: #cccccc;
+    --lf-line: rgba(255,255,255,.12);
+    --lf-soft: rgba(255,255,255,.05);
+    background: radial-gradient(900px 420px at 10% 0%, rgba(54,124,43,.25), transparent 65%), #111111;
     color: var(--lf-text);
-    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 14px;
     line-height: 1.75;
     position: relative;
-    border-top: 3px solid var(--lf-green);
+    border-top: 3px solid #FFDE00;
     margin-top: 0;
   }
   .laitm-footer * { box-sizing: border-box; }
@@ -164,6 +171,7 @@
     text-decoration: none;
   }
   .laitm-footer-intro {
+    font-family: "Open Sans", sans-serif;
     margin: 0 0 24px;
     font-size: 13.5px;
     line-height: 1.85;
@@ -189,13 +197,13 @@
     text-decoration: none;
     transition: color 0.18s;
   }
-  .laitm-footer-contact a:hover { color: var(--lf-green-hover); }
+  .laitm-footer-contact a:hover { color: #FFDE00; }
   .laitm-ico {
     flex: 0 0 auto;
     width: 17px;
     height: 17px;
     margin-top: 3px;
-    stroke: var(--lf-green);
+    stroke: #FFDE00;
     stroke-width: 2;
     fill: none;
     stroke-linecap: round;
@@ -204,7 +212,7 @@
   .laitm-footer h3 {
     position: relative;
     font-size: 12.5px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 1.4px;
     text-transform: uppercase;
     color: #ffffff;
@@ -217,9 +225,9 @@
     left: 0;
     bottom: 0;
     width: 28px;
-    height: 2px;
+    height: 2.5px;
     border-radius: 2px;
-    background: var(--lf-green);
+    background: #FFDE00;
   }
   .laitm-footer ul {
     list-style: none;

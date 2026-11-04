@@ -9,15 +9,15 @@
  */
 {
   "current": {
-    "color_primary": "#16a34a",
+    "color_primary": "#367C2B",
     "color_primary_contrast": "#FFFFFF",
-    "color_secondary": "#0f7a37",
-    "color_accent": "#16a34a",
-    "color_background": "#faf6ee",
-    "color_text": "#1c1a16",
-    "color_border": "#e5e7eb",
-    "color_success": "#16a34a",
-    "color_error": "#dc2626",
+    "color_secondary": "#FFDE00",
+    "color_accent": "#FFDE00",
+    "color_background": "#FFFFFF",
+    "color_text": "#111111",
+    "color_border": "#E2E2E2",
+    "color_success": "#367C2B",
+    "color_error": "#D92D20",
     "font_size_base": 16,
     "logo_width": 150,
     "sticky_header": true,
@@ -34,8 +34,8 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message": "🚚 FREE RESIDENTIAL LIFTGATE FREIGHT ON ALL RIDING MOWERS | 100% US FACTORY WARRANTY | CALL TOLL-FREE: 1-800-614-2395",
-          "bg_color": "#16a34a"
+          "message": "🚜 OFFICIAL US DIRECT FREIGHT • FREE RESIDENTIAL LIFTGATE DELIVERY • 50% FLEXIBLE DEPOSIT OPTION • TOLL-FREE: 1-800-614-2395",
+          "bg_color": "#1E3F20"
         }
       },
       "header": {

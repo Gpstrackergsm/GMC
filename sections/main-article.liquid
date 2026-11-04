@@ -21,6 +21,8 @@
           src="{{ article.image | image_url: width: 1200 }}"
           alt="{{ article.image.alt | default: article.title | escape }}"
           itemprop="image"
+          width="1200"
+          height="{{ 1200 | divided_by: article.image.aspect_ratio | round }}"
           loading="eager"
           style="width: 100%; height: auto; display: block;"
         >

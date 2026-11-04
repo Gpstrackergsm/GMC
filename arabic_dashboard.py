@@ -9,12 +9,19 @@ import os
 import sys
 import threading
 import time
-from datetime import datetime
+from datetime import datetime, date as dt_date, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse, parse_qs
 from google.ads.googleads.client import GoogleAdsClient
 from google.oauth2.credentials import Credentials
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
-from google.analytics.data_v1beta.types import RunRealtimeReportRequest
+from google.analytics.data_v1beta.types import (
+    RunRealtimeReportRequest,
+    RunReportRequest,
+    DateRange,
+    Dimension,
+    Metric,
+)
 
 PORT = 5050
 CUSTOMER_ID = "4143615535"
@@ -84,6 +91,7 @@ def fetch_data():
         "today_products": [],
         "today_queries": [],
         "live_pages": [],
+        "today_channels": [],
         "error": None,
     }
 
@@ -185,6 +193,40 @@ def fetch_data():
                 "location": f"{row.dimension_values[1].value} - {row.dimension_values[2].value or 'USA'}",
                 "users": int(row.metric_values[0].value),
             })
+
+        # ── Today visitors by channel ──────────────────────────────────────────
+        ch_resp = ga4.run_report(RunReportRequest(
+            property=GA4_PROPERTY,
+            dimensions=[Dimension(name="sessionDefaultChannelGroup")],
+            metrics=[
+                Metric(name="sessions"),
+                Metric(name="activeUsers"),
+                Metric(name="newUsers"),
+            ],
+            date_ranges=[DateRange(start_date="today", end_date="today")],
+            order_bys=[{"metric": {"metric_name": "sessions"}, "desc": True}],
+        ))
+
+        CHANNEL_ICONS = {
+            "Paid Shopping":   "🛒",
+            "Paid Search":     "🔍",
+            "Organic Search":  "🌿",
+            "Direct":          "🔗",
+            "Cross-network":   "🌐",
+            "Organic Social":  "📱",
+            "Referral":        "↗️",
+            "Email":           "📧",
+            "Unassigned":      "❓",
+        }
+        for row in ch_resp.rows:
+            ch = row.dimension_values[0].value
+            data["today_channels"].append({
+                "channel":  ch,
+                "icon":     CHANNEL_ICONS.get(ch, "📊"),
+                "sessions": int(row.metric_values[0].value),
+                "users":    int(row.metric_values[1].value),
+                "new":      int(row.metric_values[2].value),
+            })
     except Exception as e:
         print(f"[{datetime.now().strftime('%H:%M:%S')}] GA4 Error:", e)
 
@@ -244,6 +286,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .stat-value { font-size: 2.2rem; font-weight: 900; color: #0F172A; }
     .stat-sub { font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; }
     .time-badge { display: flex; align-items: center; gap: 8px; margin-top: 12px; background: linear-gradient(135deg,#4F46E5,#7C3AED); color:#fff; font-size: 1.05rem; font-weight: 800; padding: 9px 16px; border-radius: 10px; box-shadow: 0 4px 12px rgba(79,70,229,.3); }
+    .date-picker-bar { display:flex; align-items:center; gap:12px; background:#F1F5F9; border:1px solid #CBD5E1; border-radius:14px; padding:10px 18px; flex-wrap:wrap; }
+    .date-picker-bar label { font-weight:700; font-size:.9rem; color:#334155; }
+    .date-picker-bar input[type=date] { border:1px solid #CBD5E1; border-radius:8px; padding:7px 12px; font-family:'Tajawal',sans-serif; font-size:.9rem; color:#0F172A; background:#fff; cursor:pointer; }
+    .date-picker-bar button { background:linear-gradient(135deg,#2563EB,#4F46E5); color:#fff; border:none; border-radius:8px; padding:8px 18px; font-family:'Tajawal',sans-serif; font-size:.9rem; font-weight:700; cursor:pointer; transition:opacity .2s; }
+    .date-picker-bar button:hover { opacity:.88; }
+    .btn-today { background:linear-gradient(135deg,#059669,#047857) !important; }
+    .btn-yesterday { background:linear-gradient(135deg,#D97706,#B45309) !important; }
     .grid-main { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 24px; }
     @media(max-width:992px){ .grid-main{grid-template-columns:1fr;} }
     .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow); }
@@ -263,8 +312,24 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .loading-text { font-size:1.3rem; font-weight:700; color:#4F46E5; }
   </style>
   <script>
-    // Auto-reload every 20 seconds (matches backend refresh)
-    setTimeout(() => { window.location.reload(); }, 20000);
+    // Auto-reload every 20s only when viewing today
+    const isToday = '{{SELECTED_DATE}}' === '{{TODAY_DATE}}';
+    if (isToday) setTimeout(() => { window.location.reload(); }, 20000);
+
+    function applyDate() {
+      const d = document.getElementById('datePicker').value;
+      if (d) window.location.href = '/?date=' + d;
+    }
+    function goToDate(d) {
+      document.getElementById('datePicker').value = d;
+      window.location.href = '/?date=' + d;
+    }
+    // Allow pressing Enter on date input
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('datePicker').addEventListener('keydown', e => {
+        if (e.key === 'Enter') applyDate();
+      });
+    });
   </script>
 </head>
 <body>
@@ -278,6 +343,16 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       </p>
     </div>
     <div class="badge-live"><div class="pulse"></div><span>مباشر — تحديث كل 20 ثانية</span></div>
+  </div>
+
+  <!-- منتقي التاريخ -->
+  <div class="date-picker-bar" style="margin-bottom:24px;">
+    <label>📅 اختر يوماً لعرض بيانات الزوار:</label>
+    <input type="date" id="datePicker" value="{{SELECTED_DATE}}" max="{{TODAY_DATE}}">
+    <button class="btn-today" onclick="goToDate('{{TODAY_DATE}}')">اليوم</button>
+    <button class="btn-yesterday" onclick="goToDate('{{YESTERDAY_DATE}}')">أمس</button>
+    <button onclick="applyDate()">عرض</button>
+    <span style="font-size:.85rem;color:#64748B;">يعرض بيانات: <strong id="displayDate">{{SELECTED_DATE_LABEL}}</strong></span>
   </div>
 
   <!-- بطاقات الإحصائيات -->
@@ -335,6 +410,25 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- مصادر الزوار حسب التاريخ المحدد -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title">📡 مصادر الزوار — {{SELECTED_DATE_LABEL}}</div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>القناة</th>
+            <th>الجلسات</th>
+            <th>الزوار الفريدون</th>
+            <th>زوار جدد</th>
+            <th>نسبة الجدد</th>
+          </tr>
+        </thead>
+        <tbody>{{CHANNEL_ROWS}}</tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- شريط الوقت الثابت -->
   <div class="sticky-bar">
     <span>⏱️ آخر تحديث: <strong>{{LAST_UPDATED}}</strong></span>
@@ -372,7 +466,6 @@ LOADING_HTML = """<!DOCTYPE html>
 """
 
 
-# ─── HTTP Handler ─────────────────────────────────────────────────────────────
 class DashboardHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         with _cache_lock:
@@ -386,7 +479,64 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.wfile.write(LOADING_HTML.encode("utf-8"))
             return
 
-        # Build campaign rows
+        # ── Parse selected date from query string ──────────────────────────────
+        qs = parse_qs(urlparse(self.path).query)
+        today_str     = dt_date.today().strftime("%Y-%m-%d")
+        yesterday_str = (dt_date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
+        sel_date_str  = qs.get("date", [today_str])[0]
+        # Clamp to valid range
+        try:
+            sel_date = dt_date.fromisoformat(sel_date_str)
+            if sel_date > dt_date.today():
+                sel_date = dt_date.today()
+            sel_date_str = sel_date.strftime("%Y-%m-%d")
+        except ValueError:
+            sel_date_str = today_str
+
+        is_today = sel_date_str == today_str
+        if is_today:
+            date_label = "اليوم"
+        elif sel_date_str == yesterday_str:
+            date_label = "أمس"
+        else:
+            date_label = sel_date_str
+
+        # ── Fetch channel data for selected date (live, not cached) ───────────
+        ch_data = []
+        try:
+            with open(JSON_CREDS_PATH) as f:
+                cd = json.load(f)
+            from google.oauth2.credentials import Credentials as _Creds
+            creds = _Creds(
+                token=None, refresh_token=cd["refresh_token"],
+                token_uri="https://oauth2.googleapis.com/token",
+                client_id=cd["client_id"], client_secret=cd["client_secret"]
+            )
+            ga4 = BetaAnalyticsDataClient(credentials=creds)
+            ch_resp = ga4.run_report(RunReportRequest(
+                property=GA4_PROPERTY,
+                dimensions=[Dimension(name="sessionDefaultChannelGroup")],
+                metrics=[Metric(name="sessions"), Metric(name="activeUsers"), Metric(name="newUsers")],
+                date_ranges=[DateRange(start_date=sel_date_str, end_date=sel_date_str)],
+                order_bys=[{"metric": {"metric_name": "sessions"}, "desc": True}],
+            ))
+            CHANNEL_ICONS = {
+                "Paid Shopping": "🛒", "Paid Search": "🔍",
+                "Organic Search": "🌿", "Direct": "🔗",
+                "Cross-network": "🌐", "Organic Social": "📱",
+                "Referral": "↗️", "Email": "📧", "Unassigned": "❓",
+            }
+            for row in ch_resp.rows:
+                ch = row.dimension_values[0].value
+                ch_data.append({
+                    "channel":  ch,
+                    "icon":     CHANNEL_ICONS.get(ch, "📊"),
+                    "sessions": int(row.metric_values[0].value),
+                    "users":    int(row.metric_values[1].value),
+                    "new":      int(row.metric_values[2].value),
+                })
+        except Exception as e:
+            print(f"[{datetime.now().strftime('%H:%M:%S')}] Channel fetch error:", e)
         c_rows = ""
         for c in data["campaigns"]:
             c_rows += f"""
@@ -437,6 +587,29 @@ class DashboardHandler(BaseHTTPRequestHandler):
         if not q_rows:
             q_rows = "<p style='color:#64748B;font-size:.93rem;padding:8px 0;'>لا توجد استعلامات بحث مسجلة اليوم بعد.</p>"
 
+        # Build channel breakdown rows (from live ch_data for selected date)
+        ch_rows = ""
+        total_sessions = sum(c["sessions"] for c in ch_data) or 1
+        for ch in ch_data:
+            pct_new = round(ch["new"] / ch["users"] * 100) if ch["users"] else 0
+            bar_w   = round(ch["sessions"] / total_sessions * 100)
+            is_paid = "Paid" in ch["channel"]
+            color   = "#F59E0B" if is_paid else "#10B981"
+            ch_rows += f"""
+            <tr>
+              <td><strong style="font-size:.95rem;">{ch['icon']} {ch['channel']}</strong>
+                  <div style="height:4px;background:#E2E8F0;border-radius:4px;margin-top:5px;">
+                    <div style="height:4px;width:{bar_w}%;background:{color};border-radius:4px;"></div>
+                  </div>
+              </td>
+              <td style="font-weight:800;color:{color};font-size:1.05rem;">{ch['sessions']:,}</td>
+              <td style="font-weight:700;">{ch['users']:,}</td>
+              <td style="color:#6366F1;font-weight:700;">{ch['new']:,}</td>
+              <td><span style="background:{'#FEF3C7' if is_paid else '#ECFDF5'};color:{'#D97706' if is_paid else '#059669'};padding:3px 9px;border-radius:6px;font-size:.82rem;font-weight:700;">{pct_new}% جديد</span></td>
+            </tr>"""
+        if not ch_rows:
+            ch_rows = f"<tr><td colspan='5' style='text-align:center;color:#64748B;padding:16px;'>لا توجد بيانات لـ {date_label} — جرب يوماً آخر</td></tr>"
+
         today_spend_usd = round(data["today_spend"] / 10.0, 2)
 
         html = (
@@ -454,6 +627,11 @@ class DashboardHandler(BaseHTTPRequestHandler):
             .replace("{{PRODUCT_ROWS}}", p_rows)
             .replace("{{LIVE_PAGE_ROWS}}", lp_rows)
             .replace("{{QUERY_ROWS}}", q_rows)
+            .replace("{{CHANNEL_ROWS}}", ch_rows)
+            .replace("{{SELECTED_DATE}}", sel_date_str)
+            .replace("{{TODAY_DATE}}", today_str)
+            .replace("{{YESTERDAY_DATE}}", yesterday_str)
+            .replace("{{SELECTED_DATE_LABEL}}", date_label)
         )
 
         self.send_response(200)

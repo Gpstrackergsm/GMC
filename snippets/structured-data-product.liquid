@@ -14,7 +14,6 @@
   "@type": "Product",
   {%- assign clean_sd_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' -%}
   {%- assign clean_sd_vendor = product.vendor | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | default: shop.name -%}
-  {%- assign sd_rev_count = product.id | modulo: 27 | plus: 28 -%}
   "name": {{ clean_sd_title | json }},
   "description": {{ product_description | json }},
   "url": {{ product_url | json }},
@@ -35,14 +34,7 @@
   {%- if product.metafields.google.mpn != blank -%}
   ,"mpn": {{ product.metafields.google.mpn.value | json }}
   {%- endif -%}
-  ,"aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": {{ sd_rev_count | append: '' | json }},
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "offers": [
+  ,"offers": [
     {%- for variant in product.variants -%}
     {
       "@type": "Offer",
