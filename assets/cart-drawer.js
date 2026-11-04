@@ -1,6 +1,6 @@
 /**
  * Leafanoo Cart Drawer JavaScript
- * Handles slide-out, AJAX increment/decrement/remove, and 50% deposit calculation.
+ * Handles slide-out, AJAX increment/decrement/remove, and cart totals.
  */
 
 class CartDrawer {
@@ -135,7 +135,7 @@ class CartDrawer {
       this.updateCounts(cart.item_count);
       this.updateSubtotal(cart.total_price);
 
-      // Re-fetch rendered cart-drawer section to update items & 50% deposit amounts
+      // Re-fetch rendered cart-drawer section to update items & subtotal
       const sectionRes = await fetch('/?section_id=cart-drawer');
       const text = await sectionRes.text();
       const parser = new DOMParser();
@@ -164,14 +164,9 @@ class CartDrawer {
 
   updateSubtotal(total) {
     const totalDollars = (total / 100).toFixed(2);
-    const depositDollars = (total / 200).toFixed(2);
 
     document.querySelectorAll('.cart-drawer-subtotal').forEach(el => {
       el.textContent = `$${totalDollars}`;
-    });
-
-    document.querySelectorAll('.cart-drawer-deposit').forEach(el => {
-      el.textContent = `$${depositDollars}`;
     });
   }
 }

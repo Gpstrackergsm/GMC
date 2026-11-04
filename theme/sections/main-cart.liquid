@@ -35,22 +35,9 @@
                     {{ item.product.title }}
                   </a>
 
-                  {%- if item.selling_plan_allocation != nil -%}
-                    <div style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 8px; padding: 6px 10px; margin: 8px 0; font-size: 0.82rem;">
-                      <div style="color: #065F46; font-weight: 800;">🛡️ 50% Flexible Delivery Deposit</div>
-                      <div style="color: #047857; margin-top: 2px;">
-                        Due Today: <strong>{{ item.final_line_price | divided_by: 2 | money }}</strong>
-                        &bull; Balance on delivery: {{ item.final_line_price | divided_by: 2 | money }}
-                      </div>
-                      <div style="color: #6B7280; font-size: 0.75rem; margin-top: 3px;">
-                        ✓ If you decline delivery, your deposit is fully refunded within 3 business days.
-                      </div>
-                    </div>
-                  {%- else -%}
-                    <div style="font-size: 0.95rem; color: #367C2B; font-weight: 700; margin: 4px 0;">
-                      {{ item.final_price | money }}
-                    </div>
-                  {%- endif -%}
+                  <div style="font-size: 0.95rem; color: #367C2B; font-weight: 700; margin: 4px 0;">
+                    {{ item.final_price | money }}
+                  </div>
 
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 8px;">
                     <div style="display: inline-flex; align-items: center; border: 1.5px solid #D1D5DB; border-radius: 6px; background: #fff; overflow: hidden; height: 36px;">
@@ -83,15 +70,6 @@
                 }).then(() => window.location.reload());
               }
             </script>
-                    </td>
-
-                    <td style="padding: 1.5rem 0.5rem; text-align: right; font-weight: 600; font-size: 1.05rem;">
-                      {{ item.final_line_price | money }}
-                    </td>
-                  </tr>
-                {%- endfor -%}
-              </tbody>
-            </table>
 
             <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
               <a href="{{ routes.all_products_collection_url }}" style="color: #367C2B; font-weight: 700; text-decoration: underline; font-size: 0.95rem;">
@@ -109,19 +87,11 @@
               Order Summary
             </h2>
 
-            <!-- 50% Flexible Delivery Deposit Breakdown -->
+            <!-- Order Summary Subtotal -->
             <div style="background: #F7F7F7; border: 1.5px solid #367C2B; border-radius: 6px; padding: 12px 14px; margin-bottom: 1rem;">
-              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-                <span style="font-size: 0.95rem; font-weight: 800; color: #1E3F20; text-transform: uppercase;">Due Today (50% Deposit):</span>
-                <span style="font-size: 1.35rem; font-weight: 900; color: #367C2B;">{{ cart.total_price | divided_by: 2 | money }}</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #1E3F20; border-top: 1px dashed #D1E5D0; padding-top: 6px; margin-bottom: 4px;">
-                <span>Remaining 50% balance on carrier delivery:</span>
-                <span style="font-weight: 800;">{{ cart.total_price | divided_by: 2 | money }}</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 5px;">
-                <span>Total Mower Order Value:</span>
-                <span style="font-weight: 700; color: #111827;">{{ cart.total_price | money }}</span>
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #1E3F20; text-transform: uppercase;">Total:</span>
+                <span style="font-size: 1.35rem; font-weight: 900; color: #367C2B;">{{ cart.total_price | money }}</span>
               </div>
             </div>
 
@@ -157,7 +127,7 @@
               onmouseover="this.style.background='#E6C800'"
               onmouseout="this.style.background='#FFDE00'"
             >
-              🔒 Proceed to Checkout — Pay 50% Deposit ({{ cart.total_price | divided_by: 2 | money }}) &rarr;
+              🔒 Proceed to Checkout ({{ cart.total_price | money }}) &rarr;
             </button>
 
             <div style="margin-top: 1.5rem; text-align: center; font-size: 0.8rem; color: #777;">

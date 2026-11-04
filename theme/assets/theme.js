@@ -120,7 +120,7 @@ function initAjaxAddToCart() {
       .then(data => {
         if (data.status && data.status >= 400) {
           if (!isRetry && bodyData.has('selling_plan')) {
-            // Clear existing cart collision first and retry with the 50% deposit selling plan
+            // Clear existing cart collision first and retry
             return fetch('/cart/clear.js', { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
               .then(() => executeAdd(bodyData, true));
           }

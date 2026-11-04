@@ -80,20 +80,6 @@
 
       <!-- Product Form & Details -->
       <div class="product-details">
-        {%- assign deposit_plan_id = nil -%}
-        {%- for group in product.selling_plan_groups -%}
-          {%- for plan in group.selling_plans -%}
-            {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
-              {%- assign deposit_plan_id = plan.id -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-          {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
-        {%- endfor -%}
-        {%- if deposit_plan_id == nil and product.price >= 30000 -%}
-          {%- assign deposit_plan_id = 692131725608 -%}
-        {%- endif -%}
-
         {%- assign clean_title = product.title | replace: '&amp;amp;', '&' | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" -%}
         {%- assign clean_vendor = product.vendor | replace: '&amp;amp;', '&' | replace: '&amp;', '&' -%}
 
@@ -127,29 +113,19 @@
             </div>
           </div>
           {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
-            <span class="product-sku" style="color: #888; font-size: 0.78rem; display: block; margin-top: 4px;">SKU: <strong id="ProductSku-{{ section.id }}">{{ product.selected_or_first_available_variant.sku }}</strong></span>
+            <span class="product-sku" style="color: #888888; font-size: 0.78rem; display: block; margin-top: 4px;">SKU: <strong id="ProductSku-{{ section.id }}">{{ product.selected_or_first_available_variant.sku }}</strong></span>
           {%- endif -%}
         </div>
 
-        <!-- Price & Savings -->
+        <!-- Price & Savings (Full Prices Only) -->
         <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-          {%- if deposit_plan_id != nil -%}
-            <span id="HeaderPriceDeposit" style="font-size: 2.2rem; font-weight: 900; color: #367C2B; letter-spacing: -0.02em;">
-              {{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}
+          <span class="product-price" style="font-size: 2.2rem; font-weight: 900; color: #367C2B; letter-spacing: -0.02em;">
+            {{ product.selected_or_first_available_variant.price | money }}
+          </span>
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+            <span class="product-compare-price" style="font-size: 1.15rem; color: #888888; text-decoration: line-through; font-weight: 500;">
+              {{ product.selected_or_first_available_variant.compare_at_price | money }}
             </span>
-            <span id="HeaderPriceDepositBadge" style="font-size: 0.88rem; font-weight: 800; color: #111111; background: #FFDE00; border: 1px solid #E6C800; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.03em;">
-              50% Flexible Delivery Deposit
-            </span>
-            <span id="HeaderPriceFull" style="font-size: 1.05rem; color: #555555; font-weight: 600;">
-              Total Mower Price: {{ product.selected_or_first_available_variant.price | money }}
-            </span>
-            {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
-              <span class="product-compare-price" style="font-size: 1.05rem; color: #888888; text-decoration: line-through; font-weight: 500;">
-                {{ product.selected_or_first_available_variant.compare_at_price | money }}
-              </span>
-            {%- endif -%}
-          {%- else -%}
-            {% render 'price', product: product, use_variant: true, price_class: 'price--large' %}
           {%- endif -%}
         </div>
 
@@ -198,26 +174,7 @@
             </div>
           {%- endunless -%}
 
-          <!-- 50% Flexible Delivery Deposit Selector (Direct Shopify Selling Plan) -->
-          {%- assign deposit_plan_id = nil -%}
-          {%- for group in product.selling_plan_groups -%}
-            {%- for plan in group.selling_plans -%}
-              {%- if plan.name contains 'Deposit' or group.name contains 'Deposit' or plan.id == 692131725608 -%}
-                {%- assign deposit_plan_id = plan.id -%}
-                {%- break -%}
-              {%- endif -%}
-            {%- endfor -%}
-            {%- if deposit_plan_id != nil -%}{%- break -%}{%- endif -%}
-          {%- endfor -%}
-          {%- if deposit_plan_id == nil and product.price >= 30000 -%}
-            {%- assign deposit_plan_id = 692131725608 -%}
-          {%- endif -%}
-
-          {%- if deposit_plan_id != nil -%}
-            <input type="hidden" name="selling_plan" id="ProductSellingPlanInput" value="{{ deposit_plan_id }}">
-          {%- endif -%}
-
-          <!-- Single Primary Action Button: 50% Deposit (John Deere Yellow CTA) -->
+          <!-- Single Primary Action Button: Full Price ATC (John Deere Yellow CTA) -->
           <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 1rem;">
             <input type="hidden" name="quantity" value="1">
             <button
@@ -231,11 +188,7 @@
             >
               <span class="atc-text">
                 {%- if product.available -%}
-                  {%- if deposit_plan_id != nil -%}
-                    🛒 Reserve with 50% Deposit ({{ product.selected_or_first_available_variant.price | divided_by: 2 | money }}) — Free Delivery
-                  {%- else -%}
-                    🛒 Add to Cart — Free Liftgate Delivery
-                  {%- endif -%}
+                  🛒 Add to Cart — Free Liftgate Delivery
                 {%- else -%}
                   Sold Out
                 {%- endif -%}
@@ -449,7 +402,7 @@
         {%- assign rev3_name = "Chris W." -%}
         {%- assign rev3_time = "1 month ago" -%}
         {%- assign rev3_headline = "Excellent freight shipping and great dealer support" -%}
-        {%- assign rev3_body = "Called customer support before ordering to confirm residential delivery details. The 50% deposit process was simple and secure. Unit arrived factory sealed with all manufacturer warranty cards." -%}
+        {%- assign rev3_body = "Called customer support before ordering to confirm residential delivery details. The ordering and checkout process was smooth and secure. Unit arrived factory sealed with all manufacturer warranty cards." -%}
 
       {%- elsif downcase_title contains 'vac' or downcase_title contains 'sweeper' or downcase_title contains 'tow' or downcase_title contains 'leaf' -%}
         {%- assign rev1_name = "Gary L." -%}
@@ -480,8 +433,8 @@
 
         {%- assign rev3_name = "Scott W." -%}
         {%- assign rev3_time = "1 month ago" -%}
-        {%- assign rev3_headline = "Hassle-free 50% deposit and fast residential freight" -%}
-        {%- assign rev3_body = "I was hesitant about ordering freight online, but paying 50% deposit made it zero risk. Dispatch was fast, driver was courteous, and the mower is an absolute beast on our lawn." -%}
+        {%- assign rev3_headline = "Hassle-free ordering and fast residential freight" -%}
+        {%- assign rev3_body = "I was hesitant about ordering freight online, but the free liftgate delivery and secure checkout made it zero risk. Dispatch was fast, driver was courteous, and the mower is an absolute beast on our lawn." -%}
       {%- endif -%}
 
       <div class="tab-content" id="tab-content-reviews" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">
@@ -583,20 +536,12 @@
     {%- endif -%}
     <div style="overflow: hidden;">
       <p style="font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #111111;">{{ clean_title }}</p>
-      {%- if deposit_plan_id != nil -%}
-        <p style="font-size: 0.85rem; font-weight: 800; color: #367C2B; margin: 0;">{{ product.price | divided_by: 2 | money }} <span style="font-size: 0.72rem; color: #666; font-weight: normal;">(50% deposit)</span></p>
-      {%- else -%}
-        <p style="font-size: 0.85rem; font-weight: 700; color: #367C2B; margin: 0;">{{ product.price | money }}</p>
-      {%- endif -%}
+      <p style="font-size: 0.85rem; font-weight: 700; color: #367C2B; margin: 0;">{{ product.price | money }}</p>
     </div>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
     <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 11px 22px; font-size: 0.95rem; font-weight: 800; background: #FFDE00; color: #111111; border: 1px solid #E6C800; border-radius: 6px; white-space: nowrap; cursor: pointer; box-shadow: 0 4px 12px rgba(255,222,0,0.4); text-transform: uppercase;">
-      {%- if deposit_plan_id != nil -%}
-        Reserve 50% Deposit ({{ product.price | divided_by: 2 | money }})
-      {%- else -%}
-        Add to Cart
-      {%- endif -%}
+      Add to Cart
     </button>
   </div>
 </div>
@@ -734,27 +679,6 @@
         }
       });
     }
-  });
-
-  // Auto-verify Downpay 50% deposit option is active
-  document.addEventListener('DOMContentLoaded', function() {
-    function ensureDownpayDepositSelected() {
-      const radios = document.querySelectorAll('input[type="radio"]');
-      radios.forEach(function(r) {
-        const val = (r.value || '').toLowerCase();
-        const id = (r.id || '').toLowerCase();
-        const name = (r.name || '').toLowerCase();
-        if (val.includes('deposit') || val === '692131725608' || id.includes('deposit') || name.includes('downpay')) {
-          if (!r.checked) {
-            r.click();
-          }
-        }
-      });
-    }
-    ensureDownpayDepositSelected();
-    setTimeout(ensureDownpayDepositSelected, 400);
-    setTimeout(ensureDownpayDepositSelected, 1200);
-    setTimeout(ensureDownpayDepositSelected, 2500);
   });
 </script>
 
