@@ -6,14 +6,14 @@
 {%- liquid
   assign spot_product = section.settings.product
   assign spot_img = section.settings.override_image_url
-  assign spot_eyebrow = section.settings.eyebrow | default: 'Garden Essentials'
+  assign spot_eyebrow = section.settings.eyebrow | default: 'John Deere Flagship Series'
   assign spot_title = section.settings.title_override
   assign spot_desc = section.settings.description_override
   assign spot_price = section.settings.price_override
-  assign spot_cta_label = section.settings.cta_label | default: 'Shop this product'
-  assign spot_cta_link = section.settings.cta_link | default: '/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench'
-  assign spot_secondary_label = section.settings.secondary_label | default: 'See more like this'
-  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/types?q=Swing+sets'
+  assign spot_cta_label = section.settings.cta_label | default: 'Order Now — Free Liftgate'
+  assign spot_cta_link = section.settings.cta_link | default: '/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower'
+  assign spot_secondary_label = section.settings.secondary_label | default: 'Explore All Riding Mowers'
+  assign spot_secondary_link = section.settings.secondary_link | default: '/collections/types?q=Riding+Lawn+Mowers'
 
   if spot_product != blank
     assign spot_title = spot_title | default: spot_product.title
@@ -327,20 +327,20 @@
     {
       "name": "Product Spotlight",
       "settings": {
-        "eyebrow": "Garden Essentials",
-        "title_override": "Backyard Discovery Callahan Cedar Wood Outdoor Pergola Swing Bench",
-        "description_override": "A solid-wood porch swing built to handle daily use, with a shaded canopy frame and weather-sealed cedar that holds up season after season.",
-        "override_image_url": "https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg",
-        "price_override": "$1,129.00",
-        "cta_label": "Shop this product",
-        "cta_link": "/products/backyard-discovery-callahan-cedar-wood-outdoor-pergola-swing-bench",
-        "secondary_label": "See more like this",
-        "secondary_link": "/collections/types?q=Swing+sets"
+        "eyebrow": "John Deere Flagship Series",
+        "title_override": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower",
+        "description_override": "Engineered for long-lasting performance and precision turf management. Features a 22 HP V-Twin engine, 42-inch Edge™ cutting deck, hydrostatic transmission, and free residential liftgate freight delivery.",
+        "override_image_url": "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png",
+        "price_override": "$799.00",
+        "cta_label": "Order Now — Free Liftgate",
+        "cta_link": "/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower",
+        "secondary_label": "Explore All Riding Mowers",
+        "secondary_link": "/collections/types?q=Riding+Lawn+Mowers"
       },
       "blocks": [
-        { "type": "feature", "settings": { "text": "Solid cedar frame, weather-sealed finish" } },
-        { "type": "feature", "settings": { "text": "Seats up to 3 adults comfortably" } },
-        { "type": "feature", "settings": { "text": "Ships with hardware, assembles in under 2 hours" } }
+        { "type": "feature", "settings": { "text": "22 HP V-Twin engine with cast-iron cylinder liners" } },
+        { "type": "feature", "settings": { "text": "42-in. Edge™ Cutting System for manicured turf" } },
+        { "type": "feature", "settings": { "text": "Includes Free Residential Liftgate Freight Delivery" } }
       ]
     }
   ]

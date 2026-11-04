@@ -92,63 +92,48 @@
 
           <li>
             <a href="/collections/all" class="laitm-cat-filter-link {% if current_type == blank %}is-active{% endif %}">
-              <span>All Products</span>
+              <span>All Mowers &amp; Turf Equipment</span>
               <span class="laitm-cat-filter-arrow">&rarr;</span>
             </a>
           </li>
           <li>
-            <a href="/collections/types?q=Garden+Essentials" class="laitm-cat-filter-link {% if current_type == 'Garden Essentials' %}is-active{% endif %}">
-              <span>🌿 Garden Essentials</span>
+            <a href="/collections/types?q=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Riding Lawn Mowers' %}is-active{% endif %}">
+              <span>🚜 John Deere Riding Mowers</span>
             </a>
           </li>
           <li>
-            <a href="/collections/types?q=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Riding Lawn Mowers' or current_type == 'Ride Mowers' %}is-active{% endif %}">
-              <span>🚜 Ride Mowers</span>
+            <a href="/collections/types?q=Riding+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Zero-Turn Mowers' %}is-active{% endif %}">
+              <span>⚡ Zero-Turn Mowers (ZTrak)</span>
             </a>
           </li>
           <li>
-            <a href="/collections/types?q=Power+Generators" class="laitm-cat-filter-link {% if current_type == 'Power Generators' or current_type == 'Portable Generators' %}is-active{% endif %}">
-              <span>⚡ Portable Generators</span>
+            <a href="/collections/types?q=Ride+Mowers" class="laitm-cat-filter-link {% if current_type == 'Ride Mowers' %}is-active{% endif %}">
+              <span>🌾 Lawn &amp; Yard Tractors</span>
             </a>
           </li>
           <li>
             <a href="/collections/types?q=Self-Propelled+Mowers" class="laitm-cat-filter-link {% if current_type == 'Self-Propelled Mowers' %}is-active{% endif %}">
-              <span>🌱 Self-Propelled Mowers</span>
+              <span>🌱 Self-Propelled Walk Mowers</span>
             </a>
           </li>
           <li>
-            <a href="/collections/types?q=Car+Lift" class="laitm-cat-filter-link {% if current_type == 'Car Lift' %}is-active{% endif %}">
-              <span>🚗 Car Lift</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Sheds" class="laitm-cat-filter-link {% if current_type == 'Sheds' %}is-active{% endif %}">
-              <span>🏠 Sheds & Storage</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Electric+Bicycles" class="laitm-cat-filter-link {% if current_type == 'Electric Bicycles' %}is-active{% endif %}">
-              <span>🚲 Electric Bicycles</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Cardio+Machines" class="laitm-cat-filter-link {% if current_type == 'Cardio Machines' %}is-active{% endif %}">
-              <span>🏃 Cardio Machines</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Swing+sets" class="laitm-cat-filter-link {% if current_type == 'Swing sets' %}is-active{% endif %}">
-              <span>🎠 Swing Sets</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Trampoline" class="laitm-cat-filter-link {% if current_type == 'Trampoline' %}is-active{% endif %}">
-              <span>🤸 Trampoline</span>
-            </a>
-          </li>
-          <li>
-            <a href="/collections/types?q=Walk-Behind+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Walk-Behind Lawn Mowers' %}is-active{% endif %}">
+            <a href="/collections/types?q=Walk-Behind+Lawn+Mowers" class="laitm-cat-filter-link {% if current_type == 'Walk-Behind Lawn Mowers' or current_type == 'Walk-Behind Mowers' %}is-active{% endif %}">
               <span>🌾 Walk-Behind Mowers</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/types?q=Tow-Behind+Mowers" class="laitm-cat-filter-link {% if current_type == 'Tow-Behind Mowers' %}is-active{% endif %}">
+              <span>🍂 Lawn Sweepers &amp; Vacs</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/types?q=Tow-Behind+Mowers" class="laitm-cat-filter-link {% if current_type == 'Attachments' %}is-active{% endif %}">
+              <span>🛠️ Tow-Behind Attachments &amp; Baggers</span>
+            </a>
+          </li>
+          <li>
+            <a href="/collections/types?q=Robotic+Mowers" class="laitm-cat-filter-link {% if current_type == 'Robotic Mowers' %}is-active{% endif %}">
+              <span>🤖 Robotic Smart Mowers</span>
             </a>
           </li>
         </ul>
@@ -172,6 +157,10 @@
           {%- when 'boolean', 'list' -%}
             <ul class="laitm-filter-options-list">
               {%- for value in filter.values -%}
+                {%- assign downcase_label = value.label | downcase -%}
+                {%- if downcase_label contains 'lift' or downcase_label contains 'shed' or downcase_label contains 'bicycle' or downcase_label contains 'bike' or downcase_label contains 'cardio' or downcase_label contains 'swing' or downcase_label contains 'trampoline' or downcase_label contains 'gazebo' or downcase_label contains 'pergola' or downcase_label contains 'generator' -%}
+                  {%- continue -%}
+                {%- endif -%}
                 <li class="laitm-filter-option">
                   <label class="laitm-checkbox-label {% if value.count == 0 and value.active == false %}is-disabled{% endif %}">
                     <input

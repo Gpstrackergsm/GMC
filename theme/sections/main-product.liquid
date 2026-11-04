@@ -435,85 +435,53 @@
       <!-- Tab Content: Reviews (Category-Specific Purchaser Feedback) -->
       {%- assign downcase_title = clean_title | downcase -%}
       {%- assign downcase_type = product.type | downcase -%}
-      {%- if downcase_title contains 'lift' or downcase_type contains 'lift' or downcase_title contains 'jack' or downcase_title contains 'tire' or downcase_title contains 'balancer' -%}
+      {%- if downcase_title contains 'zero' or downcase_title contains 'ztrak' or downcase_type contains 'zero' -%}
         {%- assign rev1_name = "Marcus B." -%}
         {%- assign rev1_time = "2 weeks ago" -%}
-        {%- assign rev1_headline = "Heavy-duty commercial grade, lifts without effort" -%}
-        {%- assign rev1_body = "Installed this in my home shop and it works flawlessly. Hydraulic operation is smooth and the locking safety mechanisms are extremely solid. Freight driver called ahead and dropped it right into my garage with the liftgate. Unbeatable value." -%}
+        {%- assign rev1_headline = "Incredible cutting speed and tight zero-turn radius" -%}
+        {%- assign rev1_body = "Cuts my 3-acre mowing time from 3 hours down to under 75 minutes. The dual hydrostatic levers are responsive and smooth. Freight carrier called ahead and lowered the pallet straight to my driveway with the liftgate. Flawless delivery." -%}
 
         {%- assign rev2_name = "David T." -%}
         {%- assign rev2_time = "3 weeks ago" -%}
-        {%- assign rev2_headline = "Top quality construction, easy setup" -%}
-        {%- assign rev2_body = "Built with thick steel and heavy-duty hardware. The instructions were clear and all hydraulic fittings were sealed tight. Raised my full-size truck with zero hesitation. Verified brand new factory sealed." -%}
+        {%- assign rev2_headline = "Heavy-duty stamped deck, cuts thick grass cleanly" -%}
+        {%- assign rev2_body = "The deck produces clean, even clippings with zero clumping even on morning dew. Solid steel frame and comfortable high-back seat. Started right up on the first turn of the key." -%}
 
         {%- assign rev3_name = "Chris W." -%}
         {%- assign rev3_time = "1 month ago" -%}
-        {%- assign rev3_headline = "Excellent freight shipping and great customer support" -%}
-        {%- assign rev3_body = "Called their support phone before ordering to confirm delivery scheduling. Helpful team and smooth ordering process. Unit arrived fully protected in a heavy wooden crate." -%}
+        {%- assign rev3_headline = "Excellent freight shipping and great dealer support" -%}
+        {%- assign rev3_body = "Called customer support before ordering to confirm residential delivery details. The 50% deposit process was simple and secure. Unit arrived factory sealed with all manufacturer warranty cards." -%}
 
-      {%- elsif downcase_title contains 'vac' or downcase_title contains 'mower' or downcase_title contains 'trimmer' or downcase_title contains 'blower' or downcase_title contains 'leaf' or downcase_type contains 'mower' -%}
+      {%- elsif downcase_title contains 'vac' or downcase_title contains 'sweeper' or downcase_title contains 'tow' or downcase_title contains 'leaf' -%}
         {%- assign rev1_name = "Gary L." -%}
         {%- assign rev1_time = "1 week ago" -%}
         {%- assign rev1_headline = "Tremendous suction power, cuts lawn cleanup time in half" -%}
-        {%- assign rev1_body = "Cleans up wet leaves, pine needles, and heavy yard debris effortlessly. The self-propelled drive makes handling slopes and large acreage comfortable. Started right up on the first try." -%}
+        {%- assign rev1_body = "Cleans up wet leaves, pine needles, and heavy yard debris effortlessly. The tow hitch hitched right up to my riding tractor. Dumping the hopper from the tractor seat is effortless." -%}
 
         {%- assign rev2_name = "Mark S." -%}
         {%- assign rev2_time = "3 weeks ago" -%}
-        {%- assign rev2_headline = "Solid engine, built like a tank" -%}
-        {%- assign rev2_body = "Heavy-duty steel impeller and rugged deck. The collection bag is easy to empty and holds a ton of mulch. Came securely packed on a pallet with full documentation and warranty registration." -%}
+        {%- assign rev2_headline = "Solid steel construction, built like a tank" -%}
+        {%- assign rev2_body = "Heavy-duty steel impeller and rugged collection bag. Came securely crated with full assembly instructions. Cleaned up over 2 acres of heavy autumn leaf drop in one afternoon." -%}
 
         {%- assign rev3_name = "Thomas R." -%}
         {%- assign rev3_time = "1 month ago" -%}
-        {%- assign rev3_headline = "Arrived fast and in perfect condition" -%}
-        {%- assign rev3_body = "Free shipping was prompt and delivery was completely hassle-free. Much better pricing than our local dealer and 100% genuine equipment. Highly recommended." -%}
-
-      {%- elsif downcase_title contains 'bike' or downcase_title contains 'bicycle' or downcase_type contains 'bike' -%}
-        {%- assign rev1_name = "Jason P." -%}
-        {%- assign rev1_time = "2 weeks ago" -%}
-        {%- assign rev1_headline = "Incredible torque, smooth pedal assist and solid range" -%}
-        {%- assign rev1_body = "Takes steep hills effortlessly. The frame geometry is comfortable for long rides and the hydraulic brakes have strong stopping power. Battery easily lasts through a full weekend of riding." -%}
-
-        {%- assign rev2_name = "Emily C." -%}
-        {%- assign rev2_time = "3 weeks ago" -%}
-        {%- assign rev2_headline = "Premium finish and super responsive ride" -%}
-        {%- assign rev2_body = "Arrived in great packaging with zero scratches. Assembly took about 25 minutes. Display is bright and intuitive. My daily commute is so much more enjoyable now." -%}
-
-        {%- assign rev3_name = "Brandon H." -%}
-        {%- assign rev3_time = "1 month ago" -%}
-        {%- assign rev3_headline = "Exceptional quality and fast US shipping" -%}
-        {%- assign rev3_body = "Tracked delivery all the way to my door. Great customer support team when I asked questions about charger specs. 10/10 purchase." -%}
-
-      {%- elsif downcase_title contains 'pergola' or downcase_title contains 'gazebo' or downcase_title contains 'swing' or downcase_title contains 'patio' -%}
-        {%- assign rev1_name = "David M." -%}
-        {%- assign rev1_time = "2 weeks ago" -%}
-        {%- assign rev1_headline = "Outstanding craftsmanship and easy to assemble" -%}
-        {%- assign rev1_body = "The wood is solid, thick, and looks incredible right out of the crate. Hardware was all accounted for and the instructions were straightforward. Gives our patio an immediate luxury feel." -%}
-
-        {%- assign rev2_name = "Sarah K." -%}
-        {%- assign rev2_time = "1 month ago" -%}
-        {%- assign rev2_headline = "Sturdy, beautiful finish, handles wind easily" -%}
-        {%- assign rev2_body = "Placed this in our garden space. Heavy-duty construction and provides a wonderful canopy. Highly recommend Leafanoo for anyone looking for authentic outdoor structures." -%}
-
-        {%- assign rev3_name = "Robert T." -%}
-        {%- assign rev3_time = "2 months ago" -%}
-        {%- assign rev3_headline = "Top-tier customer support and packaging" -%}
-        {%- assign rev3_body = "Arrived perfectly protected with freight tracking all the way. Beautiful woodwork and durable finish. A true 5-star experience from order to installation." -%}
+        {%- assign rev3_headline = "Arrived fast and in perfect factory sealed condition" -%}
+        {%- assign rev3_body = "Prompt nationwide delivery with tracking updates all the way. Verified genuine manufacturer equipment. Much better pricing than our local dealer." -%}
 
       {%- else -%}
         {%- assign rev1_name = "Michael B." -%}
         {%- assign rev1_time = "2 weeks ago" -%}
-        {%- assign rev1_headline = "High quality build, exactly as described" -%}
-        {%- assign rev1_body = "Heavy-duty commercial build and performs flawlessly. Packaged securely with all parts, documentation, and manufacturer warranty cards included." -%}
+        {%- assign rev1_headline = "Flawless cut, powerful V-Twin engine, extremely comfortable" -%}
+        {%- assign rev1_body = "Delivered right to my driveway with the free liftgate service. The engine runs quiet and smooth, and the cutting height adjustment is easy to dial in. Best equipment investment for our property." -%}
 
         {%- assign rev2_name = "Brian L." -%}
         {%- assign rev2_time = "3 weeks ago" -%}
-        {%- assign rev2_headline = "Authentic product and prompt delivery" -%}
-        {%- assign rev2_body = "Factory sealed and verified GTIN. Great customer service when I contacted them for shipping timeline updates. Will definitely buy again." -%}
+        {%- assign rev2_headline = "Authentic John Deere quality, 100% factory sealed" -%}
+        {%- assign rev2_body = "Arrived fully crated and bolted down on a heavy pallet. Setup took 20 minutes (connecting battery and steering wheel). Checked GTIN barcode with manufacturer warranty and everything checked out 100%." -%}
 
         {%- assign rev3_name = "Scott W." -%}
         {%- assign rev3_time = "1 month ago" -%}
-        {%- assign rev3_headline = "Smooth transaction and excellent value" -%}
-        {%- assign rev3_body = "Free delivery arrived right on schedule. Item was well protected and exceeded expectations in terms of durability and performance." -%}
+        {%- assign rev3_headline = "Hassle-free 50% deposit and fast residential freight" -%}
+        {%- assign rev3_body = "I was hesitant about ordering freight online, but paying 50% deposit made it zero risk. Dispatch was fast, driver was courteous, and the mower is an absolute beast on our lawn." -%}
       {%- endif -%}
 
       <div class="tab-content" id="tab-content-reviews" style="display: none; padding: clamp(1.5rem, 4vw, 2.5rem);">

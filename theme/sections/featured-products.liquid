@@ -28,8 +28,14 @@
     {%- assign limit = section.settings.products_to_show | default: 8 -%}
 
     <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.75rem;">
+      {%- assign shown = 0 -%}
       {%- if collection != blank and collection.products.size > 0 -%}
-        {%- for product in collection.products limit: limit -%}
+        {%- for product in collection.products -%}
+          {%- assign dt = product.type | downcase -%}
+          {%- assign dtitle = product.title | downcase -%}
+          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+            {%- continue -%}
+          {%- endif -%}
           <div class="product-grid-item">
             {% render 'product-card',
               product: product,
@@ -38,13 +44,17 @@
               image_ratio: section.settings.image_ratio
             %}
           </div>
+          {%- assign shown = shown | plus: 1 -%}
+          {%- if shown >= limit -%}{%- break -%}{%- endif -%}
         {%- endfor -%}
-      {%- else -%}
-        {%- assign fallback_titles = "16 Ft. X 16 Ft. Pacific Douglas Fir Wood Traditional Pergola,Backyard Discovery 12′ x 9.5′ Arcadia Slope Roof Cedar Gazebo with PowerPort,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Backyard Discovery 14′ X 10′ Somerville Pergola W/ Electric – Dark Walnut DIY,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Backyard Discovery 20′ x 12′ Beaumont Pergola – Premium Cedar Wood,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower" | split: "," -%}
-        {%- assign fallback_prices = "$4,299.00,$2,199.00,$2,499.00,$2,799.00,$1,799.00,$3,199.00,$1,999.00,$1,599.00" | split: "," -%}
-        {%- assign fallback_vendors = "Pacific Pergolas,Backyard Discovery,Craftsman,Backyard Discovery,Craftsman,Backyard Discovery,Troy-Bilt,Craftsman" | split: "," -%}
+      {%- endif -%}
+
+      {%- if shown == 0 -%}
+        {%- assign fallback_titles = "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower,John Deere Z345R ZTrak 42-in 22-HP Lawn Mower,John Deere Z345M 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower,Cub Cadet XT1 Enduro LT 42 in. 19 HP Kohler Hydrostatic Riding Mower" | split: "," -%}
+        {%- assign fallback_prices = "$799.00,$699.00,$699.00,$899.00,$699.00,$799.00,$699.00,$799.00" | split: "," -%}
+        {%- assign fallback_vendors = "John Deere,John Deere,John Deere,Craftsman,Craftsman,Troy-Bilt,Craftsman,Cub Cadet" | split: "," -%}
         {%- assign fallback_badges = "Best Seller,Trending,Top Rated,Staff Pick,Popular,Must Have,Verified,Hot Deal" | split: "," -%}
-        {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/07/promoa-scaled.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-97-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/07/collohaan-laitm-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-93-image-1.jpg,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png" | split: "," -%}
+        {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-330-image-1.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-331-image-1.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-90-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-333-image-1.jpg" | split: "," -%}
 
         {%- for i in (0..7) -%}
           {%- assign p_title = fallback_titles[i] -%}

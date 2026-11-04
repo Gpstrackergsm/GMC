@@ -96,6 +96,11 @@
           {%- if collection.products.size > 0 -%}
             <div class="product-grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop | default: 3 }}, 1fr); gap: 1.75rem;">
               {%- for product in collection.products -%}
+                {%- assign dt = product.type | downcase -%}
+                {%- assign dtitle = product.title | downcase -%}
+                {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+                  {%- continue -%}
+                {%- endif -%}
                 <div class="product-grid-item">
                   {% render 'product-card',
                     product: product,
