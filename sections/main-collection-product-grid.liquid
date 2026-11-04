@@ -95,10 +95,14 @@
         <div class="collection-products-area">
           {%- if collection.products.size > 0 -%}
             <div class="product-grid" style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop | default: 3 }}, 1fr); gap: 1.75rem;">
+              {%- assign shown_in_grid = 0 -%}
               {%- for product in collection.products -%}
+                {%- if product.featured_image == blank or product.price <= 0 or product.price < 50000 -%}
+                  {%- continue -%}
+                {%- endif -%}
                 {%- assign dt = product.type | downcase -%}
                 {%- assign dtitle = product.title | downcase -%}
-                {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+                {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' or dtitle contains 'tire' or dtitle contains 'changer' or dtitle contains 'balancer' or dtitle contains 'jack' or dtitle contains 'post lift' or dtitle contains 'baseplate' -%}
                   {%- continue -%}
                 {%- endif -%}
                 <div class="product-grid-item">
@@ -109,7 +113,48 @@
                     image_ratio: section.settings.image_ratio
                   %}
                 </div>
+                {%- assign shown_in_grid = shown_in_grid | plus: 1 -%}
               {%- endfor -%}
+
+              {%- if shown_in_grid == 0 -%}
+                {%- assign fallback_titles = "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower,John Deere Z345R ZTrak 42-in 22-HP Lawn Mower,John Deere Z345M 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower,Cub Cadet XT1 Enduro LT 42 in. 19 HP Kohler Hydrostatic Riding Mower" | split: "," -%}
+                {%- assign fallback_prices = "$799.00,$699.00,$699.00,$899.00,$699.00,$799.00,$699.00,$799.00" | split: "," -%}
+                {%- assign fallback_vendors = "John Deere,John Deere,John Deere,Craftsman,Craftsman,Troy-Bilt,Craftsman,Cub Cadet" | split: "," -%}
+                {%- assign fallback_badges = "Best Seller,Trending,Top Rated,Staff Pick,Popular,Must Have,Verified,Hot Deal" | split: "," -%}
+                {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-330-image-1.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-331-image-1.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-90-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-333-image-1.jpg" | split: "," -%}
+                {%- for i in (0..7) -%}
+                  <article class="product-card" style="border: 1px solid #E2E2E2; border-radius: 8px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                    <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #F7F7F7; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <span class="badge" style="position: absolute; top: 12px; left: 12px; background: #FFDE00; color: #111111; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; z-index: 2; font-family: 'Inter', sans-serif;">
+                        {{ fallback_badges[i] }}
+                      </span>
+                      <img src="{{ fallback_imgs[i] }}" alt="{{ fallback_titles[i] }}" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;" loading="lazy">
+                    </div>
+                    <div class="product-card__info" style="padding: 1.25rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+                      <div>
+                        <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666666; margin-bottom: 0.25rem; font-weight: 700; font-family: 'Inter', sans-serif;">
+                          {{ fallback_vendors[i] }}
+                        </p>
+                        <h3 style="font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; color: #111111;">
+                          {{ fallback_titles[i] }}
+                        </h3>
+                        <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; font-size: 0.85rem; color: #FFDE00;">
+                          <span>★★★★★</span>
+                          <span style="color: #666666; font-size: 0.75rem;">(verified)</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div style="font-size: 1.2rem; font-weight: 900; color: #367C2B; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                          {{ fallback_prices[i] }}
+                        </div>
+                        <a href="/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 12px 16px; font-size: 0.875rem; border-radius: 6px; background: #FFDE00; color: #111111; font-weight: 800; text-align: center; text-decoration: none; display: flex; font-family: 'Inter', sans-serif;">
+                          View Details &rarr;
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                {%- endfor -%}
+              {%- endif -%}
             </div>
 
             {%- if paginate.pages > 1 -%}

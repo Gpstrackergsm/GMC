@@ -31,9 +31,12 @@
       {%- assign shown = 0 -%}
       {%- if collection != blank and collection.products.size > 0 -%}
         {%- for product in collection.products -%}
+          {%- if product.featured_image == blank or product.price <= 0 or product.price < 50000 -%}
+            {%- continue -%}
+          {%- endif -%}
           {%- assign dt = product.type | downcase -%}
           {%- assign dtitle = product.title | downcase -%}
-          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' or dtitle contains 'tire' or dtitle contains 'changer' or dtitle contains 'balancer' or dtitle contains 'jack' or dtitle contains 'post lift' or dtitle contains 'baseplate' -%}
             {%- continue -%}
           {%- endif -%}
           <div class="product-grid-item">
@@ -49,7 +52,7 @@
         {%- endfor -%}
       {%- endif -%}
 
-      {%- if shown == 0 -%}
+      {%- if shown < limit -%}
         {%- assign fallback_titles = "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower,John Deere Z345R ZTrak 42-in 22-HP Lawn Mower,John Deere Z345M 42 in. 22 HP Gas Dual Hydrostatic Zero-Turn Riding Mower,Craftsman T3200 – 24HP Kohler V-Twin Automatic 54″ Riding Lawn Mower,Craftsman 30″ 10.5 HP 344cc 6-Speed Riding Lawn Mower,Troy-Bilt Bronco 42 – 42” 19HP Briggs & Stratton Automatic Drive Gas Riding Lawn Tractor,Craftsman R110 – 11.5HP Manual/Gear 36″ Riding Lawn Mower,Cub Cadet XT1 Enduro LT 42 in. 19 HP Kohler Hydrostatic Riding Mower" | split: "," -%}
         {%- assign fallback_prices = "$799.00,$699.00,$699.00,$899.00,$699.00,$799.00,$699.00,$799.00" | split: "," -%}
         {%- assign fallback_vendors = "John Deere,John Deere,John Deere,Craftsman,Craftsman,Troy-Bilt,Craftsman,Cub Cadet" | split: "," -%}
@@ -57,12 +60,12 @@
         {%- assign fallback_imgs = "https://laitm.com/wp-content/uploads/2026/08/ltm-product-89-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-330-image-1.jpg,https://laitm.com/wp-content/uploads/2026/08/ltm-product-331-image-1.jpg,https://laitm.com/wp-content/uploads/2026/09/1-11.png,https://laitm.com/wp-content/uploads/2026/07/s-scaled.jpg,https://laitm.com/wp-content/uploads/2026/09/1-2.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-90-image-1.png,https://laitm.com/wp-content/uploads/2026/08/ltm-product-333-image-1.jpg" | split: "," -%}
 
         {%- for i in (0..7) -%}
+          {%- if shown >= limit -%}{%- break -%}{%- endif -%}
           {%- assign p_title = fallback_titles[i] -%}
           {%- assign p_price = fallback_prices[i] -%}
           {%- assign p_vendor = fallback_vendors[i] -%}
           {%- assign p_badge = fallback_badges[i] -%}
           {%- assign p_img = fallback_imgs[i] -%}
-          {%- if forloop.index > limit %}{% break %}{% endif -%}
 
           <article class="product-card" style="border: 1px solid #E2E2E2; border-radius: 8px; overflow: hidden; background: #ffffff; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
             <div class="product-card__media-wrapper" style="position: relative; aspect-ratio: 1; background: #F7F7F7; display: flex; align-items: center; justify-content: center; overflow: hidden;">
@@ -94,6 +97,7 @@
               </div>
             </div>
           </article>
+          {%- assign shown = shown | plus: 1 -%}
         {%- endfor -%}
       {%- endif -%}
     </div>

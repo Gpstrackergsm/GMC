@@ -16,9 +16,12 @@
     <div class="product-grid" id="RelatedProductsGrid-{{ section.id }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;">
       {%- for coll in product.collections -%}
         {%- for item in coll.products -%}
+          {%- if item.featured_image == blank or item.price <= 0 or item.price < 50000 -%}
+            {%- continue -%}
+          {%- endif -%}
           {%- assign dt = item.type | downcase -%}
           {%- assign dtitle = item.title | downcase -%}
-          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' or dtitle contains 'tire' or dtitle contains 'changer' or dtitle contains 'balancer' or dtitle contains 'jack' or dtitle contains 'post lift' or dtitle contains 'baseplate' -%}
             {%- continue -%}
           {%- endif -%}
           {%- if item.id != current_product_id and shown_count < limit -%}
@@ -32,9 +35,12 @@
 
       {%- if shown_count < limit and collections.all.products.size > 0 -%}
         {%- for item in collections.all.products -%}
+          {%- if item.featured_image == blank or item.price <= 0 or item.price < 50000 -%}
+            {%- continue -%}
+          {%- endif -%}
           {%- assign dt = item.type | downcase -%}
           {%- assign dtitle = item.title | downcase -%}
-          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' -%}
+          {%- if dt contains 'lift' or dt contains 'shed' or dt contains 'bike' or dt contains 'cardio' or dt contains 'swing' or dt contains 'trampoline' or dt contains 'gazebo' or dt contains 'pergola' or dt contains 'generator' or dtitle contains 'car lift' or dtitle contains 'gazebo' or dtitle contains 'pergola' or dtitle contains 'generator' or dtitle contains 'tire' or dtitle contains 'changer' or dtitle contains 'balancer' or dtitle contains 'jack' or dtitle contains 'post lift' or dtitle contains 'baseplate' -%}
             {%- continue -%}
           {%- endif -%}
           {%- if item.id != current_product_id and shown_count < limit -%}
@@ -63,10 +69,13 @@
         .then(data => {
           if (!data || !data.products || !data.products.length) return;
 
-          // Filter out current product and non-mower items
-          const nonNicheWords = ['lift', 'shed', 'bike', 'bicycle', 'cardio', 'swing', 'trampoline', 'gazebo', 'pergola', 'generator'];
+          // Filter out current product, missing images, 0 prices, and non-mower items
+          const nonNicheWords = ['lift', 'shed', 'bike', 'bicycle', 'cardio', 'swing', 'trampoline', 'gazebo', 'pergola', 'generator', 'tire', 'changer', 'balancer', 'jack'];
           let products = data.products.filter(p => {
             if (p.handle === currentHandle) return false;
+            if (!p.images || !p.images.length || !p.images[0].src) return false;
+            let variant = p.variants && p.variants[0] ? p.variants[0] : null;
+            if (!variant || !variant.price || parseFloat(variant.price) < 500) return false;
             let type = (p.product_type || '').toLowerCase();
             let title = (p.title || '').toLowerCase();
             return !nonNicheWords.some(w => type.includes(w) || title.includes(w));

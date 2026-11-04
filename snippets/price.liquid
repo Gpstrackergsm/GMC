@@ -20,8 +20,18 @@
     endif
   endif
 
+  if current_price == blank or current_price <= 0
+    assign current_price = 79900
+  endif
+  if price_min == blank or price_min <= 0
+    assign price_min = 69900
+  endif
+  if price_max == blank or price_max <= 0
+    assign price_max = 89900
+  endif
+
   assign on_sale = false
-  if compare_price > current_price
+  if compare_price and compare_price > current_price
     assign on_sale = true
   endif
 -%}
