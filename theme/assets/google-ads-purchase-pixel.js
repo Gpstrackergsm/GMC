@@ -1,7 +1,7 @@
 /**
  * Deere — Google Ads Purchase Conversion Pixel
- * Conversion Action: Purchase (3)
- * send_to: AW-18488363853/V3orCLDeuJQdEM2W-O9E
+ * Conversion Action: Purchase (1)
+ * send_to: AW-18473205895/FnnzCKuG6ocdEIeB2-hE
  *
  * Installed via Shopify Customer Events (Custom Pixel).
  * Fires ONLY on checkout_completed events.
@@ -31,7 +31,7 @@ analytics.subscribe('checkout_completed', (event) => {
 
   // ── 1. Google Ads Purchase conversion ──────────────────────────────────────
   gtag('event', 'conversion', {
-    'send_to':        'AW-18488363853/V3orCLDeuJQdEM2W-O9E',
+    'send_to':        'AW-18473205895/FnnzCKuG6ocdEIeB2-hE',
     'value':          orderValue,
     'currency':       currency,
     'transaction_id': orderId
