@@ -25,11 +25,17 @@ from google.analytics.data_v1beta.types import (
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_CREDS_PATH = os.path.join(BASE_DIR, 'google_ads_auth', 'google_ads_credentials.json')
-GA4_PROPERTY = 'properties/557255426'
+GA4_PROPERTY = 'properties/562537390'
 
 app = Flask(__name__)
 
+SERVICE_ACCOUNT_KEY_PATH = os.path.join(BASE_DIR, 'google_ads_auth', 'ga4_service_account.json')
+
 def get_ga4_client():
+    from google.oauth2 import service_account
+    if os.path.exists(SERVICE_ACCOUNT_KEY_PATH):
+        creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_KEY_PATH)
+        return BetaAnalyticsDataClient(credentials=creds)
     with open(JSON_CREDS_PATH, 'r', encoding='utf-8') as f:
         cd = json.load(f)
 

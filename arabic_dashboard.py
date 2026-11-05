@@ -25,7 +25,7 @@ from google.analytics.data_v1beta.types import (
 
 PORT = 5050
 CUSTOMER_ID = "4143615535"
-GA4_PROPERTY = "properties/557255426"
+GA4_PROPERTY = "properties/562537390"
 REFRESH_SECONDS = 20
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -167,13 +167,18 @@ def fetch_data():
                     data[k] = old[k]
 
     try:
-        with open(JSON_CREDS_PATH) as f:
-            cd = json.load(f)
-        creds = Credentials(
-            token=None, refresh_token=cd["refresh_token"],
-            token_uri="https://oauth2.googleapis.com/token",
-            client_id=cd["client_id"], client_secret=cd["client_secret"]
-        )
+        from google.oauth2 import service_account
+        sa_path = os.path.join(BASE_DIR, "google_ads_auth", "ga4_service_account.json")
+        if os.path.exists(sa_path):
+            creds = service_account.Credentials.from_service_account_file(sa_path)
+        else:
+            with open(JSON_CREDS_PATH) as f:
+                cd = json.load(f)
+            creds = Credentials(
+                token=None, refresh_token=cd["refresh_token"],
+                token_uri="https://oauth2.googleapis.com/token",
+                client_id=cd["client_id"], client_secret=cd["client_secret"]
+            )
         ga4 = BetaAnalyticsDataClient(credentials=creds)
 
         # Total active users
