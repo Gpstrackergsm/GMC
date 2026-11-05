@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Scrapes all 310 products from laitm.com catalog.
-Transforms all brand references to 'Leafanoo'.
+Transforms all brand references to 'Deere'.
 Generates:
 1. catalog/shopify_import.csv (Full multi-image Shopify import CSV)
 2. catalog/shopify_import_single_row.csv (1-row per product Shopify CSV)
@@ -70,12 +70,12 @@ GOOGLE_TAXONOMY_MAP = {
 def clean_brand_text(text):
     if not text:
         return ""
-    text = text.replace("Laitm LLC", "Leafanoo LLC")
-    text = text.replace("LAITM LLC", "LEAFANOO LLC")
-    text = text.replace("Laitm", "Leafanoo")
-    text = text.replace("laitm.com", "leafanoo.com")
-    text = text.replace("Contact@laitm.com", "support@leafanoo.com")
-    text = text.replace("contact@laitm.com", "support@leafanoo.com")
+    text = text.replace("Laitm LLC", "Deere LLC")
+    text = text.replace("LAITM LLC", "DEERE LLC")
+    text = text.replace("Laitm", "Deere")
+    text = text.replace("laitm.com", "deere.com.im")
+    text = text.replace("Contact@laitm.com", "support@deere.com.im")
+    text = text.replace("contact@laitm.com", "support@deere.com.im")
     text = text.strip()
     return text
 
@@ -84,7 +84,7 @@ def detect_vendor(title):
     for brand in KNOWN_BRANDS:
         if brand.lower() in title_lower:
             return brand
-    return "Leafanoo"
+    return "Deere"
 
 def map_google_taxonomy(category):
     cat_lower = category.lower().strip()
@@ -213,7 +213,7 @@ def fetch_product(url):
         'vendor': vendor,
         'type': category,
         'category': category,
-        'tags': f"{category.lower().replace('&', 'and')}, {vendor.lower()}, leafanoo, heavy-equipment",
+        'tags': f"{category.lower().replace('&', 'and')}, {vendor.lower()}, deere, heavy-equipment",
         'price': f"{price:.2f}",
         'compare_at_price': f"{compare_at_price:.2f}",
         'sku': f"LF-{sku}",
@@ -301,8 +301,8 @@ def main():
                         "1",
                         p['title'],
                         "FALSE",
-                        f"{p['title']} | Leafanoo",
-                        f"Buy {p['title']} online at Leafanoo. High quality {p['category']} with free shipping and warranty.",
+                        f"{p['title']} | Deere",
+                        f"Buy {p['title']} online at Deere. High quality {p['category']} with free shipping and warranty.",
                         p['google_product_category'],
                         "", "",
                         p['sku'],
@@ -360,8 +360,8 @@ def main():
                 "1",
                 p['title'],
                 "FALSE",
-                f"{p['title']} | Leafanoo",
-                f"Buy {p['title']} online at Leafanoo. High quality {p['category']} with free shipping and warranty.",
+                f"{p['title']} | Deere",
+                f"Buy {p['title']} online at Deere. High quality {p['category']} with free shipping and warranty.",
                 p['google_product_category'],
                 "", "",
                 p['sku'],
@@ -379,9 +379,9 @@ def main():
         "version": "2.0"
     })
     channel = ET.SubElement(rss, "channel")
-    ET.SubElement(channel, "title").text = "Leafanoo Products"
-    ET.SubElement(channel, "link").text = "https://leafanoo.com"
-    ET.SubElement(channel, "description").text = "Leafanoo official store product feed for Google Merchant Center"
+    ET.SubElement(channel, "title").text = "Deere Products"
+    ET.SubElement(channel, "link").text = "https://deere.com.im"
+    ET.SubElement(channel, "description").text = "Deere official store product feed for Google Merchant Center"
 
     for p in products:
         item = ET.SubElement(channel, "item")
@@ -390,7 +390,7 @@ def main():
         clean_text_desc = re.sub(r'<[^>]+>', ' ', p['body_html'])
         clean_text_desc = re.sub(r'\s+', ' ', clean_text_desc).strip()[:4900]
         ET.SubElement(item, "{http://base.google.com/ns/1.0}description").text = clean_text_desc
-        ET.SubElement(item, "{http://base.google.com/ns/1.0}link").text = f"https://leafanoo.com/products/{p['handle']}"
+        ET.SubElement(item, "{http://base.google.com/ns/1.0}link").text = f"https://deere.com.im/products/{p['handle']}"
         
         if p['images']:
             ET.SubElement(item, "{http://base.google.com/ns/1.0}image_link").text = p['images'][0]

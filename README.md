@@ -1,6 +1,6 @@
-# Leafanoo — Shopify OS 2.0 General Merchandise Store & GMC Architecture
+# Deere — Shopify OS 2.0 General Merchandise Store & GMC Architecture
 
-Production-ready Shopify Online Store 2.0 theme, curated physical product catalog, Google Merchant Center feed integration, and technical SEO architecture built for **Leafanoo** ([https://leafanoo.com/](https://leafanoo.com/)).
+Production-ready Shopify Online Store 2.0 theme, curated physical product catalog, Google Merchant Center feed integration, and technical SEO architecture built for **Deere** ([https://deere.com.im/](https://deere.com.im/)).
 
 ---
 

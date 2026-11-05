@@ -12,7 +12,7 @@ Comprehensive readiness checklist for Google Merchant Center (GMC) compliance, F
 | 2 | Claim & Verify Domain in Search Console | 🔲 Pending | You | Add TXT record or HTML meta tag |
 | 3 | Add Real Business Physical Address | 🔲 Pending | You | Must match address on store Contact page |
 | 4 | Add Customer Support Phone Number | 🔲 Pending | You | Must be a working phone number |
-| 5 | Add Support Email Address | 🔲 Pending | You | E.g., support@leafanoo.com |
+| 5 | Add Support Email Address | 🔲 Pending | You | E.g., support@deere.com.im |
 | 6 | Configure Exact Shipping Rates in GMC | 🔲 Pending | You | Shipping table in GMC must match checkout |
 | 7 | Configure Return Policy in GMC | 🔲 Pending | You | Match 30-day policy on website |
 | 8 | Link Google Analytics 4 (`G-...`) | 🔲 Pending | You | For conversion tracking |

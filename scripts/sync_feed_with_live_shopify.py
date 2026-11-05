@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Sync GMC feed with 100% verified live Shopify product data from leafanoo.com.
-Fetches https://leafanoo.com/products/<handle>.js for every item in the feed,
+Sync GMC feed with 100% verified live Shopify product data from deere.com.im.
+Fetches https://deere.com.im/products/<handle>.js for every item in the feed,
 and updates price, availability, and attributes to eliminate any mismatch.
 """
 
@@ -32,7 +32,7 @@ def sync_feed():
 
     print(f"Total products in feed: {len(items)}")
 
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Leafanoo-Sync/1.0'}
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Deere-Sync/1.0'}
     
     updated_prices = []
     updated_avail = []
@@ -45,7 +45,7 @@ def sync_feed():
         
         link = link_elem.text.strip()
         handle = link.split('/products/')[-1].split('?')[0].split('#')[0]
-        js_url = f"https://leafanoo.com/products/{handle}.js"
+        js_url = f"https://deere.com.im/products/{handle}.js"
 
         try:
             req = urllib.request.Request(js_url, headers=headers)

@@ -14,7 +14,7 @@
   case template.name
     when 'index'
       assign page_title       = shop.name
-      assign page_description = shop.description | default: 'Shop quality general merchandise at Leafanoo.'
+      assign page_description = shop.description | default: 'Shop quality general merchandise at Deere.'
       assign page_image       = settings.og_image | default: settings.logo
     when 'product'
       assign page_title       = product.seo.title | default: product.title | append: ' – ' | append: shop.name
@@ -30,7 +30,7 @@
       assign page_image       = article.image | default: settings.og_image
     when 'blog'
       assign page_title       = blog.title | append: ' – ' | append: shop.name
-      assign page_description = blog.description | default: 'Read the latest articles from Leafanoo.' | strip_html | truncate: 160
+      assign page_description = blog.description | default: 'Read the latest articles from Deere.' | strip_html | truncate: 160
       assign page_image       = settings.og_image
     when 'page'
       assign page_title       = page.seo.title | default: page.title | append: ' – ' | append: shop.name
@@ -46,7 +46,7 @@
       assign page_image       = settings.og_image
     else
       assign page_title       = page_title | default: shop.name
-      assign page_description = shop.description | default: 'Leafanoo – Quality general merchandise.'
+      assign page_description = shop.description | default: 'Deere – Quality general merchandise.'
       assign page_image       = settings.og_image
   endcase
 

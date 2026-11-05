@@ -1,5 +1,5 @@
 /**
- * Leafanoo — Google Ads Purchase Conversion Pixel
+ * Deere — Google Ads Purchase Conversion Pixel
  * Conversion Action: Purchase (3)
  * send_to: AW-18488363853/V3orCLDeuJQdEM2W-O9E
  *

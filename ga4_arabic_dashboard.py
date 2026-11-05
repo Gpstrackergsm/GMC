@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-منصة تحليلات جوجل الذكية — Leafanoo (Google Analytics 4 Arabic Dashboard)
+منصة تحليلات جوجل الذكية — Deere (Google Analytics 4 Arabic Dashboard)
 Arabic Localhost Web Dashboard for GA4 - White Background with Quota Protection & Instant Live Visitors
 - Realtime Live Monitoring with Smart Standard Report Fallback (Quota Safe)
 - Automatic Test Visit Detection & Pinning (Morocco / Marrakesh test visits highlighted at top!)
@@ -86,7 +86,7 @@ def fetch_fallback_visitors_from_today(client):
             country = row.dimension_values[1].value or "United States"
             city = row.dimension_values[2].value or "-"
             device = row.dimension_values[3].value or "mobile"
-            page = row.dimension_values[4].value or "Leafanoo Storefront"
+            page = row.dimension_values[4].value or "Deere Storefront"
             users = int(row.metric_values[0].value)
             flag = "🇲🇦" if country == "Morocco" else ("🇺🇸" if country == "United States" else ("🇳🇬" if country == "Nigeria" else "🌐"))
             
@@ -96,7 +96,7 @@ def fetch_fallback_visitors_from_today(client):
             is_test_visit = (country == "Morocco")
 
             activities = [
-                {"time": f"اليوم {t_str}", "title": "بدء الجلسة (Session Start)", "desc": "الوصول إلى متجر Leafanoo", "icon": "🌐"},
+                {"time": f"اليوم {t_str}", "title": "بدء الجلسة (Session Start)", "desc": "الوصول إلى متجر Deere", "icon": "🌐"},
                 {"time": f"اليوم {t_str}", "title": "استعراض الصفحة (View Item)", "desc": f"تصفح: {page}", "icon": "👁️"},
                 {"time": "مستمر", "title": "تفاعل وقراءة المواصفات (User Engagement)", "desc": "الاطلاع على تفاصيل المتجر والمنتجات", "icon": "📜"}
             ]
@@ -162,7 +162,7 @@ def fetch_realtime_data(client):
 
         for row in res_visitors.rows:
             raw_page = row.dimension_values[0].value
-            page = raw_page if (raw_page and raw_page.strip()) else "الصفحة الرئيسية (Leafanoo)"
+            page = raw_page if (raw_page and raw_page.strip()) else "الصفحة الرئيسية (Deere)"
             country = row.dimension_values[1].value or "غير محدد"
             city = row.dimension_values[2].value or "-"
             device = row.dimension_values[3].value or "mobile"
@@ -187,7 +187,7 @@ def fetch_realtime_data(client):
             product_price = "$2,799.00" if "S120" in page else ("$3,499.00" if "Z345" in page else "$1,250.00")
 
             activities = [
-                {"time": "منذ دقائق", "title": "بدء الجلسة (Session Start)", "desc": "الوصول المباشر إلى متجر Leafanoo (Direct / Storefront)", "icon": "🌐"},
+                {"time": "منذ دقائق", "title": "بدء الجلسة (Session Start)", "desc": "الوصول المباشر إلى متجر Deere (Direct / Storefront)", "icon": "🌐"},
                 {"time": "منذ قليل", "title": "استعراض الصفحة (View Item)", "desc": f"تصفح: {page}", "icon": "👁️"},
                 {"time": "الآن 🟢", "title": "تفاعل مباشر بالمتجر (Live Focus)", "desc": "الزائر متصل ويتصفح المتجر في هذه اللحظة", "icon": "🟢"}
             ]
@@ -521,7 +521,7 @@ def api_data():
             "country": lc["country"],
             "city": lc["city"],
             "device": "tablet",
-            "page": "Checkout - Leafanoo",
+            "page": "Checkout - Deere",
             "count": lc["count"],
             "is_live": True
         }
@@ -586,7 +586,7 @@ def visitor_activity_page(vid):
     if not target_visitor:
         target_visitor = {
             "id": vid,
-            "page": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower – Leafanoo",
+            "page": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower – Deere",
             "country": "Morocco",
             "flag": "🇲🇦",
             "city": "Marrakesh",
@@ -599,7 +599,7 @@ def visitor_activity_page(vid):
             "timestamp": datetime.now().strftime("%I:%M %p"),
             "product_price": "$2,799.00",
             "activities": [
-                {"time": "منذ 3 دقائق", "title": "بدء الجلسة التجريبية", "desc": "الوصول المباشر إلى متجر Leafanoo من متصفح ماك", "icon": "🌐"},
+                {"time": "منذ 3 دقائق", "title": "بدء الجلسة التجريبية", "desc": "الوصول المباشر إلى متجر Deere من متصفح ماك", "icon": "🌐"},
                 {"time": "منذ دقيقتين", "title": "تصفح واجهة المتجر", "desc": "فتح الصفحة الرئيسية واستعراض المنتجات", "icon": "👁️"},
                 {"time": "الآن 🟢", "title": "متصل بالمتجر حالياً", "desc": "الزيارة نشطة ومسجلة في Google Analytics و Shopify", "icon": "🟢"}
             ]
@@ -621,7 +621,7 @@ VISITOR_ACTIVITY_TEMPLATE = """
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>نشاط الزائر المباشر #{{ v.id }} — Leafanoo Live Activity</title>
+  <title>نشاط الزائر المباشر #{{ v.id }} — Deere Live Activity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -972,7 +972,7 @@ VISITOR_ACTIVITY_TEMPLATE = """
     <div class="side-stack">
       <div class="card">
         <h2 class="card-title">🛍️ الصفحة أو المنتج محل التصفح</h2>
-        <p style="font-size: 0.88rem; color: var(--text-muted);">الصفحة التي يتصفحها الزائر حالياً في متجر Leafanoo:</p>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">الصفحة التي يتصفحها الزائر حالياً في متجر Deere:</p>
         <div class="product-box">
           <h4>{{ v.page }}</h4>
           <p>💰 القيمة التقديرية للمنتج: <strong>{{ v.product_price }}</strong></p>
@@ -1015,7 +1015,7 @@ HTML_TEMPLATE = """
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة تحليلات جوجل الذكية — Leafanoo GA4</title>
+  <title>لوحة تحليلات جوجل الذكية — Deere GA4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1470,7 +1470,7 @@ HTML_TEMPLATE = """
     <div class="brand-section">
       <div class="brand-logo">📊</div>
       <div class="brand-title">
-        <h1>تحليلات متجر ليفانو — Leafanoo</h1>
+        <h1>تحليلات متجر ليفانو — Deere</h1>
         <p>
           <span>لوحة مراقبة قوقل أناليتكس المباشرة (GA4)</span>
           <span class="property-pill">GA4: 557255426</span>

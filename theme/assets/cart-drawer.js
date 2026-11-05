@@ -1,5 +1,5 @@
 /**
- * Leafanoo Cart Drawer JavaScript
+ * Deere Cart Drawer JavaScript
  * Handles slide-out, AJAX increment/decrement/remove, and cart totals.
  */
 
@@ -173,9 +173,9 @@ class CartDrawer {
 
 // Global initialization
 if (typeof window !== 'undefined') {
-  window.leafanooCartDrawer = null;
+  window.deereCartDrawer = null;
   const initCartDrawer = () => {
-    window.leafanooCartDrawer = new CartDrawer();
+    window.deereCartDrawer = new CartDrawer();
   };
 
   if (document.readyState === 'loading') {

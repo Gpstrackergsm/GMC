@@ -240,7 +240,7 @@ def build_authentic_catalog():
                 'google_product_category': gpc_taxonomy,
                 'condition': 'new',
                 'image_source_url': img_url,
-                'image_license': "Commercial License / Leafanoo Verified Catalog",
+                'image_license': "Commercial License / Deere Verified Catalog",
                 'stock_status': 'in_stock',
                 'target_search_intent': f"Buy authentic {title} online",
                 'primary_seo_keyword': f"{brand} {subcat.lower()}",
@@ -279,8 +279,8 @@ def build_authentic_catalog():
                 'Image Src': img_url,
                 'Image Position': '1',
                 'Image Alt Text': f"{title} by {brand}",
-                'SEO Title': f"{title} | {brand} &ndash; Leafanoo",
-                'SEO Description': f"Buy authentic {title} by {brand} at Leafanoo. Fast tracked US shipping, 30-day returns, and guaranteed manufacturer specifications.",
+                'SEO Title': f"{title} | {brand} &ndash; Deere",
+                'SEO Description': f"Buy authentic {title} by {brand} at Deere. Fast tracked US shipping, 30-day returns, and guaranteed manufacturer specifications.",
                 'Google Shopping / Google Product Category': gpc_taxonomy,
                 'Google Shopping / Gender': '',
                 'Google Shopping / Age Group': '',
@@ -317,8 +317,8 @@ def build_authentic_catalog():
                 'Image Src': '',
                 'Image Position': '',
                 'Image Alt Text': '',
-                'SEO Title': f"{title} | {brand} &ndash; Leafanoo",
-                'SEO Description': f"Buy authentic {title} by {brand} at Leafanoo. Fast tracked US shipping, 30-day returns, and guaranteed manufacturer specifications.",
+                'SEO Title': f"{title} | {brand} &ndash; Deere",
+                'SEO Description': f"Buy authentic {title} by {brand} at Deere. Fast tracked US shipping, 30-day returns, and guaranteed manufacturer specifications.",
                 'Google Shopping / Google Product Category': gpc_taxonomy,
                 'Google Shopping / Gender': '',
                 'Google Shopping / Age Group': '',
@@ -368,16 +368,16 @@ def build_authentic_catalog():
     # Write GMC XML feed
     rss = ET.Element('rss', {'version': '2.0', 'xmlns:g': 'http://base.google.com/ns/1.0'})
     channel = ET.SubElement(rss, 'channel')
-    ET.SubElement(channel, 'title').text = 'Leafanoo Google Merchant Center Feed'
-    ET.SubElement(channel, 'link').text = 'https://leafanoo.com'
-    ET.SubElement(channel, 'description').text = 'Official high-converting GMC verified product feed for Leafanoo'
+    ET.SubElement(channel, 'title').text = 'Deere Google Merchant Center Feed'
+    ET.SubElement(channel, 'link').text = 'https://deere.com.im'
+    ET.SubElement(channel, 'description').text = 'Official high-converting GMC verified product feed for Deere'
 
     for row in master_rows:
         item = ET.SubElement(channel, 'item')
         ET.SubElement(item, 'g:id').text = row['product_id']
         ET.SubElement(item, 'g:title').text = row['title']
         ET.SubElement(item, 'g:description').text = row['description']
-        ET.SubElement(item, 'g:link').text = f"https://leafanoo.com/products/{re.sub(r'[^a-z0-9-]+', '', row['title'].lower().replace(' ', '-'))}"
+        ET.SubElement(item, 'g:link').text = f"https://deere.com.im/products/{re.sub(r'[^a-z0-9-]+', '', row['title'].lower().replace(' ', '-'))}"
         ET.SubElement(item, 'g:image_link').text = row['image_source_url']
         ET.SubElement(item, 'g:availability').text = 'in_stock'
         ET.SubElement(item, 'g:price').text = f"{row['proposed_retail_price_usd']} USD"

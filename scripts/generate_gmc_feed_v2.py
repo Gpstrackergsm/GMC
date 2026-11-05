@@ -18,7 +18,7 @@ from xml.dom import minidom
 WORKSPACE = Path("/Users/khalidaitelmaati/Desktop/GMC")
 CSV_IN    = WORKSPACE / "catalog" / "shopify_import.csv"
 XML_OUT   = WORKSPACE / "catalog" / "google_merchant_center_feed.xml"
-STORE_URL = "https://leafanoo.com"
+STORE_URL = "https://deere.com.im"
 GITHUB_RAW = "https://raw.githubusercontent.com/Gpstrackergsm/GMC/main/catalog/images"
 
 # ── Google Product Category numeric IDs (most common)
@@ -82,10 +82,10 @@ rss = ET.Element("rss", {
     "version": "2.0"
 })
 channel = ET.SubElement(rss, "channel")
-ET.SubElement(channel, "title").text = "Leafanoo - Google Merchant Center Feed"
+ET.SubElement(channel, "title").text = "Deere - Google Merchant Center Feed"
 ET.SubElement(channel, "link").text = STORE_URL
 ET.SubElement(channel, "description").text = (
-    "Official product feed for Leafanoo.com — verified for Google Shopping instant approval"
+    "Official product feed for Deere.com — verified for Google Shopping instant approval"
 )
 
 issues = []
@@ -94,13 +94,13 @@ for i, row in enumerate(products, 1):
     handle = row["Handle"].strip() or make_handle(title)
     sku    = row.get("Variant SKU","").strip()
     price  = row.get("Variant Price","").strip()
-    vendor = row.get("Vendor","Leafanoo").strip() or "Leafanoo"
+    vendor = row.get("Vendor","Deere").strip() or "Deere"
     ptype  = row.get("Type","").strip()
     img    = row.get("Image Src","").strip()
     desc   = row.get("Body (HTML)","").strip()
     desc   = re.sub(r"<[^>]+>", " ", desc).strip()
     if not desc or len(desc) < 20:
-        desc = f"High-quality {title}. Available at Leafanoo.com with fast shipping and easy returns."
+        desc = f"High-quality {title}. Available at Deere.com with fast shipping and easy returns."
 
     # Validation
     if not img:
@@ -181,7 +181,7 @@ checks = [
     ("g:id",                    True,  "✅ SKU-based unique IDs"),
     ("g:title",                 True,  "✅ Real product titles (max 150 chars)"),
     ("g:description",           True,  "✅ Clean descriptions (HTML stripped)"),
-    ("g:link",                  True,  "✅ Canonical product URLs on leafanoo.com"),
+    ("g:link",                  True,  "✅ Canonical product URLs on deere.com.im"),
     ("g:image_link",            True,  "✅ GitHub CDN images (verified 200 OK)"),
     ("g:availability",          True,  "✅ in_stock for all products"),
     ("g:price + currency",      True,  "✅ USD prices with 2 decimal places"),
@@ -195,8 +195,8 @@ checks = [
     ("MerchantReturnPolicy",    True,  "✅ hasMerchantReturnPolicy in JSON-LD"),
     ("OfferShippingDetails",    True,  "✅ shippingDetails in JSON-LD"),
     ("Policy pages",            True,  "✅ /policies/shipping /policies/refunds etc."),
-    ("Secure checkout (HTTPS)", True,  "✅ leafanoo.com uses Shopify SSL"),
-    ("Contact info",            True,  "✅ support@leafanoo.com"),
+    ("Secure checkout (HTTPS)", True,  "✅ deere.com.im uses Shopify SSL"),
+    ("Contact info",            True,  "✅ support@deere.com.im"),
 ]
 for field, ok, note in checks:
     print(f"  {note}")

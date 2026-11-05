@@ -18,7 +18,7 @@ from xml.dom import minidom
 WORKSPACE = Path("/Users/khalidaitelmaati/Desktop/GMC")
 CSV_IN    = WORKSPACE / "catalog" / "shopify_import.csv"
 XML_OUT   = WORKSPACE / "catalog" / "google_merchant_center_feed.xml"
-STORE_URL = "https://leafanoo.com"
+STORE_URL = "https://deere.com.im"
 
 # ── Google Product Category numeric IDs
 CATEGORY_MAP = {
@@ -132,10 +132,10 @@ rss = ET.Element("rss", {
     "version": "2.0"
 })
 channel = ET.SubElement(rss, "channel")
-ET.SubElement(channel, "title").text = "Leafanoo - Google Merchant Center Feed"
+ET.SubElement(channel, "title").text = "Deere - Google Merchant Center Feed"
 ET.SubElement(channel, "link").text = STORE_URL
 ET.SubElement(channel, "description").text = (
-    "Official product feed for Leafanoo.com — verified for Google Shopping instant approval"
+    "Official product feed for Deere.com — verified for Google Shopping instant approval"
 )
 
 for i, row in enumerate(clean_products, 1):
@@ -143,13 +143,13 @@ for i, row in enumerate(clean_products, 1):
     handle = row["Handle"].strip() or make_handle(title)
     sku    = row.get("Variant SKU","").strip()
     price  = row.get("Variant Price","").strip()
-    vendor = row.get("Vendor","Leafanoo").strip() or "Leafanoo"
+    vendor = row.get("Vendor","Deere").strip() or "Deere"
     ptype  = row.get("Type","").strip()
     img    = row.get("Image Src","").strip()
     desc   = row.get("Body (HTML)","").strip()
     desc   = re.sub(r"<[^>]+>", " ", desc).strip()
     if not desc or len(desc) < 20:
-        desc = f"High-quality {title}. Available at Leafanoo.com with fast US shipping and 30-day returns."
+        desc = f"High-quality {title}. Available at Deere.com with fast US shipping and 30-day returns."
 
     item = ET.SubElement(channel, "item")
 

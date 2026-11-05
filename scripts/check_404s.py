@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to find 404 broken product links in the Google Merchant Center feed.
-Checks all product URLs in the GMC feed against leafanoo.com.
+Checks all product URLs in the GMC feed against deere.com.im.
 """
 
 import re
@@ -18,7 +18,7 @@ TIMEOUT = 10  # seconds per request
 def extract_urls(feed_path):
     with open(feed_path, "r", encoding="utf-8") as f:
         content = f.read()
-    urls = re.findall(r'https://leafanoo\.com/products/[^\s<"\']+', content)
+    urls = re.findall(r'https://deere\.com/products/[^\s<"\']+', content)
     return sorted(set(urls))
 
 def check_url(url):

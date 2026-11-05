@@ -1,5 +1,5 @@
 /**
- * Leafanoo Predictive Search JavaScript
+ * Deere Predictive Search JavaScript
  */
 
 class PredictiveSearch {

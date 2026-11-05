@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Image URL Reachability & GMC Compliance Checker for Leafanoo Catalog
+Image URL Reachability & GMC Compliance Checker for Deere Catalog
 Validates that image URLs are accessible (HTTP 200) and return image MIME types.
 """
 

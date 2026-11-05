@@ -1,6 +1,6 @@
 # Shopify Theme Deployment & Operations Guide
 
-This guide details how to deploy the Leafanoo OS 2.0 theme to your Shopify store using the official Shopify CLI and configure essential store settings.
+This guide details how to deploy the Deere OS 2.0 theme to your Shopify store using the official Shopify CLI and configure essential store settings.
 
 ---
 
@@ -48,7 +48,7 @@ The CLI will output a live **Theme Preview URL** and a direct link to the **Shop
 In **Online Store → Themes → Customize**:
 
 1. **Logo & Favicon:** Upload your logo (SVG or high-res PNG) and set width to `140px`.
-2. **Colors:** The theme defaults to Leafanoo Forest Green (`#2D6A4F`), Gold Accent (`#D4A853`), and Clean Warm Surface (`#FAFAF7`). Customize palette if desired.
+2. **Colors:** The theme defaults to Deere Forest Green (`#2D6A4F`), Gold Accent (`#D4A853`), and Clean Warm Surface (`#FAFAF7`). Customize palette if desired.
 3. **Navigation Menus:**
    - Under **Navigation**, ensure your `main-menu` contains links to your main departments (`/collections/home-kitchen`, `/collections/home-organization`, etc.).
    - Configure your `footer` menu with links to legal policy pages.
@@ -70,7 +70,7 @@ In **Online Store → Themes → Customize**:
 
 ## 🚢 Step 6: Publish Theme
 
-When you are ready to make the Leafanoo theme live:
+When you are ready to make the Deere theme live:
 
 ```bash
 shopify theme publish --store=YOUR-STORE.myshopify.com

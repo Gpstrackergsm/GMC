@@ -8,8 +8,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Leafanoo LLC",
-  "alternateName": "Leafanoo",
+  "name": "Deere LLC",
+  "alternateName": "Deere",
   "url": {{ shop.url | json }},
   "description": {{ shop.description | default: 'Quality general merchandise for every home and lifestyle.' | strip_html | json }}
   {%- if settings.logo != blank -%}
@@ -45,7 +45,7 @@
     "@type": "ContactPoint",
     "contactType": "customer service",
     "telephone": {{ settings.contact_phone | default: "+1-800-614-2395" | json }},
-    "email": {{ settings.contact_email | default: "Contact@leafanoo.com" | json }},
+    "email": {{ settings.contact_email | default: "Contact@deere.com.im" | json }},
     "availableLanguage": "English"
   }
 }

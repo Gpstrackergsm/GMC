@@ -299,7 +299,7 @@ HTML_TEMPLATE = """
       <span class="pulse-badge"><span class="pulse-dot"></span> بث مباشر وتحديث كل 5 ثوانٍ</span>
     </div>
     <div style="font-size: 0.85rem; color: var(--text-muted);">
-      المتجر: <strong style="color: #fff;">Leafanoo.com</strong> (US Target)
+      المتجر: <strong style="color: #fff;">Deere.com</strong> (US Target)
     </div>
   </header>
 

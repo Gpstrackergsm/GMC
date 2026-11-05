@@ -1,5 +1,5 @@
 /**
- * Leafanoo — ChatGPT Ads / OpenAI Measurement Pixel
+ * Deere — ChatGPT Ads / OpenAI Measurement Pixel
  * Shopify Web Pixel (Customer Events)
  *
  * SDK URL: https://bzrcdn.openai.com/sdk/oaiq.min.js

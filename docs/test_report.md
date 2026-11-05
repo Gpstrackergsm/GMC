@@ -1,7 +1,7 @@
-# Leafanoo Store & Theme Build — Verification & Test Report
+# Deere Store & Theme Build — Verification & Test Report
 
 **Execution Date:** September 17, 2026  
-**Build Target:** Leafanoo General Store (`leafanoo.com`)  
+**Build Target:** Deere General Store (`deere.com.im`)  
 **Theme Engine:** Shopify Online Store 2.0 (OS 2.0)  
 
 ---
@@ -36,7 +36,7 @@
 ## 3. Manual Next-Steps Checklist for Store Owner
 
 - [ ] Log in with Shopify CLI and run `shopify theme push --development` to preview.
-- [ ] Connect custom domain `leafanoo.com` to the Shopify store.
+- [ ] Connect custom domain `deere.com.im` to the Shopify store.
 - [ ] Upload product photography / licensed stock images.
 - [ ] Fill in exact business address and phone number in Shopify settings & policy pages.
 - [ ] Complete Google Merchant Center claiming and connect Shopify Google & YouTube sales channel.

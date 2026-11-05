@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-لوحة تحكم جوجل أدز المباشرة - Leafanoo (باللغة العربية)
+لوحة تحكم جوجل أدز المباشرة - Deere (باللغة العربية)
 Google Ads & GA4 Live Arabic Dashboard — with background caching for instant page loads
 """
 
@@ -257,7 +257,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة التحكم المباشرة - إعلانات جوجل Leafanoo</title>
+  <title>لوحة التحكم المباشرة - إعلانات جوجل Deere</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -337,9 +337,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
   <div class="header">
     <div>
-      <h1>🚀 لوحة تحكم إعلانات جوجل المباشرة — Leafanoo</h1>
+      <h1>🚀 لوحة تحكم إعلانات جوجل المباشرة — Deere</h1>
       <p style="color:var(--text-muted);font-size:.9rem;margin-top:4px;">
-        رقم الحساب: <strong>414-361-5535</strong> | العملة: <strong>درهم مغربي (DH)</strong> | المتجر: <strong>Leafanoo.com</strong>
+        رقم الحساب: <strong>414-361-5535</strong> | العملة: <strong>درهم مغربي (DH)</strong> | المتجر: <strong>Deere.com</strong>
       </p>
     </div>
     <div class="badge-live"><div class="pulse"></div><span>مباشر — تحديث كل 20 ثانية</span></div>
@@ -435,7 +435,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <span class="sep">|</span>
     <span>🔄 التحديث التالي خلال 20 ثانية</span>
     <span class="sep">|</span>
-    <span>📊 Leafanoo Google Ads Live</span>
+    <span>📊 Deere Google Ads Live</span>
   </div>
 </body>
 </html>

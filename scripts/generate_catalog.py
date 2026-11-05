@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive catalog generator for Leafanoo General Store.
+Comprehensive catalog generator for Deere General Store.
 Generates 200+ real, commercially available physical products across 8 major departments:
 1. Home & Kitchen (40 products)
 2. Home Organization (35 products)
@@ -346,8 +346,8 @@ def build_full_catalogs():
             'Image Src': '',
             'Image Position': '1',
             'Image Alt Text': f"{title} by {brand}",
-            'SEO Title': f"{title} | {brand} &ndash; Leafanoo",
-            'SEO Description': f"Buy authentic {title} by {brand} at Leafanoo. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
+            'SEO Title': f"{title} | {brand} &ndash; Deere",
+            'SEO Description': f"Buy authentic {title} by {brand} at Deere. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
             'Google Shopping / Google Product Category': gpc,
             'Google Shopping / Gender': '',
             'Google Shopping / Age Group': '',

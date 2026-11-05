@@ -14,8 +14,8 @@ def generate_gmc_xml():
     })
     
     channel = ET.SubElement(rss, 'channel')
-    ET.SubElement(channel, 'title').text = 'Leafanoo Google Merchant Center Feed'
-    ET.SubElement(channel, 'link').text = 'https://leafanoo.com'
+    ET.SubElement(channel, 'title').text = 'Deere Google Merchant Center Feed'
+    ET.SubElement(channel, 'link').text = 'https://deere.com.im'
     ET.SubElement(channel, 'description').text = 'Verified physical products with authentic GTINs, MPNs, and real-time inventory.'
 
     with open(csv_file, 'r', encoding='utf-8') as f:
@@ -37,7 +37,7 @@ def generate_gmc_xml():
             # link
             handle = row['title'].lower().replace(' & ', '-').replace('&', '-').replace(' ', '-')
             handle = ''.join(c for c in handle if c.isalnum() or c == '-').strip('-')
-            ET.SubElement(item, '{http://base.google.com/ns/1.0}link').text = f'https://leafanoo.com/products/{handle}'
+            ET.SubElement(item, '{http://base.google.com/ns/1.0}link').text = f'https://deere.com.im/products/{handle}'
             
             # image_link
             img_url = row.get('image_source_url', 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1000&auto=format&fit=crop&q=80')

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 GMC Google Ads Automation & Optimizer
-Leafanoo Account Manager (Customer ID: 414-361-5535)
+Deere Account Manager (Customer ID: 414-361-5535)
 """
 
 import os
@@ -41,7 +41,7 @@ def show_active_campaigns():
     response = ga_service.search(customer_id=CUSTOMER_ID, query=query)
 
     print("\n" + "=" * 80)
-    print("                    LEAFANOO CAMPAIGN PERFORMANCE")
+    print("                    DEERE CAMPAIGN PERFORMANCE")
     print("=" * 80)
     for row in response:
         c = row.campaign

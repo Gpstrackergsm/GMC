@@ -3,7 +3,7 @@
     "main-blog": {
       "type": "main-blog",
       "settings": {
-        "heading": "Leafanoo Journal",
+        "heading": "Deere Journal",
         "heading_size": "h1",
         "show_image": true,
         "image_height": "medium",

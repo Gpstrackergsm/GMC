@@ -77,7 +77,7 @@ def product_rows(p):
     price  = f"{float(p.get('price', 19.99)):.2f}"
     compare = f"{float(p.get('compare_at', 0) or float(price)*1.3):.2f}"
     body   = p.get("description", "").replace("\n", "<br>")
-    vendor = p.get("vendor", "Leafanoo")
+    vendor = p.get("vendor", "Deere")
     tags   = p.get("tags", "")
     ptype  = p.get("type", "General")
     category = p.get("category", "")
@@ -143,7 +143,7 @@ def scrape_fakestoreapi():
             "description": item.get("description",""),
             "price": round(float(item["price"]), 2),
             "compare_at": round(float(item["price"]) * 1.3, 2),
-            "vendor": "Leafanoo",
+            "vendor": "Deere",
             "type": cat,
             "category": cat,
             "tags": cat.lower(),
@@ -201,7 +201,7 @@ def scrape_dummyjson():
                 print(f"  skip (no images): {title}")
                 continue
             
-            brand = item.get("brand") or "Leafanoo"
+            brand = item.get("brand") or "Deere"
             cat_label = cat.replace("-"," ").title()
             products.append({
                 "title": title,
@@ -243,7 +243,7 @@ def scrape_open_food_facts():
     for item in items:
         name = (item.get("product_name") or "").strip()
         img_url = (item.get("image_front_url") or "").strip()
-        brand = (item.get("brands") or "Leafanoo").split(",")[0].strip().title()
+        brand = (item.get("brands") or "Deere").split(",")[0].strip().title()
         if not name or not img_url or not img_url.startswith("http"):
             continue
         
@@ -333,7 +333,7 @@ def scrape_platzi_store():
             "description": f"<p>{title}</p><p>Category: {cat_name}</p>",
             "price": price,
             "compare_at": round(price * 1.3, 2),
-            "vendor": "Leafanoo",
+            "vendor": "Deere",
             "type": cat_name,
             "category": cat_name,
             "tags": cat_name.lower(),
@@ -375,7 +375,7 @@ def scrape_bestbuy_trending():
                 "title": title[:120],
                 "description": f"<p>{title}</p>",
                 "price": round(float(price_v), 2) if price_v else 49.99,
-                "vendor": item.get("brand","Leafanoo"),
+                "vendor": item.get("brand","Deere"),
                 "type": "Electronics",
                 "category": "Electronics",
                 "tags": "electronics,trending",

@@ -15,9 +15,9 @@
         "image_ratio": "adapt",
         "heading": "Who We Are",
         "heading_size": "h2",
-        "body": "<p>Leafanoo was founded with a single mission: to bring the best products from around the world right to your doorstep. Our team of passionate curators scour the globe to find items that offer unparalleled quality and value.</p><p>We are a diverse team of product lovers, designers, and logistics experts all united by a commitment to customer delight.</p>",
-        "button_label": "Meet Our Team",
-        "button_link": "#team",
+        "body": "<p>Deere was founded with a single mission: to bring the best products from around the world right to your doorstep. Our team of passionate curators scour the globe to find items that offer unparalleled quality and value.</p><p>We are a diverse team of product lovers, designers, and logistics experts all united by a commitment to customer delight.</p>",
+        "button_label": "Contact Us",
+        "button_link": "/pages/contact-us",
         "button_style": "secondary",
         "color_scheme": "background-1",
         "padding_top": 36,
@@ -58,7 +58,7 @@
     "trust-bar": {
       "type": "trust-bar",
       "settings": {
-        "heading": "The Leafanoo Promise",
+        "heading": "The Deere Promise",
         "color_scheme": "background-2",
         "columns_desktop": 4,
         "columns_mobile": 2,

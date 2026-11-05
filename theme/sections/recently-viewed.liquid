@@ -15,7 +15,7 @@
 <script>
   (function() {
     const currentHandle = {{ product.handle | json }};
-    const storageKey = 'leafanoo_recently_viewed';
+    const storageKey = 'deere_recently_viewed';
     let viewed = [];
     try {
       viewed = JSON.parse(localStorage.getItem(storageKey)) || [];

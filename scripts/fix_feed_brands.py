@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Update Google Merchant Center feed brands:
-Replaces generic 'Leafanoo' brand with genuine manufacturer names
+Replaces generic 'Deere' brand with genuine manufacturer names
 (John Deere, Backyard Discovery, BendPak, Gorilla Playsets, Triumph, etc.)
 """
 
@@ -118,7 +118,7 @@ def map_brand(title, desc, ptype):
     if 'Shed' in ptype:
         return 'Heartland'
 
-    return 'Leafanoo'
+    return 'Deere'
 
 def main():
     print(f"Reading feed: {FEED_FILE}")
@@ -134,13 +134,13 @@ def main():
     for item in items:
         brand_elem = item.find(f'{G}brand')
         current_brand = brand_elem.text.strip() if brand_elem is not None and brand_elem.text else ''
-        if current_brand == 'Leafanoo':
+        if current_brand == 'Deere':
             title = item.findtext(f'{G}title', '')
             desc = item.findtext(f'{G}description', '')
             ptype = item.findtext(f'{G}product_type', '')
             new_brand = map_brand(title, desc, ptype)
 
-            if new_brand and new_brand != 'Leafanoo':
+            if new_brand and new_brand != 'Deere':
                 brand_elem.text = new_brand
                 updated += 1
 

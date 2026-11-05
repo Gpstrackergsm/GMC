@@ -1,6 +1,6 @@
 # Technical & Content SEO Implementation Summary
 
-Summary of architectural, structured data, and on-page SEO implementations for Leafanoo.
+Summary of architectural, structured data, and on-page SEO implementations for Deere.
 
 ---
 

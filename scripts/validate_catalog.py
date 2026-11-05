@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Catalog Validation Script for Leafanoo Shopify & Google Merchant Center
+Catalog Validation Script for Deere Shopify & Google Merchant Center
 Validates CSV catalog structure, checks required Shopify & GMC fields,
 detects duplicate handles/SKUs, verifies price validity, and outputs a summary report.
 """

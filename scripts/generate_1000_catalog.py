@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Comprehensive 1,000 Real Trending Physical Products Catalog Generator
-for Leafanoo General Store & Google Merchant Center.
+for Deere General Store & Google Merchant Center.
 
 Generates:
 1. catalog/products_master.csv (1,000 records with all 34 research & GMC attributes)
@@ -781,8 +781,8 @@ def generate_catalogs():
                 'Image Src': img_url,
                 'Image Position': '1',
                 'Image Alt Text': f"{title} by {brand}",
-                'SEO Title': f"{title} | {brand} &ndash; Leafanoo",
-                'SEO Description': f"Buy authentic {title} by {brand} at Leafanoo. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
+                'SEO Title': f"{title} | {brand} &ndash; Deere",
+                'SEO Description': f"Buy authentic {title} by {brand} at Deere. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
                 'Google Shopping / Google Product Category': gpc_taxonomy,
                 'Google Shopping / Gender': '',
                 'Google Shopping / Age Group': '',
@@ -819,8 +819,8 @@ def generate_catalogs():
                 'Image Src': '',
                 'Image Position': '',
                 'Image Alt Text': '',
-                'SEO Title': f"{title} | {brand} &ndash; Leafanoo",
-                'SEO Description': f"Buy authentic {title} by {brand} at Leafanoo. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
+                'SEO Title': f"{title} | {brand} &ndash; Deere",
+                'SEO Description': f"Buy authentic {title} by {brand} at Deere. Fast tracked shipping, verifiable specifications, and hassle-free returns.",
                 'Google Shopping / Google Product Category': gpc_taxonomy,
                 'Google Shopping / Gender': '',
                 'Google Shopping / Age Group': '',

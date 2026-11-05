@@ -333,7 +333,7 @@ HEADERS = {
 
 # A. Storefront status
 try:
-    req = urllib.request.Request("https://leafanoo.com/", headers=HEADERS)
+    req = urllib.request.Request("https://deere.com.im/", headers=HEADERS)
     with urllib.request.urlopen(req, timeout=10) as resp:
         audit_results["storefront_status"] = resp.status
         print(f"✅ Storefront Homepage: HTTP {resp.status}")
@@ -343,7 +343,7 @@ except Exception as e:
 
 # B. Cart and Product Endpoint test
 try:
-    req = urllib.request.Request("https://leafanoo.com/cart.js", headers=HEADERS)
+    req = urllib.request.Request("https://deere.com.im/cart.js", headers=HEADERS)
     with urllib.request.urlopen(req, timeout=10) as resp:
         cart_data = json.loads(resp.read().decode("utf-8"))
         print(f"✅ Shopify Cart Endpoint: OK, Currency: {cart_data.get('currency')}, Items: {cart_data.get('item_count')}")
@@ -355,7 +355,7 @@ except Exception as e:
 top_test_handles = ["craftsman-r110-11-5hp-manual-gear-36-riding-mower", "john-deere-s120-mower-42-in-22-hp-v-twin-gas", "super73-zx-core"]
 for handle in top_test_handles:
     try:
-        req = urllib.request.Request(f"https://leafanoo.com/products/{handle}.js", headers=HEADERS)
+        req = urllib.request.Request(f"https://deere.com.im/products/{handle}.js", headers=HEADERS)
         with urllib.request.urlopen(req, timeout=10) as resp:
             p_data = json.loads(resp.read().decode("utf-8"))
             avail = p_data.get("available")

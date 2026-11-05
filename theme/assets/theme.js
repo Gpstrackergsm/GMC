@@ -1,5 +1,5 @@
 /**
- * Leafanoo Shopify OS 2.0 Theme Core JavaScript
+ * Deere Shopify OS 2.0 Theme Core JavaScript
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -61,14 +61,14 @@ function initAnnouncementDismiss() {
   const closeBtn = document.querySelector('.announcement-bar__close');
   if (!bar || !closeBtn) return;
 
-  const dismissed = localStorage.getItem('leafanoo_announcement_dismissed');
+  const dismissed = localStorage.getItem('deere_announcement_dismissed');
   if (dismissed === 'true') {
     bar.style.display = 'none';
   }
 
   closeBtn.addEventListener('click', () => {
     bar.style.display = 'none';
-    localStorage.setItem('leafanoo_announcement_dismissed', 'true');
+    localStorage.setItem('deere_announcement_dismissed', 'true');
   });
 }
 

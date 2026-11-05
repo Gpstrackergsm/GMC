@@ -25,10 +25,23 @@
         '/policies/privacy-policy': '/pages/privacy-policy',
         '/policies/contact-information': '/pages/contact-us',
         '/policies/legal-notice': '/pages/terms-of-service',
+        '/pages/contact': '/pages/contact-us',
+        '/contact': '/pages/contact-us',
+        '/contact-us': '/pages/contact-us',
+        '/pages/about-us': '/pages/about',
+        '/about': '/pages/about',
+        '/about-us': '/pages/about',
         '/pages/faq': '/#shopify-section-faq-accordion',
         '/pages/faqs': '/#shopify-section-faq-accordion',
         '/faq': '/#shopify-section-faq-accordion',
-        '/faqs': '/#shopify-section-faq-accordion'
+        '/faqs': '/#shopify-section-faq-accordion',
+        '/shipping': '/pages/shipping-policy',
+        '/privacy': '/pages/privacy-policy',
+        '/terms': '/pages/terms-of-service',
+        '/refund': '/pages/refund-policy',
+        '/returns': '/pages/refund-policy',
+        '/payment': '/pages/payment-policy',
+        '/billing': '/pages/payment-policy'
       };
       if (m[p]) {
         window.location.replace(m[p]);
@@ -114,8 +127,8 @@
     document.documentElement.classList.add('js');
 
     // Global theme namespace
-    window.Leafanoo = window.Leafanoo || {};
-    window.Leafanoo.settings = {
+    window.Deere = window.Deere || {};
+    window.Deere.settings = {
       cartType: {{ settings.cart_type | json }},
       enableAnimations: {{ settings.enable_animations | json }},
       moneyFormat: {{ shop.money_format | json }},
@@ -292,7 +305,7 @@
     >
       <div style="background: #1E3F20; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #FFDE00;">
         <div>
-          <div style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;">Leafanoo Turf Equipment Support</div>
+          <div style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;">Deere Turf Equipment Support</div>
           <div style="font-size: 0.78rem; color: #FFDE00; font-weight: 600;">Authorized Commercial Support</div>
         </div>
         <button
@@ -322,13 +335,13 @@
 
         <!-- Email Action -->
         <a
-          href="mailto:Contact@leafanoo.com"
+          href="mailto:Contact@deere.com.im"
           style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F7F7F7; border: 1px solid #E2E2E2; border-radius: 6px; text-decoration: none; color: #111111; transition: background 0.15s;"
         >
           <span style="font-size: 1.3rem;">✉️</span>
           <div>
             <div style="font-weight: 800; font-size: 0.9rem;">Email Dealer Specialist</div>
-            <div style="font-size: 0.8rem; color: #4B5563;">Contact@leafanoo.com</div>
+            <div style="font-size: 0.8rem; color: #4B5563;">Contact@deere.com.im</div>
           </div>
         </a>
 
