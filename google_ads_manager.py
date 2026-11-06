@@ -9,7 +9,7 @@ import sys
 from google.ads.googleads.client import GoogleAdsClient
 from google.protobuf import field_mask_pb2
 
-CUSTOMER_ID = "4143615535"
+CUSTOMER_ID = "6831148842"
 YAML_PATH = os.path.join(os.path.dirname(__file__), "google_ads_auth", "google-ads.yaml")
 
 
@@ -54,9 +54,9 @@ def show_active_campaigns():
 
         print(f"📦 Campaign: {c.name} [ID: {c.id}]")
         print(f"   Status:   {c.status.name} | Type: {c.advertising_channel_type.name}")
-        print(f"   Budget:   {budget:.2f} DH/day | Target ROAS: {roas_str}")
-        print(f"   Spent:    {spend:.2f} DH | Clicks: {m.clicks:,} | Impr: {m.impressions:,}")
-        print(f"   Conv:     {m.conversions:.1f} | Value: {m.conversions_value:.2f} DH")
+        print(f"   Budget:   ${budget:.2f}/day | Target ROAS: {roas_str}")
+        print(f"   Spent:    ${spend:.2f} | Clicks: {m.clicks:,} | Impr: {m.impressions:,}")
+        print(f"   Conv:     {m.conversions:.1f} | Value: ${m.conversions_value:.2f}")
         print("-" * 80)
     print()
 

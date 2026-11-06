@@ -10,7 +10,7 @@ import os
 import sys
 from google.ads.googleads.client import GoogleAdsClient
 
-CUSTOMER_ID = "4143615535"
+CUSTOMER_ID = "6831148842"
 YAML_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "google_ads_auth", "google-ads.yaml")
 
 GRANULAR_NEGATIVES = [

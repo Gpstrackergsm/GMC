@@ -7,7 +7,7 @@ import sys
 from google.ads.googleads.client import GoogleAdsClient
 from google.protobuf import field_mask_pb2
 
-CUSTOMER_ID = "4143615535"
+CUSTOMER_ID = "6831148842"
 YAML_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "google_ads_auth", "google-ads.yaml")
 
 def adjust_mobile_modifier(new_modifier=0.5):
