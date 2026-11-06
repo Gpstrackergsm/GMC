@@ -85,7 +85,7 @@ def update_campaign_budget(campaign_id: str, new_daily_amount_dollars: float):
     client.copy_from(op.update_mask, field_mask_pb2.FieldMask(paths=["amount_micros"]))
 
     budget_service.mutate_campaign_budgets(customer_id=CUSTOMER_ID, operations=[op])
-    print(f"✅ Budget for campaign {campaign_id} updated to {new_daily_amount_dollars:.2f} DH/day!")
+    print(f"✅ Budget for campaign {campaign_id} updated to ${new_daily_amount_dollars:.2f}/day USD!")
 
 
 def update_target_roas(campaign_id: str, roas_percentage: float):
