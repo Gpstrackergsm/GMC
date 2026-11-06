@@ -18,7 +18,7 @@ from xml.dom import minidom
 WORKSPACE = Path("/Users/khalidaitelmaati/Desktop/GMC")
 CSV_IN    = WORKSPACE / "catalog" / "shopify_import.csv"
 XML_OUT   = WORKSPACE / "catalog" / "google_merchant_center_feed.xml"
-STORE_URL = "https://deere.com.im"
+STORE_URL = "https://mowerhaven.com"
 GITHUB_RAW = "https://raw.githubusercontent.com/Gpstrackergsm/GMC/main/catalog/images"
 
 # ── Google Product Category numeric IDs (most common)
@@ -181,7 +181,7 @@ checks = [
     ("g:id",                    True,  "✅ SKU-based unique IDs"),
     ("g:title",                 True,  "✅ Real product titles (max 150 chars)"),
     ("g:description",           True,  "✅ Clean descriptions (HTML stripped)"),
-    ("g:link",                  True,  "✅ Canonical product URLs on deere.com.im"),
+    ("g:link",                  True,  "✅ Canonical product URLs on mowerhaven.com"),
     ("g:image_link",            True,  "✅ GitHub CDN images (verified 200 OK)"),
     ("g:availability",          True,  "✅ in_stock for all products"),
     ("g:price + currency",      True,  "✅ USD prices with 2 decimal places"),
@@ -195,8 +195,8 @@ checks = [
     ("MerchantReturnPolicy",    True,  "✅ hasMerchantReturnPolicy in JSON-LD"),
     ("OfferShippingDetails",    True,  "✅ shippingDetails in JSON-LD"),
     ("Policy pages",            True,  "✅ /policies/shipping /policies/refunds etc."),
-    ("Secure checkout (HTTPS)", True,  "✅ deere.com.im uses Shopify SSL"),
-    ("Contact info",            True,  "✅ support@deere.com.im"),
+    ("Secure checkout (HTTPS)", True,  "✅ mowerhaven.com uses Shopify SSL"),
+    ("Contact info",            True,  "✅ support@mowerhaven.com"),
 ]
 for field, ok, note in checks:
     print(f"  {note}")

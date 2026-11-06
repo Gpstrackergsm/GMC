@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to find 404 broken product links in the Google Merchant Center feed.
-Checks all product URLs in the GMC feed against deere.com.im.
+Checks all product URLs in the GMC feed against mowerhaven.com.
 """
 
 import re

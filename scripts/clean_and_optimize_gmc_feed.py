@@ -18,7 +18,7 @@ from xml.dom import minidom
 WORKSPACE = Path("/Users/khalidaitelmaati/Desktop/GMC")
 CSV_IN    = WORKSPACE / "catalog" / "shopify_import.csv"
 XML_OUT   = WORKSPACE / "catalog" / "google_merchant_center_feed.xml"
-STORE_URL = "https://deere.com.im"
+STORE_URL = "https://mowerhaven.com"
 
 # ── Google Product Category numeric IDs
 CATEGORY_MAP = {

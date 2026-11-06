@@ -73,9 +73,9 @@ def clean_brand_text(text):
     text = text.replace("Laitm LLC", "Deere LLC")
     text = text.replace("LAITM LLC", "DEERE LLC")
     text = text.replace("Laitm", "Deere")
-    text = text.replace("laitm.com", "deere.com.im")
-    text = text.replace("Contact@laitm.com", "support@deere.com.im")
-    text = text.replace("contact@laitm.com", "support@deere.com.im")
+    text = text.replace("laitm.com", "mowerhaven.com")
+    text = text.replace("Contact@laitm.com", "support@mowerhaven.com")
+    text = text.replace("contact@laitm.com", "support@mowerhaven.com")
     text = text.strip()
     return text
 
@@ -380,7 +380,7 @@ def main():
     })
     channel = ET.SubElement(rss, "channel")
     ET.SubElement(channel, "title").text = "Deere Products"
-    ET.SubElement(channel, "link").text = "https://deere.com.im"
+    ET.SubElement(channel, "link").text = "https://mowerhaven.com"
     ET.SubElement(channel, "description").text = "Deere official store product feed for Google Merchant Center"
 
     for p in products:
@@ -390,7 +390,7 @@ def main():
         clean_text_desc = re.sub(r'<[^>]+>', ' ', p['body_html'])
         clean_text_desc = re.sub(r'\s+', ' ', clean_text_desc).strip()[:4900]
         ET.SubElement(item, "{http://base.google.com/ns/1.0}description").text = clean_text_desc
-        ET.SubElement(item, "{http://base.google.com/ns/1.0}link").text = f"https://deere.com.im/products/{p['handle']}"
+        ET.SubElement(item, "{http://base.google.com/ns/1.0}link").text = f"https://mowerhaven.com/products/{p['handle']}"
         
         if p['images']:
             ET.SubElement(item, "{http://base.google.com/ns/1.0}image_link").text = p['images'][0]

@@ -1,7 +1,7 @@
 {%- liquid
   assign eyebrow = section.settings.eyebrow | default: 'Customer stories'
   assign heading = section.settings.heading | default: 'What Our Customers Say'
-  assign sub = section.settings.subtext | default: "Real feedback from people who've bought from Deere LLC."
+  assign sub = section.settings.subtext | default: "Real feedback from people who've bought from Mower Haven LLC."
 -%}
 
 <section class="laitm-testi-section page-width" style="padding: 72px 0;">
@@ -25,7 +25,7 @@
             <p class="laitm-testi-quote">"{{ block.settings.quote }}"</p>
             <div class="laitm-testi-footer">
               <span class="laitm-testi-name">{{ block.settings.author }}</span>
-              <span class="laitm-testi-meta">Verified Deere LLC buyer</span>
+              <span class="laitm-testi-meta">Verified Mower Haven buyer</span>
             </div>
           </div>
         {%- endif -%}
@@ -37,7 +37,7 @@
       <span>·</span>
       <span>Real orders, real reviews</span>
       <span>·</span>
-      <span>Shipped & fulfilled by Deere LLC</span>
+      <span>Shipped & fulfilled by Mower Haven LLC</span>
     </div>
   </div>
 </section>
@@ -169,7 +169,7 @@
       "type": "text",
       "id": "subtext",
       "label": "Subtext",
-      "default": "Real feedback from people who've bought from Deere LLC."
+      "default": "Real feedback from people who've bought from Mower Haven LLC."
     }
   ],
   "blocks": [

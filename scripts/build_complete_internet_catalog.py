@@ -7,7 +7,7 @@ import csv
 import re
 import time
 
-headers = {'User-Agent': 'DeereCatalogBot/1.0 (contact@deere.com.im)'}
+headers = {'User-Agent': 'DeereCatalogBot/1.0 (contact@mowerhaven.com)'}
 
 def search_wikimedia_image(query):
     clean_q = query.replace('&', 'and').strip()

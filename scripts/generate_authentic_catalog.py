@@ -369,7 +369,7 @@ def build_authentic_catalog():
     rss = ET.Element('rss', {'version': '2.0', 'xmlns:g': 'http://base.google.com/ns/1.0'})
     channel = ET.SubElement(rss, 'channel')
     ET.SubElement(channel, 'title').text = 'Deere Google Merchant Center Feed'
-    ET.SubElement(channel, 'link').text = 'https://deere.com.im'
+    ET.SubElement(channel, 'link').text = 'https://mowerhaven.com'
     ET.SubElement(channel, 'description').text = 'Official high-converting GMC verified product feed for Deere'
 
     for row in master_rows:
@@ -377,7 +377,7 @@ def build_authentic_catalog():
         ET.SubElement(item, 'g:id').text = row['product_id']
         ET.SubElement(item, 'g:title').text = row['title']
         ET.SubElement(item, 'g:description').text = row['description']
-        ET.SubElement(item, 'g:link').text = f"https://deere.com.im/products/{re.sub(r'[^a-z0-9-]+', '', row['title'].lower().replace(' ', '-'))}"
+        ET.SubElement(item, 'g:link').text = f"https://mowerhaven.com/products/{re.sub(r'[^a-z0-9-]+', '', row['title'].lower().replace(' ', '-'))}"
         ET.SubElement(item, 'g:image_link').text = row['image_source_url']
         ET.SubElement(item, 'g:availability').text = 'in_stock'
         ET.SubElement(item, 'g:price').text = f"{row['proposed_retail_price_usd']} USD"

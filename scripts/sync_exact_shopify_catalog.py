@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sync Google Merchant Center feed to match ONLY products currently active on deere.com.im.
+Sync Google Merchant Center feed to match ONLY products currently active on mowerhaven.com.
 Removes all 221 phantom products that do not exist on the store.
 Also removes any prohibited motor vehicles (e.g. Golf Cart) that violate GMC policy.
 """
@@ -12,9 +12,9 @@ from xml.dom import minidom
 WORKSPACE = Path("/Users/khalidaitelmaati/Desktop/GMC")
 FEED_FILE = WORKSPACE / "catalog" / "google_merchant_center_feed.xml"
 
-# 1. Fetch live active products from deere.com.im
-print("Fetching live active products from deere.com.im...")
-url = "https://deere.com.im/products.json?limit=250"
+# 1. Fetch live active products from mowerhaven.com
+print("Fetching live active products from mowerhaven.com...")
+url = "https://mowerhaven.com/products.json?limit=250"
 req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
 with urllib.request.urlopen(req, timeout=10) as resp:
     shop_products = json.loads(resp.read().decode())["products"]

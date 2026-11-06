@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Sync GMC feed with 100% verified live Shopify product data from deere.com.im.
-Fetches https://deere.com.im/products/<handle>.js for every item in the feed,
+Sync GMC feed with 100% verified live Shopify product data from mowerhaven.com.
+Fetches https://mowerhaven.com/products/<handle>.js for every item in the feed,
 and updates price, availability, and attributes to eliminate any mismatch.
 """
 
@@ -45,7 +45,7 @@ def sync_feed():
         
         link = link_elem.text.strip()
         handle = link.split('/products/')[-1].split('?')[0].split('#')[0]
-        js_url = f"https://deere.com.im/products/{handle}.js"
+        js_url = f"https://mowerhaven.com/products/{handle}.js"
 
         try:
             req = urllib.request.Request(js_url, headers=headers)
