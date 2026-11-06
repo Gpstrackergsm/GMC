@@ -174,7 +174,7 @@
             </div>
           {%- endunless -%}
 
-          <!-- Single Primary Action Button: Full Price ATC (John Deere Yellow CTA) -->
+          <!-- Action Buttons Group: ATC + Instant Express Checkout -->
           <div class="product-atc-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 1rem;">
             <input type="hidden" name="quantity" value="1">
             <button
@@ -182,7 +182,7 @@
               name="add"
               class="btn btn--primary btn--atc"
               {% unless product.available %}disabled{% endunless %}
-              style="width: 100%; padding: 1.25rem 2rem; background: #FFDE00; color: #111111; font-size: 1.15rem; font-weight: 800; border: 2px solid #E6C800; border-radius: 6px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 4px 14px rgba(255,222,0,0.45); transition: all 0.2s; letter-spacing: 0.01em; text-transform: uppercase;"
+              style="width: 100%; padding: 1.2rem 2rem; background: #FFDE00; color: #111111; font-size: 1.15rem; font-weight: 800; border: 2px solid #E6C800; border-radius: 6px; cursor: {% if product.available %}pointer{% else %}not-allowed{% endif %}; box-shadow: 0 4px 14px rgba(255,222,0,0.45); transition: all 0.2s; letter-spacing: 0.01em; text-transform: uppercase;"
               onmouseover="this.style.background='#E6C800';this.style.boxShadow='0 6px 18px rgba(255,222,0,0.55)';this.style.transform='translateY(-1px)'"
               onmouseout="this.style.background='#FFDE00';this.style.boxShadow='0 4px 14px rgba(255,222,0,0.45)';this.style.transform='translateY(0)'"
             >
@@ -194,6 +194,20 @@
                 {%- endif -%}
               </span>
             </button>
+
+            {%- if product.available -%}
+            <button
+              type="button"
+              id="DirectBuyNowBtn"
+              class="btn btn--buy-now"
+              onclick="window.location.href='/cart/{{ product.selected_or_first_available_variant.id }}:1'"
+              style="width: 100%; padding: 1.15rem 2rem; background: #367C2B; color: #FFFFFF; font-size: 1.1rem; font-weight: 800; border: 2px solid #2B6422; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 14px rgba(54,124,43,0.35); transition: all 0.2s; letter-spacing: 0.01em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px;"
+              onmouseover="this.style.background='#2B6422';this.style.boxShadow='0 6px 18px rgba(54,124,43,0.5)';this.style.transform='translateY(-1px)'"
+              onmouseout="this.style.background='#367C2B';this.style.boxShadow='0 4px 14px rgba(54,124,43,0.35)';this.style.transform='translateY(0)'"
+            >
+              <span>⚡ Buy It Now &bull; Free Liftgate Delivery &rarr;</span>
+            </button>
+            {%- endif -%}
 
             <!-- Reassurance under button -->
             <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
