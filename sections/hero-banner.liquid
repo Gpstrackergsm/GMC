@@ -9,30 +9,28 @@
       <div class="deere-hero-grid">
         <!-- Left Copy Column -->
         <div class="deere-hero-copy">
-          <span class="deere-hero-eyebrow">
-            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true" width="13" height="13">
-              <path d="M12 5v14M5 12h14"></path>
-            </svg>
-            {{ section.settings.badge_text | default: 'MOWER HAVEN &bull; SPRING CLEARANCE EVENT' }}
+          <span class="deere-hero-eyebrow" style="background: #111111; color: #FFDE00; border: 1.5px solid #FFDE00; padding: 5px 14px; border-radius: 9999px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; width: fit-content;">
+            <span style="background: #EB001B; color: #FFFFFF; font-size: 0.7rem; font-weight: 900; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.05em;">BLACK FRIDAY</span>
+            {{ section.settings.badge_text | default: 'DOORBUSTER EVENT &bull; UP TO 60% OFF' }}
           </span>
 
           <h1 class="deere-hero-h1">
-            {{ section.settings.heading | default: 'Engineered for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>' }}
+            {{ section.settings.heading | default: 'Black Friday Mega Sale. <span>Up to 60% Off Riding Mowers.</span>' }}
           </h1>
 
           <p class="deere-hero-sub">
-            {{ section.settings.subheading | default: "Heavy-duty riding lawn tractors and precision zero-turn mowers. Factory-sealed with complimentary hydraulic liftgate residential delivery directly to your driveway." }}
+            {{ section.settings.subheading | default: "Lock in our lowest doorbuster prices of the year on premium riding lawn tractors and zero-turn mowers. Brand-new, factory-sealed units with complimentary residential hydraulic liftgate delivery directly to your driveway." }}
           </p>
 
-          <!-- Liftgate Freight Hero Pill -->
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: #EEF7EC; border: 1.5px solid #367C2B; border-radius: 9999px; padding: 6px 16px; margin-bottom: 0.5rem; width: fit-content;">
-            <span style="font-size: 1.05rem;">🚚</span>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #275e20; letter-spacing: 0.02em;">Free Residential Hydraulic Liftgate Delivery On All Mowers</span>
+          <!-- Liftgate Freight Hero Pill with Black Friday Urgency -->
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #0A0A0A; border: 1.5px solid #FFDE00; border-radius: 9999px; padding: 7px 18px; margin-bottom: 0.65rem; width: fit-content;">
+            <span style="font-size: 1.1rem;">🔥</span>
+            <span style="font-size: 0.85rem; font-weight: 800; color: #FFDE00; letter-spacing: 0.02em;">Black Friday Deals: Free Residential Liftgate Delivery Included</span>
           </div>
 
           <div class="deere-hero-actions">
-            <a class="deere-hero-cta" href="{{ hero_cta }}">
-              {{ section.settings.button_label | default: 'Shop Riding Mowers' }}
+            <a class="deere-hero-cta" href="{{ hero_cta }}" style="background: #EB001B; color: #FFFFFF; border: 2px solid #C40016; box-shadow: 0 4px 16px rgba(235,0,27,0.4);">
+              {{ section.settings.button_label | default: 'Shop Black Friday Deals' }}
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
@@ -43,17 +41,17 @@
           </div>
 
           <!-- Quick Mobile Buyer Chips (High-Converting for 88.5% Mobile Visitors) -->
-          <div class="deere-hero-chips" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0;">
-            <a href="/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #367C2B; color: #275e20; padding: 7px 14px; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-              <span>🚜</span> John Deere S120 ($799)
+          <div class="deere-hero-chips" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 10px;">
+            <a href="/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower" style="display: inline-flex; align-items: center; gap: 6px; background: #FFDE00; border: 1.5px solid #E6C800; color: #111111; padding: 8px 16px; border-radius: 9999px; font-size: 0.82rem; font-weight: 900; text-decoration: none; box-shadow: 0 3px 10px rgba(255,222,0,0.45);">
+              <span>🔥</span> Doorbuster: S120 ($799)
             </a>
-            <a href="/collections/types?q=Riding+Lawn+Mowers" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1px solid #D1D5DB; color: #1F2937; padding: 7px 14px; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+            <a href="/collections/types?q=Riding+Lawn+Mowers" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #111111; color: #111111; padding: 8px 16px; border-radius: 9999px; font-size: 0.82rem; font-weight: 800; text-decoration: none;">
               <span>⚡</span> Zero-Turn Mowers
             </a>
-            <a href="/collections/types?q=Ride+Mowers" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1px solid #D1D5DB; color: #1F2937; padding: 7px 14px; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+            <a href="/collections/types?q=Ride+Mowers" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #111111; color: #111111; padding: 8px 16px; border-radius: 9999px; font-size: 0.82rem; font-weight: 800; text-decoration: none;">
               <span>🌾</span> Lawn Tractors
             </a>
-            <a href="tel:+18006142395" style="display: inline-flex; align-items: center; gap: 6px; background: #EEF7EC; border: 1.5px solid #367C2B; color: #275e20; padding: 7px 14px; border-radius: 9999px; font-size: 0.8rem; font-weight: 800; text-decoration: none;">
+            <a href="tel:+18006142395" style="display: inline-flex; align-items: center; gap: 6px; background: #EEF7EC; border: 1.5px solid #367C2B; color: #275e20; padding: 8px 16px; border-radius: 9999px; font-size: 0.82rem; font-weight: 800; text-decoration: none;">
               <span>📞</span> Order by Phone: 1-800-614-2395
             </a>
           </div>

@@ -12,17 +12,17 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "badge_text": "🚜 Complimentary Residential Hydraulic Liftgate Delivery",
-        "heading": "Built for Real Acreage. <span>Riding Mowers & Zero-Turns.</span>",
-        "subheading": "Heavy-duty riding lawn tractors and precision zero-turn mowers from John Deere, Cub Cadet, Husqvarna, and top American turf brands. Factory-sealed with complimentary hydraulic liftgate residential delivery directly to your driveway.",
-        "button_label": "Shop John Deere Series",
+        "badge_text": "🔥 BLACK FRIDAY DOORBUSTER • UP TO 60% OFF",
+        "heading": "Black Friday Mega Sale. <span>Up to 60% Off Riding Mowers.</span>",
+        "subheading": "Lock in our lowest doorbuster prices of the year on premium riding lawn tractors and zero-turn mowers. Brand-new, factory-sealed units with complimentary hydraulic liftgate residential delivery directly to your driveway.",
+        "button_label": "Shop Black Friday Deals",
         "button_link": "/products/john-deere-s120-mower-42-in-22-hp-v-twin-gas-hydrostatic-riding-lawn-mower",
-        "secondary_button_label": "Explore All Mowers",
+        "secondary_button_label": "Explore All Doorbusters",
         "secondary_button_link": "/collections/all",
-        "stat_1_num": "76+",
-        "stat_1_label": "Mower Models",
-        "stat_2_num": "100%",
-        "stat_2_label": "Factory Sealed",
+        "stat_1_num": "60%",
+        "stat_1_label": "Black Friday Off",
+        "stat_2_num": "",
+        "stat_2_label": "Doorbuster Starting",
         "stat_3_num": "Free",
         "stat_3_label": "Liftgate Delivery",
         "hero_image_url": "https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124"
@@ -119,9 +119,9 @@
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "caption": "Customer Top Picks",
-        "heading": "Featured Riding Mowers & Tractors",
-        "description": "High-performance lawn tractors and zero-turn models built for power, comfort, and clean-cut precision.",
+        "caption": "🔥 BLACK FRIDAY DOORBUSTERS",
+        "heading": "Doorbuster Riding Mowers On Sale",
+        "description": "Massive seasonal savings on riding lawn tractors and zero-turn mowers. 100% Free Driveway Liftgate Delivery included.",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
@@ -168,7 +168,7 @@
         "feat-4"
       ],
       "settings": {
-        "eyebrow": "Proven Best Seller",
+        "eyebrow": "🔥 #1 Black Friday Doorbuster Deal",
         "title_override": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower",
         "description_override": "The gold standard in acreage lawn care. Equipped with a high-output 22-HP V-Twin engine, 42-inch Edge™ precision cutting deck, and smooth hydrostatic foot-pedal transmission for effortless maneuverability across up to 2 acres.",
         "override_image_url": "https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124",
@@ -182,8 +182,8 @@
     "laitm-trans-banner": {
       "type": "laitm-trans-banner",
       "settings": {
-        "kicker": "Zero-Turn Agility",
-        "heading": "Built for Real Acreage. Cut Your Mowing Time in Half.",
+        "kicker": "🔥 Black Friday Zero-Turn Special",
+        "heading": "Cut Your Mowing Time in Half. Up to 60% Off Zero-Turns.",
         "subtext": "Experience responsive zero-radius steering and heavy-duty reinforced steel decks designed to handle rough terrain and tight landscaping with commercial-grade speed.",
         "cta_label": "Shop Zero-Turn Series",
         "cta_link": "/collections/types?q=Riding+Lawn+Mowers",
