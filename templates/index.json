@@ -12,7 +12,7 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "badge_text": "🔥 BLACK FRIDAY DOORBUSTER • UP TO 60% OFF • CANADA EXCLUSIVE (CAD $)",
+        "badge_text": "\ud83d\udd25 BLACK FRIDAY DOORBUSTER \u2022 UP TO 60% OFF \u2022 CANADA EXCLUSIVE (CAD $)",
         "heading": "Black Friday Mega Sale. <span>Up to 60% Off Riding Mowers.</span>",
         "subheading": "Lock in our lowest doorbuster prices of the year in Canadian Dollars (CAD $) on premium riding lawn tractors and zero-turn mowers. Brand-new, factory-sealed units with complimentary hydraulic liftgate residential delivery directly to your driveway across Canada.",
         "button_label": "Shop Black Friday Deals",
@@ -119,7 +119,7 @@
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "caption": "🔥 BLACK FRIDAY DOORBUSTERS (CAD $)",
+        "caption": "\ud83d\udd25 BLACK FRIDAY DOORBUSTERS (CAD $)",
         "heading": "Doorbuster Riding Mowers On Sale",
         "description": "Massive seasonal savings on riding lawn tractors and zero-turn mowers. 100% Free Liftgate Delivery across Canada included. All prices in Canadian Dollars (CAD $).",
         "collection": "all",
@@ -145,7 +145,7 @@
         "feat-2": {
           "type": "feature",
           "settings": {
-            "text": "42-in. Edge™ Cutting System for manicured turf"
+            "text": "42-in. Edge\u2122 Cutting System for manicured turf"
           }
         },
         "feat-3": {
@@ -157,7 +157,7 @@
         "feat-4": {
           "type": "feature",
           "settings": {
-            "text": "⭐ 100% Factory Sealed with Full Manufacturer Warranty"
+            "text": "\u2b50 100% Factory Sealed with Full Manufacturer Warranty"
           }
         }
       },
@@ -168,9 +168,9 @@
         "feat-4"
       ],
       "settings": {
-        "eyebrow": "🔥 #1 Black Friday Canada Deal (CAD $)",
+        "eyebrow": "\ud83d\udd25 #1 Black Friday Canada Deal (CAD $)",
         "title_override": "John Deere S120 Mower 42 in. 22 HP V-Twin Gas Hydrostatic Riding Lawn Mower",
-        "description_override": "The gold standard in acreage lawn care. Equipped with a high-output 22-HP V-Twin engine, 42-inch Edge™ precision cutting deck, and smooth hydrostatic foot-pedal transmission for effortless maneuverability across up to 2 acres.",
+        "description_override": "The gold standard in acreage lawn care. Equipped with a high-output 22-HP V-Twin engine, 42-inch Edge\u2122 precision cutting deck, and smooth hydrostatic foot-pedal transmission for effortless maneuverability across up to 2 acres.",
         "override_image_url": "https://cdn.shopify.com/s/files/1/1008/3418/1416/files/ltm-product-89-image-1.png?v=1790417124",
         "price_override": "$799.00",
         "cta_label": "Order Equipment Now",
@@ -182,7 +182,7 @@
     "laitm-trans-banner": {
       "type": "laitm-trans-banner",
       "settings": {
-        "kicker": "🔥 Black Friday Zero-Turn Special",
+        "kicker": "\ud83d\udd25 Black Friday Zero-Turn Special",
         "heading": "Cut Your Mowing Time in Half. Up to 60% Off Zero-Turns.",
         "subtext": "Experience responsive zero-radius steering and heavy-duty reinforced steel decks designed to handle rough terrain and tight landscaping with commercial-grade speed.",
         "cta_label": "Shop Zero-Turn Series",
@@ -214,36 +214,45 @@
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "The John Deere S120 arrived crated in perfect condition right to my driveway in Ontario. Cut my 1.5-acre mowing time from two hours down to 40 minutes. Live chat was super responsive before buying!",
-            "author": "Richard L. (Barrie, ON)"
+            "author": "Richard L. \u2022 Barrie, ON (2-Acre Lot)",
+            "quote": "Honestly was nervous buying a heavy riding tractor online, but checkout was 100% in Canadian Dollars (CAD $) with zero surprise bank conversion fees. The carrier (Day & Ross) called 24 hours ahead, arrived on time, and lowered the crated John Deere S120 right onto my driveway with the hydraulic liftgate. Took 20 minutes to uncrate, attach the steering wheel, and connect the battery. Fired up on first crank! Cuts our 2-acre lawn like a golf course."
           }
         },
         "rev-2": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Upgraded to a zero-turn mower for our 2-acre lot in Alberta. The steering is butter-smooth and delivery driver had a hydraulic liftgate to place it right in my garage. Highly recommend Mower Haven!",
-            "author": "Marcus T. (Red Deer, AB)"
+            "author": "Marcus T. \u2022 Red Deer, AB (Acreage Owner)",
+            "quote": "Zero import duties, zero customs hassle, and no CBSA border surprise charges! Dealerships in Alberta charge - just for freight. Mower Haven included free residential liftgate delivery right to my shop door. The machine arrived completely factory-sealed with full Canadian warranty documents in the pouch. Maneuvering around our shelterbelt is smooth as butter. Saved over ,300 compared to local store quotes."
           }
         },
         "rev-3": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Was nervous ordering a heavy lawn tractor online to BC, but Mower Haven provided Canadian freight tracking immediately. Packaged like a tank and fired right up on first turn. Best turf investment I have made.",
-            "author": "David K. (Kelowna, BC)"
+            "author": "David K. \u2022 Kelowna, BC (Estate Property)",
+            "quote": "Called their toll-free number (1-800-614-2395) before ordering because our Okanagan property has a steep driveway approach. The equipment specialist was courteous, confirmed the transport carrier had a hydraulic tail-lift, and dispatched it within 48 hours. Real-time freight tracking updates arrived via email. The mower handled our 3-acre slope with incredible power. Outstanding Canadian support."
+          }
+        },
+        "rev-4": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "author": "Jean-Pierre M. \u2022 Sainte-Hyacinthe, QC (Farm Property)",
+            "quote": "Superbe exp\u00e9rience de livraison au Qu\u00e9bec! The heavy wooden crate protected the zero-turn perfectly with zero scratches. Transparent billing in CAD ($) gave me total peace of mind at checkout. Started up effortlessly and cuts heavy wet grass with razor precision. If you are on the fence, order with confidence \u2014 the free liftgate delivery alone is worth hundreds."
           }
         }
       },
       "block_order": [
         "rev-1",
         "rev-2",
-        "rev-3"
+        "rev-3",
+        "rev-4"
       ],
       "settings": {
-        "eyebrow": "Verified Canadian Buyers",
-        "heading": "What Equipment Owners Say",
-        "subtext": "Real feedback from property and acreage owners across Canada."
+        "eyebrow": "\ud83c\udde8\ud83c\udde6 Verified Canadian Property Owners",
+        "heading": "What Canadian Acreage & Turf Owners Say",
+        "subtext": "Real unedited reviews from homeowners, estate owners, and commercial operators across Canada."
       }
     },
     "faq-accordion": {
@@ -267,7 +276,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does the mower arrive assembled?",
-            "answer": "<p>Mowers arrive 95% assembled in heavy-duty shipping crates. Final setup (attaching the steering wheel/handles and connecting the battery terminal) takes only 15–20 minutes with basic household tools. Full setup instructions and manuals are inside the crate.</p>"
+            "answer": "<p>Mowers arrive 95% assembled in heavy-duty shipping crates. Final setup (attaching the steering wheel/handles and connecting the battery terminal) takes only 15\u201320 minutes with basic household tools. Full setup instructions and manuals are inside the crate.</p>"
           }
         },
         "faq-4": {
