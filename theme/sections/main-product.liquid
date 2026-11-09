@@ -89,6 +89,9 @@
           </div>
         {%- endif -%}
 
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: #FEF2F2; border: 1px solid #FCA5A5; color: #991B1B; font-size: 0.78rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.65rem;">
+          🔥 Early Black Friday Doorbuster Deal • Ships Across Canada
+        </div>
         <h1 class="product-title" style="font-family: var(--font-heading-family, sans-serif); font-size: 2.15rem; font-weight: 800; line-height: 1.25; color: #111111; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
           {{ clean_title }}
         </h1>
@@ -121,6 +124,9 @@
         <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
           <span class="product-price" style="font-size: 2.2rem; font-weight: 900; color: #367C2B; letter-spacing: -0.02em;">
             {{ product.selected_or_first_available_variant.price | money }}
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 4px; background: #EEF7EC; color: #166534; font-size: 0.82rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid #BBF7D0;">
+            🇨🇦 CAD ($) &bull; No Foreign Exchange Fees
           </span>
           {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
             <span class="product-compare-price" style="font-size: 1.15rem; color: #888888; text-decoration: line-through; font-weight: 500;">
@@ -160,7 +166,7 @@
         <div class="delivery-estimator" style="background: #F7F7F7; border: 1px dashed #367C2B; border-radius: 6px; padding: 0.85rem 1.25rem; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
           <span style="font-size: 1.2rem;">🚚</span>
           <div>
-            Order within <strong id="delivery-timer" style="color: #367C2B;">4 hrs 20 mins</strong> to receive by <strong id="estimated-delivery-date" style="color: #111111;"></strong> with <strong>Free US Shipping</strong>.
+            Order within <strong id="delivery-timer" style="color: #367C2B;">4 hrs 20 mins</strong> to receive by <strong id="estimated-delivery-date" style="color: #111111;"></strong> with <strong>Free Canada Freight & Liftgate Delivery</strong>.
           </div>
         </div>
 
@@ -403,17 +409,17 @@
       {%- assign downcase_title = clean_title | downcase -%}
       {%- assign downcase_type = product.type | downcase -%}
       {%- if downcase_title contains 'zero' or downcase_title contains 'ztrak' or downcase_type contains 'zero' -%}
-        {%- assign rev1_name = "Marcus B." -%}
+        {%- assign rev1_name = "Marcus B. • Calgary, AB" -%}
         {%- assign rev1_time = "2 weeks ago" -%}
         {%- assign rev1_headline = "Incredible cutting speed and tight zero-turn radius" -%}
         {%- assign rev1_body = "Cuts my 3-acre mowing time from 3 hours down to under 75 minutes. The dual hydrostatic levers are responsive and smooth. Freight carrier called ahead and lowered the pallet straight to my driveway with the liftgate. Flawless delivery." -%}
 
-        {%- assign rev2_name = "David T." -%}
+        {%- assign rev2_name = "David T. • Prince George, BC" -%}
         {%- assign rev2_time = "3 weeks ago" -%}
         {%- assign rev2_headline = "Heavy-duty stamped deck, cuts thick grass cleanly" -%}
         {%- assign rev2_body = "The deck produces clean, even clippings with zero clumping even on morning dew. Solid steel frame and comfortable high-back seat. Started right up on the first turn of the key." -%}
 
-        {%- assign rev3_name = "Chris W." -%}
+        {%- assign rev3_name = "Chris W. • Guelph, ON" -%}
         {%- assign rev3_time = "1 month ago" -%}
         {%- assign rev3_headline = "Excellent freight shipping and great dealer support" -%}
         {%- assign rev3_body = "Called customer support before ordering to confirm residential delivery details. The ordering and checkout process was smooth and secure. Unit arrived factory sealed with all manufacturer warranty cards." -%}
