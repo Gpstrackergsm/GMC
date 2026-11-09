@@ -1,69 +1,85 @@
-<script>
-  (function() {
-    var p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
-    var m = {
-      '/policies/refund-policy': '/pages/refund-policy',
-      '/policies/shipping-policy': '/pages/shipping-policy',
-      '/policies/terms-of-service': '/pages/terms-of-service',
-      '/policies/payment-policy': '/pages/payment-policy',
-      '/policies/privacy-policy': '/pages/privacy-policy',
-      '/policies/contact-information': '/pages/contact-us',
-      '/policies/legal-notice': '/pages/terms-of-service',
-      '/pages/contact': '/pages/contact-us',
-      '/contact': '/pages/contact-us',
-      '/contact-us': '/pages/contact-us',
-      '/pages/about-us': '/pages/about',
-      '/about': '/pages/about',
-      '/about-us': '/pages/about',
-      '/pages/faq': '/#shopify-section-faq-accordion',
-      '/pages/faqs': '/#shopify-section-faq-accordion',
-      '/faq': '/#shopify-section-faq-accordion',
-      '/faqs': '/#shopify-section-faq-accordion',
-      '/shipping': '/pages/shipping-policy',
-      '/privacy': '/pages/privacy-policy',
-      '/terms': '/pages/terms-of-service',
-      '/refund': '/pages/refund-policy',
-      '/returns': '/pages/refund-policy',
-      '/payment': '/pages/payment-policy',
-      '/billing': '/pages/payment-policy'
-    };
-    if (m[p]) {
-      window.location.replace(m[p]);
-    }
-  })();
-</script>
+{%- assign current_path = request.path | downcase -%}
 
-<div class="template-404 section-padding text-center" style="padding: 5rem 1rem; text-align: center;">
-  <div class="container" style="max-width: 600px; margin: 0 auto;">
-    <p style="font-size: 1rem; font-weight: 800; color: #367C2B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-heading-family);">
-      Error 404
-    </p>
-    <h1 style="font-family: var(--font-heading-family, sans-serif); font-size: 2.75rem; font-weight: 800; margin-bottom: 1rem; color: #111111; letter-spacing: -0.02em;">
-      Page Not Found
-    </h1>
-    <p style="font-size: 1.05rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">
-      The page you are looking for might have been moved, renamed, or is temporarily unavailable.
-    </p>
+{%- if current_path contains 'shipping' -%}
+  {%- render 'policy-shipping-content' -%}
+{%- elsif current_path contains 'contact' -%}
+  {%- render 'main-contact-content' -%}
+{%- elsif current_path contains 'refund' or current_path contains 'return' -%}
+  {%- render 'policy-refund-content' -%}
+{%- elsif current_path contains 'privacy' -%}
+  {%- render 'policy-privacy-content' -%}
+{%- elsif current_path contains 'terms' or current_path contains 'legal' -%}
+  {%- render 'policy-terms-content' -%}
+{%- elsif current_path contains 'payment' or current_path contains 'billing' -%}
+  {%- render 'policy-payment-content' -%}
+{%- else -%}
+  <div id="fallback-404-container">
+    <div class="template-404 section-padding text-center" style="padding: 5rem 1rem; text-align: center;">
+      <div class="container" style="max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 1rem; font-weight: 800; color: #367C2B; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-heading-family);">
+          Error 404
+        </p>
+        <h1 style="font-family: var(--font-heading-family, sans-serif); font-size: 2.75rem; font-weight: 800; margin-bottom: 1rem; color: #111111; letter-spacing: -0.02em;">
+          Page Not Found
+        </h1>
+        <p style="font-size: 1.05rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">
+          The page you are looking for might have been moved, renamed, or is temporarily unavailable.
+        </p>
 
-    <div style="margin-bottom: 2.5rem;">
-      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; gap: 0.5rem; max-width: 450px; margin: 0 auto;">
-        <input
-          type="search"
-          name="q"
-          placeholder="Search John Deere equipment..."
-          style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E2E2E2); border-radius: 6px; font-size: 0.95rem;"
-        >
-        <button type="submit" class="btn btn--primary" style="padding: 0.75rem 1.25rem; background: #367C2B; color: #fff; font-weight: 700; border: none; border-radius: 6px; cursor: pointer;">
-          Search
-        </button>
-      </form>
+        <div style="margin-bottom: 2.5rem;">
+          <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; gap: 0.5rem; max-width: 450px; margin: 0 auto;">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search mowers, tractors, turf equipment..."
+              style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--color-border, #E2E2E2); border-radius: 6px; font-size: 0.95rem;"
+            >
+            <button type="submit" class="btn btn--primary" style="padding: 0.75rem 1.25rem; background: #367C2B; color: #fff; font-weight: 700; border: none; border-radius: 6px; cursor: pointer;">
+              Search
+            </button>
+          </form>
+        </div>
+
+        <a href="{{ routes.root_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: #FFDE00; color: #111111; border: 1px solid #E6C800; text-decoration: none; border-radius: 6px; font-weight: 800; text-transform: uppercase;">
+          Back to Homepage
+        </a>
+      </div>
     </div>
-
-    <a href="{{ routes.root_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.85rem 2rem; background: #FFDE00; color: #111111; border: 1px solid #E6C800; text-decoration: none; border-radius: 6px; font-weight: 800; text-transform: uppercase;">
-      Back to Homepage
-    </a>
   </div>
-</div>
+
+  <!-- Fallback containers for client-side route catch -->
+  <div id="client-shipping-content" style="display: none;">{% render 'policy-shipping-content' %}</div>
+  <div id="client-contact-content" style="display: none;">{% render 'main-contact-content' %}</div>
+  <div id="client-refund-content" style="display: none;">{% render 'policy-refund-content' %}</div>
+  <div id="client-privacy-content" style="display: none;">{% render 'policy-privacy-content' %}</div>
+  <div id="client-terms-content" style="display: none;">{% render 'policy-terms-content' %}</div>
+  <div id="client-payment-content" style="display: none;">{% render 'policy-payment-content' %}</div>
+
+  <script>
+    (function() {
+      var p = window.location.pathname.toLowerCase();
+      var f404 = document.getElementById('fallback-404-container');
+      function showContent(id) {
+        if (f404) f404.style.display = 'none';
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'block';
+      }
+      if (p.indexOf('shipping') !== -1) {
+        showContent('client-shipping-content');
+      } else if (p.indexOf('contact') !== -1) {
+        showContent('client-contact-content');
+      } else if (p.indexOf('refund') !== -1 || p.indexOf('return') !== -1) {
+        showContent('client-refund-content');
+      } else if (p.indexOf('privacy') !== -1) {
+        showContent('client-privacy-content');
+      } else if (p.indexOf('terms') !== -1 || p.indexOf('legal') !== -1) {
+        showContent('client-terms-content');
+      } else if (p.indexOf('payment') !== -1 || p.indexOf('billing') !== -1) {
+        showContent('client-payment-content');
+      }
+    })();
+  </script>
+{%- endif -%}
 
 {% schema %}
 {
