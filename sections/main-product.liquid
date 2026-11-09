@@ -686,13 +686,21 @@
     // Sticky ATC Bar (Desktop & Mobile)
     const atcBtn = document.querySelector('.btn--atc');
     const stickyATC = document.getElementById('StickyATC');
+    const floatWidget = document.getElementById('FloatingSupportWidget');
     if (atcBtn && stickyATC) {
       window.addEventListener('scroll', function() {
         const rect = atcBtn.getBoundingClientRect();
         if (rect.bottom < 0) {
           stickyATC.style.display = 'flex';
+          if (floatWidget) {
+            floatWidget.style.bottom = '82px';
+            floatWidget.style.transition = 'bottom 0.25s ease';
+          }
         } else {
           stickyATC.style.display = 'none';
+          if (floatWidget) {
+            floatWidget.style.bottom = '24px';
+          }
         }
       });
     }
