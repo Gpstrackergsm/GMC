@@ -12,6 +12,8 @@
   {%- render 'policy-terms-content' -%}
 {%- elsif current_path contains 'payment' or current_path contains 'billing' -%}
   {%- render 'policy-payment-content' -%}
+{%- elsif current_path contains 'types' -%}
+  <script>window.location.replace('/collections/all');</script>
 {%- else -%}
   <div id="fallback-404-container">
     <div class="template-404 section-padding text-center" style="padding: 5rem 1rem; text-align: center;">
