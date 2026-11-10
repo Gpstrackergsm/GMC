@@ -86,30 +86,35 @@
     (function() {
       var p = window.location.pathname.toLowerCase().replace(/\/+$/, '');
       var m = {
-        '/policies/refund-policy': '/pages/refund-policy',
-        '/policies/shipping-policy': '/pages/shipping-policy',
-        '/policies/terms-of-service': '/pages/terms-of-service',
-        '/policies/payment-policy': '/pages/payment-policy',
-        '/policies/privacy-policy': '/pages/privacy-policy',
-        '/policies/contact-information': '/pages/contact-us',
-        '/policies/legal-notice': '/pages/terms-of-service',
-        '/pages/contact': '/pages/contact-us',
-        '/contact': '/pages/contact-us',
-        '/contact-us': '/pages/contact-us',
+        '/policies/shipping-policy': '/policies/shipping-policy',
+        '/pages/shipping': '/policies/shipping-policy',
+        '/shipping': '/policies/shipping-policy',
+        '/shipping-policy': '/policies/shipping-policy',
+        '/policies/contact-information': '/policies/contact-information',
+        '/pages/contact': '/policies/contact-information',
+        '/contact': '/policies/contact-information',
+        '/contact-us': '/policies/contact-information',
+        '/pages/refund-policy': '/policies/refund-policy',
+        '/refund': '/policies/refund-policy',
+        '/returns': '/policies/refund-policy',
+        '/refund-policy': '/policies/refund-policy',
+        '/pages/privacy-policy': '/policies/privacy-policy',
+        '/privacy': '/policies/privacy-policy',
+        '/privacy-policy': '/policies/privacy-policy',
+        '/pages/terms-of-service': '/policies/terms-of-service',
+        '/pages/terms': '/policies/terms-of-service',
+        '/terms': '/policies/terms-of-service',
+        '/terms-of-service': '/policies/terms-of-service',
+        '/pages/payment-policy': '/policies/terms-of-service',
+        '/payment': '/policies/terms-of-service',
+        '/billing': '/policies/terms-of-service',
         '/pages/about-us': '/pages/about',
         '/about': '/pages/about',
         '/about-us': '/pages/about',
         '/pages/faq': '/#shopify-section-faq-accordion',
         '/pages/faqs': '/#shopify-section-faq-accordion',
         '/faq': '/#shopify-section-faq-accordion',
-        '/faqs': '/#shopify-section-faq-accordion',
-        '/shipping': '/pages/shipping-policy',
-        '/privacy': '/pages/privacy-policy',
-        '/terms': '/pages/terms-of-service',
-        '/refund': '/pages/refund-policy',
-        '/returns': '/pages/refund-policy',
-        '/payment': '/pages/payment-policy',
-        '/billing': '/pages/payment-policy'
+        '/faqs': '/#shopify-section-faq-accordion'
       };
       if (m[p]) {
         window.location.replace(m[p]);
@@ -353,7 +358,7 @@
   </div>
 
   <!-- Floating Live Support Widget -->
-  <div id="FloatingSupportWidget" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; transition: bottom 0.25s ease; font-family: var(--font-body-family, sans-serif);">
+  <div id="FloatingSupportWidget" style="position: fixed; bottom: 24px; left: 24px; z-index: 999; transition: bottom 0.25s ease; font-family: var(--font-body-family, sans-serif);">
     <!-- Support Trigger Button -->
     <button
       type="button"
@@ -369,7 +374,7 @@
     <!-- Support Modal / Popup -->
     <div
       id="SupportModalCard"
-      style="display: none; position: absolute; bottom: 65px; right: 0; width: 340px; background: #FFFFFF; border: 1px solid #E2E2E2; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; animation: supportSlideIn 0.25s ease;"
+      style="display: none; position: absolute; bottom: 65px; left: 0; width: 340px; background: #FFFFFF; border: 1px solid #E2E2E2; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; animation: supportSlideIn 0.25s ease;"
     >
       <div style="background: #1E3F20; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #FFDE00;">
         <div>
@@ -391,7 +396,7 @@
 
         <!-- Phone Action -->
         <a
-          href="/pages/contact-us"
+          href="/policies/contact-information"
           style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #F7F7F7; border: 1px solid #E2E2E2; border-radius: 6px; text-decoration: none; color: #111111; transition: background 0.15s;"
         >
           <span style="font-size: 1.3rem;">💬</span>

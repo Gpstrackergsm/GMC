@@ -1,3 +1,22 @@
+<script>
+  (function() {
+    var p = window.location.pathname.toLowerCase();
+    if (p.indexOf('shipping') !== -1) {
+      window.location.replace('/policies/shipping-policy');
+    } else if (p.indexOf('contact') !== -1) {
+      window.location.replace('/policies/contact-information');
+    } else if (p.indexOf('refund') !== -1 || p.indexOf('return') !== -1) {
+      window.location.replace('/policies/refund-policy');
+    } else if (p.indexOf('privacy') !== -1) {
+      window.location.replace('/policies/privacy-policy');
+    } else if (p.indexOf('terms') !== -1 || p.indexOf('legal') !== -1 || p.indexOf('policy') !== -1) {
+      window.location.replace('/policies/terms-of-service');
+    } else if (p.indexOf('types') !== -1) {
+      window.location.replace('/collections/all');
+    }
+  })();
+</script>
+
 {%- assign current_path = request.path | downcase -%}
 
 {%- if current_path contains 'shipping' -%}
