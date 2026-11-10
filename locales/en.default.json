@@ -171,6 +171,9 @@
     "checkout": {
       "order_summary": {
         "enter_shipping_address": "Free shipping "
+      },
+      "shipping_errors": {
+        "empty_state": "Express Shipping\t2–5 business days"
       }
     }
   }
