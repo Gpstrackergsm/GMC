@@ -31,7 +31,7 @@
       {%- assign shown = 0 -%}
       {%- if collection != blank and collection.products.size > 0 -%}
         {%- for product in collection.products -%}
-          {%- if product.featured_image == blank or product.price <= 0 or product.price < 50000 -%}
+          {%- if product.featured_image == blank or product.price <= 0 or product.price < 10000 -%}
             {%- continue -%}
           {%- endif -%}
           {%- assign dt = product.type | downcase -%}
