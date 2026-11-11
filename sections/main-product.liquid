@@ -120,19 +120,79 @@
           {%- endif -%}
         </div>
 
-        <!-- Price & Savings (Full Prices Only) -->
-        <div class="product-price-wrapper" style="margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-          <span class="product-price" style="font-size: 2.2rem; font-weight: 900; color: #367C2B; letter-spacing: -0.02em;">
-            {{ product.selected_or_first_available_variant.price | money }}
-          </span>
-          <span style="display: inline-flex; align-items: center; gap: 4px; background: #EEF7EC; color: #166534; font-size: 0.82rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid #BBF7D0;">
-            🇨🇦 CAD ($) &bull; No Foreign Exchange Fees
-          </span>
-          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
-            <span class="product-compare-price" style="font-size: 1.15rem; color: #888888; text-decoration: line-through; font-weight: 500;">
-              {{ product.selected_or_first_available_variant.compare_at_price | money }}
+        <!-- Price & 50/50 Split-Payment Model -->
+        {%- assign raw_price = product.selected_or_first_available_variant.price -%}
+        {%- if raw_price > 50000 -%}
+          {%- assign deposit_price = raw_price | divided_by: 2 -%}
+          {%- assign total_price = raw_price -%}
+          {%- assign balance_price = raw_price | minus: deposit_price -%}
+        {%- else -%}
+          {%- assign deposit_price = raw_price -%}
+          {%- assign total_price = raw_price | times: 2 -%}
+          {%- assign balance_price = raw_price -%}
+        {%- endif -%}
+
+        <div class="product-price-wrapper" style="margin-bottom: 0.85rem;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px;">
+            <span class="product-price" style="font-size: 2.35rem; font-weight: 900; color: #15803D; letter-spacing: -0.02em;">
+              {{ deposit_price | money }}
             </span>
-          {%- endif -%}
+            <span style="font-size: 1rem; font-weight: 800; color: #15803D; background: #DCFCE7; border: 1.5px solid #86EFAC; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.03em;">
+              Due Today (50% Deposit)
+            </span>
+            <span style="font-size: 1.05rem; color: #94A3B8; text-decoration: line-through; font-weight: 500;">
+              $3,899.00 CAD
+            </span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.85rem; color: #475569;">
+            <span>Total Equipment Price: <strong style="color: #0F172A;">{{ total_price | money }} CAD</strong></span>
+            <span>&bull;</span>
+            <span style="color: #15803D; font-weight: 700;">Remaining {{ balance_price | money }} CAD payable upon driveway delivery</span>
+          </div>
+        </div>
+
+        <!-- 50/50 Split-Payment & Verified Delivery Protection Card -->
+        <div class="product-split-payment-card" style="background: #F0FDF4; border: 2px solid #22C55E; border-radius: 10px; padding: 1.15rem 1.25rem; margin-bottom: 1.35rem; box-shadow: 0 4px 16px rgba(34,197,94,0.12);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 0.85rem; padding-bottom: 0.65rem; border-bottom: 1px dashed #86EFAC;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.3rem;">🛡️</span>
+              <span style="font-size: 0.95rem; font-weight: 900; color: #14532D; text-transform: uppercase; letter-spacing: 0.02em;">50/50 Delivery Protection Plan</span>
+            </div>
+            <span style="background: #15803D; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 3px 9px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.04em;">Zero Upfront Risk</span>
+          </div>
+
+          <!-- Step 1: Pay 50% Today -->
+          <div style="display: flex; gap: 12px; margin-bottom: 0.75rem;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: #15803D; color: #FFFFFF; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">1</div>
+            <div>
+              <div style="font-size: 0.92rem; font-weight: 800; color: #14532D; margin-bottom: 2px;">
+                Pay 50% Today at Checkout: <span style="text-decoration: underline; color: #15803D;">{{ deposit_price | money }} CAD</span>
+              </div>
+              <div style="font-size: 0.82rem; color: #166534; line-height: 1.45;">
+                Locks in your equipment from warehouse stock &amp; dispatches dedicated LTL freight truck with hydraulic liftgate. Official carrier tracking number emailed within 24-48 hours.
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Remaining 50% on Delivery -->
+          <div style="display: flex; gap: 12px; margin-bottom: 0.85rem;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: #EAB308; color: #111111; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">2</div>
+            <div>
+              <div style="font-size: 0.92rem; font-weight: 800; color: #14532D; margin-bottom: 2px;">
+                Pay Remaining 50% Upon Driveway Delivery: <span style="text-decoration: underline; color: #15803D;">{{ balance_price | money }} CAD</span>
+              </div>
+              <div style="font-size: 0.82rem; color: #166534; line-height: 1.45;">
+                Carrier calls 24 hours in advance to schedule drop-off. Inspect the mower, verify factory seal, and test all controls in your driveway before paying the remaining balance.
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk-Free Guarantee Banner -->
+          <div style="background: #DCFCE7; border: 1px solid #86EFAC; border-radius: 6px; padding: 8px 12px; font-size: 0.78rem; color: #14532D; line-height: 1.45; display: flex; align-items: center; gap: 6px;">
+            <span>✅</span>
+            <span><strong>100% Satisfaction Guarantee:</strong> If the mower does not match exact specifications upon delivery, reject the shipment with zero fees and receive an instant full deposit refund.</span>
+          </div>
         </div>
 
         <!-- Commercial Equipment Buyer Guarantee -->
@@ -181,7 +241,7 @@
             >
               <span class="atc-text">
                 {%- if product.available -%}
-                  🛒 Add to Cart — Free Liftgate Delivery
+                  🛒 Reserve with 50% Deposit ({{ deposit_price | money }})
                 {%- else -%}
                   Sold Out
                 {%- endif -%}
@@ -198,16 +258,16 @@
               onmouseover="this.style.background='#2B6422';this.style.boxShadow='0 6px 18px rgba(54,124,43,0.5)';this.style.transform='translateY(-1px)'"
               onmouseout="this.style.background='#367C2B';this.style.boxShadow='0 4px 14px rgba(54,124,43,0.35)';this.style.transform='translateY(0)'"
             >
-              <span>⚡ Buy It Now &bull; Free Liftgate Delivery &rarr;</span>
+              <span>⚡ Pay 50% Today ({{ deposit_price | money }}) &bull; Dispatch Freight &rarr;</span>
             </button>
             {%- endif -%}
 
             <!-- Reassurance under button -->
-            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
-              <span>🔒 256-bit SSL Secure</span>
-              <span>📦 Free Residential Liftgate Delivery</span>
-              <span>↩️ 30-Day Money-Back Guarantee</span>
-              <span>✅ Genuine Factory Product</span>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; font-size: 0.78rem; color: #64748B; padding: 6px 0 2px;">
+              <span>🔒 Pay {{ deposit_price | money }} Today</span>
+              <span>🚛 Remaining {{ balance_price | money }} on Delivery</span>
+              <span>↩️ 100% Refundable Deposit</span>
+              <span>✅ Free Liftgate Delivery</span>
             </div>
           </div>
         {%- endform -%}
@@ -543,15 +603,15 @@
     {%- endif -%}
     <div style="overflow: hidden;">
       <p style="font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: #111111;">{{ clean_title }}</p>
-      <p style="font-size: 0.85rem; font-weight: 700; color: #367C2B; margin: 0;">{{ product.price | money }}</p>
+      <p style="font-size: 0.85rem; font-weight: 800; color: #15803D; margin: 0;">Due Today: {{ deposit_price | money }} CAD <span style="font-size: 0.72rem; font-weight: 700; color: #64748B;">(50% Deposit)</span></p>
     </div>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
     <button type="button" id="StickyATCBtn" onclick="document.querySelector('.btn--atc').click()" class="btn btn--primary" style="padding: 10px 14px; font-size: 0.85rem; font-weight: 800; background: #FFDE00; color: #111111; border: 1px solid #E6C800; border-radius: 6px; white-space: nowrap; cursor: pointer; text-transform: uppercase;">
-      Add to Cart
+      Reserve
     </button>
     <button type="button" id="StickyBuyNowBtn" onclick="document.getElementById('DirectBuyNowBtn') ? document.getElementById('DirectBuyNowBtn').click() : window.location.href='/checkout'" class="btn btn--buy-now" style="padding: 10px 16px; font-size: 0.85rem; font-weight: 900; background: #367C2B; color: #FFFFFF; border: 1px solid #2B6422; border-radius: 6px; white-space: nowrap; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 12px rgba(54,124,43,0.3);">
-      ⚡ Buy Now &rarr;
+      ⚡ Pay {{ deposit_price | money }} &rarr;
     </button>
   </div>
 </div>

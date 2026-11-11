@@ -52,25 +52,40 @@
     <!-- Drawer Footer -->
     <div class="cart-drawer__footer" style="padding: 1.15rem 1.4rem 2rem 1.4rem; border-top: 1px solid var(--color-border, #E2E2E2); background: #FFFFFF;">
       
-      <!-- Full Price Subtotal -->
-      <div style="background: #F7F7F7; border: 1.5px solid #367C2B; border-radius: 6px; padding: 12px 14px; margin-bottom: 0.9rem;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-          <span style="font-size: 0.95rem; font-weight: 800; color: #1E3F20; text-transform: uppercase; letter-spacing: 0.02em;">Subtotal:</span>
-          <span class="cart-drawer-subtotal" style="font-size: 1.35rem; font-weight: 900; color: #367C2B;">{{ cart.total_price | money }}</span>
+      <!-- 50/50 Split Payment Subtotal -->
+      {%- assign cart_total = cart.total_price -%}
+      {%- if cart_total > 50000 -%}
+        {%- assign cart_deposit = cart_total | divided_by: 2 -%}
+        {%- assign cart_balance = cart_total | minus: cart_deposit -%}
+        {%- assign cart_full = cart_total -%}
+      {%- else -%}
+        {%- assign cart_deposit = cart_total -%}
+        {%- assign cart_balance = cart_total -%}
+        {%- assign cart_full = cart_total | times: 2 -%}
+      {%- endif -%}
+
+      <div style="background: #F0FDF4; border: 1.5px solid #22C55E; border-radius: 8px; padding: 12px 14px; margin-bottom: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+          <span style="font-size: 0.9rem; font-weight: 800; color: #14532D; text-transform: uppercase;">Due Today (50% Deposit):</span>
+          <span class="cart-drawer-subtotal" style="font-size: 1.35rem; font-weight: 900; color: #15803D;">{{ cart_deposit | money }}</span>
         </div>
-        <div style="font-size: 0.75rem; color: #166534; font-weight: 700;">
-          ✓ Free Residential Liftgate Freight Included ($150 Value)
+        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #166534; margin-bottom: 6px;">
+          <span>Remaining on Delivery:</span>
+          <strong>{{ cart_balance | money }} CAD</strong>
+        </div>
+        <div style="font-size: 0.74rem; color: #15803D; line-height: 1.35; padding-top: 4px; border-top: 1px dashed #86EFAC;">
+          ✓ Pay 50% today to dispatch freight. Pay remaining 50% after driveway arrival &amp; physical inspection.
         </div>
       </div>
 
-      <!-- Phone number — clickable, above checkout button -->
+      <!-- Contact support link -->
       <a href="/policies/contact-information" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #F4F8F4; border: 1px solid #D1E5D0; border-radius: 6px; padding: 10px; margin-bottom: 10px; text-decoration: none; color: #1E3F20; font-weight: 700; font-size: 0.88rem;">
         💬 Questions? Chat with Equipment Specialist or Email Us
       </a>
 
       <!-- Checkout Button (John Deere Yellow CTA) -->
       <a href="/checkout" class="btn btn--primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 1.15rem 1rem; text-align: center; background: #FFDE00; color: #111111; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 14px rgba(255,222,0,0.45); border: 2px solid #E6C800; margin-bottom: 0.65rem; transition: all 0.2s; letter-spacing: 0.02em; text-transform: uppercase;" onmouseover="this.style.background='#E6C800'" onmouseout="this.style.background='#FFDE00'">
-        <span>🔒 Proceed to Checkout ({{ cart.total_price | money }}) &rarr;</span>
+        <span>🔒 Pay 50% Deposit ({{ cart_deposit | money }}) &rarr;</span>
       </a>
 
       <!-- Guarantees Below Button -->
